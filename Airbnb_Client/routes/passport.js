@@ -12,9 +12,9 @@ module.exports = function(passport) {
 	    passwordField:'password'
 	}, function(username, password, done) {
 		var msg_payload = {username:username,password:password};
-		
+
 		mq_client.make_request('login_queue',msg_payload, function(err,results){
-			console.log("result"+result);
+			console.log(result);
 			if (err) {
 				return done(err);
 			}
