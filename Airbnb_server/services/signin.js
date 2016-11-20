@@ -19,7 +19,7 @@ exports.doLogin=function(msg, callback) {
     var password = msg.password;
     console.log("USERNAME: "+username+" PASSWORD: "+password);
 
-    User.find({}, function (err, result) {
+    User.find({email : username}, function (err, result) {
         console.log(result);
         console.log(err);
         if (err) {
