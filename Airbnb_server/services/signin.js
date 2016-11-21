@@ -32,8 +32,8 @@ exports.doLogin = function (msg, callback) {
         }
         if (result) {
             console.log(result);
-            //if (bcrypt.compareSync(password, result.password)) {
-            if (password === result.password) {
+            if (bcrypt.compareSync(password, result.password)) {
+            // if (password === result.password) {
                 callback(null, result);
 
             } else {

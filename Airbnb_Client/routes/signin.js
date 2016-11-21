@@ -45,6 +45,7 @@ exports.authenticateUser = function (req, res, next) {
         if (user) {
 
             sess.email = user.email;
+            sess.firstName = user.firstName;
             sess.isLoggedIn = true;
             // sess.last_name = user.last_name;
             // sess.user_id = user._id;
