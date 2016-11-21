@@ -26,6 +26,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
 app.use('/users', users);
 app.post('/signin', signin.authenticateUser);
+app.post('/registerUser', signin.registerUser );
 app.get('/signin', isAuthenticated, function(req, res) {
 
   res.redirect('/');

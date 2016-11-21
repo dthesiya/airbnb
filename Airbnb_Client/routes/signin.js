@@ -4,6 +4,7 @@
 var bcrypt = require('bcryptjs');
 var express = require('express');
 var fecha = require('fecha');
+var mq_client = require("../rpc/client.js");
 /*var log = require("./log");*/
 /*
 var mongo = require("./mongo");
@@ -61,6 +62,53 @@ exports.signout = function(req,res){
 
 	req.session.destroy();
 	res.redirect("/");
+};
+
+
+exports.registerUser = function (req,res) {
+
+	var firstName = req.param("firstName");
+	var lastName = req.param("lastName");
+	var email = req.param("email");
+	var password = req.param("password");
+
+
+	var msg_payload={
+
+		firstName:firstName,
+		lastName:lastName,
+		email:email,
+		password:password
+	};
+
+
+	mq_client.make_request('register_queue', msg_payload, function (err, user) {
+		if(err){
+
+			console.log(err);
+			console.log("In err to save");
+			var json_responses = {"statusCode" : 401};
+			res.send(json_responses);
+
+		}else{
+
+			console.log("After refgister in client");
+			console.log(user);
+			/*req.session.userSSN=user.userId;
+			req.session.firstName=user.firstName;
+			req.session.lastName=user.lastName;
+			req.session.userId=user._id;
+			req.session.email=user.email;*/
+			var json_responses = {"statusCode" : 200,"data":user};
+			res.send(json_responses);
+			res.end();
+
+		}
+	});
+
+
+
+
 };
 
 
