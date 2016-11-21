@@ -251,7 +251,7 @@ $('#href_calendar').click(function()
 if(typeof(google) == 'undefined') {
     window.location.href = APP_URL+'/in_secure';
 }
-/*homeAutocomplete();
+homeAutocomplete();
 var home_autocomplete;
 var home_mob_autocomplete;
 
@@ -262,15 +262,7 @@ function homeAutocomplete()
         home_autocomplete= new google.maps.places.Autocomplete(document.getElementById('location'));
         home_autocomplete.addListener('place_changed',trigger_checkin);
     }
-    if(document.getElementById('mob-search-location'))
-    {
-        home_mob_autocomplete = new google.maps.places.Autocomplete(document.getElementById('mob-search-location'));
-        google.maps.event.addListener(home_mob_autocomplete, 'place_changed', function() {
-            var location  = $('#mob-search-location').val();
-            var locations = location.replace(" ", "+");
-            window.location.href = APP_URL+'/s?location='+locations;
-        });
-    }
+
 }
 
 var current_url = window.location.href.split('?')[0];
@@ -284,9 +276,9 @@ if(last_part != '/s'){
             e.preventDefault();
         }
     });
-}*/
+}
 
-/*var header_autocomplete;
+var header_autocomplete;
 var sm_autocomplete;
 
 function headerAutocomplete() 
@@ -317,7 +309,7 @@ function headerAutocomplete()
         });
     }
 
-}*/
+}
 
 $("#header-search-checkin").datepicker({
     dateFormat: "dd-mm-yy",

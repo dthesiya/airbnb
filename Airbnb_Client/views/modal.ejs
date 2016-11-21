@@ -1,3 +1,4 @@
+<div ng-controller="authentication_controller">
 <div class="flash-container">
 </div>
 <div class="login-close">
@@ -35,20 +36,20 @@
     <hr>
   </div> -->
 
-  <form method="POST" action="http://makent.trioangle.com/authenticate" accept-charset="UTF-8" class="signup-form login-form" data-action="Signin" novalidate="true"><input name="_token" type="hidden" value="RTXYZCe6Dh6AoF8QVCty9AHWoDOrrKUDMX4OwuiD">
+  <form method="POST"  accept-charset="UTF-8" class="signup-form login-form"  novalidate="true"><input name="_token" type="hidden" value="RTXYZCe6Dh6AoF8QVCty9AHWoDOrrKUDMX4OwuiD">
 
   <input id="from" name="from" type="hidden" value="email_login">
   
   <div class="control-group row-space-1">
 
   <!-- enter email address -->
-  <input class="decorative-input inspectletIgnore" placeholder="Email address" id="signin_email" name="email" type="email" value="">
+  <input class="decorative-input inspectletIgnore" placeholder="Email address" id="signin_email" ng-model="email_id" name="email" type="email" value="">
 
   </div>
   <div class="control-group row-space-2">
 
     <!-- enter password -->
-  <input class="decorative-input inspectletIgnore" placeholder="Password" id="signin_password" data-hook="signin_password" name="password" type="password" value="">
+  <input class="decorative-input inspectletIgnore" placeholder="Password" id="signin_password" data-hook="signin_password" ng-model="password" name="password" type="password" value="">
 
   </div>
 
@@ -60,7 +61,7 @@
     <a href="" class="forgot-password forgot-password-popup  pull-right">Forgot password?</a>
   </div>
 
-  <input class="btn btn-primary btn-block btn-large pad-top" id="user-login-btn" type="submit" value="Log In">
+  <input class="btn btn-primary btn-block btn-large pad-top" id="user-login-btn" ng-click="checkLogin()" type="submit" value="Log In">
 
 </form>
           </div>
@@ -330,3 +331,4 @@
 </div>
 </div>
 </div> -->
+</div>

@@ -19,9 +19,7 @@ exports.doLogin=function(msg, callback) {
     var password = msg.password;
     console.log("USERNAME: "+username+" PASSWORD: "+password);
 
-    User.find({email : username}, function (err, result) {
-        console.log(result);
-        console.log(err);
+    User.findOne({email : username}, function (err, result) {
         if (err) {
 
             console.log("err in find");
@@ -35,7 +33,7 @@ exports.doLogin=function(msg, callback) {
         if (result) {
             console.log(result);
             //if (bcrypt.compareSync(password, result.password)) {
-          if(password===result[0].password){
+          if(password===result.password){
                 callback(null, result);
 
             } else {

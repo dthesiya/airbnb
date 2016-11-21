@@ -22,9 +22,10 @@ exports.authenticateUser = function(req, res, next) {
 
 //	var email_id = req.body.email_id;
 //	var pwd = req.body.password;
-	/*var sess = req.session;*/
+	var sess = req.session;
+	sess.isLoggedIn = false;
 	  passport.authenticate('login', function(err, user) {
-		  console.log(user);
+		  console.log("Result"+user);
 	    if(err) {
 	      return next(err);
 	    }
@@ -41,10 +42,11 @@ exports.authenticateUser = function(req, res, next) {
 	   
 	    if(user){
 	    	
-	    	/*sess.first_name =user.first_name;
-			sess.last_name = user.last_name;
-			sess.user_id = user._id;
-			sess.last_access = user.last_access;*/
+             sess.email =user.email;
+			sess.isLoggedIn = true;
+			// sess.last_name = user.last_name;
+			// sess.user_id = user._id;
+			// // sess.last_access = user.last_access;
 
 //		        res.statusCode = 200;
 				res.json({
@@ -57,8 +59,7 @@ exports.authenticateUser = function(req, res, next) {
 };
 
 exports.signout = function(req,res){
-	
-
+	console.log("in signout");
 	req.session.destroy();
 	res.redirect("/");
 };

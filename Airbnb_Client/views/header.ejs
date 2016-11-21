@@ -250,7 +250,7 @@
   <label class="screen-reader-only" for="header-search-form">Where to?</label>
   <input type="text" placeholder="Where to?" autocomplete="off" name="location" id="header-search-form" class="location" value="">
   </div>
-  <!-- <div id="header-search-settings" class="panel search-settings header-menu">
+  <div id="header-search-settings" class="panel search-settings header-menu">
   <div class="panel-body clearfix basic-settings">
   <div class="setting checkin">
   <label for="header-search-checkin" class="field-label">
@@ -320,7 +320,7 @@
   <span>Find a place</span>
   </button>
   </div>
-  </div> -->
+  </div>
   </form>
 </li>
 
@@ -362,70 +362,36 @@
 <div class="pull-right">
   <ul class="nav pull-left help-menu list-unstyled">
 
-  <!-- <li id="header-help-menu" class="help-menu-container pull-left large-right-margin hide-md dropdown-trigger">
-    <a class="help-toggle link-reset" href="http://makent.trioangle.com/help">
-      Help
-      <i class="icon icon-caret-down icon-light-gray h5"></i>
-    </a>
-    <div class="tooltip tooltip-top-right dropdown-menu help-dropdown">
-      <ul class="list-layout">
-  <li class="search-bar--help hide">
-    <form action="http://makent.trioangle.com/help/search" class="search-form--help menu-item">
-      <div class="input-addon">
-        <input type="text" placeholder="Search the help center" autocomplete="off" name="q" class="input-stem">
-        <input type="hidden" name="search_from" value="hdr">
-        <i class="btn btn-primary icon icon-search input-suffix form-submit--help"></i>
-      </div>
-    </form>
-  </li>
-  <li class="visit-helpcenter-cta hide">
-    <a href="http://makent.trioangle.com/help" class="help-center-link menu-item">
-      Visit the Help Center »
-    </a>
-  </li>
-  <li class="loading"></li>
-  <li class="all_faqs hide">
-    <a href="http://makent.trioangle.com/help" class="link-reset menu-item">
-      See all FAQs
-    </a>
-  </li>
-</ul>
-    </div>
-  </li> -->
     <li class="list-your-space pull-left">
         <a id="list-your-space"  class="become" href="" style="border-left:none !important;">
         <span id="list-your-space" class="btn btn-special list-your-space-btn">
           Become a Host
           </span>
         </a>
-        <!-- <div class="panel  drop-down-menu-host js-become-a-host-dropdown hide">
-    <div class="link-reset panel-body hover-item hide js-become-a-host-lys" href="/become-a-host?from_nav=1&amp;link=2">
-      <div class="hover-item__content">
-        List Your Space
-      </div>
-    </div>
-    <div class="link-reset js-become-a-host-tooltip panel-body hover-item" href="/rooms/new?from_nav=1&amp;link=3">
-      <div class="tooltip-content">You could earn €595 sharing your home in Amsterdam in a week. Become a host.</div>
-    </div>
-    <div class="link-reset panel-body hover-item js-become-a-host-why-host hide" href="/host?from_nav=1">
-      <div class="hover-item__content">
-        How Hosting Works
-      </div>
-    </div>
-  </div> -->
+
     </li>
         <li id="header-help-menu" class="help-menu-container pull-left dropdown-trigger">
     <a class="help-toggle link-reset" href="http://makent.trioangle.com/help">
       Help
     </a>
   </li>
-       <!--   <li id="header-help-menu" class="help-menu-container pull-left dropdown-trigger">
-    <a class="help-toggle link-reset" href="http://makent.trioangle.com/help">
-      Help
+
+  </ul>
+
+  <ul ng-hide="<%=isLoggedIn%>" class="nav pull-left logged-out list-unstyled">
+  <li id="sign_up" class="pull-left">
+    <a data-signup-modal="" data-header-view="true" href="" data-redirect="" class="link-reset signup_popup_head">
+      Sign Up
     </a>
   </li>
-  -->
-   <ul ng-hide="true" class="nav pull-left list-unstyled">
+  <li id="login" class="pull-left">
+    <a data-login-modal="" href="" data-redirect="" class="link-reset login_popup_head">
+      Log In
+    </a>
+  </li>
+</ul>
+
+<ul ng-show="<%=isLoggedIn%>" class="nav pull-left list-unstyled">
       <li class="pull-left dropdown-trigger">
     <a class="link-reset trip-drop" href="">
     <span class="trip-pos"> Trips</span>
@@ -433,7 +399,7 @@
         <i class="alert-count fade">0</i>
       </i>
     </a>
-    <div class="panel drop-down-menu-trip hide js-become-a-host-dropdown" style="display: none;">
+   <!--  <div class="panel drop-down-menu-trip hide js-become-a-host-dropdown" style="display: none;">
     <div class="trip-width">
 <div class="panel-header no-border section-header-home"><strong><span>Trips</span></strong><a href="" class="link-reset view-trips pull-right"><strong><span>View Trips</span></strong></a></div>
 <div class="pull-left" style="width:100%;padding:15px 20px;">
@@ -456,20 +422,20 @@
 </div>
 </div>
     </div>
-  </div>
+  </div> -->
   </li>
-    <li id="header-help-menu" class="help-menu-container pull-left dropdown-trigger">
+ <!--    <li id="header-help-menu" class="help-menu-container pull-left dropdown-trigger">
     <a class="help-toggle link-reset" href="">
       <span class="help-pos">Help</span>
        <i class="help-icon"></i>
     </a>
-  </li>
+  </li> -->
 </ul>
 
 
-  <ul ng-hide="true" class="nav pull-left list-unstyled" role="navigation">
+  <ul ng-show="<%=isLoggedIn%>" class="nav pull-left list-unstyled" role="navigation">
   <li class="user-item pull-left medium-right-margin dropdown-trigger">
-    <a class="link-reset header-avatar-trigger" id="header-avatar-trigger" href="http://makent.trioangle.com/login">
+    <a class="link-reset header-avatar-trigger" id="header-avatar-trigger" href="/">
             <span class="value_name">
         Test
       </span>
@@ -532,26 +498,15 @@
         </a>
       </li>
       <li>
-        <a href="" rel="nofollow" class="no-crawl link-reset menu-item header-logout">
+        <a href="/signout" rel="nofollow" class="no-crawl link-reset menu-item header-logout">
           Log Out
         </a>
       </li>
     </ul>
   </li>
 </ul>
-</ul>
-  <ul class="nav pull-left logged-out list-unstyled">
-  <li id="sign_up" class="pull-left">
-    <a data-signup-modal="" data-header-view="true" href="http://makent.trioangle.com/signup_login" data-redirect="" class="link-reset signup_popup_head">
-      Sign Up
-    </a>
-  </li>
-  <li id="login" class="pull-left">
-    <a data-login-modal="" href="http://makent.trioangle.com/login" data-redirect="" class="link-reset login_popup_head">
-      Log In
-    </a>
-  </li>
-</ul>
+
+  
 <!-- Live Demo Refresh -->
 <!--<ul class="nav pull-left demo-home list-unstyled medium-left-margin search-form-container" style="color:#ff5a5f;">
   <li id="sign_up" class="pull-left medium-left-margin">
