@@ -55,11 +55,11 @@
 
 
 
-    <link media="all" type="text/css" rel="stylesheet" href="http://makent.trioangle.com/css/address_widget.css">
+    <link media="all" type="text/css" rel="stylesheet" href="css/address_widget.css">
 
-    <link media="all" type="text/css" rel="stylesheet" href="http://makent.trioangle.com/css/phonenumbers.css">
+    <link media="all" type="text/css" rel="stylesheet" href="css/phonenumbers.css">
 
-    <link media="all" type="text/css" rel="stylesheet" href="http://makent.trioangle.com/css/edit_profile.css">
+    <link media="all" type="text/css" rel="stylesheet" href="/css/edit_profile.css">
 
 
 
@@ -99,7 +99,7 @@
 <%include modal.ejs%>
 
 
-<main id="site-content" role="main">
+<main id="site-content" role="main" ng-controller="editUser_controller" ng-init="loadEditProfilePage()">
 
     <div class="subnav hide-print">
         <div class="page-container-responsive">
@@ -155,7 +155,7 @@
 
                 <div id="dashboard-content">
 
-                    <form method="POST" action="#" accept-charset="UTF-8" id="update_form">
+                    <form  accept-charset="UTF-8" >
 
 
                         <div class="panel row-space-4">
@@ -169,8 +169,9 @@
                                     </label>
                                     <div class="col-sm-9">
 
-                                        <input id="user_first_name" size="30" class="focus" name="first_name" type="text" value="Divya">
+                                        <input id="user_first_name" size="30" class="focus" name="first_name" type="text" ng-model="user.firstName">
                                         <span class="text-danger"></span>
+                                        <p style="color:red" ng-show="first_invalid">First Name is Required</p>
                                     </div>
                                 </div>
 
@@ -180,8 +181,9 @@
                                     </label>
                                     <div class="col-sm-9">
 
-                                        <input id="user_last_name" size="30" class="focus" name="last_name" type="text" value="Patel">
+                                        <input id="user_last_name" size="30" class="focus" name="last_name" type="text" ng-model="user.lastName">
                                         <span class="text-danger"></span>
+                                        <p style="color:red" ng-show="last_invalid">Last Name is Required</p>
                                         <div class="text-muted row-space-top-1">This is only shared once you have a confirmed booking with another Makent user.</div>
                                     </div>
                                 </div>
@@ -194,8 +196,9 @@
                                     </label>
                                     <div class="col-sm-9">
 
-                                        <input id="user_email" size="30" class="focus" name="email" type="text" value="2406divya@gmail.com">
+                                        <input id="user_email" size="30" class="focus" name="email" type="text" ng-model="user.email">
                                         <span class="text-danger"></span>
+                                        <p style="color:red" ng-show="email_invalid">Email is Required</p>
                                         <div class="text-muted row-space-top-1">We won&rsquo;t share your private email address with other Makent users.</div>
                                     </div>
                                 </div>
@@ -206,8 +209,8 @@
                                     </label>
                                     <div class="col-sm-9">
 
-                                        <input id="user_live"  size="30" class="focus" name="live" type="text" value="">
-
+                                        <input id="user_live"  size="30" class="focus" name="live" type="text" ng-model="user.address">
+                                        <p style="color:red" ng-show="address_invalid">Address is Required</p>
                                     </div>
                                 </div>
 
@@ -217,8 +220,8 @@
                                     </label>
                                     <div class="col-sm-9">
 
-                                        <input id="user_live"  size="30" class="focus" name="live" type="text" value="">
-
+                                        <input id="user_live"  size="30" class="focus" name="live" type="text" ng-model="user.state">
+                                        <p style="color:red" ng-show="State_invalid">State is Required</p>
                                     </div>
                                 </div>
 
@@ -229,8 +232,8 @@
                                     </label>
                                     <div class="col-sm-9">
 
-                                        <input id="user_live"  size="30" class="focus" name="live" type="text" value="">
-
+                                        <input id="user_live"  size="30" class="focus" name="live" type="text" ng-model="user.city">
+                                        <p style="color:red" ng-show="city_invalid">City is Required</p>
                                     </div>
                                 </div>
 
@@ -241,8 +244,8 @@
                                     </label>
                                     <div class="col-sm-9">
 
-                                        <input id="user_live"  size="30" class="focus" name="live" type="text" value="">
-
+                                        <input id="user_live"  size="30" class="focus" name="live" type="text" ng-model="user.zip">
+                                        <p style="color:red" ng-show="pin_invalid">Zip Code is Required</p>
                                     </div>
                                 </div>
 
@@ -251,7 +254,7 @@
 
 
 
-                        <button type="submit" class="btn btn-primary btn-large">
+                        <button class="btn btn-primary btn-large" ng-click="saveUserData()">
                             Save
                         </button>
 
@@ -283,21 +286,21 @@
 
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBXyRBiyRcEzHDJ8iU00zECMUP4cXBIm6A&sensor=false&libraries=places"></script>
 
-<script src="http://makent.trioangle.com/js/jquery-1.11.3.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
-<script src="http://makent.trioangle.com/js/jquery-ui.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.3/i18n/jquery-ui-i18n.min.js"></script>
 
 <script src="http://makent.trioangle.com/js/i18n/datepicker-en.js"></script>
 
-<script src="http://makent.trioangle.com/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
 
-<script src="http://makent.trioangle.com/js/angular.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.2/angular.min.js"></script>
 
-<script src="http://makent.trioangle.com/js/angular-sanitize.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.3.2/angular-sanitize.min.js"></script>
 
 
-<script src="http://makent.trioangle.com/js/responsiveslides.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ResponsiveSlides.js/1.53/responsiveslides.min.js"></script>
 
 
 <script type="text/javascript">
@@ -387,7 +390,8 @@
 
 
 
-<script src="http://makent.trioangle.com/js/common.js"></script>
+<script src="js/common.js"></script>
+<script src="controller/common_controller.js"></script>
 
 
 

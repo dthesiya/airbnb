@@ -12,6 +12,7 @@ var config = require('./config.js');*/
 var User = require('../model/user');
 var mongoose = require('mongoose');
 var ssn = require('ssn');
+
 exports.doLogin=function(msg, callback) {
 
 

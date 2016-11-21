@@ -13,7 +13,7 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 var signin = require('./routes/signin');
 var home = require('./routes/home');
-
+var account = require('./routes/account');
 
 
 var app = express();
@@ -46,6 +46,10 @@ app.post('/signin', signin.authenticateUser);
 app.get('/',home.homepg);
 app.get('/signout',signin.signout);
 app.post('/registerUser', signin.registerUser );
+app.post('/editUser', account.editUser);
+app.get('/editProfilePage', account.getEditProfilePage);
+
+app.post('/loadEditUserPage', account.loadEditUserPage);
 app.get('/signin', isAuthenticated, function(req, res) {
 
   res.redirect('/');
