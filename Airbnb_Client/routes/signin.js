@@ -7,110 +7,114 @@ var fecha = require('fecha');
 var mq_client = require("../rpc/client.js");
 /*var log = require("./log");*/
 /*
-var mongo = require("./mongo");
-var config = require('./config.js');
-*/
+ var mongo = require("./mongo");
+ var config = require('./config.js');
+ */
 var passport = require("passport");
 require('./passport')(passport);
 
 
-exports.loadSigninPg = function(req,res){
+exports.loadSigninPg = function (req, res) {
 
-	res.render("../views/signin.ejs");
+    res.render("../views/signin.ejs");
 };
 
-exports.authenticateUser = function(req, res, next) {
+exports.authenticateUser = function (req, res, next) {
 
 //	var email_id = req.body.email_id;
 //	var pwd = req.body.password;
-	var sess = req.session;
-	sess.isLoggedIn = false;
-	  passport.authenticate('login', function(err, user) {
-		  console.log("Result"+user);
-	    if(err) {
-	      return next(err);
-	    }
+    var sess = req.session;
+    sess.isLoggedIn = false;
+    console.log("in signin");
+    passport.authenticate('login', function (err, user) {
+        console.log("Result" + user);
+        if (err) {
+            return next(err);
+        }
 
-	    if(!user) {
+        if (!user) {
 
-			res.json({
-				success: false,
-				message: 'No user found'
-			});
-			res.end();
-	      /*return res.redirect('/signup');*/
-	    }
-	   
-	    if(user){
-	    	
-             sess.email =user.email;
-			sess.isLoggedIn = true;
-			// sess.last_name = user.last_name;
-			// sess.user_id = user._id;
-			// // sess.last_access = user.last_access;
+            res.json({
+                success: false,
+                message: 'No user found'
+            });
+            res.end();
+            /*return res.redirect('/signup');*/
+        }
+
+        if (user) {
+
+            sess.email = user.email;
+            sess.isLoggedIn = true;
+            // sess.last_name = user.last_name;
+            // sess.user_id = user._id;
+            // // sess.last_access = user.last_access;
 
 //		        res.statusCode = 200;
-				res.json({
-		          success: true,
-		          message: 'Logged in'
-		        });
-				res.end();
-	    }
-	  })(req, res, next);
+            res.json({
+                success: true,
+                message: 'Logged in'
+            });
+            res.end();
+        }
+    })(req, res, next);
 };
 
-exports.signout = function(req,res){
-	console.log("in signout");
-	req.session.destroy();
-	res.redirect("/");
+exports.signout = function (req, res) {
+    req.session.destroy();
+    res.redirect("/");
 };
 
 
-exports.registerUser = function (req,res) {
+exports.registerUser = function(req, res) {
 
-	var firstName = req.param("firstName");
-	var lastName = req.param("lastName");
-	var email = req.param("email");
-	var password = req.param("password");
+    var f_name = req.body.first_name;
+    var l_name = req.body.last_name;
+    var email_id = req.body.email_id;
+    var pwd = req.body.password;
+    var sess = req.session;
+    sess.isLoggedIn = false;
+    var salt = bcrypt.genSaltSync(10);
+    var passwordToSave = bcrypt.hashSync(pwd, salt);
+    var msg_payload = {
+            first_name : f_name,
+            last_name : l_name,
+            email_id : email_id,
+            password : passwordToSave
+        };
 
+        mq_client.make_request('register_queue',msg_payload, function(err,results){
+            if(err){
+                res.json({
+                    success : false,
+                    message : 'Error in registration.'
+                });
+                res.end();
+            }
+            if(results){
 
-	var msg_payload={
-
-		firstName:firstName,
-		lastName:lastName,
-		email:email,
-		password:password
-	};
-
-
-	mq_client.make_request('register_queue', msg_payload, function (err, user) {
-		if(err){
-
-			console.log(err);
-			console.log("In err to save");
-			var json_responses = {"statusCode" : 401};
-			res.send(json_responses);
-
-		}else{
-
-			console.log("After refgister in client");
-			console.log(user);
-			/*req.session.userSSN=user.userId;
-			req.session.firstName=user.firstName;
-			req.session.lastName=user.lastName;
-			req.session.userId=user._id;
-			req.session.email=user.email;*/
-			var json_responses = {"statusCode" : 200,"data":user};
-			res.send(json_responses);
-			res.end();
-
-		}
-	});
-
-
-
+                sess.userSSN = results.userId;
+                sess.firstName = results.firstName;
+                sess.lastName = results.lastName;
+                sess.userId = results._id;
+                sess.email = results.email;
+                sess.isLoggedIn = true;
+                res.json({
+                    success : true,
+                    message : 'Registered'
+                });
+                res.end();
+            }else{
+                res.json({
+                    success : false,
+                    message : 'User exist'
+                });
+                res.end();
+            }
+        });
 
 };
+
 
 
 
