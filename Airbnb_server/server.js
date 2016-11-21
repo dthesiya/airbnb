@@ -14,7 +14,6 @@ var shoppingCart = require('./services/shoppingCart');
 var checkout = require('./services/checkout');
 */
 var cnn = amqp.createConnection({host: '127.0.0.1'});
-//karan
 //require('./services/biddingChecker');
 cnn.on('error', function (e) {
     console.log("error from amqp "+e);
