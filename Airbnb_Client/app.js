@@ -14,6 +14,7 @@ var users = require('./routes/users');
 var signin = require('./routes/signin');
 var home = require('./routes/home');
 var search = require('./routes/search');
+var property = require('./routes/property');
 
 
 var app = express();
@@ -47,6 +48,8 @@ app.get('/', home.homepg);
 app.get('/signout', signin.signout);
 app.post('/registerUser', signin.registerUser);
 app.get('/search', search.search);
+app.get('/property', property.loadDetailPg());
+app.get('/detail', property.getProperty());
 
 app.get('/signin', isAuthenticated, function (req, res) {
 
