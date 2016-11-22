@@ -43,8 +43,8 @@ app.post('/signin', signin.authenticateUser);
 app.post('/registerUser', signin.registerUser);
 
 app.get('/', home.homepg);
+app.get('/login',signin.loginpg);
 app.get('/signout', signin.signout);
-
 app.get('/signin', isAuthenticated, function (req, res) {
 
     res.redirect('/');

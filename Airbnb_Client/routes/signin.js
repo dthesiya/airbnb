@@ -3,6 +3,8 @@
  */
 var bcrypt = require('bcryptjs');
 var express = require('express');
+
+var ejs = require("ejs");
 var fecha = require('fecha');
 var mq_client = require("../rpc/client.js");
 /*var log = require("./log");*/
@@ -14,9 +16,21 @@ var passport = require("passport");
 require('./passport')(passport);
 
 
-exports.loadSigninPg = function (req, res) {
+exports.loginpg = function (req, res) {
+    var sess = req.session;
+    var user_data ={
+        "email" : sess.email,
+        "isLoggedIn" : sess.isLoggedIn,
+        "firstname" : sess.firstName
+    };
+    ejs.renderFile('../views/login.ejs', user_data,function (err,result) {
+        if(err){
 
-    res.render("../views/signin.ejs");
+        } else {
+
+        }
+        res.end(result);
+    });
 };
 
 exports.authenticateUser = function (req, res, next) {
