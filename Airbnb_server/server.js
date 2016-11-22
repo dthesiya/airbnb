@@ -19,6 +19,7 @@ var cnn = amqp.createConnection({host: '127.0.0.1'});
 cnn.on('error', function (e) {
     console.log("error from amqp " + e);
 });
+
 cnn.on('ready', function () {
 
     cnn.queue('login_queue', function (q) {

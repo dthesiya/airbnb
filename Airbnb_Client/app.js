@@ -48,11 +48,10 @@ app.get('/', home.homepg);
 app.get('/signout', signin.signout);
 app.post('/registerUser', signin.registerUser);
 app.get('/search', search.search);
-app.get('/property', property.loadDetailPg());
-app.get('/detail', property.getProperty());
+app.get('/property', property.loadDetailPg);
+app.get('/detail', property.getProperty);
 
 app.get('/signin', isAuthenticated, function (req, res) {
-
     res.redirect('/');
 });
 function isAuthenticated(req, res, next) {
