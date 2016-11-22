@@ -41,13 +41,10 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.post('/signin', signin.authenticateUser);
-
-
-
 app.post('/registerUser', signin.registerUser);
-app.get('/search', search.search);
 
-
+app.get('/searchResult', search.search);
+app.get('/search', search.loadSearchPg);
 app.get('/', home.homepg);
 app.get('/login',signin.loginpg);
 app.get('/signout', signin.signout);
