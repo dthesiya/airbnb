@@ -14,6 +14,7 @@ var users = require('./routes/users');
 var signin = require('./routes/signin');
 var home = require('./routes/home');
 var account = require('./routes/account');
+var search = require('./routes/search');
 
 
 var app = express();
@@ -46,12 +47,14 @@ app.post('/signin', signin.authenticateUser);
 app.get('/',home.homepg);
 app.get('/signout',signin.signout);
 app.post('/registerUser', signin.registerUser );
+app.get('/search', search.search);
 app.post('/editUser', account.editUser);
 app.get('/editProfilePage', account.getEditProfilePage);
 app.get('/getUserPhotoPage', account.getUserPhotoPage);
 app.get('/getUserReviewAboutPage', account.getUserReviewAboutPage);
 app.get('/getUserReviewbyPage', account.getUserReviewbyPage);
 app.post('/loadEditUserPage', account.loadEditUserPage);
+
 app.get('/signin', isAuthenticated, function(req, res) {
 
   res.redirect('/');
