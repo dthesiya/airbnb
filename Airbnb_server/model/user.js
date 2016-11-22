@@ -21,10 +21,7 @@ var userSchema = new Schema({
     isActivated: {type: Boolean},
     isApproved: {type: Boolean},
     createdDate: {type: Number}
-
-
 });
 
-var User = mongoose.model('user', userSchema,'user');
-
+var User = mongoose.model('user', userSchema, 'user');
 module.exports = User;
