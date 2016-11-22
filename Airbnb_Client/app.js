@@ -15,6 +15,8 @@ var signin = require('./routes/signin');
 var home = require('./routes/home');
 var search = require('./routes/search');
 var property = require('./routes/property');
+var account_management = require('./routes/account_management');
+
 
 
 var app = express();
@@ -51,9 +53,15 @@ app.get('/login',signin.loginpg);
 app.get('/signout', signin.signout);
 app.get('/property', property.loadDetailPg);
 app.get('/detail', property.getProperty);
+app.get('/Account_Transactions', account_management.accountPage);
+app.get('/Account_Security', account_management.accountSecurityPage);
+app.get('/Account_Payment_Method', account_management.accountPaymentMethodPage);
+app.post('/updatePassword', account_management.updatePassword);
+app.post('/paymentMethodUpdate', account_management.updatePaymentMethod);
 
-app.get('/signin', isAuthenticated, function (req, res) {
-    res.redirect('/');
+
+app.get('/signin', isAuthenticated, function(req, res) {
+  res.redirect('/');
 });
 function isAuthenticated(req, res, next) {
   if(req.session.user_id) {

@@ -8,7 +8,7 @@
 var bcrypt = require('bcryptjs');
 /*var fecha = require('fecha');*/
 /*var mongo = require("./mongo");
- var config = require('./config.js');*/
+var config = require('./config.js');*/
 var User = require('../model/user');
 var mongoose = require('mongoose');
 var ssn = require('ssn');
@@ -80,7 +80,5 @@ exports.registerUser = function (msg, callback) {
         if (result) {
             callback(null, null);
         }
-
     });
-
 };
