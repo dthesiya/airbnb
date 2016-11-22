@@ -36,7 +36,7 @@ exports.doSearch = function (msg, callback) {
             },
                 {
                     $or: [
-                        {$text : {$search: location}}
+                        {$text: {$search: location}}
                     ]
                 }]
         })
@@ -178,7 +178,5 @@ exports.doSearch = function (msg, callback) {
                     callback(null, response);
                 }
             }
-        )
-    ;
-}
-;
+        );
+};
