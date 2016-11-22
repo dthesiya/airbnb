@@ -29,7 +29,7 @@ exports.doSearch = function (msg, callback) {
     Property.find(
         {
             $and: [{
-                category: property_type,
+                // category: property_type,
                 maxGuest: {$gte: guests},
                 isAvailable: true,
                 isApproved: true

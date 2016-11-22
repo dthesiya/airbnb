@@ -42,12 +42,13 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.post('/signin', signin.authenticateUser);
-
-
-app.get('/', home.homepg);
-app.get('/signout', signin.signout);
 app.post('/registerUser', signin.registerUser);
-app.get('/search', search.search);
+
+app.get('/searchResult', search.search);
+app.get('/search', search.loadSearchPg);
+app.get('/', home.homepg);
+app.get('/login',signin.loginpg);
+app.get('/signout', signin.signout);
 app.get('/property', property.loadDetailPg);
 app.get('/detail', property.getProperty);
 
@@ -55,18 +56,18 @@ app.get('/signin', isAuthenticated, function (req, res) {
     res.redirect('/');
 });
 function isAuthenticated(req, res, next) {
-    if (req.session.user_id) {
-        console.log(req.session.user_id);
-        return next();
-    }
-    res.redirect('/signinPg');
+  if(req.session.user_id) {
+    console.log(req.session.user_id);
+    return next();
+  }
+  res.redirect('/signinPg');
 }
 
 // catch 404 and forward to error handler
-app.use(function (req, res, next) {
-    var err = new Error('Not Found');
-    err.status = 404;
-    next(err);
+app.use(function(req, res, next) {
+  var err = new Error('Not Found');
+  err.status = 404;
+  next(err);
 });
 
 // error handlers
@@ -74,23 +75,23 @@ app.use(function (req, res, next) {
 // development error handler
 // will print stacktrace
 if (app.get('env') === 'development') {
-    app.use(function (err, req, res, next) {
-        res.status(err.status || 500);
-        res.render('error', {
-            message: err.message,
-            error: err
-        });
+  app.use(function(err, req, res, next) {
+    res.status(err.status || 500);
+    res.render('error', {
+      message: err.message,
+      error: err
     });
+  });
 }
 
 // production error handler
 // no stacktraces leaked to user
-app.use(function (err, req, res, next) {
-    res.status(err.status || 500);
-    res.render('error', {
-        message: err.message,
-        error: {}
-    });
+app.use(function(err, req, res, next) {
+  res.status(err.status || 500);
+  res.render('error', {
+    message: err.message,
+    error: {}
+  });
 });
 
 

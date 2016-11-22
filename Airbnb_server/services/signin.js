@@ -30,63 +30,57 @@ exports.doLogin = function (msg, callback) {
         }
         if (result) {
             console.log(result);
-            //if (bcrypt.compareSync(password, result.password)) {
-            if (password === result.password) {
+            if (bcrypt.compareSync(password, result.password)) {
+            // if (password === result.password) {
                 callback(null, result);
             } else {
                 callback(null, null);
             }
         }
+
     });
 };
 
 exports.registerUser = function (msg, callback) {
 
-    var firstName = msg.firstName;
-    var lastName = msg.lastName;
-    var email = msg.email;
+    var firstName = msg.first_name;
+    var lastName = msg.last_name;
+    var email = msg.email_id;
     var password = msg.password;
-
-
-    console.log('In register user');
-    var salt = bcrypt.genSaltSync(10);
-    var passwordToSave = bcrypt.hashSync(password, salt);
 
     var userDetails = new User();
 
     userDetails.firstName = firstName;
     userDetails.lastName = lastName;
     userDetails.email = email;
-    userDetails.password = passwordToSave;
+    userDetails.password = password;
     userDetails.userId = ssn.generate();
 
-    console.log("SSN" + userDetails.userId);
-
-
-    userDetails.save(function (err) {
-
+    console.log("SSN" + userDetails.userId+email);
+    User.findOne({email: email}, function (err, result) {
         if (err) {
             callback(err, null);
+
         }
-        else {
-            var id = userDetails._id;
-            console.log("ID " + id);
-            User.findOne({_id: id}, function (err, result) {
-                console.log(result);
-                console.log(err);
+        console.log(result);
+        if (!result) {
+            userDetails.save(function (err) {
+
                 if (err) {
-                    console.log("err in find");
+
                     callback(err, null);
                 }
-
-                if (!result) {
-                    callback(null, null);
-                }
-                if (result) {
-                    console.log(result);
-                    callback(null, result);
+                else {
+                    var id = userDetails._id;
+                    console.log("ID " + id);
+                    callback(null, userDetails);
                 }
             });
         }
+        if (result) {
+            callback(null, null);
+        }
+
     });
+
 };
