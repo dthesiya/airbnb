@@ -8,7 +8,9 @@ var passport = require('passport');
 var session = require('express-session');
 var mongoStore = require("connect-mongo")(session);
 var mongo = require("mongodb").MongoClient;
+var multer  = require('multer');
 
+var fileUpload = require('express-fileupload');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var signin = require('./routes/signin');
@@ -18,6 +20,7 @@ var search = require('./routes/search');
 var review = require('./routes/review');
 
 var app = express();
+app.use(fileUpload());
 app.use(passport.initialize());
 app.use(session({
   secret: 'keyboard cat',
@@ -68,10 +71,12 @@ function isAuthenticated(req, res, next) {
 }
 
 
+
 app.post('/loadReviewAboutPage', review.loadReviewAboutPage);
 app.post('/loadReviewByPage', review.loadReviewAboutPage);
+//app.post('/uploadProfileImage', account.uploadProfileImage);
 
-
+app.post('/uploadProfileImage',account.uploadProfileImage );
 
 
 

@@ -205,3 +205,36 @@ exports.getUserReviewbyPage = function (req,res) {
 
     });
 };
+
+
+exports.uploadProfileImage = function (req,res) {
+
+        var file;
+
+        if (!req.files) {
+            var json = {"statusCode":400}
+            res.send(json);
+
+        }
+    else {
+
+            var fileName= req.session.userId+'.png';
+            file = req.files.profile_pic;
+            file.mv('../uploads/'+fileName, function (err) {
+                if (err) {
+                    console.log("Error in uploading")
+                    console.log(err);
+                    res.status(500).send(err);
+                }
+                else {
+                    console.log("File uploaded");
+                    res.end();
+                }
+            });
+
+        }
+
+
+
+
+};

@@ -5,6 +5,49 @@
  * http://usejsdoc.org/
  */
 var app = angular.module('App',[]);
+
+
+
+app.directive('fileModel', ['$parse', function ($parse) {
+    return {
+        restrict: 'A',
+        link: function(scope, element, attrs) {
+            var model = $parse(attrs.fileModel);
+            var modelSetter = model.assign;
+
+            element.bind('change', function(){
+                scope.$apply(function(){
+                    modelSetter(scope, element[0].files[0]);
+                });
+            });
+        }
+    };
+}]);
+
+app.service('fileUpload', ['$http', function ($http) {
+    this.uploadFileToUrl = function(file, uploadUrl){
+        var fd = new FormData();
+        fd.append('file', file);
+
+        $http.post(uploadUrl, fd, {
+                transformRequest: angular.identity,
+                headers: {'Content-Type': undefined}
+            })
+
+            .success(function(){
+
+                console.log("Upload successfully");
+
+            }).error(function(){
+
+            console.log("not  successfully uploaded");
+
+        } );
+    }
+}]);
+
+
+
 app.controller('authentication_controller', function($scope,$window,$location,$http) {
 
     console.log("in controller");
@@ -62,6 +105,36 @@ app.controller('editUser_controller', function($scope,$window,$location,$http) {
 
 
     };
+
+
+
+    $scope.uploadProfileImage = function () {
+
+        console.log("upload profile image ::");
+        var file = $scope.profileImage;
+        console.log(file);
+        var uploadUrl = "/uploadProfileImage";
+
+        //fileUpload.uploadFileToUrl(file, uploadUrl);
+
+
+
+
+        $http.post('/uploadProfileImage',file,{'enctype':"multipart/form-data"})
+            .success(function(data){
+
+                console.log("Uploaded");
+            })
+            .error(function(data) {
+
+                console.log("Not upoaded");
+
+            });
+
+
+    };
+
+
 
 
     $scope.saveUserData = function () {
@@ -197,7 +270,7 @@ app.controller('editUser_controller', function($scope,$window,$location,$http) {
 
 
 
-app.controller('review_controller', function($scope,$window,$location,$http) {
+app.controller('review_controller', [ '$scope', 'fileUpload',function($scope,$window,$location,$http) {
 
     console.log("in review controller");
    
@@ -229,7 +302,8 @@ app.controller('review_controller', function($scope,$window,$location,$http) {
     };
 
 
-});
+
+}]);
 
 
 

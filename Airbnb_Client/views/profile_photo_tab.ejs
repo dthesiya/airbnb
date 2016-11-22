@@ -143,16 +143,16 @@
                                     </p>
                                     <div class="row row-condensed">
                                         <div class="col-md-12">
-                                            <form name="ajax_upload_form"   enctype="multipart/form-data"  accept-charset="UTF-8">
+                                            <form name="ajax_upload_form" method="post" action="uploadProfileImage"  enctype="multipart/form-data"  accept-charset="UTF-8">
                                              <span class="btn btn-block btn-large file-input-container">
                                                 Upload a file from your computer
 
-                                                <input type="file" name="profile_pic" id="user_profile_pic" ng-model="profile_pic">
+                                                <input type="file" name="profile_pic" id="user_profile_pic" file-model="profileImage">
 
 
                                                 <iframe style="display:none;" name="upload_frame" id="upload_frame"></iframe>
                                              </span>
-                                                <button ng-click="uploadfile()">Upload</button>
+                                                <button >Upload</button>
 
                                             </form>
 
