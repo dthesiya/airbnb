@@ -75,7 +75,7 @@ exports.getEditProfilePage = function (req,res) {
         if(err){
 
             console.log("Error in getting edit profile page");
-            res.send("An error occured to product page page");
+            res.send("An error occured to get profile edit page");
 
         } else {
 
@@ -124,4 +124,86 @@ exports.loadEditUserPage = function (req,res) {
 
 
 
+};
+
+exports.getUserPhotoPage = function (req,res) {
+
+    var sess = req.session;
+    var user_data ={
+        "email" : sess.email,
+        "isLoggedIn" : sess.isLoggedIn
+
+    };
+    ejs.renderFile('../views/profile_photo_tab.ejs', user_data,function (err,result) {
+        if(err){
+
+            console.log("Error in getting  profile photo page");
+            res.send("An error occured to get profile photo page");
+
+        } else {
+
+            res.end(result);
+
+        }
+
+
+    });
+
+
+
+
+
+};
+
+
+
+exports.getUserReviewAboutPage = function (req,res) {
+
+    var sess = req.session;
+    var user_data ={
+        "email" : sess.email,
+        "isLoggedIn" : sess.isLoggedIn
+
+    };
+    ejs.renderFile('../views/profile_review_about_you.ejs', user_data,function (err,result) {
+        if(err){
+
+            console.log("Error in getting  profile review about page");
+            res.send("An error occured to get profile review about page");
+
+        } else {
+
+            res.end(result);
+
+        }
+
+
+    });
+
+
+};
+
+
+exports.getUserReviewbyPage = function (req,res) {
+
+    var sess = req.session;
+    var user_data = {
+        "email": sess.email,
+        "isLoggedIn": sess.isLoggedIn
+
+    };
+    ejs.renderFile('../views/profile_review_by_you.ejs', user_data, function (err, result) {
+        if (err) {
+
+            console.log("Error in getting  profile review by page");
+            res.send("An error occured to get profile review by page");
+
+        } else {
+
+            res.end(result);
+
+        }
+
+
+    });
 };

@@ -48,7 +48,9 @@ app.get('/signout',signin.signout);
 app.post('/registerUser', signin.registerUser );
 app.post('/editUser', account.editUser);
 app.get('/editProfilePage', account.getEditProfilePage);
-
+app.get('/getUserPhotoPage', account.getUserPhotoPage);
+app.get('/getUserReviewAboutPage', account.getUserReviewAboutPage);
+app.get('/getUserReviewbyPage', account.getUserReviewbyPage);
 app.post('/loadEditUserPage', account.loadEditUserPage);
 app.get('/signin', isAuthenticated, function(req, res) {
 

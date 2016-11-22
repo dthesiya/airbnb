@@ -157,6 +157,14 @@ app.controller('editUser_controller', function($scope,$window,$location,$http) {
     };
 
 
+    $scope.loadProfilePhotoPage = function () {
+
+
+        
+
+
+    };
+
 
 
     function init(){
