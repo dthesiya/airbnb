@@ -97,9 +97,8 @@
   </head>
   <body class="" ng-app="App">
   <%include header.ejs%>
-
   <%include modal.ejs%>
-    <main id="site-content" role="main">
+    <main id="site-content" role="main" ng-contoller="authentication_controller">
       
 
 <div class="page-container-responsive page-container-auth row-space-top-4 row-space-8">
@@ -132,9 +131,7 @@
     <hr>
   </div> -->
 
-  <form method="POST" action="" accept-charset="UTF-8" class="signup-form login-form" data-action="Signin" novalidate="true"><input name="_token" type="hidden" value="owTlevfiofSqLnF04d9KFzHejXRWpiDrzAuYONCJ">
-
-  <input id="from" name="from" type="hidden" value="email_login">
+  <form method="POST" action="" accept-charset="UTF-8" class="signup-form login-form" novalidate="true">
   
   <div class="control-group row-space-1">
 
@@ -157,13 +154,13 @@
     <a href="" class="forgot-password pull-right">Forgot password?</a>
   </div>
 
-  <input class="btn btn-primary btn-block btn-large" id="user-login-btn" type="submit" value="Log In">
+  <input class="btn btn-primary btn-block btn-large" id="user-login-btn" ng-click="checkLogin()" type="submit" value="Log In">
 
 </form>
           </div>
           <div class="panel-body">
             Don&rsquo;t have an account?
-            <a href="http://makent.trioangle.com/signup_login?" class="link-to-signup-in-login">
+            <a href="/signup_login" class="link-to-signup-in-login">
               Sign Up
             </a>
           </div>
@@ -286,8 +283,9 @@
 
     
 
-    <script src="http://makent.trioangle.com/js/common.js"></script>
+    <script src="js/common.js"></script>
 
+    <script src="controller/common_controller.js"></script>
 
     
       

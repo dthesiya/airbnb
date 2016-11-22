@@ -1,4 +1,3 @@
-
 var amqp = require('amqp'),
     util = require('util');
 require('./model/mongoconnect');
@@ -8,6 +7,7 @@ var search = require('./services/search');
 var review = require('./services/review');
 
 
+var property_detail = require('./services/property_detail');
 /*
  var signinup = require('./services/signinup');
  var postAdvertisement = require('./services/postAdvertisement');
@@ -23,6 +23,7 @@ var cnn = amqp.createConnection({host: '127.0.0.1'});
 cnn.on('error', function (e) {
     console.log("error from amqp " + e);
 });
+
 cnn.on('ready', function () {
 
     cnn.queue('login_queue', function (q) {
@@ -64,6 +65,22 @@ cnn.on('ready', function () {
             util.log("Message: " + JSON.stringify(message));
             util.log("DeliveryInfo: " + JSON.stringify(deliveryInfo));
             search.doSearch(message, function (err, res) {
+                //return index sent
+                cnn.publish(m.replyTo, res, {
+                    contentType: 'application/json',
+                    contentEncoding: 'utf-8',
+                    correlationId: m.correlationId
+                });
+            });
+        });
+    });
+
+    cnn.queue('property_detail_queue', function (q) {
+        q.subscribe(function (message, headers, deliveryInfo, m) {
+            util.log(util.format(deliveryInfo.routingKey, message));
+            util.log("Message: " + JSON.stringify(message));
+            util.log("DeliveryInfo: " + JSON.stringify(deliveryInfo));
+            property_detail.getProperty(message, function (err, res) {
                 //return index sent
                 cnn.publish(m.replyTo, res, {
                     contentType: 'application/json',

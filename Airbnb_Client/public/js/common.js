@@ -261,6 +261,7 @@ function homeAutocomplete()
     {
         home_autocomplete= new google.maps.places.Autocomplete(document.getElementById('location'));
         home_autocomplete.addListener('place_changed',trigger_checkin);
+
     }
 
 }
@@ -268,7 +269,7 @@ function homeAutocomplete()
 var current_url = window.location.href.split('?')[0];
 var last_part = current_url.substr(current_url.lastIndexOf('/'));
 var last_part1 = current_url.substr(current_url.lastIndexOf('/')+1);
-if(last_part != '/s'){
+if(last_part != '/search'){
     headerAutocomplete();
 }else{
     $("#header-search-form").keypress(function(e){
@@ -305,7 +306,7 @@ function headerAutocomplete()
         google.maps.event.addListener(header_autocomplete, 'place_changed', function() {
             var location  = $('#header-search-form-mob').val();
             var locations = location.replace(" ", "+");
-            window.location.href = APP_URL+'/s?location='+locations;
+            window.location.href = '/search?location='+locations;
         });
     }
 
@@ -411,7 +412,7 @@ $('.search-form').submit(function(event)
     header_room_type = header_room_type.slice(0,-1);
     var location  = $('#header-search-form').val();
     var locations = location.replace(" ", "+");
-    window.location.href = APP_URL+'/s?location='+locations+'&checkin='+header_checkin+'&checkout='+header_checkout+'&guests='+header_guests+'&room_type='+header_room_type;
+    window.location.href ='/search?location='+locations+'&checkin='+header_checkin+'&checkout='+header_checkout+'&guests='+header_guests+'&room_type='+header_room_type;
     event.preventDefault();
 });
 
@@ -437,7 +438,7 @@ $('#search-form--sm-btn').click(function(event)
     });
     sm_room_type = sm_room_type.slice(0,-1);
     var locations = location.replace(" ", "+");
-    window.location.href = APP_URL+'/s?location='+locations+'&checkin='+sm_checkin+'&checkout='+sm_checkout+'&guests='+sm_guests+'&room_type='+sm_room_type;
+    window.location.href = '/search?location='+locations+'&checkin='+sm_checkin+'&checkout='+sm_checkout+'&guests='+sm_guests+'&room_type='+sm_room_type;
     event.preventDefault();
 });
 

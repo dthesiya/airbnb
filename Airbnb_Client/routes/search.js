@@ -6,6 +6,8 @@
  */
 var express = require('express');
 var fecha = require('fecha');
+var ejs = require("ejs");
+var geocoder = require('geocoder');
 var mq_client = require("../rpc/client.js");
 /*var log = require("./log");*/
 /*
@@ -15,12 +17,38 @@ var mq_client = require("../rpc/client.js");
 
 
 exports.loadSearchPg = function (req, res) {
-    res.render("../views/searchPage.ejs");
+    var sess = req.session;
+    var lat;
+    var long;
+    var location = req.param("location");
+    var viewport;
+    geocoder.geocode(location,function(err,data){
+        lat = data.results[0].geometry.location.lat;
+        long = data.results[0].geometry.location.lng;
+        viewport = JSON.stringify(data.results[0].geometry.viewport);
+        var user_data ={
+            "email" : sess.email,
+            "isLoggedIn" : sess.isLoggedIn,
+            "firstname" : sess.firstName,
+            "lat":lat,
+            "long":long,
+            "viewport":viewport,
+            "location":location
+        };
+        ejs.renderFile('../views/searchPage.ejs', user_data,function (err,result) {
+            if(err){
+
+            } else {
+
+            }
+            res.end(result);
+        });
+    });
 };
 
 exports.search = function (req, res, next) {
     var location = req.param("location");
-    var property_type = req.param("property_type");
+    var property_type = req.param("room_type");
     var checkin = req.param("checkin");
     var checkout = req.param("checkout");
     var guests = req.param("guests");
@@ -40,7 +68,7 @@ exports.search = function (req, res, next) {
             var json_responses = {"statusCode": 401};
             res.send(json_responses);
         } else {
-            console.log(result);
+            // console.log(result);
             // var json_responses = {"statusCode": 200, "data": result};
             res.send(result);
             res.end();
