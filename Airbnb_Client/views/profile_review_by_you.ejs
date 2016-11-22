@@ -92,7 +92,7 @@
 <%include header.ejs%>
 <%include modal.ejs%>
 
-<main id="site-content" role="main" ng-controller="reviews">
+<main id="site-content" role="main" ng-controller="review_controller" ng-init="loadReviewByPage()">
 
     <div class="subnav hide-print">
         <div class="page-container-responsive">

@@ -5,6 +5,9 @@ require('./model/mongoconnect');
 var signIn = require('./services/signin');
 var account = require('./services/account');
 var search = require('./services/search');
+var review = require('./services/review');
+
+
 /*
  var signinup = require('./services/signinup');
  var postAdvertisement = require('./services/postAdvertisement');
@@ -103,6 +106,41 @@ cnn.on('ready', function () {
             });
         });
     });
-    
-    
+
+
+
+    cnn.queue('loadReviewAboutPage_queue', function (q) {
+        q.subscribe(function (message, headers, deliveryInfo, m) {
+            util.log(util.format(deliveryInfo.routingKey, message));
+            util.log("Message: " + JSON.stringify(message));
+            util.log("DeliveryInfo: " + JSON.stringify(deliveryInfo));
+            review.loadReviewAboutPage_queue(message, function (err, res) {
+                //return index sent
+                cnn.publish(m.replyTo, res, {
+                    contentType: 'application/json',
+                    contentEncoding: 'utf-8',
+                    correlationId: m.correlationId
+                });
+            });
+        });
+    });
+
+
+    cnn.queue('loadReviewByPage_queue', function (q) {
+        q.subscribe(function (message, headers, deliveryInfo, m) {
+            util.log(util.format(deliveryInfo.routingKey, message));
+            util.log("Message: " + JSON.stringify(message));
+            util.log("DeliveryInfo: " + JSON.stringify(deliveryInfo));
+            review.loadReviewByPage_queue(message, function (err, res) {
+                //return index sent
+                cnn.publish(m.replyTo, res, {
+                    contentType: 'application/json',
+                    contentEncoding: 'utf-8',
+                    correlationId: m.correlationId
+                });
+            });
+        });
+    });
+
+
 });

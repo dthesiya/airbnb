@@ -18,8 +18,7 @@ exports.editUser = function(req, res ) {
     var state = req.param("state");
     var city = req.param("city");
     var zip = req.param("zip");
-    var userId="58325369e47176237848885a";
-        //req.session.userId;
+    var userId=req.session.userId;
 
     var msg_payload={
 
@@ -93,8 +92,7 @@ exports.getEditProfilePage = function (req,res) {
 exports.loadEditUserPage = function (req,res) {
 
 
-    var userId="58325369e47176237848885a";
-        //req.session.userId;
+    var userId=req.session.userId;
 
     var msg_payload={
         userId:userId

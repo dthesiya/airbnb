@@ -15,7 +15,7 @@ var signin = require('./routes/signin');
 var home = require('./routes/home');
 var account = require('./routes/account');
 var search = require('./routes/search');
-
+var review = require('./routes/review');
 
 var app = express();
 app.use(passport.initialize());
@@ -66,6 +66,16 @@ function isAuthenticated(req, res, next) {
   }
   res.redirect('/signinPg');
 }
+
+
+app.post('/loadReviewAboutPage', review.loadReviewAboutPage);
+app.post('/loadReviewByPage', review.loadReviewAboutPage);
+
+
+
+
+
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

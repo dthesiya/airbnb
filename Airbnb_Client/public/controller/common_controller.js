@@ -40,6 +40,8 @@ app.controller('editUser_controller', function($scope,$window,$location,$http) {
 
     $scope.loadEditProfilePage = function () {
 
+        $scope.success_model = false;
+
         $http.post('/loadEditUserPage')
             .success(function(data){
                 if(data.statusCode==200){
@@ -160,7 +162,7 @@ app.controller('editUser_controller', function($scope,$window,$location,$http) {
     $scope.loadProfilePhotoPage = function () {
 
 
-        
+
 
 
     };
@@ -191,11 +193,43 @@ app.controller('editUser_controller', function($scope,$window,$location,$http) {
     }
 
 
+});
 
+
+
+app.controller('review_controller', function($scope,$window,$location,$http) {
+
+    console.log("in review controller");
+   
+    $scope.loadReviewAboutPage = function () {
+        
+        $http.post('/loadReviewAboutPage')
+            .success(function(data){
+                
+            })
+            .error(function(data) {
+               
+            });
+
+
+    };
+
+
+    $scope.loadReviewAboutPage = function () {
+
+        $http.post('/loadReviewByPage')
+            .success(function(data){
+
+            })
+            .error(function(data) {
+
+            });
+
+
+    };
 
 
 });
-
 
 
 
