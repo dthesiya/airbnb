@@ -352,7 +352,7 @@ app.controller('editUser_controller', function($scope,$window,$location,$http) {
 
 
 
-app.controller('review_controller', [ '$scope', 'fileUpload',function($scope,$window,$location,$http) {
+app.controller('review_controller',function($scope,$window,$location,$http) {
 
     console.log("in review controller");
    
@@ -370,7 +370,7 @@ app.controller('review_controller', [ '$scope', 'fileUpload',function($scope,$wi
     };
 
 
-    $scope.loadReviewAboutPage = function () {
+    $scope.loadReviewByPage = function () {
 
         $http.post('/loadReviewByPage')
             .success(function(data){
@@ -385,7 +385,7 @@ app.controller('review_controller', [ '$scope', 'fileUpload',function($scope,$wi
 
 
 
-}]);
+});
 
 
 

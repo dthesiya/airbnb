@@ -29,6 +29,8 @@ exports.doLogin = function (msg, callback) {
             console.log(result);
             if (bcrypt.compareSync(password, result.password)) {
             // if (password === result.password) {
+                console.log("RESULT");
+                console.log(result);
                 callback(null, result);
 
             } else {
@@ -44,7 +46,7 @@ exports.registerUser = function (msg, callback) {
     var lastName = msg.lastName;
     var email = msg.email;
     var password = msg.password;
-
+    console.log(msg);
 
     console.log('In register user');
     var salt = bcrypt.genSaltSync(10);

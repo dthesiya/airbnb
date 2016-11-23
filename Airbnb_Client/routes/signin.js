@@ -92,12 +92,13 @@ exports.registerUser = function(req, res) {
     var salt = bcrypt.genSaltSync(10);
     var passwordToSave = bcrypt.hashSync(pwd, salt);
     var msg_payload = {
-            first_name : f_name,
-            last_name : l_name,
-            email_id : email_id,
-            password : passwordToSave
-        };
+        firstName : f_name,
+        lastName : l_name,
+        email : email_id,
+        password : passwordToSave
+    };
 
+    console.log(msg_payload);
         mq_client.make_request('register_queue',msg_payload, function(err,results){
             if(err){
                 res.json({
