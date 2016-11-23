@@ -74,7 +74,7 @@ app.post('/updatePassword', account_management.updatePassword);
 app.post('/paymentMethodUpdate', account_management.updatePaymentMethod);
 
 app.post('/loadReviewAboutPage', review.loadReviewAboutPage);
-app.post('/loadReviewByPage', review.loadReviewAboutPage);
+app.post('/loadReviewByPage', review.loadReviewByPage);
 app.post('/uploadProfileImage',account.uploadProfileImage );
 app.post('/loadProfilePhotoPage',account.loadProfilePhotoPage);
 

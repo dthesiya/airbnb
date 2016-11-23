@@ -130,7 +130,7 @@ cnn.on('ready', function () {
             util.log(util.format(deliveryInfo.routingKey, message));
             util.log("Message: " + JSON.stringify(message));
             util.log("DeliveryInfo: " + JSON.stringify(deliveryInfo));
-            review.loadReviewAboutPage_queue(message, function (err, res) {
+            review.loadReviewAboutPage(message, function (err, res) {
                 //return index sent
                 cnn.publish(m.replyTo, res, {
                     contentType: 'application/json',
@@ -147,7 +147,7 @@ cnn.on('ready', function () {
             util.log(util.format(deliveryInfo.routingKey, message));
             util.log("Message: " + JSON.stringify(message));
             util.log("DeliveryInfo: " + JSON.stringify(deliveryInfo));
-            review.loadReviewByPage_queue(message, function (err, res) {
+            review.loadReviewByPage(message, function (err, res) {
                 //return index sent
                 cnn.publish(m.replyTo, res, {
                     contentType: 'application/json',

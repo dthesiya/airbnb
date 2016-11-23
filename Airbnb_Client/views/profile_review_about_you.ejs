@@ -169,34 +169,36 @@
                                 </div>
                                 <div class="panel-body">
                                     <p class="text-lead">
-                                        You will see all past reviews here. Any hidden reviews indicate that you still need to complete a review and that the review period (14 days after checkout) is still open.
+                                        You will see all past reviews here.
                                     </p>
                                     <ul class="list-layout reviews-list row-space-top-4">
-                                        <li class="media reviews-list-item row-space-top-2">
+                                        <li class="media reviews-list-item row-space-top-2" ng-repeat="fromuser in fromUserReview">
                                             <div class="pull-left text-center">
-                                                <a class="media-photo media-round" href="http://makent.trioangle.com/users/show/10004">
-                                                    <img width="68" height="68" title="Mick" src="http://makent.trioangle.com/images/users/10004/profile_pic_1462134332.jpg" alt="Mick">
-                                                </a>                  <div class="name"><a class="text-muted" href="http://makent.trioangle.com/users/show/10004">Mick Hans</a></div>
+                                                <a class="media-photo media-round" href="#">
+                                                    <img width="68" height="68" title="Mick" src="" alt="Mick">
+                                                </a>
+                                                <div class="name"><a class="text-muted" href="#">{{fromuser.userId.firstName}} {{fromuser.userId.lastName}}</a></div>
                                             </div>
                                             <div class="media-body response">
-                                                <p>its good</p>
+                                                <p>{{fromuser.review}}</p>
                                                 <hr>
 
                                                 <div class="row-space-top-2">
                                                     <p>
                                                         <strong>
                                                             <i aria-label="Private" data-behavior="tooltip" class="icon icon-lock icon-rausch"></i>
-                                                            Value feedback:
+                                                            Rating: {{fromuser.rating}}
                                                         </strong>
                                                         <br>
-                                                        its good
+
                                                     </p>
                                                 </div>
                                                 <p class="clearfix text-muted">
-                                                    May 2016
+                                                   date: {{fromuser.createdDate}}
                                                 </p>
                                             </div>
                                         </li>
+
                                     </ul>
 
 
@@ -215,34 +217,36 @@
                                 </div>
                                 <div class="panel-body">
                                     <p class="text-lead">
-                                        You will see all past reviews here. Any hidden reviews indicate that you still need to complete a review and that the review period (14 days after checkout) is still open.
+                                        You will see all past reviews here.
                                     </p>
                                     <ul class="list-layout reviews-list row-space-top-4">
-                                        <li class="media reviews-list-item row-space-top-2">
+                                        <li class="media reviews-list-item row-space-top-2" ng-repeat="fromhost in fromHostReview">
                                             <div class="pull-left text-center">
-                                                <a class="media-photo media-round" href="http://makent.trioangle.com/users/show/10004">
-                                                    <img width="68" height="68" title="Mick" src="http://makent.trioangle.com/images/users/10004/profile_pic_1462134332.jpg" alt="Mick">
-                                                </a>                  <div class="name"><a class="text-muted" href="http://makent.trioangle.com/users/show/10004">Mick Hans</a></div>
+                                                <a class="media-photo media-round" href="#">
+                                                    <img width="68" height="68" title="Mick" src="" alt="Mick">
+                                                </a>
+                                                <div class="name"><a class="text-muted" href="#">{{fromhost.hostId.firstName}} {{fromhost.hostId.lastName}}</a></div>
                                             </div>
                                             <div class="media-body response">
-                                                <p>its good</p>
+                                                <p>{{fromhost.review}}</p>
                                                 <hr>
 
                                                 <div class="row-space-top-2">
                                                     <p>
                                                         <strong>
                                                             <i aria-label="Private" data-behavior="tooltip" class="icon icon-lock icon-rausch"></i>
-                                                            Value feedback:
+                                                            Rating: {{fromhost.rating}}
                                                         </strong>
                                                         <br>
-                                                        its good
+
                                                     </p>
                                                 </div>
                                                 <p class="clearfix text-muted">
-                                                    May 2016
+                                                    date: {{fromhost.createdDate}}
                                                 </p>
                                             </div>
                                         </li>
+
                                     </ul>
 
 
