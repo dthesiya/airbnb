@@ -42,22 +42,17 @@ exports.doLogin = function (msg, callback) {
 
 exports.registerUser = function (msg, callback) {
 
-    var firstName = msg.firstName;
-    var lastName = msg.lastName;
-    var email = msg.email;
+    var firstName = msg.first_name;
+    var lastName = msg.last_name;
+    var email = msg.email_id;
     var password = msg.password;
-
-
-    console.log('In register user');
-    var salt = bcrypt.genSaltSync(10);
-    var passwordToSave = bcrypt.hashSync(password, salt);
 
     var userDetails = new User();
 
     userDetails.firstName = firstName;
     userDetails.lastName = lastName;
     userDetails.email = email;
-    userDetails.password = passwordToSave;
+    userDetails.password = password;
     userDetails.userId = ssn.generate();
 
     console.log("SSN" + userDetails.userId+email);
