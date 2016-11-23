@@ -18,13 +18,13 @@ require('./passport')(passport);
 
 exports.loginpg = function (req, res) {
     var sess = req.session;
-    var user_data ={
-        "email" : sess.email,
-        "isLoggedIn" : sess.isLoggedIn,
-        "firstname" : sess.firstName
+    var user_data = {
+        "email": sess.email,
+        "isLoggedIn": sess.isLoggedIn,
+        "firstname": sess.firstName
     };
-    ejs.renderFile('../views/login.ejs', user_data,function (err,result) {
-        if(err){
+    ejs.renderFile('../views/login.ejs', user_data, function (err, result) {
+        if (err) {
 
         } else {
 
@@ -81,7 +81,7 @@ exports.signout = function (req, res) {
 };
 
 
-exports.registerUser = function(req, res) {
+exports.registerUser = function (req, res) {
 
     var f_name = req.body.first_name;
     var l_name = req.body.last_name;
@@ -92,41 +92,41 @@ exports.registerUser = function(req, res) {
     var salt = bcrypt.genSaltSync(10);
     var passwordToSave = bcrypt.hashSync(pwd, salt);
     var msg_payload = {
-            first_name : f_name,
-            last_name : l_name,
-            email_id : email_id,
-            password : passwordToSave
-        };
+        firstName: f_name,
+        lastName: l_name,
+        email_id: email_id,
+        password: passwordToSave
+    };
 
-        mq_client.make_request('register_queue',msg_payload, function(err,results){
-            if(err){
-                res.json({
-                    success : false,
-                    message : 'Error in registration.'
-                });
-                res.end();
-            }
-            if(results){
+    mq_client.make_request('register_queue', msg_payload, function (err, results) {
+        if (err) {
+            res.json({
+                success: false,
+                message: 'Error in registration.'
+            });
+            res.end();
+        }
+        if (results) {
 
-                sess.userSSN = results.userId;
-                sess.firstName = results.firstName;
-                sess.lastName = results.lastName;
-                sess.userId = results._id;
-                sess.email = results.email;
-                sess.isLoggedIn = true;
-                res.json({
-                    success : true,
-                    message : 'Registered'
-                });
-                res.end();
-            }else{
-                res.json({
-                    success : false,
-                    message : 'User exist'
-                });
-                res.end();
-            }
-        });
+            sess.userSSN = results.userId;
+            sess.firstName = results.firstName;
+            sess.lastName = results.lastName;
+            sess.userId = results._id;
+            sess.email = results.email;
+            sess.isLoggedIn = true;
+            res.json({
+                success: true,
+                message: 'Registered'
+            });
+            res.end();
+        } else {
+            res.json({
+                success: false,
+                message: 'User exist'
+            });
+            res.end();
+        }
+    });
 
 };
 
