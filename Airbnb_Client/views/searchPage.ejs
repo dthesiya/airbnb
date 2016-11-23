@@ -128,14 +128,14 @@
                                     <label for="map-search-checkin" class="screen-reader-only">
                                         Check In
                                     </label>
-                                    <input  ng-model="checkin" autocomplete="off" id="checkin" type="text" ng-change="search_result();" class="checkin tour-target ui-datepicker-target" placeholder="Check In" ng-init="checkin = ''">
+                                    <input  ng-model="checkin" autocomplete="off" id="checkin" type="text"  class="checkin tour-target ui-datepicker-target" placeholder="Check In" ng-init="checkin = ''">
                                 </div>
 
                                 <div class="col-md-4 col-sm-6 row-space-1-sm">
                                     <label for="map-search-checkout" class="screen-reader-only">
                                         Check Out
                                     </label>
-                                    <input  ng-model="checkout" autocomplete="off" id="checkout" type="text" ng-change="search_result();" class="checkout tour-target ui-datepicker-target" placeholder="Check Out" ng-init="checkout = ''">
+                                    <input  ng-model="checkout" autocomplete="off" id="checkout" type="text" class="checkout tour-target ui-datepicker-target" placeholder="Check Out" ng-init="checkout = ''">
                                 </div>
 
                                 <div class="col-md-4 col-sm-12">
@@ -143,7 +143,7 @@
                                         <label for="guest-select" class="screen-reader-only">
                                             Number of guests
                                         </label>
-                                        <select  ng-model="guests" class="guest-select" id="guest-select" data-prefill="" ng-change="search_result();" ng-init="guests = ''">
+                                        <select  ng-model="guests" class="guest-select" id="guest-select" data-prefill=""  ng-init="guests = ''">
                                             <option value="" disabled>Guest</option>
                                             <option value="1"> 1 Guest </option>
                                             <option value="2"> 2 Guests </option>
@@ -203,21 +203,21 @@
                             <div class="row row-condensed" id="room-options">
                                 <div class="col-middle-alt col-sm-4">
                                     <label class="checkbox panel panel-dark">
-                                        <input class="pull-right room-type" type="checkbox" ng-model="room_type_1" value="1" ng-change="search_result();" ng-checked="" ng-init="room_type_1 = '1'">
+                                        <input class="pull-right room-type" type="checkbox" ng-model="room_type_1" value="1"  ng-checked="" ng-init="room_type_1 = '1'">
                                         <i class="icon icon-entire-place h5 needsclick"></i>
                                         Entire home/apt
                                     </label>
                                 </div>
                                 <div class="col-middle-alt col-sm-4">
                                     <label class="checkbox panel panel-dark">
-                                        <input class="pull-right room-type" type="checkbox" ng-model="room_type_2" value="2" ng-change="search_result();" ng-checked="" ng-init="room_type_2 = '2'">
+                                        <input class="pull-right room-type" type="checkbox" ng-model="room_type_2" value="2"  ng-checked="" ng-init="room_type_2 = '2'">
                                         <i class="icon icon-private-room h5 needsclick"></i>
                                         Private room
                                     </label>
                                 </div>
                                 <div class="col-middle-alt col-sm-4">
                                     <label class="checkbox panel panel-dark">
-                                        <input class="pull-right room-type" type="checkbox" ng-model="room_type_3" value="3" ng-change="search_result();" ng-checked="" ng-init="room_type_3 = '3'">
+                                        <input class="pull-right room-type" type="checkbox" ng-model="room_type_3" value="3"  ng-checked="" ng-init="room_type_3 = '3'">
                                         <i class="icon icon-shared-room h5 needsclick"></i>
                                         Shared room
                                     </label>
