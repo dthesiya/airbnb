@@ -1,11 +1,10 @@
-
 /**
  * http://usejsdoc.org/
  */
 var bcrypt = require('bcryptjs');
 /*var fecha = require('fecha');*/
 /*var mongo = require("./mongo");
-var config = require('./config.js');*/
+ var config = require('./config.js');*/
 var User = require('../model/user');
 var mongoose = require('mongoose');
 var ssn = require('ssn');
@@ -37,11 +36,11 @@ exports.doLogin = function (msg, callback) {
 };
 
 exports.registerUser = function (msg, callback) {
-
     var firstName = msg.firstName;
     var lastName = msg.lastName;
     var email = msg.email_id;
     var password = msg.password;
+
     var userDetails = new User();
 
     userDetails.firstName = firstName;
@@ -50,7 +49,7 @@ exports.registerUser = function (msg, callback) {
     userDetails.password = password;
     userDetails.userId = ssn.generate();
 
-    console.log("SSN" + userDetails.userId+email);
+    console.log("SSN" + userDetails.userId + email);
     User.findOne({email: email}, function (err, result) {
         if (err) {
             callback(err, null);
