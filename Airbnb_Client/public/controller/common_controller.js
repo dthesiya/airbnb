@@ -17,7 +17,7 @@ app.controller('authentication_controller', function ($scope, $window, $location
                 if (data.success) {
                     $window.location.href = "/";
                     $scope.isWrongCredential = false;
-                }else{
+                } else {
                     // $window.location.href = "/login";
                     $scope.isWrongCredential = true;
                 }
@@ -33,14 +33,14 @@ app.controller('authentication_controller', function ($scope, $window, $location
         var pwd = $scope.password;
         var first_name = $scope.first_name;
         var last_name = $scope.last_name;
-        if(email_id && pwd && first_name){
+        if (email_id && pwd && first_name) {
             var d = {email_id: email_id, password: pwd, first_name: first_name, last_name: last_name};
             $http.post('/registerUser', d)
                 .success(function (data) {
                     if (data.success) {
                         $window.location.href = "/";
                         $scope.isUserExist = false;
-                    }else{
+                    } else {
                         $scope.isUserExist = true;
                     }
                 })
@@ -60,10 +60,10 @@ app.controller('account_user_management', function ($scope, $window, $location, 
     $scope.rockerSb = true;
     $scope.rockerSo = false;
     $scope.check = function () {
-        if($scope.new_password != $scope.cpassword){
+        if ($scope.new_password != $scope.cpassword) {
             $scope.rockerSa = true;
             $scope.rockerSb = false;
-        }else {
+        } else {
             $scope.rockerSa = false;
             $scope.rockerSb = true;
         }
@@ -77,11 +77,11 @@ app.controller('account_user_management', function ($scope, $window, $location, 
                 new_password: $scope.new_password
             }
         }).success(function (result) {
-            if(result == "valid"){
+            if (result == "valid") {
                 $scope.rockerSo = false;
                 $scope.alert1 = true;
                 $window.location.assign('/Account_Security');
-            }else if(result == "invalid"){
+            } else if (result == "invalid") {
                 $scope.alert1 = false;
                 $scope.rockerSo = true;
             }
@@ -98,7 +98,7 @@ app.controller('account_user_management', function ($scope, $window, $location, 
         $http({
             method: "POST",
             url: '/paymentMethodUpdate',
-            params:{
+            params: {
                 cvv: $scope.ccv,
                 cno: $scope.cnum,
                 expm: $scope.expMonth,
@@ -106,7 +106,7 @@ app.controller('account_user_management', function ($scope, $window, $location, 
 
             }
         }).success(function (result) {
-            if(result=="OK"){
+            if (result == "OK") {
                 console.log("ok result");
                 $scope.alert2 = true;
             }
@@ -118,32 +118,32 @@ app.controller('account_user_management', function ($scope, $window, $location, 
 });
 
 /*
+ app.controller('search-page', ['$scope', '$http', '$compile', '$filter', function ($scope, $http, $compile, $filter) {
+
+
+ var current_url = (window.location.href).replace('/search', '/searchResult');
+ $http.get(current_url).then(function(response) {
+ // $scope.room_result = response;
+ $('.search-results').removeClass('loading');
+ no_results();
+ $scope.room_result = response.data;
+ $scope.totalPages   = response.data.last_page;
+ $scope.currentPage  = response.data.current_page;
+
+ // marker(response.data);
+ });
+
+ function no_results() {
+ if($('.search-results').hasClass('loading'))
+ $('#no_results').hide();
+ else
+ $('#no_results').show();
+ }
+ }]);
+ */
+
+
 app.controller('search-page', ['$scope', '$http', '$compile', '$filter', function ($scope, $http, $compile, $filter) {
-
-
-    var current_url = (window.location.href).replace('/search', '/searchResult');
-    $http.get(current_url).then(function(response) {
-        // $scope.room_result = response;
-        $('.search-results').removeClass('loading');
-        no_results();
-        $scope.room_result = response.data;
-        $scope.totalPages   = response.data.last_page;
-        $scope.currentPage  = response.data.current_page;
-
-        // marker(response.data);
-    });
-
-    function no_results() {
-        if($('.search-results').hasClass('loading'))
-            $('#no_results').hide();
-        else
-            $('#no_results').show();
-    }
-}]);
-*/
-
-
-app.controller('search-page', ['$scope', '$http', '$compile', '$filter', function($scope, $http, $compile, $filter) {
 
     $scope.current_date = new Date();
 
@@ -151,9 +151,9 @@ app.controller('search-page', ['$scope', '$http', '$compile', '$filter', functio
     $scope.currentPage = 1;
     $scope.range = [];
 
-    $(document).on('click', '[id^="wishlist-widget-icon-"]', function() {
-        if(typeof USER_ID == 'object') {
-            window.location.href = APP_URL+'/login';
+    $(document).on('click', '[id^="wishlist-widget-icon-"]', function () {
+        if (typeof USER_ID == 'object') {
+            window.location.href = APP_URL + '/login';
             return false;
         }
         var name = $(this).data('name');
@@ -162,8 +162,8 @@ app.controller('search-page', ['$scope', '$http', '$compile', '$filter', functio
         var host_img = $(this).data('host_img');
         $scope.room_id = $(this).data('room_id');
 
-        $('.background-listing-img').css('background-image','url('+img+')');
-        $('.host-profile-img').attr('src',host_img);
+        $('.background-listing-img').css('background-image', 'url(' + img + ')');
+        $('.host-profile-img').attr('src', host_img);
         $('.wl-modal-listing__name').text(name);
         $('.wl-modal-listing__address').text(address);
         $('.wl-modal-footer__input').val(address);
@@ -171,36 +171,40 @@ app.controller('search-page', ['$scope', '$http', '$compile', '$filter', functio
         $('.wl-modal__modal').removeClass('hide');
         $('.wl-modal__col:nth-child(2)').addClass('hide');
         $('.row-margin-zero').append('<div id="wish-list-signup-container" style="overflow-y:auto;" class="col-lg-5 wl-modal__col-collapsible"> <div class="loading wl-modal__col"> </div> </div>');
-        $http.get(APP_URL+"/wishlist_list?id="+$(this).data('room_id'), {  }).then(function(response)
-        {
+        $http.get(APP_URL + "/wishlist_list?id=" + $(this).data('room_id'), {}).then(function (response) {
             $('#wish-list-signup-container').remove();
             $('.wl-modal__col:nth-child(2)').removeClass('hide');
             $scope.wishlist_list = response.data;
         });
     });
 
-    $scope.wishlist_row_select = function(index) {
+    $scope.wishlist_row_select = function (index) {
 
-        $http.post(APP_URL+"/save_wishlist", { data: $scope.room_id, wishlist_id: $scope.wishlist_list[index].id, saved_id: $scope.wishlist_list[index].saved_id }).then(function(response)
-        {
-            if(response.data == 'null')
+        $http.post(APP_URL + "/save_wishlist", {
+            data: $scope.room_id,
+            wishlist_id: $scope.wishlist_list[index].id,
+            saved_id: $scope.wishlist_list[index].saved_id
+        }).then(function (response) {
+            if (response.data == 'null')
                 $scope.wishlist_list[index].saved_id = null;
             else
                 $scope.wishlist_list[index].saved_id = response.data;
         });
 
-        if($('#wishlist_row_'+index).hasClass('text-dark-gray'))
+        if ($('#wishlist_row_' + index).hasClass('text-dark-gray'))
             $scope.wishlist_list[index].saved_id = null;
         else
             $scope.wishlist_list[index].saved_id = 1;
     };
 
-    $(document).on('submit', '.wl-modal-footer__form', function(event) {
+    $(document).on('submit', '.wl-modal-footer__form', function (event) {
         event.preventDefault();
         $('.wl-modal__col:nth-child(2)').addClass('hide');
         $('.row-margin-zero').append('<div id="wish-list-signup-container" style="overflow-y:auto;" class="col-lg-5 wl-modal__col-collapsible"> <div class="loading wl-modal__col"> </div> </div>');
-        $http.post(APP_URL+"/wishlist_create", { data: $('.wl-modal-footer__input').val(), id: $scope.room_id }).then(function(response)
-        {
+        $http.post(APP_URL + "/wishlist_create", {
+            data: $('.wl-modal-footer__input').val(),
+            id: $scope.room_id
+        }).then(function (response) {
             $('.wl-modal-footer__form').addClass('hide');
             $('#wish-list-signup-container').remove();
             $('.wl-modal__col:nth-child(2)').removeClass('hide');
@@ -210,20 +214,19 @@ app.controller('search-page', ['$scope', '$http', '$compile', '$filter', functio
         event.preventDefault();
     });
 
-    $('.wl-modal__modal-close').click(function()
-    {
-        var null_count = $filter('filter')($scope.wishlist_list, {saved_id : null});
+    $('.wl-modal__modal-close').click(function () {
+        var null_count = $filter('filter')($scope.wishlist_list, {saved_id: null});
 
-        if(null_count.length == $scope.wishlist_list.length)
-            $('#wishlist-widget-'+$scope.room_id).prop('checked', false);
+        if (null_count.length == $scope.wishlist_list.length)
+            $('#wishlist-widget-' + $scope.room_id).prop('checked', false);
         else
-            $('#wishlist-widget-'+$scope.room_id).prop('checked', true);
+            $('#wishlist-widget-' + $scope.room_id).prop('checked', true);
 
         $('.wl-modal__modal').addClass('hide');
     });
 
     function no_results() {
-        if($('.search-results').hasClass('loading'))
+        if ($('.search-results').hasClass('loading'))
             $('#no_results').hide();
         else
             $('#no_results').show();
@@ -236,53 +239,52 @@ app.controller('search-page', ['$scope', '$http', '$compile', '$filter', functio
 
     pageNumber = 1;
 
-    if(pageNumber===undefined){
+    if (pageNumber === undefined) {
         pageNumber = '1';
     }
 
 
-
-    $(document).ready(function(){
+    $(document).ready(function () {
         localStorage.removeItem("map_lat_long");
         var room_type = [];
-        $('.room-type:checked').each(function(i){
+        $('.room-type:checked').each(function (i) {
             room_type[i] = $(this).val();
         });
 
         var property_type = [];
-        $('.property_type:checked').each(function(i){
+        $('.property_type:checked').each(function (i) {
             property_type[i] = $(this).val();
         });
 
         var amenities = [];
-        $('.amenities:checked').each(function(i){
+        $('.amenities:checked').each(function (i) {
             amenities[i] = $(this).val();
         });
         $('.search_tag').addClass('hide');
 
-        if(room_type !=''){
+        if (room_type != '') {
             $('.room-type_tag').removeClass('hide');
         }
-        if(amenities !=''){
+        if (amenities != '') {
             $('.amenities_tag').removeClass('hide');
         }
-        if(property_type != ''){
+        if (property_type != '') {
             $('.property_type_tag').removeClass('hide');
         }
 
         $('.search-results').addClass('loading');
         no_results();
-        $http.get(current_url).then(function(response) {
+        $http.get(current_url).then(function (response) {
             // $scope.room_result = response;
             $('.search-results').removeClass('loading');
             no_results();
             $scope.room_result = response.data;
-            $scope.totalPages   = response.data.last_page;
-            $scope.currentPage  = response.data.current_page;
+            $scope.totalPages = response.data.last_page;
+            $scope.currentPage = response.data.current_page;
             // Pagination Range
             var pages = [];
 
-            for(var i=1;i<=response.data.last_page;i++) {
+            for (var i = 1; i <= response.data.last_page; i++) {
                 pages.push(i);
             }
 
@@ -292,37 +294,33 @@ app.controller('search-page', ['$scope', '$http', '$compile', '$filter', functio
         });
         var location_val = $("#location").val();
         $("#header-search-form").val(location_val);
-        $( "#slider-3" ).slider({
-            range:true,
+        $("#slider-3").slider({
+            range: true,
             min: min_slider_price,
             max: max_slider_price,
-            values: [ min_slider_price_value, max_slider_price_value ],
-            slide: function( event, ui ) {
-                $("#min_value").val(ui.values[ 0 ]);
-                $("#min_text").val(ui.values[ 0 ]);
+            values: [min_slider_price_value, max_slider_price_value],
+            slide: function (event, ui) {
+                $("#min_value").val(ui.values[0]);
+                $("#min_text").val(ui.values[0]);
 
-                if(max_slider_price == ui.values[1])
-                {
-                    $("#max_text").html(ui.values[ 1 ]+'+');
+                if (max_slider_price == ui.values[1]) {
+                    $("#max_text").html(ui.values[1] + '+');
                 }
-                else
-                {
-                    $("#max_text").html(ui.values[ 1 ]);
+                else {
+                    $("#max_text").html(ui.values[1]);
                 }
-                $("#max_value").val(ui.values[ 1 ]);
+                $("#max_value").val(ui.values[1]);
             },
-            stop: function( event, ui ) {
-                $("#min_value").val(ui.values[ 0 ]);
-                $("#min_text").html(ui.values[ 0 ]);
-                if(max_slider_price == ui.values[1])
-                {
-                    $("#max_text").html(ui.values[ 1 ]+'+');
+            stop: function (event, ui) {
+                $("#min_value").val(ui.values[0]);
+                $("#min_text").html(ui.values[0]);
+                if (max_slider_price == ui.values[1]) {
+                    $("#max_text").html(ui.values[1] + '+');
                 }
-                else
-                {
-                    $("#max_text").html(ui.values[ 1 ]);
+                else {
+                    $("#max_text").html(ui.values[1]);
                 }
-                $("#max_value").val(ui.values[ 1 ]);
+                $("#max_value").val(ui.values[1]);
                 $scope.search_result();
             }
         }).find(".ui-slider-handle").removeClass("ui-slider-handle").removeClass("ui-state-default").removeClass("ui-corner-all").addClass("airslide-handle");
@@ -335,13 +333,13 @@ app.controller('search-page', ['$scope', '$http', '$compile', '$filter', functio
 
         $('.airslide-progress').css('z-index', '1');
 
-        $('.show-more').click(function(){
+        $('.show-more').click(function () {
             $(this).children('span').toggleClass('hide');
             $(this).parent().parent().children('div').children().toggleClass('filters-more');
         });
 
 
-        $("#more_filters").click(function(){
+        $("#more_filters").click(function () {
 
             $(".toggle-group").css("display", "block");
             $(".toggle-hide").css("display", "none");
@@ -357,7 +355,7 @@ app.controller('search-page', ['$scope', '$http', '$compile', '$filter', functio
     };
     $scope.search_result = function (pageNumber) {
 
-        if(pageNumber===undefined){
+        if (pageNumber === undefined) {
             pageNumber = '1';
         }
 
@@ -365,26 +363,26 @@ app.controller('search-page', ['$scope', '$http', '$compile', '$filter', functio
         var min_price = $("#min_value").val();
 
         var room_type = [];
-        $('.room-type:checked').each(function(i){
+        $('.room-type:checked').each(function (i) {
             room_type[i] = $(this).val();
         });
         //alert(room_type);
-        if(room_type==''){
+        if (room_type == '') {
             $('.room-type_tag').addClass('hide');
         }
 
         var property_type = [];
-        $('.property_type:checked').each(function(i){
+        $('.property_type:checked').each(function (i) {
             property_type[i] = $(this).val();
         });
-        if(property_type ==''){
+        if (property_type == '') {
             $('.property_type_tag').addClass('hide');
         }
         var amenities = [];
-        $('.amenities:checked').each(function(i){
+        $('.amenities:checked').each(function (i) {
             amenities[i] = $(this).val();
         });
-        if(amenities ==''){
+        if (amenities == '') {
             $('.amenities_tag').addClass('hide');
         }
         var checkin = $('#checkin').val();
@@ -395,12 +393,11 @@ app.controller('search-page', ['$scope', '$http', '$compile', '$filter', functio
         var min_bedrooms = $("#map-search-min-bedrooms").val();
         var guest_select = $("#guest-select").val();
 
-        if( $.trim(localStorage.getItem("map_lat_long")) != 'null'){
+        if ($.trim(localStorage.getItem("map_lat_long")) != 'null') {
             var map_details = localStorage.getItem("map_lat_long");
         }
-        else
-        {
-            var map_details	= "";
+        else {
+            var map_details = "";
         }
 
         instant_book = $('#instant_book:checked').val() == 1 ? 1 : 0;
@@ -413,13 +410,13 @@ app.controller('search-page', ['$scope', '$http', '$compile', '$filter', functio
 
         $('.search_tag').addClass('hide');
 
-        if(room_type !=''){
+        if (room_type != '') {
             $('.room-type_tag').removeClass('hide');
         }
-        if(amenities !=''){
+        if (amenities != '') {
             $('.amenities_tag').removeClass('hide');
         }
-        if(property_type != ''){
+        if (property_type != '') {
             $('.property_type_tag').removeClass('hide');
         }
 
@@ -427,61 +424,56 @@ app.controller('search-page', ['$scope', '$http', '$compile', '$filter', functio
 
         $('.search-results').addClass('loading');
         no_results();
-        $http.get(current_url).then(function(response) {
+        $http.get(current_url).then(function (response) {
 
-                //  $scope.room_result = response;
-                // alert(response.data[0].rooms_address.city);
-                $scope.room_result = response.data;
-                $scope.checkin = checkin;
-                $scope.checkout = checkout;
-                $scope.totalPages   = response.data.last_page;
-                $scope.currentPage  = response.data.current_page;
-                // Pagination Range
-                var pages = [];
+            //  $scope.room_result = response;
+            // alert(response.data[0].rooms_address.city);
+            $scope.room_result = response.data;
+            $scope.checkin = checkin;
+            $scope.checkout = checkout;
+            $scope.totalPages = response.data.last_page;
+            $scope.currentPage = response.data.current_page;
+            // Pagination Range
+            var pages = [];
 
-                for(var i=1;i<=response.data.last_page;i++) {
-                    pages.push(i);
-                }
+            for (var i = 1; i <= response.data.last_page; i++) {
+                pages.push(i);
+            }
 
-                $scope.range = pages;
+            $scope.range = pages;
 
-                $('.search-results').removeClass('loading');
-                no_results();
-                marker(response.data);
-            });
+            $('.search-results').removeClass('loading');
+            no_results();
+            marker(response.data);
+        });
     };
 
-    $scope.apply_filter = function()
-    {
+    $scope.apply_filter = function () {
         $(".toggle-hide").css("display", "block");
         $(".toggle-group").css("display", "none");
 
         $scope.search_result();
     };
-    $scope.remove_filter = function(parameter)
-    {
-        $('.'+parameter).removeAttr('checked');
+    $scope.remove_filter = function (parameter) {
+        $('.' + parameter).removeAttr('checked');
         var paramName = parameter.replace('-', '_');
         var paramValue = '';
         setGetParameter(paramName, paramValue)
-        $('.'+parameter+'_tag').addClass('hide');
+        $('.' + parameter + '_tag').addClass('hide');
 
         $scope.search_result();
     };
-    function setGetParameter(paramName, paramValue)
-    {
+    function setGetParameter(paramName, paramValue) {
         var url = window.location.href;
 
-        if (url.indexOf(paramName + "=") >= 0)
-        {
+        if (url.indexOf(paramName + "=") >= 0) {
             var prefix = url.substring(0, url.indexOf(paramName));
             var suffix = url.substring(url.indexOf(paramName));
             suffix = suffix.substring(suffix.indexOf("=") + 1);
             suffix = (suffix.indexOf("&") >= 0) ? suffix.substring(suffix.indexOf("&")) : "";
             url = prefix + paramName + "=" + paramValue + suffix;
         }
-        else
-        {
+        else {
             if (url.indexOf("?") < 0)
                 url += "?" + paramName + "=" + paramValue;
             else
@@ -489,6 +481,7 @@ app.controller('search-page', ['$scope', '$http', '$compile', '$filter', functio
         }
         history.pushState(null, null, url);
     }
+
     function getParameterByName(name) {
         name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
         var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
@@ -504,7 +497,7 @@ app.controller('search-page', ['$scope', '$http', '$compile', '$filter', functio
     var infoBubble;
     var bounds;
 
-    angular.forEach(viewport, function(key, value) {
+    angular.forEach(viewport, function (key, value) {
         lat0 = viewport['southwest']['lat'];
         long0 = viewport['southwest']['lng'];
         lat1 = viewport['northeast']['lat'];
@@ -518,7 +511,7 @@ app.controller('search-page', ['$scope', '$http', '$compile', '$filter', functio
 
     $scope.viewport = bounds;
 
-    setTimeout(function() {
+    setTimeout(function () {
         initialize();
         initializeMap();
     }, 1000);
@@ -529,13 +522,13 @@ app.controller('search-page', ['$scope', '$http', '$compile', '$filter', functio
         // to geographical location types.
         autocomplete = new google.maps.places.Autocomplete(
             /** @type {HTMLInputElement} */(document.getElementById('header-search-form')),
-            { types: ['geocode'] });
-        google.maps.event.addListener(autocomplete, 'place_changed', function() {
-            var location  = $('#header-search-form').val();
+            {types: ['geocode']});
+        google.maps.event.addListener(autocomplete, 'place_changed', function () {
+            var location = $('#header-search-form').val();
             var locations = location.replace(" ", "+");
             setGetParameter('location', locations);
             var place = autocomplete.getPlace();
-            var latitude  = place.geometry.location.lat();
+            var latitude = place.geometry.location.lat();
             var longitude = place.geometry.location.lng();
 
             if (place && place.geometry && place.geometry.viewport)
@@ -551,7 +544,7 @@ app.controller('search-page', ['$scope', '$http', '$compile', '$filter', functio
 
     $scope.zoom = '';
     $scope.cLat = '';
-    $scope.cLong= '';
+    $scope.cLong = '';
     var html = '';
     var markers = [];
     var map;
@@ -562,50 +555,46 @@ app.controller('search-page', ['$scope', '$http', '$compile', '$filter', functio
 
     initialize();
 
-    function initialize()
-    {
+    function initialize() {
 
-        if($scope.zoom == ''){
+        if ($scope.zoom == '') {
             var zoom_set = 10;
         }
-        else
-        {
+        else {
             var zoom_set = $scope.zoom;
         }
-        if($("#lat").val() == 0)
-        {
+        if ($("#lat").val() == 0) {
             var zoom_set = 1;
         }
-        if($scope.cLat == '' && $scope.cLong == '' ){
+        if ($scope.cLat == '' && $scope.cLong == '') {
             var latitude = $("#lat").val();
             var longitude = $("#long").val();
         }
-        else
-        {
+        else {
             var latitude = $scope.cLat;
             var longitude = $scope.cLong;
         }
 
-        var myCenter=new google.maps.LatLng(latitude,longitude);
+        var myCenter = new google.maps.LatLng(latitude, longitude);
 
         var mapProp = {
             scrollwheel: false,
-            center:myCenter,
-            zoom:zoom_set,
+            center: myCenter,
+            zoom: zoom_set,
             zoomControl: true,
             zoomControlOptions: {
                 position: google.maps.ControlPosition.LEFT_TOP,
-                style:google.maps.ZoomControlStyle.SMALL
+                style: google.maps.ZoomControlStyle.SMALL
             },
             mapTypeControl: false,
             streetViewControl: false,
             navigationControl: false,
         }
-        map = new google.maps.Map(document.getElementById("map_canvas"),mapProp);
+        map = new google.maps.Map(document.getElementById("map_canvas"), mapProp);
 
         map.fitBounds($scope.viewport);
 
-        google.maps.event.addListener(map, 'click', function() {
+        google.maps.event.addListener(map, 'click', function () {
             if (infoBubble.isOpen()) {
                 infoBubble.close();
                 infoBubble = new InfoBubble({
@@ -618,7 +607,7 @@ app.controller('search-page', ['$scope', '$http', '$compile', '$filter', functio
 //  homeControlDiv.index = 1;
         map.controls[google.maps.ControlPosition.LEFT_TOP].push(homeControlDiv);
 
-        google.maps.event.addListener(map, 'dragend', function() {
+        google.maps.event.addListener(map, 'dragend', function () {
             //alert('dsfd');
             if (infoBubble.isOpen()) {
                 infoBubble.close();
@@ -640,23 +629,23 @@ app.controller('search-page', ['$scope', '$http', '$compile', '$filter', functio
             $scope.cLat = bounds.getCenter().lat();
             $scope.cLong = bounds.getCenter().lng();
 
-            var map_lat_long = zoom+'~'+bounds+'~'+minLat+'~'+minLong+'~'+maxLat+'~'+maxLong+'~'+cLat+'~'+cLong;
+            var map_lat_long = zoom + '~' + bounds + '~' + minLat + '~' + minLong + '~' + maxLat + '~' + maxLong + '~' + cLat + '~' + cLong;
             //alert(map_lat_long);
             localStorage.setItem("map_lat_long", map_lat_long);
             var redo_search = '';
-            $('.map-auto-refresh-checkbox:checked').each(function(i){
+            $('.map-auto-refresh-checkbox:checked').each(function (i) {
                 redo_search = $(this).val();
             });
             //alert(redo_search);
-            if(redo_search == 'true'){
+            if (redo_search == 'true') {
                 $scope.search_result();
-            }else{
+            } else {
                 $(".map-auto-refresh").addClass('hide');
                 $(".map-manual-refresh").removeClass('hide');
             }
-        } );
+        });
 
-        google.maps.event.addListener(map, 'click', function() {
+        google.maps.event.addListener(map, 'click', function () {
             if (infoBubble.isOpen()) {
                 infoBubble.close();
                 infoBubble = new InfoBubble({
@@ -664,7 +653,7 @@ app.controller('search-page', ['$scope', '$http', '$compile', '$filter', functio
                 });
             }
         });
-        google.maps.event.addListener(map, 'zoom_changed', function() {
+        google.maps.event.addListener(map, 'zoom_changed', function () {
             if (infoBubble.isOpen()) {
                 infoBubble.close();
                 infoBubble = new InfoBubble({
@@ -683,16 +672,16 @@ app.controller('search-page', ['$scope', '$http', '$compile', '$filter', functio
             var cLong = bounds.getCenter().lng();
             $scope.cLat = bounds.getCenter().lat();
             $scope.cLong = bounds.getCenter().lng();
-            var map_lat_long = zoom+'~'+bounds+'~'+minLat+'~'+minLong+'~'+maxLat+'~'+maxLong+'~'+cLat+'~'+cLong;
+            var map_lat_long = zoom + '~' + bounds + '~' + minLat + '~' + minLong + '~' + maxLat + '~' + maxLong + '~' + cLat + '~' + cLong;
             localStorage.setItem("map_lat_long", map_lat_long);
             var redo_search = '';
-            $('.map-auto-refresh-checkbox:checked').each(function(i){
+            $('.map-auto-refresh-checkbox:checked').each(function (i) {
                 redo_search = $(this).val();
             });
             //  alert(redo_search);
-            if(redo_search == 'true'){
+            if (redo_search == 'true') {
                 $scope.search_result();
-            }else{
+            } else {
                 $(".map-auto-refresh").addClass('hide');
                 $(".map-manual-refresh").removeClass('hide');
             }
@@ -701,56 +690,58 @@ app.controller('search-page', ['$scope', '$http', '$compile', '$filter', functio
 
 //marker(response);
     }
+
     function HomeControl(controlDiv, map) {
         var controlText = document.createElement('div');
         controlText.style.position = 'relative';
         controlText.style.padding = '5px';
         controlText.style.margin = '-65px 0px 0px 50px';
-        controlText.style.fontSize='14px';
+        controlText.style.fontSize = '14px';
         controlText.innerHTML = '<div class="map-refresh-controls google"><a   class="map-manual-refresh btn btn-primary  hide" style="background-color:#ff5a5f;color: #ffffff;">Redo Search Here<i class="icon icon-refresh icon-space-left"></i></a><div class="panel map-auto-refresh"><label class="checkbox"><input type="checkbox" checked="checked" name="redo_search" value="true" class="map-auto-refresh-checkbox"><small>Search as I move the map</small></label></div></div>'
         controlDiv.appendChild(controlText);
 
         // Setup click-event listener: simply set the map to London
-        google.maps.event.addDomListener(controlText, 'click', function() {
+        google.maps.event.addDomListener(controlText, 'click', function () {
         });
     }
-    function marker(response){
+
+    function marker(response) {
         var checkout = $scope.checkout;
         var checkin = $scope.checkin;
         var guests = $scope.guests;
         setAllMap(null);
         markers = [];
-        angular.forEach(response.data, function(obj){
+        angular.forEach(response.data, function (obj) {
 
-            var html = '<div id="info_window_'+obj["id"]+'" class="listing listing-map-popover" data-price="'+obj["rooms_price"]["currency"]["symbol"]+'" data-id="'+obj["id"]+'" data-user="'+obj["user_id"]+'" data-url="/rooms/'+obj["id"]+'" data-name="'+obj["name"]+'" data-lng="'+obj['rooms_address']["longitude"]+'" data-lat="'+obj['rooms_address']["latitude"]+'"><div class="panel-image listing-img">';
-            html += '<a class="media-photo media-cover" target="listing_'+obj["id"]+'" href="'+APP_URL+'/rooms/'+obj["id"]+'?checkin='+checkin+'&checkout='+checkout+'&guests='+guests+'"><div class="listing-img-container media-cover text-center"><img id="marker_image_'+obj["id"]+'" rooms_image = "" alt="'+obj["name"]+'" class="img-responsive-height" data-current="0" src="'+APP_URL+'/images/'+obj["photo_name"]+'"></div></a>';
-            html += '<div class="target-prev target-control block-link marker_slider" ng-click="marker_slider($event)"  data-room_id="'+obj["id"]+'"><i class="icon icon-chevron-left icon-size-2 icon-white"></i></div><a class="link-reset panel-overlay-bottom-left panel-overlay-label panel-overlay-listing-label" target="listing_'+obj["id"]+'" href="'+APP_URL+'/rooms/'+obj["id"]+'?checkin='+checkin+'&checkout='+checkout+'&guests='+guests+'"><div>';
+            var html = '<div id="info_window_' + obj["id"] + '" class="listing listing-map-popover" data-price="' + obj["rooms_price"]["currency"]["symbol"] + '" data-id="' + obj["id"] + '" data-user="' + obj["user_id"] + '" data-url="/rooms/' + obj["id"] + '" data-name="' + obj["name"] + '" data-lng="' + obj['rooms_address']["longitude"] + '" data-lat="' + obj['rooms_address']["latitude"] + '"><div class="panel-image listing-img">';
+            html += '<a class="media-photo media-cover" target="listing_' + obj["id"] + '" href="' + APP_URL + '/rooms/' + obj["id"] + '?checkin=' + checkin + '&checkout=' + checkout + '&guests=' + guests + '"><div class="listing-img-container media-cover text-center"><img id="marker_image_' + obj["id"] + '" rooms_image = "" alt="' + obj["name"] + '" class="img-responsive-height" data-current="0" src="' + APP_URL + '/images/' + obj["photo_name"] + '"></div></a>';
+            html += '<div class="target-prev target-control block-link marker_slider" ng-click="marker_slider($event)"  data-room_id="' + obj["id"] + '"><i class="icon icon-chevron-left icon-size-2 icon-white"></i></div><a class="link-reset panel-overlay-bottom-left panel-overlay-label panel-overlay-listing-label" target="listing_' + obj["id"] + '" href="' + APP_URL + '/rooms/' + obj["id"] + '?checkin=' + checkin + '&checkout=' + checkout + '&guests=' + guests + '"><div>';
 
             var instant_book = '';
 
-            if(obj["booking_type"] == 'instant_book')
+            if (obj["booking_type"] == 'instant_book')
                 instant_book = '<span aria-label="Book Instantly" data-behavior="tooltip" class="h3 icon-beach"><i class="icon icon-instant-book icon-flush-sides"></i></span>';
 
-            html += '<sup class="h6 text-contrast">'+obj["rooms_price"]["currency"]["symbol"]+'</sup><span class="h3 text-contrast price-amount">'+obj["rooms_price"]["night"]+'</span><sup class="h6 text-contrast"></sup>'+instant_book+'</div></a><div class="target-next target-control marker_slider block-link" ng-click="marker_slider($event)" data-room_id="'+obj["id"]+'"><i class="icon icon-chevron-right icon-size-2 icon-white"></i></div></div>';
-            html += '<div class="panel-body panel-card-section"><div class="media"><h3 class="h5 listing-name text-truncate row-space-top-1" itemprop="name" title="'+obj["name"]+'">'+obj["name"]+'</a></h3>';
+            html += '<sup class="h6 text-contrast">' + obj["rooms_price"]["currency"]["symbol"] + '</sup><span class="h3 text-contrast price-amount">' + obj["rooms_price"]["night"] + '</span><sup class="h6 text-contrast"></sup>' + instant_book + '</div></a><div class="target-next target-control marker_slider block-link" ng-click="marker_slider($event)" data-room_id="' + obj["id"] + '"><i class="icon icon-chevron-right icon-size-2 icon-white"></i></div></div>';
+            html += '<div class="panel-body panel-card-section"><div class="media"><h3 class="h5 listing-name text-truncate row-space-top-1" itemprop="name" title="' + obj["name"] + '">' + obj["name"] + '</a></h3>';
 
             var star_rating = '';
 
-            if(obj['overall_star_rating'] != '')
-                star_rating = ' · '+obj['overall_star_rating'];
+            if (obj['overall_star_rating'] != '')
+                star_rating = ' · ' + obj['overall_star_rating'];
 
             var reviews_count = '';
             var review_plural = (obj['reviews_count'] > 1) ? 's' : '';
 
-            if(obj['reviews_count'] != 0)
-                reviews_count = ' · '+obj['reviews_count']+' review'+review_plural;
+            if (obj['reviews_count'] != 0)
+                reviews_count = ' · ' + obj['reviews_count'] + ' review' + review_plural;
 
-            html += '<div class="text-muted listing-location text-truncate" itemprop="description"><a class="text-normal link-reset" href="'+APP_URL+'/rooms/'+obj["id"]+'?checkin='+checkin+'&checkout='+checkout+'&guests='+guests+'">'+obj["room_type_name"]+star_rating+reviews_count+'</a></div></div></div></div>';
+            html += '<div class="text-muted listing-location text-truncate" itemprop="description"><a class="text-normal link-reset" href="' + APP_URL + '/rooms/' + obj["id"] + '?checkin=' + checkin + '&checkout=' + checkout + '&guests=' + guests + '">' + obj["room_type_name"] + star_rating + reviews_count + '</a></div></div></div></div>';
             var lat = obj["rooms_address"]["latitude"];
             var lng = obj["rooms_address"]["longitude"];
-            var point = new google.maps.LatLng(lat,lng);
+            var point = new google.maps.LatLng(lat, lng);
             var name = obj["name"];
-            var currency_symbol = obj["rooms_price"]["currency"]["symbol"] ;
+            var currency_symbol = obj["rooms_price"]["currency"]["symbol"];
             var currency_value = obj["rooms_price"]["night"];
             var marker = new google.maps.Marker({
                 position: point,
@@ -760,23 +751,24 @@ app.controller('search-page', ['$scope', '$http', '$compile', '$filter', functio
                 zIndex: 1
             });
             markers.push(marker);
-            google.maps.event.addListener(marker, "mouseover", function() {
+            google.maps.event.addListener(marker, "mouseover", function () {
                 marker.setIcon(getMarkerImage('hover'));
             });
-            google.maps.event.addListener(marker, "mouseout", function() {
+            google.maps.event.addListener(marker, "mouseout", function () {
                 marker.setIcon(getMarkerImage('normal'));
             });
             createInfoWindow(marker, html);
 
         });
     }
+
     function createInfoWindow(marker, popupContent) {
         infoBubble = new InfoBubble({
             maxWidth: 3000
         });
 
         var contentString = $compile(popupContent)($scope);
-        google.maps.event.addListener(marker, 'click', function() {
+        google.maps.event.addListener(marker, 'click', function () {
 
             if (infoBubble.isOpen()) {
                 infoBubble.close();
@@ -800,40 +792,38 @@ app.controller('search-page', ['$scope', '$http', '$compile', '$filter', functio
             var minHeight = 245;
             infoBubble.setMinHeight(minHeight);
 
-            infoBubble.open(map,marker);
+            infoBubble.open(map, marker);
         });
     }
 
     function getMarkerImage(type) {
         var image = 'map-pin-set-3460214b477748232858bedae3955d81.png';
 
-        if(type == 'hover')
+        if (type == 'hover')
             image = 'hover-map-pin-set-3460214b477748232858bedae3955d81.png';
 
-        var gicons = new google.maps.MarkerImage("images/"+image,
+        var gicons = new google.maps.MarkerImage("images/" + image,
             new google.maps.Size(50, 50),
-            new google.maps.Point(0,0),
+            new google.maps.Point(0, 0),
             new google.maps.Point(9, 20));
 
         return gicons;
 
     }
+
     function setAllMap(map) {
         for (var i = 0; i < markers.length; i++) {
             markers[i].setMap(map);
         }
     }
 
-    $('.footer-toggle').click(function()
-    {
-        $( ".footer-container" ).slideToggle( "fast", function() {
-            if($(".footer-container").is(":visible"))
-            {
+    $('.footer-toggle').click(function () {
+        $(".footer-container").slideToggle("fast", function () {
+            if ($(".footer-container").is(":visible")) {
                 $('.open-content').hide();
                 $('.close-content').show();
             }
-            else
-            {
+            else {
                 $('.open-content').show();
                 $('.close-content').hide();
             }
@@ -841,306 +831,295 @@ app.controller('search-page', ['$scope', '$http', '$compile', '$filter', functio
     });
 
 
-    $(document).on('click', '.map-manual-refresh', function() {
+    $(document).on('click', '.map-manual-refresh', function () {
         $(".map-manual-refresh").addClass('hide');
         $(".map-auto-refresh").removeClass('hide');
         $scope.search_result();
     });
-    $(document).on('click', '.rooms-slider', function() {
+    $(document).on('click', '.rooms-slider', function () {
 
         var rooms_id = $(this).attr("data-room_id");
-        var dataurl = $("#rooms_image_"+rooms_id).attr("rooms_image");
-        var img_url =$("#rooms_image_"+rooms_id).attr("src");
-        if($.trim(dataurl) ==''){
+        var dataurl = $("#rooms_image_" + rooms_id).attr("rooms_image");
+        var img_url = $("#rooms_image_" + rooms_id).attr("src");
+        if ($.trim(dataurl) == '') {
             $(this).parent().addClass("loading");
             $http.post('rooms_photos', {rooms_id: rooms_id})
-                .then(function(response) {
-                    angular.forEach(response.data, function(obj){
-                        if($.trim(dataurl) ==''){
+                .then(function (response) {
+                    angular.forEach(response.data, function (obj) {
+                        if ($.trim(dataurl) == '') {
                             dataurl = obj['name'];
                         }
                         else
-                            dataurl = dataurl +','+ obj['name'];
+                            dataurl = dataurl + ',' + obj['name'];
                     });
 
-                    $("#rooms_image_"+rooms_id).attr("rooms_image", dataurl);
-                    var img_explode = img_url.split('rooms/'+rooms_id+'/');
+                    $("#rooms_image_" + rooms_id).attr("rooms_image", dataurl);
+                    var img_explode = img_url.split('rooms/' + rooms_id + '/');
 
                     var all_image = dataurl.split(',');
                     var rooms_img_count = all_image.length;
                     var i = 0;
                     var set_img_no = '';
-                    angular.forEach(all_image, function(img){
-                        if($.trim(img) == $.trim(img_explode[1]) ){
+                    angular.forEach(all_image, function (img) {
+                        if ($.trim(img) == $.trim(img_explode[1])) {
                             set_img_no = i;
                         }
                         i++;
                     });
-                    if($(this).is(".target-prev") == true){
-                        var cur_img = set_img_no-1;
-                        var count = rooms_img_count-1;
+                    if ($(this).is(".target-prev") == true) {
+                        var cur_img = set_img_no - 1;
+                        var count = rooms_img_count - 1;
                     }
-                    else{
-                        var cur_img = set_img_no+1;
+                    else {
+                        var cur_img = set_img_no + 1;
                         var count = 0;
                     }
 
-                    if(typeof (all_image[cur_img]) != 'undefined' && $.trim(all_image[cur_img]) !="null" ){
+                    if (typeof (all_image[cur_img]) != 'undefined' && $.trim(all_image[cur_img]) != "null") {
                         var img = all_image[cur_img];
                     }
-                    else
-                    {
+                    else {
 
                         var img = all_image[count];
                     }
 
-                    var set_img_url = img_explode[0]+'rooms/'+rooms_id+'/'+img;
+                    var set_img_url = img_explode[0] + 'rooms/' + rooms_id + '/' + img;
 
                     $(".panel-image").removeClass("loading");
-                    $("#rooms_image_"+rooms_id).attr("src",set_img_url);
+                    $("#rooms_image_" + rooms_id).attr("src", set_img_url);
                 });
         }
-        else
-        {
+        else {
             $(this).parent().addClass("loading");
-            var img_explode = img_url.split('rooms/'+rooms_id+'/');
+            var img_explode = img_url.split('rooms/' + rooms_id + '/');
 
             var all_image = dataurl.split(',');
             var rooms_img_count = all_image.length;
             var i = 0;
             var set_img_no = '';
-            angular.forEach(all_image, function(img){
-                if($.trim(img) == $.trim(img_explode[1]) ){
+            angular.forEach(all_image, function (img) {
+                if ($.trim(img) == $.trim(img_explode[1])) {
                     set_img_no = i;
                 }
                 i++;
             });
-            if($(this).is(".target-prev") == true){
-                var cur_img = set_img_no-1;
-                var count = rooms_img_count-1;
+            if ($(this).is(".target-prev") == true) {
+                var cur_img = set_img_no - 1;
+                var count = rooms_img_count - 1;
             }
-            else{
-                var cur_img = set_img_no+1;
+            else {
+                var cur_img = set_img_no + 1;
                 var count = 0;
             }
 
-            if(typeof (all_image[cur_img]) != 'undefined' && $.trim(all_image[cur_img]) !="null" ){
+            if (typeof (all_image[cur_img]) != 'undefined' && $.trim(all_image[cur_img]) != "null") {
                 var img = all_image[cur_img];
             }
-            else
-            {
+            else {
                 var img = all_image[count];
             }
-            var set_img_url = img_explode[0]+'rooms/'+rooms_id+'/'+img;
+            var set_img_url = img_explode[0] + 'rooms/' + rooms_id + '/' + img;
 
             $(".panel-image").removeClass("loading");
-            $("#rooms_image_"+rooms_id).attr("src",set_img_url);
+            $("#rooms_image_" + rooms_id).attr("src", set_img_url);
 
         }
 
     });
 
 
-    $scope.marker_slider = function($event){
+    $scope.marker_slider = function ($event) {
 
         $event.stopPropagation();
         var this_elm = angular.element($event.currentTarget);
 
         var rooms_id = $($event.currentTarget).attr("data-room_id");
-        var dataurl = $("#marker_image_"+rooms_id).attr("rooms_image");
-        var img_url =$("#marker_image_"+rooms_id).attr("src");
-        if($.trim(dataurl) ==''){
+        var dataurl = $("#marker_image_" + rooms_id).attr("rooms_image");
+        var img_url = $("#marker_image_" + rooms_id).attr("src");
+        if ($.trim(dataurl) == '') {
             $($event.currentTarget).parent().addClass("loading");
             $http.post('rooms_photos', {rooms_id: rooms_id})
-                .then(function(response) {
-                    angular.forEach(response.data, function(obj){
-                        if($.trim(dataurl) ==''){
+                .then(function (response) {
+                    angular.forEach(response.data, function (obj) {
+                        if ($.trim(dataurl) == '') {
                             dataurl = obj['name'];
                         }
                         else
-                            dataurl = dataurl +','+ obj['name'];
+                            dataurl = dataurl + ',' + obj['name'];
                     });
 
-                    $("#marker_image_"+rooms_id).attr("rooms_image", dataurl);
-                    var img_explode = img_url.split('rooms/'+rooms_id+'/');
+                    $("#marker_image_" + rooms_id).attr("rooms_image", dataurl);
+                    var img_explode = img_url.split('rooms/' + rooms_id + '/');
 
                     var all_image = dataurl.split(',');
                     var rooms_img_count = all_image.length;
                     var i = 0;
                     var set_img_no = '';
-                    angular.forEach(all_image, function(img){
-                        if($.trim(img) == $.trim(img_explode[1]) ){
+                    angular.forEach(all_image, function (img) {
+                        if ($.trim(img) == $.trim(img_explode[1])) {
                             set_img_no = i;
                         }
                         i++;
                     });
-                    if($($event.currentTarget).is(".target-prev") == true){
-                        var cur_img = set_img_no-1;
-                        var count = rooms_img_count-1;
+                    if ($($event.currentTarget).is(".target-prev") == true) {
+                        var cur_img = set_img_no - 1;
+                        var count = rooms_img_count - 1;
                     }
-                    else{
-                        var cur_img = set_img_no+1;
+                    else {
+                        var cur_img = set_img_no + 1;
                         var count = 0;
                     }
 
-                    if(typeof (all_image[cur_img]) != 'undefined' && $.trim(all_image[cur_img]) !="null" ){
+                    if (typeof (all_image[cur_img]) != 'undefined' && $.trim(all_image[cur_img]) != "null") {
                         var img = all_image[cur_img];
                     }
-                    else
-                    {
+                    else {
 
                         var img = all_image[count];
                     }
 
-                    var set_img_url = img_explode[0]+'rooms/'+rooms_id+'/'+img;
+                    var set_img_url = img_explode[0] + 'rooms/' + rooms_id + '/' + img;
 
                     $(".panel-image").removeClass("loading");
-                    $("#marker_image_"+rooms_id).attr("src",set_img_url);
+                    $("#marker_image_" + rooms_id).attr("src", set_img_url);
                 });
         }
-        else
-        {
+        else {
             $($event.currentTarget).parent().addClass("loading");
-            var img_explode = img_url.split('rooms/'+rooms_id+'/');
+            var img_explode = img_url.split('rooms/' + rooms_id + '/');
 
             var all_image = dataurl.split(',');
             var rooms_img_count = all_image.length;
             var i = 0;
             var set_img_no = '';
-            angular.forEach(all_image, function(img){
-                if($.trim(img) == $.trim(img_explode[1]) ){
+            angular.forEach(all_image, function (img) {
+                if ($.trim(img) == $.trim(img_explode[1])) {
                     set_img_no = i;
                 }
                 i++;
             });
-            if($($event.currentTarget).is(".target-prev") == true){
-                var cur_img = set_img_no-1;
-                var count = rooms_img_count-1;
+            if ($($event.currentTarget).is(".target-prev") == true) {
+                var cur_img = set_img_no - 1;
+                var count = rooms_img_count - 1;
             }
-            else{
-                var cur_img = set_img_no+1;
+            else {
+                var cur_img = set_img_no + 1;
                 var count = 0;
             }
 
-            if(typeof (all_image[cur_img]) != 'undefined' && $.trim(all_image[cur_img]) !="null" ){
+            if (typeof (all_image[cur_img]) != 'undefined' && $.trim(all_image[cur_img]) != "null") {
                 var img = all_image[cur_img];
             }
-            else
-            {
+            else {
                 var img = all_image[count];
             }
-            var set_img_url = img_explode[0]+'rooms/'+rooms_id+'/'+img;
+            var set_img_url = img_explode[0] + 'rooms/' + rooms_id + '/' + img;
 
             $(".panel-image").removeClass("loading");
-            $("#marker_image_"+rooms_id).attr("src",set_img_url);
+            $("#marker_image_" + rooms_id).attr("src", set_img_url);
 
         }
 
     }
 
-    $(document).on('click', '.marker_slider', function(e) {
+    $(document).on('click', '.marker_slider', function (e) {
         var rooms_id = $(this).attr("data-room_id");
-        var dataurl = $("#marker_image_"+rooms_id).attr("rooms_image");
-        var img_url =$("#marker_image_"+rooms_id).attr("src");
-        if($.trim(dataurl) ==''){
+        var dataurl = $("#marker_image_" + rooms_id).attr("rooms_image");
+        var img_url = $("#marker_image_" + rooms_id).attr("src");
+        if ($.trim(dataurl) == '') {
             $(this).parent().addClass("loading");
             $http.post('rooms_photos', {rooms_id: rooms_id})
-                .then(function(response) {
-                    angular.forEach(response.data, function(obj){
-                        if($.trim(dataurl) ==''){
+                .then(function (response) {
+                    angular.forEach(response.data, function (obj) {
+                        if ($.trim(dataurl) == '') {
                             dataurl = obj['name'];
                         }
                         else
-                            dataurl = dataurl +','+ obj['name'];
+                            dataurl = dataurl + ',' + obj['name'];
                     });
 
-                    $("#marker_image_"+rooms_id).attr("rooms_image", dataurl);
-                    var img_explode = img_url.split('rooms/'+rooms_id+'/');
+                    $("#marker_image_" + rooms_id).attr("rooms_image", dataurl);
+                    var img_explode = img_url.split('rooms/' + rooms_id + '/');
 
                     var all_image = dataurl.split(',');
                     var rooms_img_count = all_image.length;
                     var i = 0;
                     var set_img_no = '';
-                    angular.forEach(all_image, function(img){
-                        if($.trim(img) == $.trim(img_explode[1]) ){
+                    angular.forEach(all_image, function (img) {
+                        if ($.trim(img) == $.trim(img_explode[1])) {
                             set_img_no = i;
                         }
                         i++;
                     });
-                    if($(this).is(".target-prev") == true){
-                        var cur_img = set_img_no-1;
-                        var count = rooms_img_count-1;
+                    if ($(this).is(".target-prev") == true) {
+                        var cur_img = set_img_no - 1;
+                        var count = rooms_img_count - 1;
                     }
-                    else{
-                        var cur_img = set_img_no+1;
+                    else {
+                        var cur_img = set_img_no + 1;
                         var count = 0;
                     }
 
-                    if(typeof (all_image[cur_img]) != 'undefined' && $.trim(all_image[cur_img]) !="null" ){
+                    if (typeof (all_image[cur_img]) != 'undefined' && $.trim(all_image[cur_img]) != "null") {
                         var img = all_image[cur_img];
                     }
-                    else
-                    {
+                    else {
 
                         var img = all_image[count];
                     }
 
-                    var set_img_url = img_explode[0]+'rooms/'+rooms_id+'/'+img;
+                    var set_img_url = img_explode[0] + 'rooms/' + rooms_id + '/' + img;
 
                     $(".panel-image").removeClass("loading");
-                    $("#marker_image_"+rooms_id).attr("src",set_img_url);
+                    $("#marker_image_" + rooms_id).attr("src", set_img_url);
                 });
         }
-        else
-        {
+        else {
             $(this).parent().addClass("loading");
-            var img_explode = img_url.split('rooms/'+rooms_id+'/');
+            var img_explode = img_url.split('rooms/' + rooms_id + '/');
 
             var all_image = dataurl.split(',');
             var rooms_img_count = all_image.length;
             var i = 0;
             var set_img_no = '';
-            angular.forEach(all_image, function(img){
-                if($.trim(img) == $.trim(img_explode[1]) ){
+            angular.forEach(all_image, function (img) {
+                if ($.trim(img) == $.trim(img_explode[1])) {
                     set_img_no = i;
                 }
                 i++;
             });
-            if($(this).is(".target-prev") == true){
-                var cur_img = set_img_no-1;
-                var count = rooms_img_count-1;
+            if ($(this).is(".target-prev") == true) {
+                var cur_img = set_img_no - 1;
+                var count = rooms_img_count - 1;
             }
-            else{
-                var cur_img = set_img_no+1;
+            else {
+                var cur_img = set_img_no + 1;
                 var count = 0;
             }
 
-            if(typeof (all_image[cur_img]) != 'undefined' && $.trim(all_image[cur_img]) !="null" ){
+            if (typeof (all_image[cur_img]) != 'undefined' && $.trim(all_image[cur_img]) != "null") {
                 var img = all_image[cur_img];
             }
-            else
-            {
+            else {
                 var img = all_image[count];
             }
-            var set_img_url = img_explode[0]+'rooms/'+rooms_id+'/'+img;
+            var set_img_url = img_explode[0] + 'rooms/' + rooms_id + '/' + img;
 
             $(".panel-image").removeClass("loading");
-            $("#marker_image_"+rooms_id).attr("src",set_img_url);
+            $("#marker_image_" + rooms_id).attr("src", set_img_url);
 
         }
 
     });
-    $(document).on('change', '[id^="map-search"]', function() {
+    $(document).on('change', '[id^="map-search"]', function () {
         var i = 0;
-        $('[id^="map-search"]').each(function() {
-            if($(this).is(':checkbox'))
-            {
-                if($(this).is(':checked'))
-                {
+        $('[id^="map-search"]').each(function () {
+            if ($(this).is(':checkbox')) {
+                if ($(this).is(':checked')) {
                     i++;
                 }
             }
-            else if($(this).val() != '') {
+            else if ($(this).val() != '') {
                 i++
             }
         });
@@ -1152,14 +1131,12 @@ app.controller('search-page', ['$scope', '$http', '$compile', '$filter', functio
         }
     });
 
-    $(document).on('click', '#cancel-filter', function() {
-        $('[id^="map-search"]').each(function() {
-            if($(this).is(':checkbox'))
-            {
+    $(document).on('click', '#cancel-filter', function () {
+        $('[id^="map-search"]').each(function () {
+            if ($(this).is(':checkbox')) {
                 $(this).attr('checked', false);
             }
-            else
-            {
+            else {
                 $(this).val('');
             }
         });
