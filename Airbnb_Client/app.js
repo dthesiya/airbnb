@@ -13,6 +13,8 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 var signin = require('./routes/signin');
 var home = require('./routes/home');
+var search = require('./routes/search');
+var property = require('./routes/property');
 var account_management = require('./routes/account_management');
 
 
@@ -20,14 +22,14 @@ var account_management = require('./routes/account_management');
 var app = express();
 app.use(passport.initialize());
 app.use(session({
-  secret: 'keyboard cat',
-  resave: false,
-  saveUninitialized: true,
-  duration : 30 * 60 * 1000,
-  activeDuration : 5 * 60 * 1000,
-  store : new mongoStore({
-    url : 	"mongodb://team14:airbnb_14@ds011863.mlab.com:11863/airbnb"
-  })
+    secret: 'keyboard cat',
+    resave: false,
+    saveUninitialized: true,
+    duration: 30 * 60 * 1000,
+    activeDuration: 5 * 60 * 1000,
+    store: new mongoStore({
+        url: "mongodb://team14:airbnb_14@ds011863.mlab.com:11863/airbnb"
+    })
 }));
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -37,16 +39,20 @@ app.set('view engine', 'ejs');
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.post('/signin', signin.authenticateUser);
+app.post('/registerUser', signin.registerUser);
 
-
-app.get('/',home.homepg);
-app.get('/signout',signin.signout);
-app.post('/registerUser', signin.registerUser );
+app.get('/searchResult', search.search);
+app.get('/search', search.loadSearchPg);
+app.get('/', home.homepg);
+app.get('/login',signin.loginpg);
+app.get('/signout', signin.signout);
+app.get('/property', property.loadDetailPg);
+app.get('/detail', property.getProperty);
 app.get('/Account_Transactions', account_management.accountPage);
 app.get('/Account_Security', account_management.accountSecurityPage);
 app.get('/Account_Payment_Method', account_management.accountPaymentMethodPage);
@@ -55,7 +61,6 @@ app.post('/paymentMethodUpdate', account_management.updatePaymentMethod);
 
 
 app.get('/signin', isAuthenticated, function(req, res) {
-
   res.redirect('/');
 });
 function isAuthenticated(req, res, next) {
