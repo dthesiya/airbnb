@@ -59,20 +59,20 @@ exports.loadReviewByPage = function (req,res) {
     };
 
 
-    mq_client.make_request('loadReviewByPage_queue', msg_payload, function (err, user) {
+    mq_client.make_request('loadReviewByPage_queue', msg_payload, function (err, result) {
         if(err){
 
             console.log(err);
-            console.log("In err to save");
+            console.log("In err to load review page");
             var json_responses = {"statusCode" : 401};
             res.send(json_responses);
             res.end();
 
         }else{
 
-            console.log("After editing user in client");
+            console.log("After load review page  in client");
             //console.log(user);
-            var json_responses = {"statusCode" : 200};
+            var json_responses = {"statusCode" : 200, "data":result};
             res.send(json_responses);
             res.end();
 

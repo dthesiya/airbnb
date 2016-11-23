@@ -6,6 +6,7 @@ var bcrypt = require('bcryptjs');
 /*var fecha = require('fecha');*/
 /*var mongo = require("./mongo");
  var config = require('./config.js');*/
+
 var userReview = require('../model/userReview');
 var hostReview = require('../model/hostReview');
 var mongoose = require('mongoose');
@@ -13,8 +14,7 @@ var mongoose = require('mongoose');
 
 exports.loadReviewAboutPage = function (msg, callback) {
 
-    var userId='5834da5be3806d3740cc06f3';
-        // msg.userId;
+    var userId=msg.userId;
 
     //reviews from host
     userReview.find({userId:userId}).populate('hostId').exec(function (err, result) {
@@ -29,7 +29,9 @@ exports.loadReviewAboutPage = function (msg, callback) {
 
 
             //reviews from user
-            hostReview.find({userId:userId}).populate('userId').exec(function (err, result1) {
+            console.log("USER ID");
+            console.log(userId);
+            hostReview.find({hostId:userId}).populate('userId').exec(function (err, result1) {
 
                 if(err){
 
@@ -66,4 +68,49 @@ exports.loadReviewByPage = function (msg, callback) {
     var userId = msg.userId;
 
 
+    // review by you to user
+    userReview.find({hostId:userId}).populate('userId').exec(function (err, result) {
+
+        if(err){
+
+            console.log("Getting error in user reviews by page");
+            console.log(err);
+            callback(err,null);
+        }
+        else{
+
+
+            //reviews by you to host
+            hostReview.find({userId:userId}).populate('hostId').exec(function (err, result1) {
+
+                if(err){
+
+                    console.log("Getting error in from user reviews by page in host");
+                    console.log(err);
+                    callback(err,null);
+                }
+                else{
+
+                    console.log("User/Host Reviews got");
+                    console.log(result1);
+                    var json={
+                        "toUserReview":result,
+                        "toHostReview":result1
+                    };
+                    console.log("------------------------------------------------------");
+                    console.log(json);
+                    callback(null,json);
+
+                }
+
+            });
+
+
+        }
+
+    });
+
+    
+    
+    
 };

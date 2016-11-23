@@ -73,6 +73,8 @@ exports.loadEditUserPage = function (req, res) {
         userId: userId
     };
 
+    console.log("USER ID");
+    console.log(userId);
     mq_client.make_request('loadEditUser_queue', msg_payload, function (err, user) {
         if (err) {
             console.log(err);
