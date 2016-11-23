@@ -61,7 +61,8 @@
 <body class="" ng-app="App">
 <%include header.ejs%>
 <%include modal.ejs%>
-<main id="site-content" role="main">
+
+<main id="site-content" role="main" ng-controller="editUser_controller" ng-init="loadProfilePhotoPage()">
 
     <div class="subnav hide-print">
         <div class="page-container-responsive">
@@ -100,14 +101,14 @@
 
 
                         <li>
-                            <a href="#" aria-selected="false" class="sidenav-item">Edit Profile</a>
+                            <a href="/editProfilePage" aria-selected="false" class="sidenav-item">Edit Profile</a>
                         </li>
                         <li>
                             <a href="#" aria-selected="true" class="sidenav-item">Photos</a>
                         </li>
 
                         <li>
-                            <a href="#" aria-selected="false" class="sidenav-item">Reviews</a>
+                            <a href="/getUserReviewAboutPage" aria-selected="false" class="sidenav-item">Reviews</a>
                         </li>
 
 
@@ -128,10 +129,10 @@
                                 <div class="col-lg-4 text-center">
                                     <div data-picture-id="91711885" class="profile_pic_container picture-main space-sm-2 space-md-2">
                                         <div class="media-photo profile-pic-background" style="display:none;">
-                                            <img width="225" height="225" title="Test" src="http://makent.trioangle.com/images/users/10001/profile_pic_1462128586.jpg" alt="Test">
+                                            <img width="225" height="225" title="Test" src="http://localhost:3000/images/{{user.profileImage}}" alt="Test">
                                         </div>
                                         <div class="media-photo media-round">
-                                            <img width="225" height="225" title="Test" src="http://makent.trioangle.com/images/users/10001/profile_pic_1462128586.jpg" alt="Test">
+                                            <img width="225" height="225" title="Test" src="http://localhost:3000/images/{{user.profileImage}}" alt="Test">
                                         </div>
                                     </div>
                                 </div>
@@ -142,13 +143,20 @@
                                     </p>
                                     <div class="row row-condensed">
                                         <div class="col-md-12">
-            <span class="btn btn-block btn-large file-input-container">
-                Upload a file from your computer
-              <form name="ajax_upload_form" method="post" id="ajax_upload_form" enctype="multipart/form-data" action="http://makent.trioangle.com/users/image_upload" accept-charset="UTF-8">
-                  <input type="file" name="profile_pic" id="user_profile_pic">
-              </form>
-              <iframe style="display:none;" name="upload_frame" id="upload_frame"></iframe>
-            </span>
+                                            <form name="ajax_upload_form" method="post" action="uploadProfileImage"  enctype="multipart/form-data"  accept-charset="UTF-8">
+                                             <span class="btn btn-block btn-large file-input-container">
+                                                Upload a file from your computer
+
+                                                <input type="file" name="profile_pic" id="user_profile_pic" file-model="profileImage">
+
+
+                                                <iframe style="display:none;" name="upload_frame" id="upload_frame"></iframe>
+                                             </span>
+                                                <br>
+                                                <div align="center"><button class="btn btn-primary" >Upload</button></div>
+
+                                            </form>
+
                                         </div>
                                     </div>
                                 </div>
@@ -293,9 +301,10 @@
     $.datepicker.setDefaults($.datepicker.regional[ "en" ])
 </script>
 
+<script src="js/common.js"></script>
+<script src="controller/common_controller.js"></script>
 
 
-<script src="http://makent.trioangle.com/js/common.js"></script>
 
 
 <!-- ver. 87c23752f8dfbd60bf83837d2c8b2dcd0ec660a9 -->

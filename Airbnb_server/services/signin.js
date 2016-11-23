@@ -1,14 +1,10 @@
 /**
- * Created by Divya Patel on 11/19/2016.
- */
-
-/**
  * http://usejsdoc.org/
  */
 var bcrypt = require('bcryptjs');
 /*var fecha = require('fecha');*/
 /*var mongo = require("./mongo");
-var config = require('./config.js');*/
+ var config = require('./config.js');*/
 var User = require('../model/user');
 var mongoose = require('mongoose');
 var ssn = require('ssn');
@@ -31,7 +27,6 @@ exports.doLogin = function (msg, callback) {
         if (result) {
             console.log(result);
             if (bcrypt.compareSync(password, result.password)) {
-            // if (password === result.password) {
                 callback(null, result);
             } else {
                 callback(null, null);
@@ -47,6 +42,11 @@ exports.registerUser = function (msg, callback) {
     var email = msg.email_id;
     var password = msg.password;
 
+    var firstName = msg.firstName;
+    var lastName = msg.lastName;
+    var email = msg.email_id;
+    var password = msg.password;
+
     var userDetails = new User();
 
     userDetails.firstName = firstName;
@@ -55,7 +55,7 @@ exports.registerUser = function (msg, callback) {
     userDetails.password = password;
     userDetails.userId = ssn.generate();
 
-    console.log("SSN" + userDetails.userId+email);
+    console.log("SSN" + userDetails.userId + email);
     User.findOne({email: email}, function (err, result) {
         if (err) {
             callback(err, null);

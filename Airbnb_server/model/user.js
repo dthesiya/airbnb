@@ -8,7 +8,7 @@ var userSchema = new Schema({
     lastName: {type: String},
     password: {type: String},
     email: {type: String},
-    address: {type: Date},
+    address: {type: String},
     city: {type: String},
     state: {type: String},
     zip: {type: String},
