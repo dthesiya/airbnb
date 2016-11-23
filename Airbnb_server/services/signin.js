@@ -16,9 +16,9 @@ var ssn = require('ssn');
 exports.doLogin = function (msg, callback) {
     var username = msg.username;
     var password = msg.password;
-    console.log("USERNAME: "+username+" PASSWORD: "+password);
+    console.log("USERNAME: " + username + " PASSWORD: " + password);
 
-    User.findOne({email : username}, function (err, result) {
+    User.findOne({email: username}, function (err, result) {
         if (err) {
 
             console.log("err in find");
@@ -30,16 +30,13 @@ exports.doLogin = function (msg, callback) {
         }
         if (result) {
             console.log(result);
-            //if (bcrypt.compareSync(password, result.password)) {
             if (bcrypt.compareSync(password, result.password)) {
             // if (password === result.password) {
                 callback(null, result);
-
             } else {
                 callback(null, null);
             }
         }
-
     });
 };
 
@@ -87,6 +84,5 @@ exports.registerUser = function (msg, callback) {
         if (result) {
             callback(null, null);
         }
-
     });
 };
