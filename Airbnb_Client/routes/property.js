@@ -10,6 +10,7 @@
 var express = require('express');
 var fecha = require('fecha');
 var mq_client = require("../rpc/client.js");
+var ejs = require("ejs");
 /*var log = require("./log");*/
 /*
  var mongo = require("./mongo");
@@ -18,7 +19,14 @@ var mq_client = require("../rpc/client.js");
 
 
 exports.loadDetailPg = function (req, res) {
-    res.render("../views/detail.ejs");
+    var user_data ={
+        "email" : req.session.email,
+        "isLoggedIn" : req.session.isLoggedIn,
+        "firstname" : req.session.firstName
+    };
+    ejs.renderFile('../views/detail.ejs', user_data,function (err,result) {
+        res.end(result);
+    });
 };
 
 exports.getProperty = function (req, res, next) {
