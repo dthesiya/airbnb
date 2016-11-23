@@ -36,12 +36,6 @@ exports.doLogin = function (msg, callback) {
 };
 
 exports.registerUser = function (msg, callback) {
-
-    var firstName = msg.first_name;
-    var lastName = msg.last_name;
-    var email = msg.email_id;
-    var password = msg.password;
-
     var firstName = msg.firstName;
     var lastName = msg.lastName;
     var email = msg.email_id;
