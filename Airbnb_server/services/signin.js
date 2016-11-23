@@ -1,6 +1,3 @@
-/**
- * Created by Divya Patel on 11/19/2016.
- */
 
 /**
  * http://usejsdoc.org/
@@ -33,6 +30,7 @@ exports.doLogin = function (msg, callback) {
             if (bcrypt.compareSync(password, result.password)) {
             // if (password === result.password) {
                 callback(null, result);
+
             } else {
                 callback(null, null);
             }
