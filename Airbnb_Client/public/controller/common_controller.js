@@ -5,7 +5,7 @@
  * http://usejsdoc.org/
  */
 var app = angular.module('App',[]);
-app.controller('authentication_controller', function($scope,$window,$location,$http) {
+app.controller('authentication_controller', function ($scope, $window, $location, $http) {
 
     $scope.checkLogin = function () {
 
@@ -51,10 +51,6 @@ app.controller('authentication_controller', function($scope,$window,$location,$h
 
     };
 
-    };
-
-
-   
 
 });
 
@@ -83,7 +79,7 @@ app.controller('editUser_controller', function($scope,$window,$location,$http) {
             })
             .error(function(data) {
 
-});
+            });
 
 
     };
@@ -216,6 +212,24 @@ app.controller('editUser_controller', function($scope,$window,$location,$http) {
 
     $scope.loadProfilePhotoPage = function () {
 
+
+        $http.post('/loadProfilePhotoPage')
+            .success(function(data){
+                if(data.statusCode==200){
+
+                    $scope.user=data.data;
+                    console.log("Data is :")
+                    console.log($scope.user);
+
+                }
+                else{
+
+                    console.log("Error in loading profile photo page");
+                }
+            })
+            .error(function(data) {
+
+            });
 
 
 

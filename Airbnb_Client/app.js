@@ -65,6 +65,7 @@ app.get('/detail', property.getProperty);
 app.post('/loadReviewAboutPage', review.loadReviewAboutPage);
 app.post('/loadReviewByPage', review.loadReviewAboutPage);
 app.post('/uploadProfileImage',account.uploadProfileImage );
+app.post('/loadProfilePhotoPage',account.loadProfilePhotoPage);
 
 app.get('/signin', isAuthenticated, function (req, res) {
   

@@ -129,10 +129,10 @@
                                 <div class="col-lg-4 text-center">
                                     <div data-picture-id="91711885" class="profile_pic_container picture-main space-sm-2 space-md-2">
                                         <div class="media-photo profile-pic-background" style="display:none;">
-                                            <img width="225" height="225" title="Test" src="http://makent.trioangle.com/images/users/10001/profile_pic_1462128586.jpg" alt="Test">
+                                            <img width="225" height="225" title="Test" src="http://localhost:3000/images/{{user.profileImage}}" alt="Test">
                                         </div>
                                         <div class="media-photo media-round">
-                                            <img width="225" height="225" title="Test" src="http://makent.trioangle.com/images/users/10001/profile_pic_1462128586.jpg" alt="Test">
+                                            <img width="225" height="225" title="Test" src="http://localhost:3000/images/{{user.profileImage}}" alt="Test">
                                         </div>
                                     </div>
                                 </div>
@@ -152,7 +152,8 @@
 
                                                 <iframe style="display:none;" name="upload_frame" id="upload_frame"></iframe>
                                              </span>
-                                                <button >Upload</button>
+                                                <br>
+                                                <div align="center"><button class="btn btn-primary" >Upload</button></div>
 
                                             </form>
 

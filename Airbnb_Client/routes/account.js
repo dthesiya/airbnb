@@ -67,8 +67,8 @@ exports.getEditProfilePage = function (req,res) {
     var sess = req.session;
     var user_data ={
         "email" : sess.email,
-        "isLoggedIn" : sess.isLoggedIn
-
+        "isLoggedIn" : sess.isLoggedIn,
+        "firstname" : sess.firstName
     };
     ejs.renderFile('../views/profile_edit_profile.ejs', user_data,function (err,result) {
         if(err){
@@ -129,9 +129,10 @@ exports.getUserPhotoPage = function (req,res) {
     var sess = req.session;
     var user_data ={
         "email" : sess.email,
-        "isLoggedIn" : sess.isLoggedIn
-
+        "isLoggedIn" : sess.isLoggedIn,
+        "firstname" : sess.firstName
     };
+
     ejs.renderFile('../views/profile_photo_tab.ejs', user_data,function (err,result) {
         if(err){
 
@@ -160,8 +161,8 @@ exports.getUserReviewAboutPage = function (req,res) {
     var sess = req.session;
     var user_data ={
         "email" : sess.email,
-        "isLoggedIn" : sess.isLoggedIn
-
+        "isLoggedIn" : sess.isLoggedIn,
+        "firstname" : sess.firstName
     };
     ejs.renderFile('../views/profile_review_about_you.ejs', user_data,function (err,result) {
         if(err){
@@ -185,10 +186,10 @@ exports.getUserReviewAboutPage = function (req,res) {
 exports.getUserReviewbyPage = function (req,res) {
 
     var sess = req.session;
-    var user_data = {
-        "email": sess.email,
-        "isLoggedIn": sess.isLoggedIn
-
+    var user_data ={
+        "email" : sess.email,
+        "isLoggedIn" : sess.isLoggedIn,
+        "firstname" : sess.firstName
     };
     ejs.renderFile('../views/profile_review_by_you.ejs', user_data, function (err, result) {
         if (err) {
@@ -220,19 +221,80 @@ exports.uploadProfileImage = function (req,res) {
 
             var fileName= req.session.userId+'.png';
             file = req.files.profile_pic;
-            file.mv('../uploads/'+fileName, function (err) {
+            console.log("File detais");
+            console.log(file);
+            file.mv('../public/images/'+fileName, function (err) {
                 if (err) {
                     console.log("Error in uploading")
                     console.log(err);
                     res.status(500).send(err);
                 }
                 else {
+
                     console.log("File uploaded");
-                    res.end();
+
+                    var userId=req.session.userId;
+
+                    var msg_payload={
+                        userId:userId,
+                        fileName:fileName
+                    };
+
+
+
+                    mq_client.make_request('uploadProfileImage_queue', msg_payload, function (err, user) {
+                        if(err){
+
+                            console.log(err);
+                            console.log("In err to upload imaage user queue");
+                            res.redirect('/getUserPhotoPage')
+
+                        }else{
+
+                            console.log("After uploading image client");
+                            console.log(user);
+                            res.redirect('/getUserPhotoPage')
+
+                        }
+                    });
                 }
             });
 
         }
+};
+
+
+exports.loadProfilePhotoPage = function (req,res) {
+
+
+    var userId=req.session.userId;
+
+    var msg_payload={
+        userId:userId
+    };
+
+
+
+    mq_client.make_request('loadProfilePhotoPage_queue', msg_payload, function (err, user) {
+        if(err){
+
+            console.log(err);
+            console.log("In err to load profile page queue");
+            var json_responses = {"statusCode" : 401};
+            res.send(json_responses);
+            res.end();
+
+        }else{
+
+            console.log("After loading profile photo page in client");
+            console.log(user);
+            var json_responses = {"statusCode" : 200, "data":user};
+            res.send(json_responses);
+            res.end();
+
+        }
+    });
+
 
 
 

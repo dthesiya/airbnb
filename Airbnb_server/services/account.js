@@ -71,3 +71,50 @@ exports.loadEditUserPage = function (msg,callback) {
             }
         });
 };
+
+
+exports.uploadProfileImage = function (msg,callback) {
+
+
+    var userId = msg.userId;
+    var fileName = msg.fileName;
+
+    User.update({_id:userId},
+        {
+            $set:{
+                profileImage:fileName
+            }
+        },
+
+        function (err,user) {
+            if (err) {
+
+                console.log(err);
+                callback(err,null);            }
+            else{
+
+                callback(null,user);
+            }
+        });
+
+};
+
+exports.loadProfilePhotoPage = function (msg,callback) {
+
+    var userId = msg.userId;
+
+    User.findOne({_id:userId}, function (err,user) {
+        if (err) {
+
+            console.log(err);
+            callback(err,null);            }
+        else{
+            console.log("USER IS");
+            console.log(user);
+            callback(null,user);
+        }
+    });
+
+
+
+};
