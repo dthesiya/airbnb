@@ -162,91 +162,79 @@
                 <div id="dashboard-content">
 
                     <div class="row-space-top-4" id="reviews">
-                        <div aria-hidden="false" id="received" role="tabpanel" class="tab-panel" style="">
-                            <div class="panel">
+                        <div  id="received" role="tabpanel" class="tab-panel" style="">
+                            <div class="panel row-space-top-4">
                                 <div class="panel-header">
-                                    Reviews
+                                    Past Reviews You’ve Written to Host
                                 </div>
                                 <div class="panel-body">
-                                    <p class="text-lead">
-                                        You will see all past reviews here. Any hidden reviews indicate that you still need to complete a review and that the review period (14 days after checkout) is still open.
-                                    </p>
-                                    <ul class="list-layout reviews-list row-space-top-4">
-                                        <li class="media reviews-list-item row-space-top-2">
-                                            <div class="pull-left text-center">
-                                                <a class="media-photo media-round" href="http://makent.trioangle.com/users/show/10004">
-                                                    <img width="68" height="68" title="Mick" src="http://makent.trioangle.com/images/users/10004/profile_pic_1462134332.jpg" alt="Mick">
-                                                </a>                  <div class="name"><a class="text-muted" href="http://makent.trioangle.com/users/show/10004">Mick Hans</a></div>
-                                            </div>
-                                            <div class="media-body response">
-                                                <p>its good</p>
-                                                <hr>
-
-                                                <div class="row-space-top-2">
-                                                    <p>
-                                                        <strong>
-                                                            <i aria-label="Private" data-behavior="tooltip" class="icon icon-lock icon-rausch"></i>
-                                                            Value feedback:
-                                                        </strong>
-                                                        <br>
-                                                        its good
-                                                    </p>
-                                                </div>
+                                    <ul class="list-layout reviews-list">
+                                        <li class="reviews-list-item media row-space-top-2" ng-repeat="review in toHostReview">
+                                            <a class="media-photo media-round pull-left row-space-top-0" href="">
+                                                <img width="50" height="50" title="Mick" src="" alt="Mick">
+                                            </a>                <div class="media-body">
+                                                <h5>
+                                                    Review for <a class="text-normal" href="#">{{review.hostId.firstName}} {{review.hostId.lastName}}</a>
+                                                </h5>
+                                                <p>
+                                                    {{review.review}}
+                                                </p>
+                                                <p>
+                                                    rating {{review.rating}}
+                                                </p>
                                                 <p class="clearfix text-muted">
-                                                    May 2016
+                                                    date {{review.createdDate}}
                                                 </p>
                                             </div>
                                         </li>
                                     </ul>
-
-
                                 </div>
                             </div>
-                        </div>
-
-
-
-                        <div id="sent" aria-hidden="true" role="tabpanel" class="tab-panel" style="">
-                            <div class="panel">
-                                <div class="panel-header">
-                                    Reviews to Write
-                                </div>
-                                <div class="panel-body">
-                                    <ul class="list-layout reviews-list">
-                                        <li class="reviews-list-item">
-                                            Nobody to review right now. Looks like it&rsquo;s time for another trip!
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <div class="panel row-space-top-4">
-                                <div class="panel-header">
-                                    Past Reviews You&rsquo;ve Written
-                                </div>
-                                <div class="panel-body">
-                                    <ul class="list-layout reviews-list">
-                                        <li class="reviews-list-item media row-space-top-2">
-                                            <a class="media-photo media-round pull-left row-space-top-0" href="http://makent.trioangle.com/users/show/10004">
-                                                <img width="50" height="50" title="Mick" src="http://makent.trioangle.com/images/users/10004/profile_pic_1462134332.jpg" alt="Mick">
-                                            </a>                <div class="media-body">
-                                            <h5>
-                                                Review for <a class="text-normal" href="http://makent.trioangle.com/users/show/10004">Mick</a>
-                                            </h5>
-                                            <p>
-                                                its good
-                                            </p>
-                                            <p class="clearfix text-muted">
-                                                May 2016
-                                            </p>
-                                        </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-
                         </div>
                     </div>
+
+
+
+
+                    <div class="row-space-top-4" id="reviews">
+                        <div  id="received" role="tabpanel" class="tab-panel" style="">
+                            <div class="panel row-space-top-4">
+                                <div class="panel-header">
+                                    Past Reviews You’ve Written to User
+                                </div>
+                                <div class="panel-body">
+                                    <ul class="list-layout reviews-list">
+                                        <li class="reviews-list-item media row-space-top-2" ng-repeat="review in toUserReview">
+                                            <a class="media-photo media-round pull-left row-space-top-0" href="">
+                                                <img width="50" height="50" title="Mick" src="" alt="Mick">
+                                            </a>                <div class="media-body">
+                                                <h5>
+                                                    Review for <a class="text-normal" href="#">{{review.userId.firstName}} {{review.userId.lastName}}</a>
+                                                </h5>
+                                                <p>
+                                                    {{review.review}}
+                                                </p>
+                                                <p>
+                                                    rating {{review.rating}}
+                                                </p>
+                                                <p class="clearfix text-muted">
+                                                    date {{review.createdDate}}
+                                                </p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+                    </div>
+
+
+
+
                 </div>
             </div>
         </div>
