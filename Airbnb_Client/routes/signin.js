@@ -107,7 +107,6 @@ exports.registerUser = function (req, res) {
             res.end();
         }
         if (results) {
-
             sess.userSSN = results.userId;
             sess.firstName = results.firstName;
             sess.lastName = results.lastName;
