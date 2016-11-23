@@ -1,7 +1,7 @@
-
 <!DOCTYPE html>
 
-<html  lang="en-IN" xmlns:fb="http://ogp.me/ns/fb#"><!--<![endif]--><head>
+<html lang="en-IN" xmlns:fb="http://ogp.me/ns/fb#"><!--<![endif]-->
+<head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link rel="dns-prefetch" href="https://maps.googleapis.com/">
     <link rel="dns-prefetch" href="https://maps.gstatic.com/">
@@ -36,38 +36,15 @@
     <![endif]-->
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <style type="text/css">
-        .ui-selecting { background: #FECA40; }
-        .ui-selected { background: #F39814; color: white; }
+        .ui-selecting {
+            background: #FECA40;
+        }
+
+        .ui-selected {
+            background: #F39814;
+            color: white;
+        }
     </style>
 
     <title>Transaction History </title>
@@ -91,10 +68,10 @@
 
 </head>
 <body class="" ng-app="App">
-<%include header.ejs%>
-<%include modal.ejs%>
+<% include header.ejs %>
+<% include modal.ejs %>
 
-<main id="site-content" role="main" ng-controller="transaction_history">
+<main id="site-content" role="main" ng-controller="account_user_management">
 
     <div class="subnav hide-print">
         <div class="page-container-responsive">
@@ -127,24 +104,19 @@
                 <ul class="sidenav-list">
 
 
-
-
-
-
-
                     <li>
                         <a href="/Account_Payment_Method" aria-selected="false" class="sidenav-item">Payment Method</a>
                     </li>
 
                     <li>
-                        <a href="/Account_Transactions" aria-selected="true" class="sidenav-item">Transaction History</a>
+                        <a href="/Account_Transactions" aria-selected="true" class="sidenav-item">Transaction
+                            History</a>
                     </li>
 
 
                     <li>
                         <a href="/Account_Security" aria-selected="false" class="sidenav-item">Security</a>
                     </li>
-
 
 
                 </ul>
@@ -170,11 +142,11 @@
                                 </thead>
                                 <tbody>
                                 <tr ng-repeat="x in payin">
-                                    <td>John</td>
-                                    <td>Doe</td>
-                                    <td>john@example.com</td>
-                                    <td>xyz</td>
-                                    <td>abc</td>
+                                    <td>{{x.createdDate}}</td>
+                                    <td>Credit Card</td>
+                                    <td>{{x.propertyId.name }}</td>
+                                    <td>{{x.total}}</td>
+                                    <td>{{x.userId.firstName}}</td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -193,11 +165,11 @@
                                 </thead>
                                 <tbody>
                                 <tr ng-repeat="x in payout">
-                                    <td>John</td>
-                                    <td>Doe</td>
-                                    <td>john@example.com</td>
-                                    <td>xyz</td>
-                                    <td>abc</td>
+                                    <td>{{x.createdDate}}</td>
+                                    <td>Credit Card</td>
+                                    <td>{{x.propertyId.name }}</td>
+                                    <td>{{x.total}}</td>
+                                    <td>{{x.hostId.firstName}}</td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -212,7 +184,7 @@
 
 </main>
 
-<%include footer.ejs%>
+<% include footer.ejs %>
 
 <div id="gmap-preload" class="hide"></div>
 
@@ -220,7 +192,8 @@
 
 <div id="fb-root"></div>
 
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBXyRBiyRcEzHDJ8iU00zECMUP4cXBIm6A&sensor=false&libraries=places"></script>
+<script type="text/javascript"
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBXyRBiyRcEzHDJ8iU00zECMUP4cXBIm6A&sensor=false&libraries=places"></script>
 
 <script src="http://makent.trioangle.com/js/jquery-1.11.3.js"></script>
 
@@ -240,80 +213,79 @@
 
 
 <script type="text/javascript">
-    $(document).ready(function() {
-        $('.login_popup_head').click(function(e){
+    $(document).ready(function () {
+        $('.login_popup_head').click(function (e) {
             e.preventDefault();
             $("body").addClass("pos-fix");
             $(".login_popup").show();
             $(".signup_popup").hide();
             $(".signup_popup2").hide();
         });
-        $('.login-close').click(function(event){
+        $('.login-close').click(function (event) {
             $("body").removeClass("pos-fix");
             $(".login_popup").hide();
         });
-        $('.top-home').click(function(event){
+        $('.top-home').click(function (event) {
             event.stopPropagation();
         });
     });
 </script>
 
 <script type="text/javascript">
-    $(document).ready(function() {
-        $('.forgot-password-popup').click(function(e){
+    $(document).ready(function () {
+        $('.forgot-password-popup').click(function (e) {
             e.preventDefault();
             $("body").addClass("pos-fix");
             $(".login_popup").hide();
             $(".forgot-passward").show();
         });
-        $('.login-close').click(function(event){
+        $('.login-close').click(function (event) {
             $("body").removeClass("pos-fix");
             $(".forgot-passward").hide();
         });
-        $('.top-home').click(function(event){
+        $('.top-home').click(function (event) {
             event.stopPropagation();
         });
     });
 </script>
 <script type="text/javascript">
-    $(document).ready(function() {
-        $('.signup_popup_head').click(function(e){
+    $(document).ready(function () {
+        $('.signup_popup_head').click(function (e) {
             e.preventDefault();
             $("body").addClass("pos-fix");
             $(".signup_popup").show();
             $(".login_popup").hide();
         });
-        $('.login-close').click(function(){
+        $('.login-close').click(function () {
             $("body").removeClass("pos-fix");
             $(".signup_popup").hide();
         });
-        $('.top-home').click(function(event){
+        $('.top-home').click(function (event) {
             event.stopPropagation();
         });
     });
 </script>
 <script type="text/javascript">
-    $(document).ready(function() {
-        $('.signup_popup_head2').click(function(e){
+    $(document).ready(function () {
+        $('.signup_popup_head2').click(function (e) {
             e.preventDefault();
             $("body").addClass("pos-fix");
             $(".signup_popup2").show();
             $(".signup_popup").hide();
         });
-        $('.login-close').click(function(){
+        $('.login-close').click(function () {
             $("body").removeClass("pos-fix");
             $(".signup_popup2").hide();
         });
-        $('.top-home').click(function(event){
+        $('.top-home').click(function (event) {
             event.stopPropagation();
         });
     });
 </script>
 <script type="text/javascript">
-    $(document).ready(function() {
-        $('ul.menu-group li a').click(function()
-        {
-            $('.nav--sm').css('visibility','hidden');
+    $(document).ready(function () {
+        $('ul.menu-group li a').click(function () {
+            $('.nav--sm').css('visibility', 'hidden');
         });
     });
 </script>
@@ -321,9 +293,8 @@
     var app = angular.module('App', ['ngSanitize']);
     var APP_URL = "http:\/\/makent.trioangle.com";
     var USER_ID = 10001
-    $.datepicker.setDefaults($.datepicker.regional[ "en" ])
+    $.datepicker.setDefaults($.datepicker.regional["en"])
 </script>
-
 
 
 <script type="application/javascript" src="js/common.js"></script>
@@ -331,18 +302,9 @@
 <script type="application/javascript" src="controller/common_controller.js"></script>
 
 
-
-
-
-
-
-
-
-
-
-
-
 <!-- ver. 87c23752f8dfbd60bf83837d2c8b2dcd0ec660a9 -->
 <div class="tooltip tooltip-bottom-middle" role="tooltip" aria-hidden="true">
     <p class="panel-body">To sign up, you must be 18 or older. Other people won’t see your birthday.</p>
-</div></body></html>
+</div>
+</body>
+</html>

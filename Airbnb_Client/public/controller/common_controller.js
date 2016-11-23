@@ -115,6 +115,30 @@ app.controller('account_user_management', function ($scope, $window, $location, 
         })
     }
 
+    //transaction code
+
+    $http({
+        method: "GET",
+        url: '/payinTransaction',
+        params: {}
+    }).success(function (result) {
+        $scope.payin = result;
+        console.log(result);
+    }).error(function (err) {
+        console.log(err);
+    });
+
+    $http({
+        method: "GET",
+        url: '/payoutTransaction',
+        params: {}
+    }).success(function (result) {
+        $scope.payout = result;
+        console.log(result);
+    }).error(function (err) {
+        console.log(err);
+    });
+
 });
 
 /*
