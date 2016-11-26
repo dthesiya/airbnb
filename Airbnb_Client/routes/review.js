@@ -9,76 +9,89 @@ var fecha = require('fecha');
 var mq_client = require("../rpc/client.js");
 var ejs = require('ejs');
 
-exports.loadReviewAboutPage = function (req,res) {
+exports.loadReviewAboutPage = function (req, res) {
 
 
-   
-    var userId=req.session.userId;
+    var userId = req.session.userId;
 
-    var msg_payload={
-        
-        userId:userId
+    var msg_payload = {
+
+        userId: userId
     };
 
 
     mq_client.make_request('loadReviewAboutPage_queue', msg_payload, function (err, user) {
-        if(err){
+        if (err) {
 
             console.log(err);
             console.log("In err to save");
-            var json_responses = {"statusCode" : 401};
+            var json_responses = {"statusCode": 401};
             res.send(json_responses);
             res.end();
 
-        }else{
+        } else {
 
             console.log("After editing user in client");
             //console.log(user);
-            var json_responses = {"statusCode" : 200};
+            var json_responses = {"statusCode": 200};
             res.send(json_responses);
             res.end();
 
         }
     });
-
 
 
 };
 
 
-
-exports.loadReviewByPage = function (req,res) {
-
+exports.loadReviewByPage = function (req, res) {
 
 
-    var userId=req.session.userId;
+    var userId = req.session.userId;
 
-    var msg_payload={
+    var msg_payload = {
 
-        userId:userId
+        userId: userId
     };
 
 
     mq_client.make_request('loadReviewByPage_queue', msg_payload, function (err, user) {
-        if(err){
+        if (err) {
 
             console.log(err);
             console.log("In err to save");
-            var json_responses = {"statusCode" : 401};
+            var json_responses = {"statusCode": 401};
             res.send(json_responses);
             res.end();
 
-        }else{
+        } else {
 
             console.log("After editing user in client");
             //console.log(user);
-            var json_responses = {"statusCode" : 200};
+            var json_responses = {"statusCode": 200};
             res.send(json_responses);
             res.end();
 
         }
     });
+};
 
+exports.getHostReviewsCount = function (req, res) {
 
+    var propertyId = req.param("propertyId");
 
+    var msg_payload = {
+        propertyId: propertyId
+    };
+
+    mq_client.make_request('hostReviewsCount_queue', msg_payload, function (err, result) {
+        if (err) {
+            console.log(err);
+            res.send({"statusCode": 401});
+            res.end();
+
+        } else {
+            res.send(result);
+        }
+    });
 };

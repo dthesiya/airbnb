@@ -19,23 +19,22 @@ var ejs = require("ejs");
 
 
 exports.loadDetailPg = function (req, res) {
-    var user_data ={
-        "email" : req.session.email,
-        "isLoggedIn" : req.session.isLoggedIn,
-        "firstname" : req.session.firstName
+    var user_data = {
+        "email": req.session.email,
+        "isLoggedIn": req.session.isLoggedIn,
+        "firstname": req.session.firstName
     };
-    ejs.renderFile('../views/detail.ejs', user_data,function (err,result) {
+    ejs.renderFile('../views/detail.ejs', user_data, function (err, result) {
         res.end(result);
     });
 };
 
 exports.getProperty = function (req, res, next) {
-    var id = req.param("id");
+    var id = req.param("propertyId");
 
     var msg_payload = {
         id: id
     };
-
 
     mq_client.make_request('property_detail_queue', msg_payload, function (err, result) {
         if (err) {

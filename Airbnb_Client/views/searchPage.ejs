@@ -47,8 +47,15 @@
 
 
     <style type="text/css">
-        .ui-selecting { background: #FECA40; }
-        .ui-selected { background: #F39814; color: white; }
+        .ui-selecting {
+            background: #FECA40;
+        }
+
+        .ui-selected {
+            background: #F39814;
+            color: white;
+        }
+
         .labels {
             color: white;
             background-color: red;
@@ -1000,11 +1007,14 @@
                                         <a href="/property?propertyId={{rooms.id}}" target="listing_{{ rooms.id }}"
                                            class="media-photo media-cover">
                                             <div class="listing-img-container media-cover text-center">
-                                                <img id="rooms_image_{{ rooms.id}}"  src="http://localhost:3000/images/{{ rooms.photo_name }}" class="img-responsive-height" alt="{{ rooms.name }}">
+                                                <img id="rooms_image_{{ rooms.id}}"
+                                                     src="http://localhost:3000/images/{{ rooms.photo_name }}"
+                                                     class="img-responsive-height" alt="{{ rooms.name }}">
                                             </div>
                                         </a>
 
-                                        <div class="target-prev target-control rooms-slider block-link" data-room_images="{{rooms.images}}" data-room_id="{{rooms.id}}">
+                                        <div class="target-prev target-control rooms-slider block-link"
+                                             data-room_images="{{rooms.images}}" data-room_id="{{rooms.id}}">
                                             <i class="icon icon-chevron-left icon-size-2 icon-white"></i>
                                         </div>
 
@@ -1023,7 +1033,8 @@
                                             </div>
 
                                         </a>
-                                        <div class="target-next target-control rooms-slider block-link"  data-room_images="{{rooms.images}}" data-room_id="{{rooms.id}}">
+                                        <div class="target-next target-control rooms-slider block-link"
+                                             data-room_images="{{rooms.images}}" data-room_id="{{rooms.id}}">
                                             <i class="icon icon-chevron-right icon-size-2 icon-white"></i>
                                         </div>
 
@@ -1053,13 +1064,13 @@
 
                                     <div class="panel-body panel-card-section">
                                         <div class="media">
-                                            <a href="/profile?hostId={{rooms.id}}"
+                                            <a href="/profile?hostId={{rooms.users.id}}"
                                                class="media-photo-badge pull-right card-profile-picture card-profile-picture-offset">
                                                 <div class="media-photo media-round">
-                                                    <img src="{{ rooms.users.profile_picture.src }}" alt="">
+                                                    <img src="images/{{rooms.users.profile_picture.src}}" alt="">
                                                 </div>
                                             </a>
-                                            <a href="/property?propertyId={{rooms.id}}" target="listing_{{ rooms.id }}"
+                                            <a href="/property?propertyId={{rooms.id}}" target="listing_{{rooms.id}}"
                                                class="text-normal">
                                                 <h3 title="{{ rooms.name }}" itemprop="name"
                                                     class="h5 listing-name text-truncate row-space-top-1">
@@ -1067,15 +1078,12 @@
                                                 </h3>
                                             </a>
                                             <div itemprop="description"
-                                                 class="text-muted listing-location text-truncate"><a
-                                                        href="http://makent.trioangle.com/rooms/{{ rooms.id }}?checkin={{ checkin }}&checkout={{ checkout }}&guests={{ guests }}"
-                                                        class="text-normal link-reset">
-                                                    {{ rooms.room_type_name }}
-                                                    <span ng-show="rooms.overall_star_rating">
-  ·
-  <span ng-bind-html="rooms.overall_star_rating"></span>
-  </span>
-                                                    <span ng-show="rooms.reviews_count">
+                                                 class="text-muted listing-location text-truncate">
+                                                {{ rooms.room_type_name }}
+                                                <span ng-show="rooms.overall_star_rating">
+                                                  <span ng-bind-html="rooms.overall_star_rating"></span>
+                                                  </span>
+                                                <span ng-show="rooms.reviews_count">
   ·
   {{ rooms.reviews_count }} Review{{ (rooms.reviews_count > 1) ? 's' : '' }}
   </span>
@@ -1147,10 +1155,10 @@
         </div>
 
         <!--<button class="hide-sm btn footer-toggle">-->
-    <!--<span class="open-content">-->
-      <!--<i class="icon icon-globe"></i> Language and Currency-->
-    <!--</span>-->
-            <!--<span class="close-content"><i class="icon icon-remove"></i> Close</span>-->
+        <!--<span class="open-content">-->
+        <!--<i class="icon icon-globe"></i> Language and Currency-->
+        <!--</span>-->
+        <!--<span class="close-content"><i class="icon icon-remove"></i> Close</span>-->
         <!--</button>-->
     </div>
 
@@ -1178,7 +1186,7 @@
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <!--<script async defer-->
-        <!--src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBXyRBiyRcEzHDJ8iU00zECMUP4cXBIm6A&callback=initMap">-->
+<!--src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBXyRBiyRcEzHDJ8iU00zECMUP4cXBIm6A&callback=initMap">-->
 <!--</script>-->
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
