@@ -89,9 +89,9 @@ exports.loadReviewByPage = function (msg, callback) {
 
 exports.getHostReviewsCount = function (msg, callback) {
 
-    var propertyId = msg.propertyId;
+    var hostId = msg.hostId;
 
-    propertyReview.find({propertyId: propertyId}).count(function (err, result) {
+    hostReview.find({hostId: hostId}).count(function (err, result) {
 
         if (err) {
             console.log(err);

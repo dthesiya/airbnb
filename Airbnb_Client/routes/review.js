@@ -78,10 +78,10 @@ exports.loadReviewByPage = function (req, res) {
 
 exports.getHostReviewsCount = function (req, res) {
 
-    var propertyId = req.param("propertyId");
+    var hostId = req.param("hostId");
 
     var msg_payload = {
-        propertyId: propertyId
+        hostId: hostId
     };
 
     mq_client.make_request('hostReviewsCount_queue', msg_payload, function (err, result) {
