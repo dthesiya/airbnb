@@ -411,7 +411,7 @@ $('.search-form').submit(function(event)
     header_room_type = header_room_type.slice(0,-1);
     var location  = $('#header-search-form').val();
     var locations = location.replace(" ", "+");
-    window.location.href = APP_URL+'/s?location='+locations+'&checkin='+header_checkin+'&checkout='+header_checkout+'&guests='+header_guests+'&room_type='+header_room_type;
+    window.location.href = APP_URL+'/search?location='+locations+'&checkin='+header_checkin+'&checkout='+header_checkout+'&guests='+header_guests+'&room_type='+header_room_type;
     event.preventDefault();
 });
 
