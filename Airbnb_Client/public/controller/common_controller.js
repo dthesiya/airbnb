@@ -1618,5 +1618,21 @@ app.controller('search-page', ['$scope', '$http', '$compile', '$filter', functio
 
 }]);
 
+app.controller('room_details_controller', function ($scope, $window, $location, $http) {
+    var room_id = getParameterByName('propertyId');
+    var url = "/detail?propertyId=" + room_id;
+    $http.get(url).then(function (response) {
+        $scope.room_result = response.data;
+        url = "/hostReviewsCount?hostId=" + $scope.room_result.users.id;
+        $http.get(url).then(function (response) {
+            $scope.hostReviews = response.data;
+        });
+    });
 
-
+    function getParameterByName(name) {
+        name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+        var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+            results = regex.exec(location.search);
+        return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+    }
+});
