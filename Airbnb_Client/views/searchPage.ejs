@@ -75,6 +75,16 @@
     <style type="text/css">
         .ui-selecting { background: #FECA40; }
         .ui-selected { background: #F39814; color: white; }
+        .labels {
+            color: white;
+            background-color: red;
+            font-family: "Lucida Grande", "Arial", sans-serif;
+            font-size: 10px;
+            text-align: center;
+            width: 35px;
+            font-weight: 900;
+            white-space: nowrap;
+        }
     </style>
 
     <title>Search </title>
@@ -1000,13 +1010,13 @@
                                             <p class="address">{{ rooms.city }}</p>
 
                                         </div>
-                                        <a href="http://makent.trioangle.com/rooms/{{ rooms.id }}?checkin={{checkin}}&checkout={{checkout}}&guests={{ guests }}" target="listing_{{ rooms.id }}" class="media-photo media-cover">
+                                        <a href="rooms/{{ rooms.id }}?checkin={{checkin}}&checkout={{checkout}}&guests={{ guests }}" target="listing_{{ rooms.id }}" class="media-photo media-cover">
                                             <div class="listing-img-container media-cover text-center">
-                                                <img id="rooms_image_{{ rooms.id}}"  src="http://makent.trioangle.com/images/{{ rooms.photo_name }}" class="img-responsive-height" alt="{{ rooms.name }}">
+                                                <img id="rooms_image_{{ rooms.id}}"  src="http://localhost:3000/images/{{ rooms.photo_name }}" class="img-responsive-height" alt="{{ rooms.name }}">
                                             </div>
                                         </a>
 
-                                        <div class="target-prev target-control rooms-slider block-link"  data-room_id="{{rooms.id}}">
+                                        <div class="target-prev target-control rooms-slider block-link" data-room_images="{{rooms.images}}" data-room_id="{{rooms.id}}">
                                             <i class="icon icon-chevron-left icon-size-2 icon-white"></i>
                                         </div>
 
@@ -1021,7 +1031,7 @@
                                             </div>
 
                                         </a>
-                                        <div class="target-next target-control rooms-slider block-link" data-room_id="{{rooms.id}}">
+                                        <div class="target-next target-control rooms-slider block-link"  data-room_images="{{rooms.images}}" data-room_id="{{rooms.id}}">
                                             <i class="icon icon-chevron-right icon-size-2 icon-white"></i>
                                         </div>
 
@@ -1128,12 +1138,12 @@
 
         </div>
 
-        <button class="hide-sm btn footer-toggle">
-    <span class="open-content">
-      <i class="icon icon-globe"></i> Language and Currency
-    </span>
-            <span class="close-content"><i class="icon icon-remove"></i> Close</span>
-        </button>
+        <!--<button class="hide-sm btn footer-toggle">-->
+    <!--<span class="open-content">-->
+      <!--<i class="icon icon-globe"></i> Language and Currency-->
+    <!--</span>-->
+            <!--<span class="close-content"><i class="icon icon-remove"></i> Close</span>-->
+        <!--</button>-->
     </div>
 
 
@@ -1156,6 +1166,10 @@
 <div id="fb-root"></div>
 
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBXyRBiyRcEzHDJ8iU00zECMUP4cXBIm6A&sensor=false&libraries=places"></script>
+
+<!--<script async defer-->
+        <!--src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBXyRBiyRcEzHDJ8iU00zECMUP4cXBIm6A&callback=initMap">-->
+<!--</script>-->
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
@@ -1253,7 +1267,7 @@
 </script>
 <script>
     var app = angular.module('App', ['ngSanitize']);
-    var APP_URL = "http:\/\/makent.trioangle.com";
+    var APP_URL = "http:\/\/localhost:3000";
     var USER_ID = 10001
     $.datepicker.setDefaults($.datepicker.regional[ "en" ])
 </script>
@@ -1261,7 +1275,7 @@
 
 
 <script src="js/common.js"></script>
-
+<script src="https://cdn.rawgit.com/googlemaps/v3-utility-library/master/markerwithlabel/src/markerwithlabel.js"></script>
 
 <!--<script src="js/search.js"></script>-->
 

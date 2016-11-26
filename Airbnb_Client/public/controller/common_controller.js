@@ -423,79 +423,6 @@ app.controller('search-page', ['$scope', '$http', '$compile', '$filter', functio
     $scope.currentPage = 1;
     $scope.range = [];
 
-    $(document).on('click', '[id^="wishlist-widget-icon-"]', function () {
-        if (typeof USER_ID == 'object') {
-            window.location.href = APP_URL + '/login';
-            return false;
-        }
-        var name = $(this).data('name');
-        var img = $(this).data('img');
-        var address = $(this).data('address');
-        var host_img = $(this).data('host_img');
-        $scope.room_id = $(this).data('room_id');
-
-        $('.background-listing-img').css('background-image', 'url(' + img + ')');
-        $('.host-profile-img').attr('src', host_img);
-        $('.wl-modal-listing__name').text(name);
-        $('.wl-modal-listing__address').text(address);
-        $('.wl-modal-footer__input').val(address);
-
-        $('.wl-modal__modal').removeClass('hide');
-        $('.wl-modal__col:nth-child(2)').addClass('hide');
-        $('.row-margin-zero').append('<div id="wish-list-signup-container" style="overflow-y:auto;" class="col-lg-5 wl-modal__col-collapsible"> <div class="loading wl-modal__col"> </div> </div>');
-        $http.get(APP_URL + "/wishlist_list?id=" + $(this).data('room_id'), {}).then(function (response) {
-            $('#wish-list-signup-container').remove();
-            $('.wl-modal__col:nth-child(2)').removeClass('hide');
-            $scope.wishlist_list = response.data;
-        });
-    });
-
-    $scope.wishlist_row_select = function (index) {
-
-        $http.post(APP_URL + "/save_wishlist", {
-            data: $scope.room_id,
-            wishlist_id: $scope.wishlist_list[index].id,
-            saved_id: $scope.wishlist_list[index].saved_id
-        }).then(function (response) {
-            if (response.data == 'null')
-                $scope.wishlist_list[index].saved_id = null;
-            else
-                $scope.wishlist_list[index].saved_id = response.data;
-        });
-
-        if ($('#wishlist_row_' + index).hasClass('text-dark-gray'))
-            $scope.wishlist_list[index].saved_id = null;
-        else
-            $scope.wishlist_list[index].saved_id = 1;
-    };
-
-    $(document).on('submit', '.wl-modal-footer__form', function(event) {
-        event.preventDefault();
-        $('.wl-modal__col:nth-child(2)').addClass('hide');
-        $('.row-margin-zero').append('<div id="wish-list-signup-container" style="overflow-y:auto;" class="col-lg-5 wl-modal__col-collapsible"> <div class="loading wl-modal__col"> </div> </div>');
-        $http.post(APP_URL+"/wishlist_create", { data: $('.wl-modal-footer__input').val(), id: $scope.room_id }).then(function(response)
-        {
-            $('.wl-modal-footer__form').addClass('hide');
-            $('#wish-list-signup-container').remove();
-            $('.wl-modal__col:nth-child(2)').removeClass('hide');
-            $scope.wishlist_list = response.data;
-            event.preventDefault();
-        });
-        event.preventDefault();
-    });
-
-    $('.wl-modal__modal-close').click(function()
-    {
-        var null_count = $filter('filter')($scope.wishlist_list, {saved_id : null});
-
-        if(null_count.length == $scope.wishlist_list.length)
-            $('#wishlist-widget-'+$scope.room_id).prop('checked', false);
-        else
-            $('#wishlist-widget-'+$scope.room_id).prop('checked', true);
-
-        $('.wl-modal__modal').addClass('hide');
-    });
-
     function no_results() {
         if($('.search-results').hasClass('loading'))
             $('#no_results').hide();
@@ -508,13 +435,6 @@ app.controller('search-page', ['$scope', '$http', '$compile', '$filter', functio
 
     var current_url = (window.location.href).replace('/search', '/searchResult');
 
-    pageNumber = 1;
-
-    if(pageNumber===undefined){
-        pageNumber = '1';
-    }
-
-
 
     $(document).ready(function(){
         localStorage.removeItem("map_lat_long");
@@ -523,26 +443,6 @@ app.controller('search-page', ['$scope', '$http', '$compile', '$filter', functio
             room_type[i] = $(this).val();
         });
 
-        var property_type = [];
-        $('.property_type:checked').each(function(i){
-            property_type[i] = $(this).val();
-        });
-
-        var amenities = [];
-        $('.amenities:checked').each(function(i){
-            amenities[i] = $(this).val();
-        });
-        $('.search_tag').addClass('hide');
-
-        if(room_type !=''){
-            $('.room-type_tag').removeClass('hide');
-        }
-        if(amenities !=''){
-            $('.amenities_tag').removeClass('hide');
-        }
-        if(property_type != ''){
-            $('.property_type_tag').removeClass('hide');
-        }
 
         $('.search-results').addClass('loading');
         no_results();
@@ -553,90 +453,326 @@ app.controller('search-page', ['$scope', '$http', '$compile', '$filter', functio
             $scope.room_result = response.data;
             $scope.totalPages   = response.data.last_page;
             $scope.currentPage  = response.data.current_page;
-            // Pagination Range
-            var pages = [];
+            initialize(response.data);
 
-            for(var i=1;i<=response.data.last_page;i++) {
-                pages.push(i);
-            }
-
-            $scope.range = pages;
-
-            marker(response.data);
+//            marker(response.data);
         });
         var location_val = $("#location").val();
         $("#header-search-form").val(location_val);
-        $( "#slider-3" ).slider({
-            range:true,
-            min: min_slider_price,
-            max: max_slider_price,
-            values: [ min_slider_price_value, max_slider_price_value ],
-            slide: function( event, ui ) {
-                $("#min_value").val(ui.values[ 0 ]);
-                $("#min_text").val(ui.values[ 0 ]);
 
-                if(max_slider_price == ui.values[1])
-                {
-                    $("#max_text").html(ui.values[ 1 ]+'+');
-                }
-                else
-                {
-                    $("#max_text").html(ui.values[ 1 ]);
-                }
-                $("#max_value").val(ui.values[ 1 ]);
-            },
-            stop: function( event, ui ) {
-                $("#min_value").val(ui.values[ 0 ]);
-                $("#min_text").html(ui.values[ 0 ]);
-                if(max_slider_price == ui.values[1])
-                {
-                    $("#max_text").html(ui.values[ 1 ]+'+');
-                }
-                else
-                {
-                    $("#max_text").html(ui.values[ 1 ]);
-                }
-                $("#max_value").val(ui.values[ 1 ]);
-                $scope.search_result();
-            }
-        }).find(".ui-slider-handle").removeClass("ui-slider-handle").removeClass("ui-state-default").removeClass("ui-corner-all").addClass("airslide-handle");
-
-        $('#slider-3').removeClass('ui-slider').removeClass('ui-slider-horizontal').removeClass('ui-widget').removeClass('ui-widget-content').removeClass('ui-corner-all');
-
-        $('#slider-3').find('.ui-slider-range').removeClass('ui-slider-range').removeClass('ui-widget-header').removeClass('ui-corner-all').addClass('airslide-progress');
-
-        $('#slider-3').append('<div class="airslide-background"></div>');
-
-        $('.airslide-progress').css('z-index', '1');
-
-        $('.show-more').click(function(){
-            $(this).children('span').toggleClass('hide');
-            $(this).parent().parent().children('div').children().toggleClass('filters-more');
-        });
-
-
-        $("#more_filters").click(function(){
-
-            $(".toggle-group").css("display", "block");
-            $(".toggle-hide").css("display", "none");
-        });
     });
 
 
-    $scope.on_mouse = function (index) {
+
+    function initialize(response) {
+
+        var latitude = $("#lat").val();
+        var longitude = $("#long").val();
+
+        var myOptions = {
+            center: new google.maps.LatLng(latitude,longitude),
+            zoom: 9,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+
+        };
+        var map = new google.maps.Map(document.getElementById("map_canvas"),
+            myOptions);
+
+       setMarkers(map, response)
+        // marker(map,response);
+
+    }
+
+    function setMarkers(map,response){
+
+        var marker;
+        var data = response.data;
+        var guests = 1;
+        for (var i = 0; i < data.length; i++)
+        {
+
+            var name = data[i].name;
+            var lat = Number(data[i].rooms_address.latitude);
+            var lon = Number(data[i].rooms_address.longitude);
+            var labelTxt = "$"+data[i].rooms_price.night;
+            latlngset = new google.maps.LatLng(lat, lon);
+
+/*
+
+            var image = {
+                url: 'images/locate-pin.png',
+
+                size: new google.maps.Size(32, 32),
+
+                origin: new google.maps.Point(0, 0),
+
+                anchor: new google.maps.Point(0, 32)
+            };
+            var shape = {
+                coords: [1, 1, 1, 20, 18, 20, 18, 1],
+                type: 'poly'
+            };
+*/
+
+            var marker = new MarkerWithLabel({
+                position: latlngset,
+                map: map,
+                labelContent: labelTxt,
+                labelAnchor: new google.maps.Point(18, 65),
+                labelClass: "labels", // the CSS class for the label
+                labelInBackground: false,
+                icon: pinSymbol("red")
+            });
+
+           /* var marker = new google.maps.Marker({
+                map: map,
+                title: name,
+                position: latlngset,
+                // label: labelTxt,
+                icon: image,
+                // shape: shape,
+                // zIndex: 1,
+                label: "Ancb",
+                labelAnchor: new google.maps.Point(15, 65),
+                labelClass: "labels", // the CSS class for the label
+                labelInBackground: false
+               // icon: pinSymbol('red')
+
+
+            });*/
+            map.setCenter(marker.getPosition());
+
+            var html = '<div id="info_window_'+data[i].id+'" class="listing listing-map-popover" data-price="'+data[i].rooms_price.currency.symbol+'" data-id="'+data[i].id+'" data-user="'+data[i].user_id+'"  data-name="'+data[i].name+'" data-lng="'+data[i].rooms_address.longitude+'" data-lat="'+data[i].rooms_address.latitude+'"><div class="panel-image listing-img">';
+            html += '<a class="media-photo media-cover" target="listing_'+data[i].id+'" ><div class="listing-img-container media-cover text-center"><img id="marker_image_'+data[i].id+'" rooms_image = "" alt="'+data[i].name+'" class="img-responsive-height" data-current="0" src="'+APP_URL+'/images/'+data[i].photo_name+'"></div></a>';
+            html += '<a class="link-reset panel-overlay-bottom-left panel-overlay-label panel-overlay-listing-label" target="listing_'+data[i].id+'" ><div>';
+
+            var instant_book = '';
+
+            if(data[i].booking_type == 'instant_book')
+                instant_book = '<span aria-label="Book Instantly" data-behavior="tooltip" class="h3 icon-beach"><i class="icon icon-instant-book icon-flush-sides"></i></span>';
+
+            html += '<sup class="h6 text-contrast">'+data[i].rooms_price.currency.symbol+'</sup><span class="h3 text-contrast price-amount">'+data[i].rooms_price.night+'</span><sup class="h6 text-contrast"></sup>'+instant_book+'</div></a></div>';
+            html += '<div class="panel-body panel-card-section"><div class="media"><h3 class="h5 listing-name text-truncate row-space-top-1" itemprop="name" title="'+data[i].name+'">'+name+'</a></h3>';
+
+            var star_rating = '';
+
+            if(data[i].overall_star_rating != '')
+                star_rating = ' · '+data[i].overall_star_rating;
+
+            var reviews_count = '';
+            var review_plural = (data[i].reviews_count > 1) ? 's' : '';
+
+            if(data[i].reviews_count != 0)
+                reviews_count = ' · '+data[i].reviews_count+' review'+review_plural;
+
+            html += '<div class="text-muted listing-location text-truncate" itemprop="description"><a class="text-normal link-reset" >'+data[i].room_type_name+star_rating+reviews_count+'</a></div></div></div></div>';
+
+             createInfoWindow(marker, html,map);
+         /* var content = "Sensor Name: " + name
+
+            var infowindow = new google.maps.InfoWindow()
+
+            google.maps.event.addListener(marker,'click', (function(marker,html,infowindow){
+                return function() {
+                    infowindow.setContent(html);
+                    infowindow.open(map,marker);
+                };
+            })(marker,html,infowindow));*/
+
+        }
+    }
+
+    function pinSymbol(color) {
+        return {
+            path: 'M 0,0 C -2,-20 -10,-22 -10,-30 A 10,10 0 1,1 10,-30 C 10,-22 2,-20 0,0 z',
+            fillColor: color,
+            fillOpacity: 1,
+            strokeColor: '#000',
+            strokeWeight: 2,
+            scale: 2
+        };
+    }
+    function getParameterByName(name) {
+        name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+        var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+            results = regex.exec(location.search);
+        return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+    }
+    function createInfoWindow(marker, popupContent,map) {
+        infoBubble = new InfoBubble({
+            maxWidth: 3000
+        });
+
+        var contentString = $compile(popupContent)($scope);
+        google.maps.event.addListener(marker, 'click', function() {
+
+            if (infoBubble.isOpen()) {
+                infoBubble.close();
+                infoBubble = new InfoBubble({
+                    maxWidth: 3000
+                });
+            }
+
+            infoBubble.addTab('', contentString[0]);
+
+            var borderRadius = 0;
+            infoBubble.setBorderRadius(borderRadius);
+            var maxWidth = 300;
+            infoBubble.setMaxWidth(maxWidth);
+
+            var maxHeight = 300;
+            infoBubble.setMaxHeight(maxHeight);
+            var minWidth = 282;
+            infoBubble.setMinWidth(minWidth);
+
+            var minHeight = 245;
+            infoBubble.setMinHeight(minHeight);
+
+            infoBubble.open(map,marker);
+        });
+    }
+
+    $(document).on('click', '.rooms-slider', function() {
+        var rooms_id = $(this).attr("data-room_id");
+        var img_url =$("#rooms_image_"+rooms_id).attr("src").substr(29);
+        var room;
+        for(var i = 0; i < $scope.room_result.data.length; i++){
+            var temp = $scope.room_result.data[i];
+            if(temp.id === rooms_id){
+                room = temp;
+                break;
+            }
+        }
+        var images = room.images;
+        if($(this).is(".target-prev") == true){
+            var set_img_url = (images) ? ((images.indexOf(img_url) === images.length - 1) ? images[0] : images[images.indexOf(img_url) + 1]) : "";
+            set_img_url = APP_URL + "/images/" + set_img_url;
+            $("#rooms_image_"+rooms_id).attr("src",set_img_url);
+        }else{
+            var set_img_url = (images) ? ((images.indexOf(img_url) === 0) ? images[images.length - 1] : images[images.indexOf(img_url) - 1]) : "";
+            set_img_url = APP_URL + "/images/" + set_img_url;
+            $("#rooms_image_"+rooms_id).attr("src",set_img_url);
+        }
+
+
+        /*if($.trim(dataurl) ==''){
+            $(this).parent().addClass("loading");
+            $http.post('rooms_photos', {rooms_id: rooms_id})
+                .then(function(response) {
+                    angular.forEach(response.data, function(obj){
+                        if($.trim(dataurl) ==''){
+                            dataurl = obj['name'];
+                        }
+                        else
+                            dataurl = dataurl +','+ obj['name'];
+                    });
+
+                    $("#rooms_image_"+rooms_id).attr("rooms_image", dataurl);
+                    var img_explode = img_url.split('rooms/'+rooms_id+'/');
+
+                    var all_image = dataurl.split(',');
+                    var rooms_img_count = all_image.length;
+                    var i = 0;
+                    var set_img_no = '';
+                    angular.forEach(all_image, function(img){
+                        if($.trim(img) == $.trim(img_explode[1]) ){
+                            set_img_no = i;
+                        }
+                        i++;
+                    });
+                    if($(this).is(".target-prev") == true){
+                        var cur_img = set_img_no-1;
+                        var count = rooms_img_count-1;
+                    }
+                    else{
+                        var cur_img = set_img_no+1;
+                        var count = 0;
+                    }
+
+                    if(typeof (all_image[cur_img]) != 'undefined' && $.trim(all_image[cur_img]) !="null" ){
+                        var img = all_image[cur_img];
+                    }
+                    else
+                    {
+
+                        var img = all_image[count];
+                    }
+
+                    var set_img_url = img_explode[0]+'rooms/'+rooms_id+'/'+img;
+
+                    $(".panel-image").removeClass("loading");
+                    $("#rooms_image_"+rooms_id).attr("src",set_img_url);
+                });
+        }
+        else
+        {
+            $(this).parent().addClass("loading");
+            var img_explode = img_url.split('rooms/'+rooms_id+'/');
+
+            var all_image = dataurl.split(',');
+            var rooms_img_count = all_image.length;
+            var i = 0;
+            var set_img_no = '';
+            angular.forEach(all_image, function(img){
+                if($.trim(img) == $.trim(img_explode[1]) ){
+                    set_img_no = i;
+                }
+                i++;
+            });
+            if($(this).is(".target-prev") == true){
+                var cur_img = set_img_no-1;
+                var count = rooms_img_count-1;
+            }
+            else{
+                var cur_img = set_img_no+1;
+                var count = 0;
+            }
+
+            if(typeof (all_image[cur_img]) != 'undefined' && $.trim(all_image[cur_img]) !="null" ){
+                var img = all_image[cur_img];
+            }
+            else
+            {
+                var img = all_image[count];
+            }
+            var set_img_url = img_explode[0]+'rooms/'+rooms_id+'/'+img;
+
+            $(".panel-image").removeClass("loading");
+            $("#rooms_image_"+rooms_id).attr("src",set_img_url);
+
+        }*/
+
+    });
+    /*function getMarkerImage(type) {
+        var image = 'locate-pin.png';
+
+        if(type == 'hover')
+            image = 'locate-pin-hover.png';
+
+        var gicons = new google.maps.MarkerImage("images/"+image,
+            new google.maps.Size(50, 50),
+            new google.maps.Point(0,0),
+            new google.maps.Point(9, 20));
+
+        return gicons;
+
+    }
+    function setAllMap(map) {
+        for (var i = 0; i < markers.length; i++) {
+            markers[i].setMap(map);
+        }
+    }
+
+
+
+  $scope.on_mouse = function (index) {
         markers[index].setIcon(getMarkerImage('hover'));
     };
     $scope.out_mouse = function (index) {
         markers[index].setIcon(getMarkerImage('normal'));
-    };
+    };*/
+    /*
     $scope.search_result = function (pageNumber) {
-
-        if(pageNumber===undefined){
-            pageNumber = '1';
-        }
-
-        var max_price = $("#max_value").val();
-        var min_price = $("#min_value").val();
 
         var room_type = [];
         $('.room-type:checked').each(function(i){
@@ -647,26 +783,12 @@ app.controller('search-page', ['$scope', '$http', '$compile', '$filter', functio
             $('.room-type_tag').addClass('hide');
         }
 
-        var property_type = [];
-        $('.property_type:checked').each(function(i){
-            property_type[i] = $(this).val();
-        });
-        if(property_type ==''){
-            $('.property_type_tag').addClass('hide');
-        }
-        var amenities = [];
-        $('.amenities:checked').each(function(i){
-            amenities[i] = $(this).val();
-        });
-        if(amenities ==''){
-            $('.amenities_tag').addClass('hide');
-        }
         var checkin = $('#checkin').val();
         var checkout = $('#checkout').val();
 
-        var min_beds = $("#map-search-min-beds").val();
+       /!* var min_beds = $("#map-search-min-beds").val();
         var min_bathrooms = $("#map-search-min-bathrooms").val();
-        var min_bedrooms = $("#map-search-min-bedrooms").val();
+        var min_bedrooms = $("#map-search-min-bedrooms").val();*!/
         var guest_select = $("#guest-select").val();
 
         if( $.trim(localStorage.getItem("map_lat_long")) != 'null'){
@@ -677,7 +799,6 @@ app.controller('search-page', ['$scope', '$http', '$compile', '$filter', functio
             var map_details	= "";
         }
 
-        instant_book = $('#instant_book:checked').val() == 1 ? 1 : 0;
 
         setGetParameter('room_type', room_type);
         setGetParameter('checkin', checkin);
@@ -689,12 +810,6 @@ app.controller('search-page', ['$scope', '$http', '$compile', '$filter', functio
 
         if(room_type !=''){
             $('.room-type_tag').removeClass('hide');
-        }
-        if(amenities !=''){
-            $('.amenities_tag').removeClass('hide');
-        }
-        if(property_type != ''){
-            $('.property_type_tag').removeClass('hide');
         }
 
         var location1 = getParameterByName('location');
@@ -709,28 +824,7 @@ app.controller('search-page', ['$scope', '$http', '$compile', '$filter', functio
         change_url += "guests=" +1;
         var encoded_url = encodeURI(change_url);
         window.location.href = encoded_url;
-       // $http.get(change_url).then(function (response) {
-       //
-       //      //  $scope.room_result = response;
-       //      // alert(response.data[0].rooms_address.city);
-       //      $scope.room_result = response.data;
-       //      $scope.checkin = checkin;
-       //      $scope.checkout = checkout;
-       //      $scope.totalPages = response.data.last_page;
-       //      $scope.currentPage = response.data.current_page;
-       //      // Pagination Range
-       //      var pages = [];
-       //
-       //      for (var i = 1; i <= response.data.last_page; i++) {
-       //          pages.push(i);
-       //      }
-       //
-       //      $scope.range = pages;
-       //
-       //      $('.search-results').removeClass('loading');
-       //      no_results();
-       //      marker(response.data);
-       //  });
+
     };
 
     $scope.apply_filter = function()
@@ -740,16 +834,7 @@ app.controller('search-page', ['$scope', '$http', '$compile', '$filter', functio
 
         $scope.search_result();
     };
-    $scope.remove_filter = function(parameter)
-    {
-        $('.'+parameter).removeAttr('checked');
-        var paramName = parameter.replace('-', '_');
-        var paramValue = '';
-        setGetParameter(paramName, paramValue)
-        $('.'+parameter+'_tag').addClass('hide');
 
-        $scope.search_result();
-    };
     function setGetParameter(paramName, paramValue)
     {
         var url = window.location.href;
@@ -810,7 +895,7 @@ app.controller('search-page', ['$scope', '$http', '$compile', '$filter', functio
         // Create the autocomplete object, restricting the search
         // to geographical location types.
         autocomplete = new google.maps.places.Autocomplete(
-            /** @type {HTMLInputElement} */(document.getElementById('header-search-form')),
+            /!** @type {HTMLInputElement} *!/(document.getElementById('header-search-form')),
             { types: ['geocode'] });
         google.maps.event.addListener(autocomplete, 'place_changed', function() {
             var location  = $('#header-search-form').val();
@@ -825,9 +910,8 @@ app.controller('search-page', ['$scope', '$http', '$compile', '$filter', functio
 
             $scope.cLat = latitude;
             $scope.cLong = longitude;
-            $scope.search_result();
             initialize();
-            // window.location.href = window.location.href;
+
         });
     }
 
@@ -897,7 +981,6 @@ app.controller('search-page', ['$scope', '$http', '$compile', '$filter', functio
         });
         var homeControlDiv = document.createElement('div');
         var homeControl = new HomeControl(homeControlDiv, map);
-//  homeControlDiv.index = 1;
         map.controls[google.maps.ControlPosition.LEFT_TOP].push(homeControlDiv);
 
         google.maps.event.addListener(map, 'dragend', function() {
@@ -931,7 +1014,7 @@ app.controller('search-page', ['$scope', '$http', '$compile', '$filter', functio
             });
             //alert(redo_search);
             if(redo_search == 'true'){
-                $scope.search_result();
+               // $scope.search_result();
             }else{
                 $(".map-auto-refresh").addClass('hide');
                 $(".map-manual-refresh").removeClass('hide');
@@ -973,7 +1056,7 @@ app.controller('search-page', ['$scope', '$http', '$compile', '$filter', functio
             });
             //  alert(redo_search);
             if(redo_search == 'true'){
-                $scope.search_result();
+               // $scope.search_result();
             }else{
                 $(".map-auto-refresh").addClass('hide');
                 $(".map-manual-refresh").removeClass('hide');
@@ -989,7 +1072,7 @@ app.controller('search-page', ['$scope', '$http', '$compile', '$filter', functio
         controlText.style.padding = '5px';
         controlText.style.margin = '-65px 0px 0px 50px';
         controlText.style.fontSize='14px';
-        controlText.innerHTML = '<div class="map-refresh-controls google"><a   class="map-manual-refresh btn btn-primary  hide" style="background-color:#ff5a5f;color: #ffffff;">Redo Search Here<i class="icon icon-refresh icon-space-left"></i></a><div class="panel map-auto-refresh"><label class="checkbox"><input type="checkbox" checked="checked" name="redo_search" value="true" class="map-auto-refresh-checkbox"><small>Search as I move the map</small></label></div></div>'
+        // controlText.innerHTML = '<div class="map-refresh-controls google"><a   class="map-manual-refresh btn btn-primary  hide" style="background-color:#ff5a5f;color: #ffffff;">Redo Search Here<i class="icon icon-refresh icon-space-left"></i></a></div>'
         controlDiv.appendChild(controlText);
 
         // Setup click-event listener: simply set the map to London
@@ -997,14 +1080,15 @@ app.controller('search-page', ['$scope', '$http', '$compile', '$filter', functio
         });
     }
     function marker(response){
+
         var checkout = $scope.checkout;
         var checkin = $scope.checkin;
         var guests = $scope.guests;
         setAllMap(null);
         markers = [];
-        angular.forEach(response.data, function(obj){
+        response.data.forEach(function(obj){
 
-            var html = '<div id="info_window_'+obj["id"]+'" class="listing listing-map-popover" data-price="'+obj["rooms_price"]["currency"]["symbol"]+'" data-id="'+obj["id"]+'" data-user="'+obj["user_id"]+'" data-url="/rooms/'+obj["id"]+'" data-name="'+obj["name"]+'" data-lng="'+obj['rooms_address']["longitude"]+'" data-lat="'+obj['rooms_address']["latitude"]+'"><div class="panel-image listing-img">';
+           /!* var html = '<div id="info_window_'+obj["id"]+'" class="listing listing-map-popover" data-price="'+obj["rooms_price"]["currency"]["symbol"]+'" data-id="'+obj["id"]+'" data-user="'+obj["user_id"]+'" data-url="/rooms/'+obj["id"]+'" data-name="'+obj["name"]+'" data-lng="'+obj['rooms_address']["longitude"]+'" data-lat="'+obj['rooms_address']["latitude"]+'"><div class="panel-image listing-img">';
             html += '<a class="media-photo media-cover" target="listing_'+obj["id"]+'" href="'+APP_URL+'/rooms/'+obj["id"]+'?checkin='+checkin+'&checkout='+checkout+'&guests='+guests+'"><div class="listing-img-container media-cover text-center"><img id="marker_image_'+obj["id"]+'" rooms_image = "" alt="'+obj["name"]+'" class="img-responsive-height" data-current="0" src="'+APP_URL+'/images/'+obj["photo_name"]+'"></div></a>';
             html += '<div class="target-prev target-control block-link marker_slider" ng-click="marker_slider($event)"  data-room_id="'+obj["id"]+'"><i class="icon icon-chevron-left icon-size-2 icon-white"></i></div><a class="link-reset panel-overlay-bottom-left panel-overlay-label panel-overlay-listing-label" target="listing_'+obj["id"]+'" href="'+APP_URL+'/rooms/'+obj["id"]+'?checkin='+checkin+'&checkout='+checkout+'&guests='+guests+'"><div>';
 
@@ -1028,27 +1112,27 @@ app.controller('search-page', ['$scope', '$http', '$compile', '$filter', functio
                 reviews_count = ' · '+obj['reviews_count']+' review'+review_plural;
 
             html += '<div class="text-muted listing-location text-truncate" itemprop="description"><a class="text-normal link-reset" href="'+APP_URL+'/rooms/'+obj["id"]+'?checkin='+checkin+'&checkout='+checkout+'&guests='+guests+'">'+obj["room_type_name"]+star_rating+reviews_count+'</a></div></div></div></div>';
-            var lat = obj["rooms_address"]["latitude"];
-            var lng = obj["rooms_address"]["longitude"];
+          *!/  var lat = Number(obj["rooms_address"]["latitude"]);
+            var lng = Number(obj["rooms_address"]["longitude"]);
             var point = new google.maps.LatLng(lat,lng);
             var name = obj["name"];
-            var currency_symbol = obj["rooms_price"]["currency"]["symbol"] ;
-            var currency_value = obj["rooms_price"]["night"];
+            // var currency_symbol = obj["rooms_price"]["currency"]["symbol"] ;
+            // var currency_value = obj["rooms_price"]["night"];
+            console.log("lat"+lat+": lang"+lng);
             var marker = new google.maps.Marker({
                 position: point,
                 map: map,
-                icon: getMarkerImage('normal'),
-                title: name,
-                zIndex: 1
+                title: name
             });
-            markers.push(marker);
-            google.maps.event.addListener(marker, "mouseover", function() {
-                marker.setIcon(getMarkerImage('hover'));
-            });
-            google.maps.event.addListener(marker, "mouseout", function() {
-                marker.setIcon(getMarkerImage('normal'));
-            });
-            createInfoWindow(marker, html);
+
+            // markers.push(marker);
+            // google.maps.event.addListener(marker, "mouseover", function() {
+            //     marker.setIcon(getMarkerImage('hover'));
+            // });
+            // google.maps.event.addListener(marker, "mouseout", function() {
+            //     marker.setIcon(getMarkerImage('normal'));
+            // });
+            // createInfoWindow(marker, html);
 
         });
     }
@@ -1087,10 +1171,10 @@ app.controller('search-page', ['$scope', '$http', '$compile', '$filter', functio
     }
 
     function getMarkerImage(type) {
-        var image = 'map-pin-set-3460214b477748232858bedae3955d81.png';
+        var image = 'locate-pin.png';
 
         if(type == 'hover')
-            image = 'hover-map-pin-set-3460214b477748232858bedae3955d81.png';
+            image = 'locate-pin-hover.png';
 
         var gicons = new google.maps.MarkerImage("images/"+image,
             new google.maps.Size(50, 50),
@@ -1123,11 +1207,11 @@ app.controller('search-page', ['$scope', '$http', '$compile', '$filter', functio
     });
 
 
-    $(document).on('click', '.map-manual-refresh', function() {
+   /!* $(document).on('click', '.map-manual-refresh', function() {
         $(".map-manual-refresh").addClass('hide');
         $(".map-auto-refresh").removeClass('hide');
         $scope.search_result();
-    });
+    });*!/
     $(document).on('click', '.rooms-slider', function() {
 
         var rooms_id = $(this).attr("data-room_id");
@@ -1223,7 +1307,7 @@ app.controller('search-page', ['$scope', '$http', '$compile', '$filter', functio
     });
 
 
-    $scope.marker_slider = function($event){
+    /!*$scope.marker_slider = function($event){
 
         $event.stopPropagation();
         var this_elm = angular.element($event.currentTarget);
@@ -1318,9 +1402,9 @@ app.controller('search-page', ['$scope', '$http', '$compile', '$filter', functio
 
         }
 
-    }
+    }*!/
 
-    $(document).on('click', '.marker_slider', function(e) {
+   /!* $(document).on('click', '.marker_slider', function(e) {
         var rooms_id = $(this).attr("data-room_id");
         var dataurl = $("#marker_image_"+rooms_id).attr("rooms_image");
         var img_url =$("#marker_image_"+rooms_id).attr("src");
@@ -1411,8 +1495,8 @@ app.controller('search-page', ['$scope', '$http', '$compile', '$filter', functio
 
         }
 
-    });
-    $(document).on('change', '[id^="map-search"]', function() {
+    });*!/
+    /!*$(document).on('change', '[id^="map-search"]', function() {
         var i = 0;
         $('[id^="map-search"]').each(function() {
             if($(this).is(':checkbox'))
@@ -1432,9 +1516,9 @@ app.controller('search-page', ['$scope', '$http', '$compile', '$filter', functio
         } else {
             $('#more_filter_submit').removeAttr('disabled');
         }
-    });
+    });*!/
 
-    $(document).on('click', '#cancel-filter', function() {
+    /!*$(document).on('click', '#cancel-filter', function() {
         $('[id^="map-search"]').each(function() {
             if($(this).is(':checkbox'))
             {
@@ -1452,7 +1536,7 @@ app.controller('search-page', ['$scope', '$http', '$compile', '$filter', functio
         $(".toggle-group").css("display", "none");
 
         $scope.search_result();
-    });
+    });*!/*/
 
 }]);
 
