@@ -163,13 +163,12 @@ app.controller('editUser_controller', function($scope,$window,$location,$http) {
                     console.log("Error in loading edit profile page");
                 }
             })
-            .error(function(data) {
+            .error(function (data) {
 
             });
 
 
     };
-
 
 
     $scope.uploadProfileImage = function () {
@@ -182,14 +181,12 @@ app.controller('editUser_controller', function($scope,$window,$location,$http) {
         //fileUpload.uploadFileToUrl(file, uploadUrl);
 
 
-
-
-        $http.post('/uploadProfileImage',file,{'enctype':"multipart/form-data"})
-            .success(function(data){
+        $http.post('/uploadProfileImage', file, {'enctype': "multipart/form-data"})
+            .success(function (data) {
 
                 console.log("Uploaded");
             })
-            .error(function(data) {
+            .error(function (data) {
 
                 console.log("Not upoaded");
 
@@ -351,19 +348,34 @@ app.controller('editUser_controller', function($scope,$window,$location,$http) {
 });
 
 
-
-app.controller('review_controller', [ '$scope', 'fileUpload',function($scope,$window,$location,$http) {
+app.controller('review_controller', function ($scope, $window, $location, $http) {
 
     console.log("in review controller");
    
     $scope.loadReviewAboutPage = function () {
         
         $http.post('/loadReviewAboutPage')
-            .success(function(data){
-                
+            .success(function (data) {
+
+                if (data.statusCode = 200) {
+
+
+                    console.log("REVIEWS");
+                    console.log(data.data);
+                    $scope.fromHostReview = data.data.fromHostReview;
+                    $scope.fromUserReview = data.data.fromUserReview;
+                    console.log($scope.fromHostReview);
+                    console.log($scope.fromUserReview);
+                }
+                else {
+                    console.log("Error in getting review");
+                }
+
             })
-            .error(function(data) {
-               
+            .error(function (data) {
+
+                console.log(data);
+
             });
 
 
@@ -375,19 +387,30 @@ app.controller('review_controller', [ '$scope', 'fileUpload',function($scope,$wi
         $http.post('/loadReviewByPage')
             .success(function(data){
 
+                if (data.statusCode = 200) {
+
+
+                    console.log("REVIEWS");
+                    console.log(data.data);
+                    $scope.toUserReview = data.data.toUserReview;
+                    $scope.toHostReview = data.data.toHostReview;
+
+                }
+                else {
+                    console.log("Error in getting review");
+                }
+
             })
             .error(function(data) {
 
+                console.log(data);
             });
 
 
     };
 
 
-
-}]);
-
-
+});
 
 
 /*
@@ -856,6 +879,7 @@ app.controller('search-page', ['$scope', '$http', '$compile', '$filter', functio
         }
         history.pushState(null, null, url);
     }
+
     function getParameterByName(name) {
         name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
         var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
@@ -1066,6 +1090,7 @@ app.controller('search-page', ['$scope', '$http', '$compile', '$filter', functio
 
 //marker(response);
     }
+
     function HomeControl(controlDiv, map) {
         var controlText = document.createElement('div');
         controlText.style.position = 'relative';
@@ -1540,5 +1565,22 @@ app.controller('search-page', ['$scope', '$http', '$compile', '$filter', functio
 
 }]);
 
+app.controller('room_details_controller', function ($scope, $window, $location, $http) {
+    var room_id = getParameterByName('propertyId');
+    var url = "/detail?propertyId=" + room_id;
+    $http.get(url).then(function (response) {
+        $scope.room_result = response.data;
+    });
 
+    url = "/hostReviewsCount?propertyId=" + room_id;
+    $http.get(url).then(function (response) {
+        $scope.hostReviews = response.data;
+    });
 
+    function getParameterByName(name) {
+        name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+        var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+            results = regex.exec(location.search);
+        return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+    }
+});

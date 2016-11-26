@@ -3,9 +3,9 @@ var Schema = mongoose.Schema;
 
 var billingSchema = new Schema({
     billingId: {type: String},
-    propertyId: {type: Schema.Types.ObjectId, ref: 'Property'},
-    hostId: {type: Schema.Types.ObjectId, ref: 'User'},
-    userId: {type: Schema.Types.ObjectId, ref: 'User'},
+    propertyId: {type: Schema.Types.ObjectId, ref: 'property'},
+    hostId: {type: Schema.Types.ObjectId, ref: 'user'},
+    userId: {type: Schema.Types.ObjectId, ref: 'user'},
     fromDate: {type: Number},
     toDate: {type: Number},
     total: {type: Number},

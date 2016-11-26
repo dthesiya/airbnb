@@ -7,16 +7,7 @@ var search = require('./services/search');
 var review = require('./services/review');
 var property_detail = require('./services/property_detail');
 var account_management = require("./services/account_management");
-/*
- var signinup = require('./services/signinup');
- var postAdvertisement = require('./services/postAdvertisement');
- var product = require('./services/product');
- var index = require('./services/index');
- var profile = require('./services/profile');
- var shoppingCart = require('./services/shoppingCart');
 
- var checkout = require('./services/checkout');
- */
 var cnn = amqp.createConnection({host: '127.0.0.1'});
 //require('./services/biddingChecker');
 cnn.on('error', function (e) {
@@ -124,13 +115,12 @@ cnn.on('ready', function () {
     });
 
 
-
     cnn.queue('loadReviewAboutPage_queue', function (q) {
         q.subscribe(function (message, headers, deliveryInfo, m) {
             util.log(util.format(deliveryInfo.routingKey, message));
             util.log("Message: " + JSON.stringify(message));
             util.log("DeliveryInfo: " + JSON.stringify(deliveryInfo));
-            review.loadReviewAboutPage_queue(message, function (err, res) {
+            review.loadReviewAboutPage(message, function (err, res) {
                 //return index sent
                 cnn.publish(m.replyTo, res, {
                     contentType: 'application/json',
@@ -147,7 +137,23 @@ cnn.on('ready', function () {
             util.log(util.format(deliveryInfo.routingKey, message));
             util.log("Message: " + JSON.stringify(message));
             util.log("DeliveryInfo: " + JSON.stringify(deliveryInfo));
-            review.loadReviewByPage_queue(message, function (err, res) {
+            review.loadReviewByPage(message, function (err, res) {
+                //return index sent
+                cnn.publish(m.replyTo, res, {
+                    contentType: 'application/json',
+                    contentEncoding: 'utf-8',
+                    correlationId: m.correlationId
+                });
+            });
+        });
+    });
+
+    cnn.queue('hostReviewsCount_queue', function (q) {
+        q.subscribe(function (message, headers, deliveryInfo, m) {
+            util.log(util.format(deliveryInfo.routingKey, message));
+            util.log("Message: " + JSON.stringify(message));
+            util.log("DeliveryInfo: " + JSON.stringify(deliveryInfo));
+            review.getHostReviewsCount(message, function (err, res) {
                 //return index sent
                 cnn.publish(m.replyTo, res, {
                     contentType: 'application/json',

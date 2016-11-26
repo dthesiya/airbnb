@@ -1,7 +1,7 @@
-
 <!DOCTYPE html>
 
-<html  lang="en-IN" xmlns:fb="http://ogp.me/ns/fb#"><!--<![endif]--><head>
+<html lang="en-IN" xmlns:fb="http://ogp.me/ns/fb#"><!--<![endif]-->
+<head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link rel="dns-prefetch" href="https://maps.googleapis.com/">
     <link rel="dns-prefetch" href="https://maps.gstatic.com/">
@@ -34,8 +34,14 @@
     <![endif]-->
 
     <style type="text/css">
-        .ui-selecting { background: #FECA40; }
-        .ui-selected { background: #F39814; color: white; }
+        .ui-selecting {
+            background: #FECA40;
+        }
+
+        .ui-selected {
+            background: #F39814;
+            color: white;
+        }
     </style>
 
     <title>Profile </title>
@@ -59,8 +65,8 @@
 
 </head>
 <body class="" ng-app="App">
-<%include header.ejs%>
-<%include modal.ejs%>
+<% include header.ejs %>
+<% include modal.ejs %>
 
 <main id="site-content" role="main" ng-controller="editUser_controller" ng-init="loadProfilePhotoPage()">
 
@@ -90,14 +96,12 @@
     </div>
 
 
-
     <div id="notification-area"></div>
     <div class="page-container-responsive space-top-4 space-4">
         <div class="row">
             <div class="col-md-3 space-sm-4">
                 <div class="sidenav">
                     <ul class="sidenav-list">
-
 
 
                         <li>
@@ -127,33 +131,43 @@
                         <div class="panel-body photos-section">
                             <div class="row">
                                 <div class="col-lg-4 text-center">
-                                    <div data-picture-id="91711885" class="profile_pic_container picture-main space-sm-2 space-md-2">
+                                    <div data-picture-id="91711885"
+                                         class="profile_pic_container picture-main space-sm-2 space-md-2">
                                         <div class="media-photo profile-pic-background" style="display:none;">
-                                            <img width="225" height="225" title="Test" src="http://localhost:3000/images/{{user.profileImage}}" alt="Test">
+                                            <img width="225" height="225" title="Test"
+                                                 src="http://localhost:3000/images/{{user.profileImage}}" alt="Test">
                                         </div>
                                         <div class="media-photo media-round">
-                                            <img width="225" height="225" title="Test" src="http://localhost:3000/images/{{user.profileImage}}" alt="Test">
+                                            <img width="225" height="225" title="Test"
+                                                 src="http://localhost:3000/images/{{user.profileImage}}" alt="Test">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-lg-8">
                                     <ul class="list-layout picture-tiles clearfix ui-sortable"></ul>
                                     <p>
-                                        Clear frontal face photos are an important way for hosts and guests to learn about each other. It&rsquo;s not much fun to host a landscape! Please upload a photo that clearly shows your face.
+                                        Clear frontal face photos are an important way for hosts and guests to learn
+                                        about each other. It&rsquo;s not much fun to host a landscape! Please upload a
+                                        photo that clearly shows your face.
                                     </p>
                                     <div class="row row-condensed">
                                         <div class="col-md-12">
-                                            <form name="ajax_upload_form" method="post" action="uploadProfileImage"  enctype="multipart/form-data"  accept-charset="UTF-8">
+                                            <form name="ajax_upload_form" method="post" action="uploadProfileImage"
+                                                  enctype="multipart/form-data" accept-charset="UTF-8">
                                              <span class="btn btn-block btn-large file-input-container">
                                                 Upload a file from your computer
 
-                                                <input type="file" name="profile_pic" id="user_profile_pic" file-model="profileImage">
+                                                <input type="file" name="profile_pic" id="user_profile_pic"
+                                                       file-model="profileImage">
 
 
-                                                <iframe style="display:none;" name="upload_frame" id="upload_frame"></iframe>
+                                                <iframe style="display:none;" name="upload_frame"
+                                                        id="upload_frame"></iframe>
                                              </span>
                                                 <br>
-                                                <div align="center"><button class="btn btn-primary" >Upload</button></div>
+                                                <div align="center">
+                                                    <button class="btn btn-primary">Upload</button>
+                                                </div>
 
                                             </form>
 
@@ -170,127 +184,104 @@
 
 </main>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<%include footer.ejs%>
+<% include footer.ejs %>
 <div id="gmap-preload" class="hide"></div>
 
 <div class="ipad-interstitial-wrapper"><span data-reactid=".1"></span></div>
 
 <div id="fb-root"></div>
 
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBXyRBiyRcEzHDJ8iU00zECMUP4cXBIm6A&sensor=false&libraries=places"></script>
+<script type="text/javascript"
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBXyRBiyRcEzHDJ8iU00zECMUP4cXBIm6A&sensor=false&libraries=places"></script>
 
-<script src="http://makent.trioangle.com/js/jquery-1.11.3.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
-<script src="http://makent.trioangle.com/js/jquery-ui.js"></script>
+<script src="http://code.jquery.com/ui/1.11.3/jquery-ui.min.js"></script>
 
-<script src="http://makent.trioangle.com/js/i18n/datepicker-en.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
-<script src="http://makent.trioangle.com/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.2/angular.min.js"></script>
 
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.3.2/angular-sanitize.min.js"></script>
 
-<script src="http://makent.trioangle.com/js/angular.js"></script>
-
-<script src="http://makent.trioangle.com/js/angular-sanitize.js"></script>
-
-
-<script src="http://makent.trioangle.com/js/responsiveslides.min.js"></script>
-
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/ResponsiveSlides.js/1.53/responsiveslides.min.js"></script>
 
 <script type="text/javascript">
-    $(document).ready(function() {
-        $('.login_popup_head').click(function(e){
+    $(document).ready(function () {
+        $('.login_popup_head').click(function (e) {
             e.preventDefault();
             $("body").addClass("pos-fix");
             $(".login_popup").show();
             $(".signup_popup").hide();
             $(".signup_popup2").hide();
         });
-        $('.login-close').click(function(event){
+        $('.login-close').click(function (event) {
             $("body").removeClass("pos-fix");
             $(".login_popup").hide();
         });
-        $('.top-home').click(function(event){
+        $('.top-home').click(function (event) {
             event.stopPropagation();
         });
     });
 </script>
 
 <script type="text/javascript">
-    $(document).ready(function() {
-        $('.forgot-password-popup').click(function(e){
+    $(document).ready(function () {
+        $('.forgot-password-popup').click(function (e) {
             e.preventDefault();
             $("body").addClass("pos-fix");
             $(".login_popup").hide();
             $(".forgot-passward").show();
         });
-        $('.login-close').click(function(event){
+        $('.login-close').click(function (event) {
             $("body").removeClass("pos-fix");
             $(".forgot-passward").hide();
         });
-        $('.top-home').click(function(event){
+        $('.top-home').click(function (event) {
             event.stopPropagation();
         });
     });
 </script>
 <script type="text/javascript">
-    $(document).ready(function() {
-        $('.signup_popup_head').click(function(e){
+    $(document).ready(function () {
+        $('.signup_popup_head').click(function (e) {
             e.preventDefault();
             $("body").addClass("pos-fix");
             $(".signup_popup").show();
             $(".login_popup").hide();
         });
-        $('.login-close').click(function(){
+        $('.login-close').click(function () {
             $("body").removeClass("pos-fix");
             $(".signup_popup").hide();
         });
-        $('.top-home').click(function(event){
+        $('.top-home').click(function (event) {
             event.stopPropagation();
         });
     });
 </script>
 <script type="text/javascript">
-    $(document).ready(function() {
-        $('.signup_popup_head2').click(function(e){
+    $(document).ready(function () {
+        $('.signup_popup_head2').click(function (e) {
             e.preventDefault();
             $("body").addClass("pos-fix");
             $(".signup_popup2").show();
             $(".signup_popup").hide();
         });
-        $('.login-close').click(function(){
+        $('.login-close').click(function () {
             $("body").removeClass("pos-fix");
             $(".signup_popup2").hide();
         });
-        $('.top-home').click(function(event){
+        $('.top-home').click(function (event) {
             event.stopPropagation();
         });
     });
 </script>
 <script type="text/javascript">
-    $(document).ready(function() {
-        $('ul.menu-group li a').click(function()
-        {
-            $('.nav--sm').css('visibility','hidden');
+    $(document).ready(function () {
+        $('ul.menu-group li a').click(function () {
+            $('.nav--sm').css('visibility', 'hidden');
         });
     });
 </script>
@@ -298,16 +289,16 @@
     var app = angular.module('App', ['ngSanitize']);
     var APP_URL = "http:\/\/makent.trioangle.com";
     var USER_ID = 10001
-    $.datepicker.setDefaults($.datepicker.regional[ "en" ])
+    $.datepicker.setDefaults($.datepicker.regional["en"])
 </script>
 
 <script src="js/common.js"></script>
 <script src="controller/common_controller.js"></script>
 
 
-
-
 <!-- ver. 87c23752f8dfbd60bf83837d2c8b2dcd0ec660a9 -->
 <div class="tooltip tooltip-bottom-middle" role="tooltip" aria-hidden="true">
     <p class="panel-body">To sign up, you must be 18 or older. Other people won’t see your birthday.</p>
-</div></body></html>
+</div>
+</body>
+</html>

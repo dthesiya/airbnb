@@ -60,6 +60,8 @@ exports.authenticateUser = function (req, res, next) {
 
             sess.email = user.email;
             sess.firstName = user.firstName;
+            sess.userId = user._id;
+
             sess.isLoggedIn = true;
             // sess.last_name = user.last_name;
             // sess.user_id = user._id;
@@ -107,7 +109,6 @@ exports.registerUser = function (req, res) {
             res.end();
         }
         if (results) {
-
             sess.userSSN = results.userId;
             sess.firstName = results.firstName;
             sess.lastName = results.lastName;

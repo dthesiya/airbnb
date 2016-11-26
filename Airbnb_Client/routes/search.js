@@ -36,11 +36,6 @@ exports.loadSearchPg = function (req, res) {
             "location":location
         };
         ejs.renderFile('../views/searchPage.ejs', user_data,function (err,result) {
-            if(err){
-
-            } else {
-
-            }
             res.end(result);
         });
     });
@@ -68,8 +63,6 @@ exports.search = function (req, res, next) {
             var json_responses = {"statusCode": 401};
             res.send(json_responses);
         } else {
-            // console.log(result);
-            // var json_responses = {"statusCode": 200, "data": result};
             res.send(result);
             res.end();
 
