@@ -45,7 +45,6 @@ exports.doSearch = function (msg, callback) {
         .exec(function (err, properties) {
                 if (err) {
                     console.log(err);
-                    console.log("err in find");
                     callback(err, null);
                 }
 

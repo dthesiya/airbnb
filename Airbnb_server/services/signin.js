@@ -48,6 +48,9 @@ exports.registerUser = function (msg, callback) {
     userDetails.email = email;
     userDetails.password = password;
     userDetails.userId = ssn.generate();
+    userDetails.createdDate = new Date().getTime();
+    userDetails.isHost = false;
+    userDetails.isActivated = true;
 
     console.log("SSN" + userDetails.userId + email);
     User.findOne({email: email}, function (err, result) {
