@@ -62,7 +62,7 @@ app.get('/getUserPhotoPage', account.getUserPhotoPage);
 app.get('/getUserReviewAboutPage', account.getUserReviewAboutPage);
 app.get('/getUserReviewbyPage', account.getUserReviewbyPage);
 app.post('/loadEditUserPage', account.loadEditUserPage);
-app.get('/login', signin.loginpg);
+app.get('/login',signin.loginpg);
 app.get('/property', property.loadDetailPg);
 app.get('/detail', property.getProperty);
 app.get('/Account_Transactions', account_management.accountPage);
@@ -73,12 +73,11 @@ app.get('/payoutTransaction', account_management.payoutTransactions);
 app.post('/updatePassword', account_management.updatePassword);
 app.post('/paymentMethodUpdate', account_management.updatePaymentMethod);
 
-app.get('/hostReviewsCount', review.getHostReviewsCount);
 app.post('/loadReviewAboutPage', review.loadReviewAboutPage);
-app.post('/loadReviewByPage', review.loadReviewByPage);
+app.post('/loadReviewByPage', review.loadReviewAboutPage);
 app.post('/uploadProfileImage',account.uploadProfileImage );
 app.post('/loadProfilePhotoPage',account.loadProfilePhotoPage);
-app.get('/getDashBoardPage', account.getDashBoardPage);
+
 app.get('/signin', isAuthenticated, function (req, res) {
     res.redirect('/');
 });

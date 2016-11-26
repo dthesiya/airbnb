@@ -79,8 +79,7 @@ exports.updatePaymentMethod = function (req, res, next) {
             res.send(err);
         } else {
             console.log("responsed");
-            res.json({success: true});
-            res.end();
+            res.send("OK");
         }
     });
 };
