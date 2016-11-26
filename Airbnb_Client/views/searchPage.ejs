@@ -195,7 +195,7 @@
                                 <div class="col-middle-alt col-sm-4">
                                     <label class="checkbox panel panel-dark">
                                         <input class="pull-right room-type" type="checkbox" ng-model="room_type_1"
-                                               value="1" ng-checked="" ng-init="room_type_1 = '1'">
+                                               value="Entire home/apt" ng-checked="" ng-init="room_type_1 = 'Entire home/apt'">
                                         <i class="icon icon-entire-place h5 needsclick"></i>
                                         Entire home/apt
                                     </label>
@@ -203,7 +203,7 @@
                                 <div class="col-middle-alt col-sm-4">
                                     <label class="checkbox panel panel-dark">
                                         <input class="pull-right room-type" type="checkbox" ng-model="room_type_2"
-                                               value="2" ng-checked="" ng-init="room_type_2 = '2'">
+                                               value="Private room" ng-checked="" ng-init="room_type_2 = 'Private room'">
                                         <i class="icon icon-private-room h5 needsclick"></i>
                                         Private room
                                     </label>
@@ -211,12 +211,24 @@
                                 <div class="col-middle-alt col-sm-4">
                                     <label class="checkbox panel panel-dark">
                                         <input class="pull-right room-type" type="checkbox" ng-model="room_type_3"
-                                               value="3" ng-checked="" ng-init="room_type_3 = '3'">
+                                               value="Shared room" ng-checked="" ng-init="room_type_3 = 'Shared room'">
                                         <i class="icon icon-shared-room h5 needsclick"></i>
                                         Shared room
                                     </label>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="filters-section room-type-group intro-filter panel-body panel-light">
+                    <div class="row row-condensed space-sm-7">
+                        <div class="col-sm-6">
+                            <button class="btn btn-block cancel-btn" id="cancel-filter">Cancel</button>
+                        </div>
+                        <div class="col-sm-6">
+                            <button class="btn btn-block btn-primary apply-filters-btn" id="more_filter_submit" ng-click="apply_filter()">
+                                Apply Filters
+                            </button>
                         </div>
                     </div>
                 </div>

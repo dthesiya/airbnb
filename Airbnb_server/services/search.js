@@ -13,7 +13,7 @@ var mongoose = require('mongoose');
 exports.doSearch = function (msg, callback) {
 
     var location = msg.location;
-    var property_type = msg.property_type;
+    var property_type = msg.property_type.split(",");
     var checkin = msg.checkin;
     var checkout = msg.checkout;
     var guests = msg.guests;
@@ -29,7 +29,7 @@ exports.doSearch = function (msg, callback) {
     Property.find(
         {
             $and: [{
-                category: property_type,
+                category: {$in: property_type},
                 maxGuest: {$gte: guests},
                 isAvailable: true,
                 isApproved: true

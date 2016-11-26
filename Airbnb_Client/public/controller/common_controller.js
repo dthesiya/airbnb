@@ -461,13 +461,13 @@ app.controller('search-page', ['$scope', '$http', '$compile', '$filter', functio
 
             for(var i = 0; i < room_type.length; i++){
                 switch(room_type[i]) {
-                    case "1":
+                    case "Entire home/apt":
                         $scope.room_type_1 = true;
                         break;
-                    case "2":
+                    case "Private room":
                         $scope.room_type_2 = true;
                         break;
-                    case "3":
+                    case "Shared room":
                         $scope.room_type_3 = true;
                         break;
                     default:
