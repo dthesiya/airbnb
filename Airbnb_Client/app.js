@@ -78,7 +78,7 @@ app.post('/loadReviewAboutPage', review.loadReviewAboutPage);
 app.post('/loadReviewByPage', review.loadReviewAboutPage);
 app.post('/uploadProfileImage',account.uploadProfileImage );
 app.post('/loadProfilePhotoPage',account.loadProfilePhotoPage);
-
+app.get('/getDashBoardPage', account.getDashBoardPage);
 app.get('/signin', isAuthenticated, function (req, res) {
     res.redirect('/');
 });

@@ -218,3 +218,25 @@ exports.loadProfilePhotoPage = function (req, res) {
         }
     });
 };
+
+
+exports.getDashBoardPage = function (req, res) {
+
+    var sess = req.session;
+    var user_data = {
+        "email": sess.email,
+        "isLoggedIn": sess.isLoggedIn,
+        "firstname": sess.firstName,
+        "userId": sess.userId + '.png'
+    };
+
+    ejs.renderFile('../views/dashboard.ejs', user_data, function (err, result) {
+        if (err) {
+            console.log("Error in getting  dashboard by page");
+            res.send("An error occured to get dashboared by page");
+        } else {
+            res.end(result);
+        }
+    });
+
+};
