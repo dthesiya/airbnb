@@ -606,6 +606,7 @@ app.controller('search-page', ['$scope', '$http', '$compile', '$filter', functio
             scale: 2
         };
     }
+
     function getParameterByName(name) {
         name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
         var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
@@ -730,6 +731,7 @@ app.controller('search-page', ['$scope', '$http', '$compile', '$filter', functio
             set_img_url = APP_URL + "/images/" + set_img_url;
             $("#rooms_image_"+rooms_id).attr("src",set_img_url);
         }
+
 
         /*if($.trim(dataurl) ==''){
             $(this).parent().addClass("loading");

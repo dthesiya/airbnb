@@ -73,11 +73,12 @@ app.get('/payoutTransaction', account_management.payoutTransactions);
 app.post('/updatePassword', account_management.updatePassword);
 app.post('/paymentMethodUpdate', account_management.updatePaymentMethod);
 
+app.get('/hostReviewsCount', review.getHostReviewsCount);
 app.post('/loadReviewAboutPage', review.loadReviewAboutPage);
 app.post('/loadReviewByPage', review.loadReviewAboutPage);
 app.post('/uploadProfileImage',account.uploadProfileImage );
 app.post('/loadProfilePhotoPage',account.loadProfilePhotoPage);
-
+app.get('/getDashBoardPage', account.getDashBoardPage);
 app.get('/signin', isAuthenticated, function (req, res) {
     res.redirect('/');
 });

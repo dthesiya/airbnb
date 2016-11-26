@@ -15,7 +15,6 @@
 
     <!--[if IE 8]>
     <link media="all" type="text/css" rel="stylesheet" href="http://makent.trioangle.com/css/common_ie8.css">
-
     <![endif]-->
     <!--[if !(IE 8)]><!-->
     <link media="all" type="text/css" rel="stylesheet" href="css/common.css">
@@ -30,7 +29,6 @@
 
     <!--[if lt IE 9]>
     <link media="all" type="text/css" rel="stylesheet" href="http://makent.trioangle.com/css/airglyphs-ie8.css">
-
     <![endif]-->
 
 
@@ -50,15 +48,10 @@
 
 
     <!--    <link media="all" type="text/css" rel="stylesheet" href="http://makent.trioangle.com/css/rooms_detail.css">
-
    <link media="all" type="text/css" rel="stylesheet" href="http://makent.trioangle.com/css/slider/nivo-lightbox.css">
-
    <link media="all" type="text/css" rel="stylesheet" href="http://makent.trioangle.com/css/slider/default.css">
-
    <link media="all" type="text/css" rel="stylesheet" href="http://makent.trioangle.com/css/jquery.bxslider.css">
-
    <link media="all" type="text/css" rel="stylesheet" href="http://makent.trioangle.com/css/p3.css">
-
       -->
 
 
@@ -102,7 +95,7 @@
 <% include header.ejs %>
 <% include modal.ejs %>
 
-<main id="site-content" role="main" ng-controller="rooms_detail">
+<main id="site-content" role="main" ng-controller="room_details_controller">
 
     <div class="subnav-container">
 
@@ -144,12 +137,13 @@
     <div id="room" itemscope="" itemtype="http://schema.org/Product">
 
         <div id="photos" class="with-photos with-modal">
-    
+
     <span class="cover-img-container img-box1" data-hook="cover-img-container">
      <a href="http://makent.trioangle.com/rooms/10008/slider" oncontextmenu="return false" class="gallery"
         data-lightbox-type="iframe">
       <div id="frontimage_slider" class="cover-img" data-hook="img-lg" style="background-image:
-                  url(http://makent.trioangle.com/images/rooms/10008/1455189940_a8136267_original.jpg)">
+                  url(images/{{room_result.images[0]}})">
+          <!--#darshit change url to {{room_result.images[0]}}-->
       </div></a>
 
         </span>
@@ -171,8 +165,8 @@
 
                                             <img alt="User Profile Image" class="host-profile-image"
                                                  data-pin-nopin="true" height="115"
-                                                 src="http://makent.trioangle.com/images/users/10003/profile_pic_1462129889.jpg"
-                                                 title="Tony" width="115">
+                                                 src="images/{{room_result.users.profile_picture.src}}"
+                                                 title="{{room_result.users.first_name}}" width="115">
                                         </a>
                                     </div>
 
@@ -183,14 +177,16 @@
 
                                     <h1 itemprop="name" class="overflow h3 row-space-1 text-center-sm"
                                         id="listing_name">
-                                        Cozy Room in Brooklyn
+                                        {{room_result.name}}
                                     </h1>
 
 
                                     <div id="display-address" class="row-space-2 text-muted text-center-sm"
                                          itemprop="aggregateRating" itemscope="">
 
-                                        <a href="" class="link-reset">North Bergen , New Jersey , United States</a>
+                                        <a href="" class="link-reset">{{room_result.rooms_address.city + ", "+
+                                            room_result.rooms_address.state +
+                                            ", "+room_result.rooms_address.country}}</a>
                                         &nbsp;
                                     </div>
 
@@ -213,19 +209,19 @@
                             <div class="row">
 
                                 <div class="col-md-3 text-muted text-center hide-sm">
-                                    <a href="" class="link-reset text-wrap">Tony</a>
+                                    <a href="" class="link-reset text-wrap">{{room_result.users.first_name}}</a>
                                 </div>
 
                                 <div class="col-md-9">
                                     <div class="row row-condensed text-muted text-center">
                                         <div class="col-sm-3">
-                                            Private room
+                                            {{room_result.property_type}}
                                         </div>
                                         <div class="col-sm-3">
-                                            12 Guests
+                                            {{room_result.accommodates}} guests
                                         </div>
                                         <div class="col-sm-3">
-                                            8 Beds
+                                            {{room_result.beds}} beds
                                         </div>
                                     </div>
                                 </div>
@@ -246,7 +242,7 @@
                             </h4>
                             <div id="pricing" itemprop="offers" itemscope="" class="">
                                 <div id="price_amount" class="book-it-price-amount pull-left h3 text-special">&#36;
-                                    <span id="rooms_price_amount" value="">136</span>
+                                    <span id="rooms_price_amount" value="">{{room_result.rooms_price.night}}</span>
                                 </div>
                                 <i class="icon icon-bolt icon-beach pull-left h3 pricing__bolt"></i>
 
@@ -423,13 +419,13 @@ top: -34px;">
                                                 <div class="js-book-it-btn-container ">
                                                     <button type="submit"
                                                             class="js-book-it-btn btn btn-large btn-block btn-primary">
-                <span class="book-it__btn-text ">
-                  Request to Book
-                </span>
+                                                            <span class="book-it__btn-text ">
+                                                              Request to Book
+                                                            </span>
                                                         <span class="book-it__btn-text--instant">
-                  <i class="icon icon-bolt text-beach h4 book-it__instant-book-icon"></i>
-                  Instant Book
-                </span>
+                                                              <i class="icon icon-bolt text-beach h4 book-it__instant-book-icon"></i>
+                                                              Instant Book
+                                                            </span>
                                                     </button>
                                                 </div>
                                                 <p class="text-muted book-it__btn-text--instant-alt space-1 space-top-3 text-center ">
@@ -446,7 +442,7 @@ top: -34px;">
                             </div>
 
 
-                            <input id="hosting_id" name="hosting_id" type="hidden" value="10008">
+                            <input id="hosting_id" name="hosting_id" type="hidden" value="{{room_result.id}}">
                         </form>
                     </div>
                 </div>
@@ -465,10 +461,7 @@ top: -34px;">
                             </h4>
 
                             <!-- property description -->
-                            <p>Small Room. Steps away from the 3 train. A few short blocks from Franklin Ave which has
-                                tons
-                                of great restaurants and bars. Walking distance to Prospect Park and Botanical
-                                gardens.</p>
+                            <p>{{room_result.summary}}</p>
 
                             <p class="text-center-sm">
                                 <a id="contact-host-link" href="javascript:void(0);">
@@ -490,19 +483,19 @@ top: -34px;">
                                 <div class="col-md-9">
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <div>Bed type: <strong>Pull-out Sofa</strong></div>
-                                            <div>Property type: <strong><a href="#" class="link-reset">Bed &amp; Break
-                                                        Fast</a></strong></div>
+                                            <div>Bed type: <strong>{{room_result.bed_type}}</strong></div>
+                                            <div>Property type: <strong><a href="#" class="link-reset">{{room_result.property_type_name}}</a></strong>
+                                            </div>
 
-                                            <div>Accommodates: <strong>12</strong></div>
+                                            <div>Accommodates: <strong>{{room_result.accommodates}}</strong></div>
                                         </div>
                                         <div class="col-md-6">
 
-                                            <div>Bedrooms: <strong>4</strong></div>
+                                            <div>Bedrooms: <strong>{{room_result.bedrooms}}</strong></div>
 
-                                            <div>Bathrooms: <strong>2.5</strong></div>
+                                            <div>Bathrooms: <strong>{{room_result.bathrooms}}</strong></div>
 
-                                            <div>Beds: <strong>8</strong></div>
+                                            <div>Beds: <strong>{{room_result.beds}}</strong></div>
                                         </div>
                                     </div>
                                 </div>
@@ -576,9 +569,9 @@ top: -34px;">
                                                     <i class="icon h3 icon-air-conditioning"></i>
                                                     &nbsp;
                                                     <span class="js-present-safety-feature"><strong>
-                                                
-                                                Air Conditioning 
-                                                
+
+                                                Air Conditioning
+
                                               </strong></span>
 
                                                 </div>
@@ -593,9 +586,9 @@ top: -34px;">
                                                     <i class="icon h3 icon-heating"></i>
                                                     &nbsp;
                                                     <span class="js-present-safety-feature"><strong>
-                                               
+
                                                 Heating
-                                               
+
 
                                               </strong></span>
 
@@ -614,7 +607,7 @@ top: -34px;">
 
                                         </div>
 
-                                        <div class="row rooms_amenities_after" style="display:block;">
+                                        <div class="row rooms_amenities_after hide" style="display:block;">
 
 
                                             <div class="col-sm-6">
@@ -666,9 +659,9 @@ top: -34px;">
                                                     <i class="icon h3 icon-air-conditioning"></i>
                                                     &nbsp;
                                                     <span class="js-present-safety-feature"><strong>
-                                                 
-                                                Air Conditioning 
-                                                
+
+                                                Air Conditioning
+
                                               </strong></span>
 
                                                 </div>
@@ -682,10 +675,10 @@ top: -34px;">
                                                     <i class="icon h3 icon-heating"></i>
                                                     &nbsp;
                                                     <span class="js-present-safety-feature"><strong>
-                                                
+
 
                                                 Heating
-                                                
+
                                               </strong></span>
 
                                                 </div>
@@ -699,9 +692,9 @@ top: -34px;">
                                                     <i class="icon h3 icon-meal"></i>
                                                     &nbsp;
                                                     <span class="js-present-safety-feature"><strong>
-                                                 
+
                                                 Kitchen
-                                                
+
                                               </strong></span>
 
                                                 </div>
@@ -743,9 +736,9 @@ top: -34px;">
                                                     <i class="icon h3 icon-hot-tub"></i>
                                                     &nbsp;
                                                     <span class="js-present-safety-feature"><strong>
-                                                
+
                                                 Hot Tub
-                                                
+
                                               </strong></span>
 
                                                 </div>
@@ -801,9 +794,9 @@ top: -34px;">
                                                     <i class="icon h3 icon-cup"></i>
                                                     &nbsp;
                                                     <span class="js-present-safety-feature"><strong>
-                                                 
+
                                                 Breakfast
-                                                
+
                                               </strong></span>
 
                                                 </div>
@@ -817,9 +810,9 @@ top: -34px;">
                                                     <i class="icon h3 icon-parking"></i>
                                                     &nbsp;
                                                     <span class="js-present-safety-feature"><strong>
-                                                 
+
                                                 Free Parking on Premises
-                                                
+
                                               </strong></span>
 
                                                 </div>
@@ -833,9 +826,9 @@ top: -34px;">
                                                     <i class="icon h3 icon-gym"></i>
                                                     &nbsp;
                                                     <span class="js-present-safety-feature"><strong>
-                                                
+
                                                 Gym
-                                                
+
                                               </strong></span>
 
                                                 </div>
@@ -849,9 +842,9 @@ top: -34px;">
                                                     <i class="icon h3 icon-elevator"></i>
                                                     &nbsp;
                                                     <span class="js-present-safety-feature"><strong>
-                                               
+
                                                 Elevator in Building
-                                               
+
                                               </strong></span>
 
                                                 </div>
@@ -865,9 +858,9 @@ top: -34px;">
                                                     <i class="icon h3 icon-fireplace"></i>
                                                     &nbsp;
                                                     <span class="js-present-safety-feature"><strong>
-                                               
+
                                                 Indoor Fireplace
-                                               
+
                                               </strong></span>
 
                                                 </div>
@@ -881,9 +874,9 @@ top: -34px;">
                                                     <i class="icon h3 icon-intercom"></i>
                                                     &nbsp;
                                                     <span class="js-present-safety-feature"><strong>
-                                                 
+
                                                 Buzzer/Wireless Intercom
-                                                
+
                                               </strong></span>
 
                                                 </div>
@@ -897,9 +890,9 @@ top: -34px;">
                                                     <i class="icon h3 icon-doorman"></i>
                                                     &nbsp;
                                                     <span class="js-present-safety-feature"><strong>
-                                                
+
                                                 Doorman
-                                                
+
                                               </strong></span>
 
                                                 </div>
@@ -913,9 +906,9 @@ top: -34px;">
                                                     <i class="icon h3 icon-shampoo"></i>
                                                     &nbsp;
                                                     <span class="js-present-safety-feature"><strong>
-                                                
+
                                                 Shampoo
-                                                
+
                                               </strong></span>
 
                                                 </div>
@@ -929,9 +922,9 @@ top: -34px;">
                                                     <i class="icon h3 icon-family"></i>
                                                     &nbsp;
                                                     <span class="js-present-safety-feature"><strong>
-                                               
+
                                                 Family/Kid Friendly
-                                               
+
                                               </strong></span>
 
                                                 </div>
@@ -1001,9 +994,9 @@ top: -34px;">
                                                     <i class="icon h3 icon-accessible"></i>
                                                     &nbsp;
                                                     <span class="js-present-safety-feature"><strong>
-                                                 
+
                                                 Wheelchair Accessible
-                                                
+
                                               </strong></span>
 
                                                 </div>
@@ -1017,9 +1010,9 @@ top: -34px;">
                                                     <i class="icon h3 icon-ok"></i>
                                                     &nbsp;
                                                     <span class="js-present-safety-feature"><strong>
-                                                 <del> 
+                                                 <del>
                                                 Smoke Detector
-                                                </del> 
+                                                </del>
                                               </strong></span>
 
                                                 </div>
@@ -1075,9 +1068,9 @@ top: -34px;">
                                                     <i class="icon h3 icon-ok"></i>
                                                     &nbsp;
                                                     <span class="js-present-safety-feature"><strong>
-                                                 <del> 
+                                                 <del>
                                                 Fire Extinguisher
-                                                </del> 
+                                                </del>
                                               </strong></span>
 
                                                 </div>
@@ -1113,14 +1106,15 @@ top: -34px;">
                                                     <span>No Charge</span>
                                                 </strong></div>
                                             <div>Weekly Price:
-                                                <strong><span id="weekly_price_string">&#36; 952</span> /week</strong>
+                                                <strong><span id="weekly_price_string">&#36; {{room_result.rooms_price.night * 7}}</span>
+                                                    /week</strong>
 
                                             </div>
 
                                         </div>
                                         <div class="col-md-6">
                                             <div>Monthly Price:
-                                                <strong><span id="weekly_price_string">&#36; 4,080</span>
+                                                <strong><span id="weekly_price_string">&#36; {{room_result.rooms_price.night * 30}}</span>
                                                     /month</strong>
 
                                             </div>
@@ -1153,9 +1147,9 @@ top: -34px;">
                                                     <i class="icon h3 icon-ok"></i>
                                                     &nbsp;
                                                     <span class="js-present-safety-feature"><strong>
-                                                 <del> 
+                                                 <del>
                                                 Smoke Detector
-                                                </del> 
+                                                </del>
                                               </strong></span>
 
                                                 </div>
@@ -1211,9 +1205,9 @@ top: -34px;">
                                                     <i class="icon h3 icon-ok"></i>
                                                     &nbsp;
                                                     <span class="js-present-safety-feature"><strong>
-                                                 <del> 
+                                                 <del>
                                                 Fire Extinguisher
-                                                </del> 
+                                                </del>
                                               </strong></span>
 
                                                 </div>
@@ -1294,17 +1288,6 @@ top: -34px;">
                                                          alt="Private shower/Longterm/Decent B&amp;B">
                                                 </a>
                                             </div>
-                                            <a class="photo-trigger gallery"
-                                               href="http://makent.trioangle.com/rooms/10008/slider"
-                                               data-index="5" data-lightbox-type="iframe">
-                                                <div class="row row-table supporting-height">
-                                                    <div class="col-6 col-middle text-center text-contrast">
-                                                        <div class="h5">
-                                                            See all 5 Photos
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </a></div>
                                     </div>
 
 
@@ -1322,9 +1305,42 @@ top: -34px;">
                             <div class="col-lg-8">
                                 <div class="review-content">
                                     <div class="panel-body">
-                                        <h4 class="row-space-4 text-center-sm">
-                                            No Reviews Yet
-                                        </h4>
+                                        <!--<h4 class="row-space-4 text-center-sm">-->
+                                        <!--No Reviews Yet-->
+                                        <!--</h4>-->
+                                        <ul class="list-layout reviews-list row-space-top-4">
+                                            <li class="media reviews-list-item row-space-top-2"
+                                                ng-repeat="review in room_result.reviews">
+                                                <div class="pull-left text-center">
+                                                    <a class="media-photo media-round" href="#">
+                                                        <img width="68" height="68" title="Mick"
+                                                             src="images/{{review.userImg}}" alt="Mick">
+                                                    </a>
+                                                    <div class="name"><a class="text-muted" href="#">{{review.firstName}}
+                                                            {{review.lastName}}</a></div>
+                                                </div>
+                                                <div class="media-body response">
+                                                    <p>{{review.review}}</p>
+                                                    <hr>
+
+                                                    <div class="row-space-top-2">
+                                                        <p>
+                                                            <strong>
+                                                                <i aria-label="Private" data-behavior="tooltip"
+                                                                   class="icon icon-lock icon-rausch"></i>
+                                                                Rating: {{review.rating}}
+                                                            </strong>
+                                                            <br>
+
+                                                        </p>
+                                                    </div>
+                                                    <p class="clearfix text-muted">
+                                                        {{review.createdDate}}
+                                                    </p>
+                                                </div>
+                                            </li>
+
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
@@ -1338,20 +1354,21 @@ top: -34px;">
                     <div class="row">
                         <div class="col-lg-8">
                             <h4 class="row-space-4 text-center-sm">
-                                About the Host, Tony
+                                About the Host, {{room_result.users.first_name}}
                             </h4>
                             <div class="row">
                                 <div class="col-md-3 text-center">
-                                    <a href="http://makent.trioangle.com/users/show/10003"
-                                       class="media-photo media-round"><img alt="Tony" data-pin-nopin="true" height="90"
-                                                                            src="http://makent.trioangle.com/images/users/10003/profile_pic_1462129889.jpg"
+                                    <a href="profile?hostId={{room_result.users.id}}"
+                                       class="media-photo media-round"><img alt="{{room_result.users.first_name}}"
+                                                                            data-pin-nopin="true" height="90"
+                                                                            src="images/{{room_result.users.profile_picture.src}}"
                                                                             title="Tony" width="90"></a>
                                 </div>
                                 <div class="col-md-9">
                                     <div class="row row-condensed space-2">
                                         <div class="col-md-6">
                                             <div>
-                                                Member since November 2016
+                                                Member since {{room_result.users.created_at}}
                                             </div>
                                         </div>
                                     </div>
@@ -1374,10 +1391,10 @@ top: -34px;">
                                     <div class="row row-condensed">
                                         <div class="col-sm-4 col-md-3">
                                             <a class="link-reset" rel="nofollow"
-                                               href="http://makent.trioangle.com/users/show/10003#reviews">
+                                               href="/host?hostId={{room_result.users.id}}">
                                                 <div class="text-center text-wrap">
                                                     <div class="badge-pill h3">
-                                                        <span class="badge-pill-count">0</span>
+                                                        <span class="badge-pill-count">{{hostReviews.count}}</span>
                                                     </div>
                                                     <div class="row-space-top-1">Reviews</div>
                                                 </div>
@@ -1410,20 +1427,17 @@ top: -34px;">
 <script type="text/javascript"
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBXyRBiyRcEzHDJ8iU00zECMUP4cXBIm6A&sensor=false&libraries=places"></script>
 
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
-<script type="text/javascript" src="http://code.jquery.com/ui/1.11.3/jquery-ui.min.js"></script>
+<script src="http://code.jquery.com/ui/1.11.3/jquery-ui.min.js"></script>
 
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.2/angular.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.2/angular.min.js"></script>
 
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.3.2/angular-sanitize.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.3.2/angular-sanitize.min.js"></script>
 
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/ResponsiveSlides.js/1.53/responsiveslides.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ResponsiveSlides.js/1.53/responsiveslides.min.js"></script>
 
 <script type="text/javascript">
     $(document).ready(function () {
@@ -1504,14 +1518,15 @@ top: -34px;">
 </script>
 <script>
     var app = angular.module('App', ['ngSanitize']);
-    var APP_URL = "http:\/\/makent.trioangle.com";
-    var USER_ID = 10001
+    var APP_URL = "http:\/\/localhost:3000";
     $.datepicker.setDefaults($.datepicker.regional["en"])
 </script>
 
 <script src="js/room.js"></script>
 
 <script src="js/common.js"></script>
+
+<script src="controller/common_controller.js"></script>
 
 
 <script src="http://makent.trioangle.com/js/jquery.bxslider.min.js"></script>
