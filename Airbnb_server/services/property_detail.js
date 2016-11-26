@@ -7,7 +7,7 @@
 /**
  * http://usejsdoc.org/
  */
-// var fecha = require('fecha');
+var fecha = require('fecha');
 var User = require('../model/user');
 var Property = require('../model/property');
 var Media = require('../model/media');
@@ -18,16 +18,15 @@ var ObjectId = require('mongoose').Types.ObjectId;
 exports.getProperty = function (msg, callback) {
 
     var id = msg.id;
+    console.log(id);
     Property.findOne({_id: new ObjectId(id)})
         .populate('hostId')
         .populate('mediaId')
         .exec(function (err, record) {
                 if (err) {
                     console.log(err);
-                    console.log("err in find");
                     callback(err, null);
                 }
-
                 if (!record) {
                     callback(null, null);
                 } else {
@@ -44,19 +43,20 @@ exports.getProperty = function (msg, callback) {
                                 for (var i = 0; i < records.length; i++) {
                                     var r = records[i];
                                     var review = {
-                                        createdDate: new Date(r.createdDate),
+                                        createdDate: fecha.format(new Date(r.createdDate), 'MMMM YYYY'),
                                         review: r.review,
-                                        userName: (r.userId) ? r.userId.firstName + " " + r.userId.lastName : "",
+                                        rating: r.rating,
+                                        firstName: (r.userId) ? r.userId.firstName : "",
+                                        lastName: (r.userId) ? r.userId.lastName : "",
                                         userImg: (r.userId) ? (r.userId.profileImage) ? r.userId.profileImage : "" : "",
                                         imageUrl: (r.imageUrl) ? r.imageUrl : ""
                                     };
                                     rating += r.rating;
                                     reviews.push(review);
                                 }
-
                             }
                             rating = (records.length > 0) ? rating / records.length : "No Reviews";
-                            var response = {
+                            var resp = {
                                 reviews: reviews,
                                 rating: rating,
                                 id: record._id,
@@ -64,19 +64,19 @@ exports.getProperty = function (msg, callback) {
                                 name: record.name,
                                 summary: record.description,
                                 accommodates: record.maxGuest,
-                                bedrooms: record.bedrooms,
-                                bathrooms: record.bathrooms,
+                                bedrooms: (record.bedrooms) ? record.bedrooms : 3,
+                                bathrooms: (record.bathrooms) ? record.bathrooms : 2.5,
                                 host_name: (record.hostId) ? record.hostId.firstName : null,
-                                created_at: record.createdDate,
-                                updated_at: record.createdDate,
+                                created_at: new Date(record.createdDate),
+                                updated_at: new Date(record.createdDate),
                                 photo_name: (record.mediaId) ? record.mediaId.imageUrl[0] : "",
                                 images: (record.mediaId) ? record.mediaId.imageUrl : [],
                                 video_url: (record.mediaId) ? record.mediaId.videoUrl : "",
                                 sub_name: "",
-                                property_type: 2,
+                                property_type: "Apartment",
                                 room_type: 0,
-                                beds: 1,
-                                bed_type: 3,
+                                beds: 3,
+                                bed_type: "Pull-out Sofa",
                                 amenities: "1,2,4,5,6,7,10,11,15,17,18,19,22,23,24,25,28,29,30",
                                 calendar_type: "Always",
                                 booking_type: null,
@@ -86,9 +86,9 @@ exports.getProperty = function (msg, callback) {
                                 status: "Listed",
                                 deleted_at: null,
                                 steps_count: 0,
-                                property_type_name: "Apartment",
-                                room_type_name: "Entire home\/apt",
-                                bed_type_name: "Pull-out Sofa",
+                                property_type_name: "Bed & Break Fast",
+                                room_type_name: record.category,
+                                bed_type_name: "Futon",
                                 reviews_count: 0,
                                 overall_star_rating: "",
                                 rooms_address: {
@@ -151,22 +151,22 @@ exports.getProperty = function (msg, callback) {
                                     fb_id: "",
                                     google_id: "",
                                     status: "Active",
-                                    created_at: record.hostId.createdDate,
-                                    updated_at: record.hostId.createdDate,
+                                    created_at: (record.hostId.createdDate) ? fecha.format(new Date(record.hostId.createdDate), 'MMMM YYYY') : "",
+                                    updated_at: (record.hostId.createdDate) ? fecha.format(new Date(record.hostId.createdDate), 'MMMM YYYY') : "",
                                     deleted_at: null,
                                     dob_dmy: "",
                                     age: 0,
                                     full_name: record.hostId.firstName + " " + record.hostId.lastName,
                                     profile_picture: {
                                         user_id: record.hostId._id,
-                                        src: record.hostId.profileImage,
                                         photo_source: "Local",
-                                        header_src: record.hostId.profileImage,
-                                        email_src: record.hostId.profileImage
+                                        src: (record.hostId.profileImage) ? record.hostId.profileImage : "",
+                                        header_src: (record.hostId.profileImage) ? record.hostId.profileImage : "",
+                                        email_src: (record.hostId.profileImage) ? record.hostId.profileImage : ""
                                     }
                                 } : null
                             };
-                            callback(null, response);
+                            callback(null, resp);
                         });
                 }
             }
