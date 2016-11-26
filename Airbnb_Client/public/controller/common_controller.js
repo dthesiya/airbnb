@@ -1449,3 +1449,83 @@ app.controller('search-page', ['$scope', '$http', '$compile', '$filter', functio
 
 
 
+
+app.controller('payment_controller', function ($scope, $window, $location, $http) {
+
+
+
+
+
+    $scope.loadPaymentPage = function () {
+
+
+        $http.post('/loadPaymentPage')
+            .success(function (data) {
+
+                if(data.statusCode==200){
+                    console.log("USER");
+                    console.log(data.data);
+                    var user= data.data;
+                    $scope.cardNumber = user.cardNumber;
+                    $scope.cvv = user.cvv;
+                    $scope.firstName = user.firstName;
+                    $scope.lastName = user.lastName;
+                    $scope.zip = user.zip;
+
+
+                }
+                else{
+
+                    console.log("Error occured to get data");
+                }
+                
+            })
+            .error(function (data) {
+
+                    console.log("Error to get data");
+                    console.log(data);
+            });
+
+
+        var propertyId="Hello";
+        var guest = 4;
+        var checkin = 432423434;
+        var checkout = 3234324343;
+        var totalperday = 4343;
+        var days = 2;
+
+        $http({
+            method : "POST",
+            url : '/getPropertyDetails',
+            data : {
+                "propertyId" : propertyId
+            }
+        }).success(function(data) {
+            if (data.statusCode == 200) {
+
+                console.log("PROPPERTY");
+                console.log(data.data);
+                var property = data.data;
+                $scope.propertName = property.name;
+                $scope.location = property.city + ", " + property.state + ", " + property.country;
+                $scope.guest = guest;
+                $scope.checkin = checkin;
+                $scope.checkout = checkout;
+                $scope.totalperday = totalperday;
+                $scope.days = days;
+
+            }
+            else
+            {
+                console.log("Error occured to get property data");
+            }
+        }).error(function(error) {
+            console.log(error);
+        });
+
+
+
+    };
+
+
+});

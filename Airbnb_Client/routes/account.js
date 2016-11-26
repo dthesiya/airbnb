@@ -67,6 +67,25 @@ exports.getEditProfilePage = function (req, res) {
 };
 
 
+exports.getPaymentPage = function (req, res) {
+
+    var sess = req.session;
+    var user_data = {
+        "email": sess.email,
+        "isLoggedIn": sess.isLoggedIn,
+        "firstname": sess.firstName
+    };
+    ejs.renderFile('../views/paymentpage.ejs', user_data, function (err, result) {
+        if (err) {
+            console.log("Error in getting payment page");
+            res.send("An error occured to get payment page");
+        } else {
+            res.end(result);
+        }
+    });
+};
+
+
 exports.loadEditUserPage = function (req, res) {
     var userId = req.session.userId;
     var msg_payload = {
@@ -222,7 +241,7 @@ exports.loadProfilePhotoPage = function (req, res) {
 };
 
 
-exports.getDashBoardPage = function (req,res) {
+exports.getDashBoardPage = function (req, res) {
 
 
     var sess = req.session;
@@ -230,7 +249,7 @@ exports.getDashBoardPage = function (req,res) {
         "email": sess.email,
         "isLoggedIn": sess.isLoggedIn,
         "firstname": sess.firstName,
-        "userId":sess.userId+'.png'
+        "userId": sess.userId + '.png'
     };
 
     ejs.renderFile('../views/dashboard.ejs', user_data, function (err, result) {
@@ -241,5 +260,69 @@ exports.getDashBoardPage = function (req,res) {
             res.end(result);
         }
     });
+
+};
+
+
+exports.loadPaymentPage = function (req,res) {
+
+    var userId = req.session.userId;
+    var msg_payload = {
+        userId: userId
+    };
+
+    console.log("USER ID");
+    console.log(userId);
+    mq_client.make_request('loadPaymentPage_queue', msg_payload, function (err, user) {
+        if (err) {
+            console.log(err);
+            console.log("In err to load payment user queue");
+            var json_responses = {"statusCode": 401};
+            res.send(json_responses);
+            res.end();
+        } else {
+            console.log("After payment page in client");
+            console.log(user);
+            var json_responses = {"statusCode": 200, "data": user};
+            res.send(json_responses);
+            res.end();
+        }
+    });
+    
+    
+};
+
+exports.getPropertyDetails = function (req,res) {
+
+
+    var propertyId = "583737ae83cd51786c7539d6" ;
+        //req.param("propertyId");
+    var userId = req.session.userId;
+    var msg_payload = {
+        userId: userId,
+        propertyId: propertyId
+    };
+
+    console.log("USER ID");
+    console.log(userId);
+    console.log("PROPERTY ID");
+    console.log(propertyId);
+
+    mq_client.make_request('getPropertyDetails_queue', msg_payload, function (err, property) {
+        if (err) {
+            console.log(err);
+            console.log("In err to get property details queue");
+            var json_responses = {"statusCode": 401};
+            res.send(json_responses);
+            res.end();
+        } else {
+            console.log("After getting property details in client");
+            console.log(property);
+            var json_responses = {"statusCode": 200, "data": property};
+            res.send(json_responses);
+            res.end();
+        }
+    });
+
 
 };

@@ -7,7 +7,7 @@ var bcrypt = require('bcryptjs');
  var config = require('./config.js');*/
 var User = require('../model/user');
 var mongoose = require('mongoose');
-
+var Property = require('../model/property');
 
 exports.editUser = function (msg,callback) {
 
@@ -117,4 +117,63 @@ exports.loadProfilePhotoPage = function (msg,callback) {
 
 
 
+};
+
+exports.loadPaymentPage = function (msg,callback) {
+
+    
+    var userId = msg.userId;
+    
+    User.findOne({_id:userId},function (err,user) {
+        
+        if(err){
+            
+            console.log("Error occurred");
+            console.log(err);
+            callback(err,null);
+            
+        }
+        else{
+            
+            console.log(user);
+            callback(null,user);
+            
+        }
+        
+    });
+    
+    
+    
+
+
+};
+
+exports.getPropertyDetails = function (msg, callback) {
+
+
+   // var userId = msg.userId;
+    var propertyId = msg.propertyId;
+
+    Property.findOne({_id: propertyId}).populate('mediaId').populate("hostId").exec(function (err, result) {
+        
+        if(err){
+            
+            console.log("ERROR TO GET PROPERTY DETAILS");
+            console.log(err);
+            callback(err,null);
+        }
+        else{
+            
+            console.log("property ");
+            console.log(result);
+            callback(null,result);
+            
+        }
+        
+    });
+
+    
+    
+    
+    
 };
