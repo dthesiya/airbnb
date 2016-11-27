@@ -124,7 +124,6 @@ cnn.on('ready', function () {
     });
 
 
-
     cnn.queue('loadReviewAboutPage_queue', function (q) {
         q.subscribe(function (message, headers, deliveryInfo, m) {
             util.log(util.format(deliveryInfo.routingKey, message));
