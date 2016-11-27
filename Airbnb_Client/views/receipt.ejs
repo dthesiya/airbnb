@@ -107,10 +107,10 @@
           </div>
           <div class="col-3">
             <h6>
-                <%=data[0].fromDate%> To <%=data[0].toDate%>
+                Nights
             </h6>
             <p class="text-lead">
-                <%=data[0].total/data[0].propertyId.price%> Nights
+                <%= Math.floor(data[0].total/data[0].propertyId.price)%>
             </p>
           </div>
           <div class="col-3">
@@ -149,7 +149,7 @@
               Check In
             </h6>
             <p class="text-lead">
-                <%=data[0].fromDate%><br>Flexible check in time
+                <strong><%= new Date(data[0].fromDate).toString()%></strong><br>Flexible check in time
             </p>
           </div>
           <div class="col-3">
@@ -157,7 +157,7 @@
               Check Out
             </h6>
             <p class="text-lead">
-                <%=data[0].toDate%><br>Flexible check out time
+               <strong> <%=new Date(data[0].toDate).toString()%></strong><br>Flexible check out time
             </p>
           </div>
         </div>
@@ -172,7 +172,7 @@
               <table class="table table-bordered payment-table">
   <tbody>
     <tr>
-      <th class="receipt-label"><%=data[0].total/data[0].propertyId.price%> Nights X $<%=data[0].propertyId.price%></th>
+      <th class="receipt-label"><%=Math.floor(data[0].total/data[0].propertyId.price)%> Nights X $<%=data[0].propertyId.price%></th>
       <td class="receipt-amount">
         &#36;<%=(data[0].total)%>
       </td>
@@ -197,7 +197,7 @@
       <tr>
           <th class="receipt-label">
             Payment Received:
-            <%=data[0].createdDate%>
+            <%=new Date(data[0].createdDate).toString()%>
             
           </th>
         <td class="receipt-amount">
