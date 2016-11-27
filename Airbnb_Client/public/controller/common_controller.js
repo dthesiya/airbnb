@@ -48,10 +48,7 @@ app.controller('authentication_controller', function ($scope, $window, $location
                     $scope.isUserExist = true;
                 });
         }
-
     };
-
-
 });
 
 app.controller('account_user_management', function ($scope, $window, $location, $http) {
