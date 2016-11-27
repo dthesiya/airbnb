@@ -78,6 +78,9 @@ app.post('/loadReviewByPage', review.loadReviewAboutPage);
 app.post('/uploadProfileImage',account.uploadProfileImage );
 app.post('/loadProfilePhotoPage',account.loadProfilePhotoPage);
 app.get('/getDashBoardPage', account.getDashBoardPage);
+app.get('/getPaymemtPage', account.getPaymentPage);
+app.post('/loadPaymentPage', account.loadPaymentPage);
+app.post('/getPropertyDetails', account.getPropertyDetails);
 
 app.get('/receipt/:billingID', account_management.receiptPage);
 
