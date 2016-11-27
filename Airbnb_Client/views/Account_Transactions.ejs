@@ -138,6 +138,7 @@
                                     <th>Details</th>
                                     <th>Amount</th>
                                     <th>User</th>
+                                    <th>Bill</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -147,6 +148,7 @@
                                     <td>{{x.propertyId.name }}</td>
                                     <td>{{x.total}}</td>
                                     <td>{{x.userId.firstName}}</td>
+                                    <td><a href="/receipt/{{x._id}}">View Bill</a></td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -161,6 +163,7 @@
                                     <th>Details</th>
                                     <th>Amount</th>
                                     <th>Paid To</th>
+                                    <th>Bill</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -170,6 +173,7 @@
                                     <td>{{x.propertyId.name }}</td>
                                     <td>{{x.total}}</td>
                                     <td>{{x.hostId.firstName}}</td>
+                                    <td><a href="/receipt/{{x._id}}">View Bill</a></td>
                                 </tr>
                                 </tbody>
                             </table>
