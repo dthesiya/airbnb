@@ -11,6 +11,7 @@ var mongoose = require('mongoose');
 var ssn = require('ssn');
 var ObjectId = require('mongoose').Types.ObjectId;
 
+
 exports.updatePassword = function (msg, callback) {
     var opass = msg.old_password;
     var npass = msg.new_password;
@@ -117,6 +118,30 @@ exports.payoutTransactions = function (msg, callback) {
             var res = {};
             console.log(result);
             console.log("pay out transaction");
+            res.code = 200;
+            res.data = result;
+            callback(null, res);
+        }
+
+    });
+};
+
+exports.receiptPage = function (msg, callback) {
+
+    console.log("receiptPage service");
+
+    Billing.find({_id: new ObjectId(msg.bID)}).populate('propertyId').populate('hostId').populate('userId').populate('tripID').exec(function (err, result) {
+        if (err) {
+            console.log("err in billing receipt");
+            callback(err, null);
+        }
+        if (!result) {
+            callback(null, null);
+        }
+        if (result) {
+            var res = {};
+            console.log(result);
+            console.log("receipt result");
             res.code = 200;
             res.data = result;
             callback(null, res);

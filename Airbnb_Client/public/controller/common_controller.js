@@ -106,10 +106,8 @@ app.controller('account_user_management', function ($scope, $window, $location, 
 
             }
         }).success(function (result) {
-            if (result == "OK") {
                 console.log("ok result");
                 $scope.alert2 = true;
-            }
         }).error(function (err) {
             console.log(err);
         })

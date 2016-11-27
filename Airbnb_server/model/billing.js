@@ -9,7 +9,8 @@ var billingSchema = new Schema({
     fromDate: {type: Number},
     toDate: {type: Number},
     total: {type: Number},
-    createdDate: {type: Number}
+    createdDate: {type: Number},
+    tripId : {type: Schema.Types.ObjectId, ref: 'trip'},
 
 });
 

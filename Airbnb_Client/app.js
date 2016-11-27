@@ -62,7 +62,6 @@ app.get('/getUserPhotoPage', account.getUserPhotoPage);
 app.get('/getUserReviewAboutPage', account.getUserReviewAboutPage);
 app.get('/getUserReviewbyPage', account.getUserReviewbyPage);
 app.post('/loadEditUserPage', account.loadEditUserPage);
-app.get('/login',signin.loginpg);
 app.get('/property', property.loadDetailPg);
 app.get('/detail', property.getProperty);
 app.get('/Account_Transactions', account_management.accountPage);
@@ -79,6 +78,9 @@ app.post('/loadReviewByPage', review.loadReviewAboutPage);
 app.post('/uploadProfileImage',account.uploadProfileImage );
 app.post('/loadProfilePhotoPage',account.loadProfilePhotoPage);
 app.get('/getDashBoardPage', account.getDashBoardPage);
+
+app.get('/receipt/:billingID', account_management.receiptPage);
+
 app.get('/signin', isAuthenticated, function (req, res) {
     res.redirect('/');
 });
