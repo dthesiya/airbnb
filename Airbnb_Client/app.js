@@ -78,14 +78,7 @@ app.post('/loadReviewByPage', review.loadReviewByPage);
 app.post('/uploadProfileImage',account.uploadProfileImage );
 app.post('/loadProfilePhotoPage',account.loadProfilePhotoPage);
 
-app.get('/receipt', function (req, res, next) {
-    var user_data = {
-        "email": req.session.email,
-        "isLoggedIn": req.session.isLoggedIn,
-        "firstname": req.session.firstName
-    };
-    res.render('receipt', user_data);
-});
+app.get('/receipt/:billingID', account_management.receiptPage);
 
 app.get('/signin', isAuthenticated, function (req, res) {
     res.redirect('/');

@@ -124,3 +124,29 @@ exports.payoutTransactions = function (req, res, next) {
         }
     });
 };
+
+exports.receiptPage = function (req, res, next) {
+
+    var billingID = req.params.billingID;
+    var msg_payload = {
+        bID: billingID
+    };
+
+    mq_client.make_request('receiptPage_queue', msg_payload, function (err, user) {
+        if (err) {
+            console.log(err);
+            res.send(err);
+        } else {
+            console.log("receiptPage response");
+            var user_data = {
+                "email": req.session.email,
+                "isLoggedIn": req.session.isLoggedIn,
+                "firstname": req.session.firstName,
+                "data": user.data
+            };
+            console.log(user_data);
+            res.render('receipt', user_data);
+        }
+    });
+
+};

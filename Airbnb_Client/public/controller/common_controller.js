@@ -1478,6 +1478,3 @@ app.controller('search-page', ['$scope', '$http', '$compile', '$filter', functio
     });
 
 }]);
-
-
-

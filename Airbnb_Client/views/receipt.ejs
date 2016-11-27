@@ -13,19 +13,21 @@
     <!--[if IE]><![endif]-->
     <meta charset="utf-8">
 
-   <link media="all" type="text/css" rel="stylesheet" href="css/common.css">
+    <link media="all" type="text/css" rel="stylesheet" href="../css/common.css">
 
-    <link media="all" type="text/css" rel="stylesheet" href="css/home.css">
+    <link media="all" type="text/css" rel="stylesheet" href="../css/home.css">
 
-    <link media="all" type="text/css" rel="stylesheet" href="css/themes.css">
+    <link media="all" type="text/css" rel="stylesheet" href="../css/themes.css">
 
-    <link media="all" type="text/css" rel="stylesheet" href="css/pcss.css">
-    <link media="all" type="text/css" rel="stylesheet" href="css/new.css">
+    <link media="all" type="text/css" rel="stylesheet" href="../css/dynamic.css">
+
+    <link media="all" type="text/css" rel="stylesheet" href="../css/pcss.css">
+    <link media="all" type="text/css" rel="stylesheet" href="../css/new.css">
 
     
-    <link media="all" type="text/css" rel="stylesheet" href="css/receipt.css">
+    <link media="all" type="text/css" rel="stylesheet" href="../css/receipt.css">
 
-    <link media="print" type="text/css" rel="stylesheet" href="css/receipt-print.css">
+    <link media="print" type="text/css" rel="stylesheet" href="../css/receipt-print.css">
 
     <style type="text/css">
       .ui-selecting { background: #FECA40; }
@@ -60,8 +62,7 @@
 <div class="page-container page-container-responsive row-space-top-8">
   <div class="row row-condensed row-table row-space-4" id="receipt-id">
     <div class="col-3 col-bottom">
-      Sun, May 01, 2016<br>
-      Receipt # 10005<br>
+      Billing ID: <%=data[0].billingId%><br>
     </div>
     <div class="col-3 col-bottom">
     </div>
@@ -81,7 +82,7 @@
           Confirmation Code
         </div>
         <div class="h4">
-          8R9696
+            <%=data[0].billingId%>
         </div>
       </div>
 
@@ -93,7 +94,7 @@
               Name
             </h6>
             <p class="text-lead">
-              Test User
+                <%=data[0].userId.firstName%> <%=data[0].userId.lastName%>
             </p>
           </div>
           <div class="col-3">
@@ -101,15 +102,15 @@
               Travel Destination
             </h6>
             <p class="text-lead">
-              Sant Cugat del Vall&egrave;s
+               <b><%=data[0].propertyId.city%> <%=data[0].propertyId.state%> <%=data[0].propertyId.country%></b>
             </p>
           </div>
           <div class="col-3">
             <h6>
-              Duration
+                <%=data[0].fromDate%> To <%=data[0].toDate%>
             </h6>
             <p class="text-lead">
-              3 Nights
+                <%=data[0].total/data[0].propertyId.price%> Nights
             </p>
           </div>
           <div class="col-3">
@@ -117,7 +118,7 @@
               Accommodation Type
             </h6>
             <p class="text-lead">
-              Entire home/apt
+                <%=data[0].propertyId.category%>
             </p>
           </div>
         </div>
@@ -128,16 +129,19 @@
               Accommodation Address
             </h6>
             <p class="text-lead">
-              <strong>I &quot;loooft&quot; Barcelona!</strong>
+              <strong><%=data[0].propertyId.address%><br>
+                  <strong><%=data[0].propertyId.city%> <%=data[0].propertyId.state%> <br><%=data[0].propertyId.country%><br></strong>
+              </strong>
+
             </p>
-              <p class="text-lead">Cam&iacute; de Can Borrell<br>Sant Cugat del Vall&egrave;s, Catalunya 08173<br>Spain<br></p>
+
           </div>
           <div class="col-3">
             <h6>
               Accommodation Host
             </h6>
             <p class="text-lead">
-              Mick Hans
+                <%=data[0].hostId.firstName%> <%=data[0].hostId.lastName%>
             </p>
           </div>
           <div class="col-3">
@@ -145,7 +149,7 @@
               Check In
             </h6>
             <p class="text-lead">
-              Tue, May 17, 2016<br>Flexible check in time
+                <%=data[0].fromDate%><br>Flexible check in time
             </p>
           </div>
           <div class="col-3">
@@ -153,7 +157,7 @@
               Check Out
             </h6>
             <p class="text-lead">
-              Fri, May 20, 2016<br>Flexible check out time
+                <%=data[0].toDate%><br>Flexible check out time
             </p>
           </div>
         </div>
@@ -168,9 +172,9 @@
               <table class="table table-bordered payment-table">
   <tbody>
     <tr>
-      <th class="receipt-label">&#36;150 x 3 nights</th>
+      <th class="receipt-label"><%=data[0].total/data[0].propertyId.price%> Nights X $<%=data[0].propertyId.price%></th>
       <td class="receipt-amount">
-        &#36;450
+        &#36;<%=(data[0].total)%>
       </td>
     </tr>
                               <tr>
@@ -183,7 +187,7 @@
   <tfoot>
     <tr>
       <th class="receipt-label">Total</th>
-      <td class="receipt-amount">&#36;473</td>
+      <td class="receipt-amount">&#36;<%=(data[0].total)+23%></td>
     </tr>
   </tfoot>
 </table>
@@ -193,11 +197,11 @@
       <tr>
           <th class="receipt-label">
             Payment Received:
-            Sun, May 01, 2016
+            <%=data[0].createdDate%>
             
           </th>
         <td class="receipt-amount">
-          &#36;473
+          &#36;<%=(data[0].total)+23%>
         </td>
       </tr>
   </tbody>
@@ -346,9 +350,9 @@ function print_receipt()
 
 
 
-  <script type="application/javascript" src="js/common.js"></script>
+  <script type="application/javascript" src="../js/common.js"></script>
 
-  <script type="application/javascript" src="controller/common_controller.js"></script>
+  <script type="application/javascript" src="../controller/common_controller.js"></script>
 
 <div class="tooltip tooltip-bottom-middle" role="tooltip" aria-hidden="true">  
 	<p class="panel-body">To sign up, you must be 18 or older. Other people won’t see your birthday.</p>
