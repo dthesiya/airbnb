@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="en-IN" xmlns:fb="http://ogp.me/ns/fb#"><!--<![endif]-->
+<html ng-app='App' lang="en-IN" xmlns:fb="http://ogp.me/ns/fb#"><!--<![endif]-->
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link rel="dns-prefetch" href="https://maps.googleapis.com/">
@@ -45,34 +45,31 @@
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="theme-color" content="#f5f5f5">
 </head>
-<body ng-app='App'>
+<body ng-controller="activeListings_controller">
+
 <% include header.ejs %>
 <% include modal.ejs %>
+
 <main id="site-content" role="main">
+
 
     <div class="subnav hide-print">
         <div class="page-container-responsive">
             <ul class="subnav-list">
                 <li>
-                    <a href="" aria-selected="false" class="subnav-item">Dashboard</a>
+                    <a href="/getDashBoardPage" aria-selected="false" class="subnav-item">Dashboard</a>
                 </li>
                 <li>
-                    <a href="" aria-selected="false" class="subnav-item">Inbox</a>
+                    <a href="#" aria-selected="true" class="subnav-item">Your Listings</a>
                 </li>
                 <li>
-                    <a href="" aria-selected="true" class="subnav-item">Your Listings</a>
+                    <a href="/yourTrips" aria-selected="false" class="subnav-item">Your Trips</a>
                 </li>
                 <li>
-                    <a href="profile_yourTrips.ejs" aria-selected="false" class="subnav-item">Your Trips</a>
+                    <a href="/profile" aria-selected="false" class="subnav-item">Profile</a>
                 </li>
                 <li>
-                    <a href="" aria-selected="false" class="subnav-item">Profile</a>
-                </li>
-                <li>
-                    <a href="" aria-selected="false" class="subnav-item">Account</a>
-                </li>
-                <li>
-                    <a href="" class="subnav-item">Travel Credit</a>
+                    <a href="/Account_Transactions" aria-selected="false" class="subnav-item">Account</a>
                 </li>
             </ul>
         </div>
@@ -84,21 +81,26 @@
                 <ul class="sidenav-list">
 
                     <li>
-                        <a href="" aria-selected="true" class="sidenav-item">Active Listings</a>
+                        <a ng-click="clickActive()" href="" aria-selected="{{activeListings}}" class="sidenav-item">Active
+                            Listings</a>
                     </li>
                     <li>
-                        <a href="" aria-selected="false" class="sidenav-item">Pending Listings</a>
+                        <a ng-click="clickPending()" href="" aria-selected="{{pendingListings}}" class="sidenav-item">Pending
+                            Listings</a>
                     </li>
                     <li>
-                        <a href="" aria-selected="false" class="sidenav-item">Your Reservations</a>
+                        <a ng-click="clickReservation()" href="" aria-selected={{reservationListings}}
+                           class="sidenav-item">Your Reservations</a>
                     </li>
                     <li>
-                        <a href="" aria-selected="false" class="sidenav-item">Unapproved Reservations</a>
+                        <a ng-click="clickUnapprovedReservation()" href=""
+                           aria-selected="{{unapprovedReservationListings}}" class="sidenav-item">Unapproved
+                            Reservations</a>
                     </li>
                 </ul>
             </div>
 
-            <div class="col-md-9">
+            <div class="col-md-9" ng-show="activeListings">
                 <div class="your-listings-flash-container"></div>
                 <div id="listings-container">
                     <div>
@@ -113,7 +115,7 @@
                                     </div>
                                 </div>
                                 <ul class="list-unstyled list-layout">
-                                    <li class="listing panel-body">
+                                    <li class="listing panel-body" ng-repeat="listing in listed">
                                         <div class="row row-table">
                                             <div class="col-2 col-middle">
                                                 <a href="#">
@@ -126,9 +128,9 @@
                                                 </a>
                                             </div>
                                             <div class="col-lg-7 col-md-10 col-middle">
-        <span class="h4">
-        <a href="#" class="text-normal">Castro one-bedroom suite</a>
-        </span>
+                                            <span class="h4">
+                                            <a href="#" class="text-normal" ng-bind="listing.name"><span></span></a>
+                                            </span>
                                                 <div class="actions row-space-top-1">
                                                     <a class="listing-link-space" href="#">Manage Listing and
                                                         Calendar</a>
@@ -141,6 +143,7 @@
                                                     </div>
                                                 </div>
                                             </div>
+
                                             <div class="col-3 col-middle text-right hide-md hide-sm">
                                                 <div class="listing-criteria-header activation-notification show-lg">
                                                     <div class="listing-criteria-header-message">
@@ -164,7 +167,7 @@
                                         <div id="ib-master-switch-container" class="col-6"></div>
                                     </div>
                                 </div>
-                                <ul class="list-unstyled list-layout">
+                                <ul class="list-unstyled list-layout" ng-repeat="listing in unlisted">
                                     <li class="listing panel-body">
                                         <div class="row row-table">
                                             <div class="col-2 col-middle">
@@ -178,9 +181,9 @@
                                                 </a>
                                             </div>
                                             <div class="col-lg-7 col-md-10 col-middle">
-        <span class="h4">
-        <a href="#" class="text-normal">The city at your doorstep</a>
-        </span>
+                                            <span class="h4">
+                                            <a href="#" class="text-normal" ng-bind="listing.name"></a>
+                                            </span>
                                                 <div class="actions row-space-top-1">
                                                     <a href="#">Manage Listing and Calendar</a>
                                                 </div>
@@ -203,55 +206,350 @@
                                             </div>
                                         </div>
                                     </li>
-                                    <li class="listing panel-body">
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-9" ng-show="pendingListings">
+                <div class="your-listings-flash-container"></div>
+                <div id="listings-container">
+                    <div>
+                        <div class="suspension-container">
+                            <div class="suspension-overlay hide"></div>
+
+                            <div class="panel row-space-4">
+                                <div class="panel-header active-panel-header">
+                                    <div class="row">
+                                        <div class="col-6 active-panel-padding">Listed</div>
+                                        <div id="ib-master-switch-container" class="col-6"></div>
+                                    </div>
+                                </div>
+                                <ul class="list-unstyled list-layout">
+                                    <li class="listing panel-body" ng-repeat="listing in pending">
                                         <div class="row row-table">
                                             <div class="col-2 col-middle">
                                                 <a href="#">
                                                     <div class="media-photo media-photo-block">
                                                         <div class="media-cover text-center">
-                                                            <img src="../images/1455193940_1d2efc59_original.jpg"
-                                                                 class="img-responsive-height" alt="">
+                                                            <img src="../images/1454760500_6ed3bd5d_original.jpg"
+                                                                 class="img-responsive-height">
                                                         </div>
                                                     </div>
                                                 </a>
                                             </div>
                                             <div class="col-lg-7 col-md-10 col-middle">
-        <span class="h4">
-        <a href="" class="text-normal">Haleakala B&amp;B-Aloha Rm / Prvt Entry</a>
-        </span>
+                                            <span class="h4">
+                                            <a href="#" class="text-normal" ng-bind="listing.name"><span></span></a>
+                                            </span>
                                                 <div class="actions row-space-top-1">
-                                                    <a href="">Manage Listing and Calendar</a>
+                                                    <a class="listing-link-space" href="#">Manage Listing and
+                                                        Calendar</a>
                                                 </div>
                                                 <div class="listing-criteria-header activation-notification hide-lg space-top-2">
+                                                    <div class="listing-criteria-header-message">
+                                                        <div id="availability-dropdown" data-room-id="div_10001">
 
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
+
                                             <div class="col-3 col-middle text-right hide-md hide-sm">
                                                 <div class="listing-criteria-header activation-notification show-lg">
+                                                    <div class="listing-criteria-header-message">
+                                                        <div id="availability-dropdown" data-room-id="div_10001">
 
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </li>
                                 </ul>
                             </div>
-
-
                         </div>
                     </div>
                 </div>
             </div>
 
-        </div>
+            <div class="col-md-9" ng-show="reservationListings">
 
+
+                <div class="panel" id="print_area">
+                    <div class="panel-header">
+                        <div class="row row-table">
+                            <div class="col-md-6 col-middle">
+                                All Reservations
+                            </div>
+                            <div class="col-md-6 col-middle">
+
+                                <a class="btn pull-right" href="#">
+                                    <i class="icon icon-description"></i>
+                                    Print this page
+                                </a></div>
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table style="background-color:white" class="table panel-body space-1">
+                            <tbody>
+                            <tr>
+                                <th>Status</th>
+                                <th>Dates and Location</th>
+                                <th>Guest</th>
+                                <th>Details</th>
+                            </tr>
+                            <tr data-reservation-id="10001" class="reservation" ng-repeat="reservation in upcoming">
+                                <td>
+                                    <span class="label label-success">
+                                      Accepted
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <span ng-bind="(reservation.checkIn | date:'shortDate') + ' to ' + (reservation.checkOut | date:'shortDate')"></span>
+                                    <br>
+                                    <a locale="en" href="" ng-bind="reservation.propertyId.name"></a>
+                                    <br>
+                                    <span ng-bind="reservation.propertyId.address"></span>
+
+                                    <br>
+                                    <span ng-bind="(reservation.propertyId.city) + ' , ' + ((reservation.propertyId.state) + ' , ' + (reservation.propertyId.zip))"></span>
+                                    <br>
+                                </td>
+                                <td>
+                                    <div class="media va-container">
+                                        <a class="pull-left media-photo media-round" href="">
+                                            <img width="50" height="50" title="John"
+                                                 src="../images/profile_pic_1462128938.jpg" alt="John">
+                                        </a>
+                                        <div class="va-top">
+                                            <a class="text-normal" href=""
+                                               ng-bind="(reservation.userId.firstName) + ' ' + (reservation.userId.lastName)"></a>
+                                            <br>
+                                            <a href="#" class="text-normal">
+                                                <i class="icon icon-envelope"></i>
+                                                Send Message
+                                            </a>
+                                            <br>
+                                            <a href="mailto:john@gmail.com">
+                                                Contact by Email
+                                            </a>
+                                            <i class="icon icon-question"
+                                               id="anonymous-email-118017996-tooltip-trigger"></i>
+                                            <br>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span ng-bind=" '$' + (reservation.propertyId.price)"></span>
+                                    <ul class="list-unstyled">
+                                        <li>
+                                            <a href="#">Message History</a>
+                                        </li>
+                                        <li>
+                                            <a target="_blank" href="#">Print Confirmation</a>
+                                        </li>
+                                    </ul>
+
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="panel-body">
+                        <a ng-click="clickPast()" ng-bind="pastText" href=""></a>
+                    </div>
+
+                    <div class="table-responsive" ng-show="showPast">
+                        <table style="background-color:white" class="table panel-body space-1">
+                            <tbody>
+                            <tr>
+                                <th>Status</th>
+                                <th>Dates and Location</th>
+                                <th>Guest</th>
+                                <th>Details</th>
+                            </tr>
+                            <tr data-reservation-id="10001" class="reservation" ng-repeat="reservation in past">
+                                <td>
+                                    <span class="label label-success">
+                                      Accepted
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <span ng-bind="(reservation.checkIn | date:'shortDate') + ' to ' + (reservation.checkOut | date:'shortDate')"></span>
+                                    <br>
+                                    <a locale="en" href="" ng-bind="reservation.propertyId.name"></a>
+                                    <br>
+                                    <span ng-bind="reservation.propertyId.address"></span>
+
+                                    <br>
+                                    <span ng-bind="(reservation.propertyId.city) + ' , ' + ((reservation.propertyId.state) + ' , ' + (reservation.propertyId.zip))"></span>
+                                    <br>
+                                </td>
+                                <td>
+                                    <div class="media va-container">
+                                        <a class="pull-left media-photo media-round" href="">
+                                            <img width="50" height="50" title="John"
+                                                 src="../images/profile_pic_1462128938.jpg" alt="John">
+                                        </a>
+                                        <div class="va-top">
+                                            <a class="text-normal" href=""
+                                               ng-bind="(reservation.userId.firstName) + ' ' + (reservation.userId.lastName)"></a>
+                                            <br>
+                                            <a href="#" class="text-normal">
+                                                <i class="icon icon-envelope"></i>
+                                                Send Message
+                                            </a>
+                                            <br>
+                                            <a href="mailto:john@gmail.com">
+                                                Contact by Email
+                                            </a>
+                                            <i class="icon icon-question"
+                                               id="anonymous-email-118017996-tooltip-trigger"></i>
+                                            <br>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span ng-bind=" '$' + (reservation.propertyId.price)"></span>
+                                    <ul class="list-unstyled">
+                                        <li>
+                                            <a ng-click="toggleReview()" href="#">Write Review</a>
+                                            <div ng-show="writeReview"><textarea ng-model="review[reservation._id]"
+                                                                                 rows="4" cols="10"></textarea>
+                                                <select ng-model="rating">
+                                                    <option>1</option>
+                                                    <option>2</option>
+                                                    <option>3</option>
+                                                    <option>4</option>
+                                                    <option>5</option>
+                                                </select>
+
+
+                                                <button ng-click="submitReview(review[reservation._id], reservation.userId._id, rating)"
+                                                        type="button" class="btn btn-primary btn">
+                                                    Submit Review
+                                                </button>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <a target="_blank" href="#">Print Confirmation</a>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-md-9" ng-show="unapprovedReservationListings">
+                <div class="panel" id="print_area">
+                    <div class="panel-header">
+                        <div class="row row-table">
+                            <div class="col-md-6 col-middle">
+                                All Reservations
+                            </div>
+                            <div class="col-md-6 col-middle">
+
+                                <a class="btn pull-right" href="">
+                                    <i class="icon icon-description"></i>
+                                    Print this page
+                                </a></div>
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table style="background-color:white" class="table panel-body space-1">
+                            <tbody>
+                            <tr>
+                                <th>Action</th>
+                                <th>Dates and Location</th>
+                                <th>Guest</th>
+                                <th>Details</th>
+                            </tr>
+                            <tr data-reservation-id="10001" class="reservation" ng-repeat="reservation in unapproved">
+                                <td>
+                                <span class="label label-success">
+                                  <button ng-click="acceptTrip(reservation._id)" id="approve"
+                                          class="btn btn-primary btn-small" type="submit">Approve</button>
+                                </span>
+                                </td>
+
+                                <td>
+                                    <span ng-bind="(reservation.checkIn | date:'shortDate') + ' to ' + (reservation.checkOut | date:'shortDate')"></span>
+                                    <br>
+                                    <a locale="en" href="" ng-bind="reservation.propertyId.name"></a>
+                                    <br>
+                                    <span ng-bind="reservation.propertyId.address"></span>
+
+                                    <br>
+                                    <span ng-bind="(reservation.propertyId.city) + ' , ' + ((reservation.propertyId.state) + ' , ' + (reservation.propertyId.zip))"></span>
+                                    <br>
+                                </td>
+                                <td>
+                                    <div class="media va-container">
+                                        <a class="pull-left media-photo media-round" href="">
+                                            <img width="50" height="50" title="John"
+                                                 src="../images/profile_pic_1462128938.jpg" alt="John">
+                                        </a>
+                                        <div class="va-top">
+                                            <a class="text-normal" href=""
+                                               ng-bind="(reservation.userId.firstName) + ' ' + (reservation.userId.lastName)"></a>
+                                            <br>
+                                            <a href="#" class="text-normal">
+                                                <i class="icon icon-envelope"></i>
+                                                Send Message
+                                            </a>
+                                            <br>
+                                            <a href="mailto:john@gmail.com">
+                                                Contact by Email
+                                            </a>
+                                            <i class="icon icon-question"
+                                               id="anonymous-email-118017996-tooltip-trigger"></i>
+                                            <br>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span ng-bind=" '$' + (reservation.propertyId.price)"></span>
+                                    <ul class="list-unstyled">
+                                        <li>
+                                            <a href="#">Message History</a>
+                                        </li>
+                                        <li>
+                                            <a target="_blank" href="#">Print Confirmation</a>
+                                        </li>
+                                    </ul>
+
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="panel-body">
+                        <a href="">View upcoming reservations</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </main>
+
 <% include footer.ejs %>
 
 <div id="gmap-preload" class="hide"></div>
 <div class="ipad-interstitial-wrapper"><span data-reactid=".1"></span></div>
 <div id="fb-root"></div>
 <script type="text/javascript"
-        src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&sensor=false"></script>
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBXyRBiyRcEzHDJ8iU00zECMUP4cXBIm6A&sensor=false&libraries=places"></script>
+
+
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
 <script type="text/javascript" src="http://code.jquery.com/ui/1.11.3/jquery-ui.min.js"></script>
@@ -266,6 +564,7 @@
 
 <script type="text/javascript"
         src="https://cdnjs.cloudflare.com/ajax/libs/ResponsiveSlides.js/1.53/responsiveslides.min.js"></script>
+
 <script type="text/javascript">
     $(document).ready(function () {
         $('.login_popup_head').click(function (e) {
@@ -343,12 +642,10 @@
         });
     });
 </script>
-<script>
-    var app = angular.module('App', ['ngSanitize']);
-    var APP_URL = "http:\/\/makent.trioangle.com";
-    var USER_ID = 10001
-    $.datepicker.setDefaults($.datepicker.regional["en"])
-</script>
+
 <script src="../js/common.js"></script>
+
+<script type="application/javascript" src="controller/common_controller.js"></script>
+
 </body>
 </html>

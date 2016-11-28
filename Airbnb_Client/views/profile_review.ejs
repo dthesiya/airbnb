@@ -69,7 +69,7 @@
 <% include header.ejs %>
 <% include modal.ejs %>
 
-<main id="site-content" role="main" ng-controller="review_controller" ng-init="loadReviewAboutPage()">
+<main id="site-content" role="main" ng-controller="reviews">
 
     <div class="subnav hide-print">
         <div class="page-container-responsive">
@@ -104,10 +104,10 @@
 
 
                         <li>
-                            <a href="/editProfilePage" aria-selected="false" class="sidenav-item">Edit Profile</a>
+                            <a href="#" aria-selected="false" class="sidenav-item">Edit Profile</a>
                         </li>
                         <li>
-                            <a href="/getUserPhotoPage" aria-selected="false" class="sidenav-item">Photos</a>
+                            <a href="#" aria-selected="false" class="sidenav-item">Photos</a>
                         </li>
 
                         <li>
@@ -123,13 +123,14 @@
 
                 <ul role="tablist" class="tabs">
                     <li>
-                        <a aria-selected="true" aria-controls="received" role="tab" href="" class="tab-item">
+                        <a aria-selected="true" aria-controls="received" role="tab" href="javascript:void(0);"
+                           class="tab-item">
                             Reviews About You
                         </a>
                     </li>
                     <li>
                         <a aria-selected="false" aria-controls="sent" role="tab" class="tab-item"
-                           href="/getUserReviewbyPage">
+                           href="javascript:void(0);">
                             Reviews By You
                         </a>
                     </li>
@@ -141,24 +142,29 @@
                         <div aria-hidden="false" id="received" role="tabpanel" class="tab-panel" style="">
                             <div class="panel">
                                 <div class="panel-header">
-                                    Reviews from User
+                                    Reviews
                                 </div>
                                 <div class="panel-body">
                                     <p class="text-lead">
-                                        You will see all past reviews here.
+                                        You will see all past reviews here. Any hidden reviews indicate that you still
+                                        need to complete a review and that the review period (14 days after checkout) is
+                                        still open.
                                     </p>
                                     <ul class="list-layout reviews-list row-space-top-4">
-                                        <li class="media reviews-list-item row-space-top-2"
-                                            ng-repeat="fromuser in fromUserReview">
+                                        <li class="media reviews-list-item row-space-top-2">
                                             <div class="pull-left text-center">
-                                                <a class="media-photo media-round" href="#">
-                                                    <img width="68" height="68" title="Mick" src="" alt="Mick">
+                                                <a class="media-photo media-round"
+                                                   href="http://makent.trioangle.com/users/show/10004">
+                                                    <img width="68" height="68" title="Mick"
+                                                         src="http://makent.trioangle.com/images/users/10004/profile_pic_1462134332.jpg"
+                                                         alt="Mick">
                                                 </a>
-                                                <div class="name"><a class="text-muted" href="#">{{fromuser.userId.firstName}}
-                                                        {{fromuser.userId.lastName}}</a></div>
+                                                <div class="name"><a class="text-muted"
+                                                                     href="http://makent.trioangle.com/users/show/10004">Mick
+                                                        Hans</a></div>
                                             </div>
                                             <div class="media-body response">
-                                                <p>{{fromuser.review}}</p>
+                                                <p>its good</p>
                                                 <hr>
 
                                                 <div class="row-space-top-2">
@@ -166,77 +172,71 @@
                                                         <strong>
                                                             <i aria-label="Private" data-behavior="tooltip"
                                                                class="icon icon-lock icon-rausch"></i>
-                                                            Rating: {{fromuser.rating}}
+                                                            Value feedback:
                                                         </strong>
                                                         <br>
-
+                                                        its good
                                                     </p>
                                                 </div>
                                                 <p class="clearfix text-muted">
-                                                    date: {{fromuser.createdDate}}
+                                                    May 2016
                                                 </p>
                                             </div>
                                         </li>
-
                                     </ul>
 
 
                                 </div>
                             </div>
                         </div>
-                    </div>
 
 
-                    <div class="row-space-top-4" id="reviews">
-                        <div aria-hidden="false" id="received" role="tabpanel" class="tab-panel" style="">
+                        <div id="sent" aria-hidden="true" role="tabpanel" class="tab-panel" style="">
                             <div class="panel">
                                 <div class="panel-header">
-                                    Reviews from Host
+                                    Reviews to Write
                                 </div>
                                 <div class="panel-body">
-                                    <p class="text-lead">
-                                        You will see all past reviews here.
-                                    </p>
-                                    <ul class="list-layout reviews-list row-space-top-4">
-                                        <li class="media reviews-list-item row-space-top-2"
-                                            ng-repeat="fromhost in fromHostReview">
-                                            <div class="pull-left text-center">
-                                                <a class="media-photo media-round" href="#">
-                                                    <img width="68" height="68" title="Mick" src="" alt="Mick">
-                                                </a>
-                                                <div class="name"><a class="text-muted" href="#">{{fromhost.hostId.firstName}}
-                                                        {{fromhost.hostId.lastName}}</a></div>
-                                            </div>
-                                            <div class="media-body response">
-                                                <p>{{fromhost.review}}</p>
-                                                <hr>
+                                    <ul class="list-layout reviews-list">
+                                        <li class="reviews-list-item">
+                                            Nobody to review right now. Looks like it&rsquo;s time for another trip!
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
 
-                                                <div class="row-space-top-2">
-                                                    <p>
-                                                        <strong>
-                                                            <i aria-label="Private" data-behavior="tooltip"
-                                                               class="icon icon-lock icon-rausch"></i>
-                                                            Rating: {{fromhost.rating}}
-                                                        </strong>
-                                                        <br>
-
-                                                    </p>
-                                                </div>
+                            <div class="panel row-space-top-4">
+                                <div class="panel-header">
+                                    Past Reviews You&rsquo;ve Written
+                                </div>
+                                <div class="panel-body">
+                                    <ul class="list-layout reviews-list">
+                                        <li class="reviews-list-item media row-space-top-2">
+                                            <a class="media-photo media-round pull-left row-space-top-0"
+                                               href="http://makent.trioangle.com/users/show/10004">
+                                                <img width="50" height="50" title="Mick"
+                                                     src="http://makent.trioangle.com/images/users/10004/profile_pic_1462134332.jpg"
+                                                     alt="Mick">
+                                            </a>
+                                            <div class="media-body">
+                                                <h5>
+                                                    Review for <a class="text-normal"
+                                                                  href="http://makent.trioangle.com/users/show/10004">Mick</a>
+                                                </h5>
+                                                <p>
+                                                    its good
+                                                </p>
                                                 <p class="clearfix text-muted">
-                                                    date: {{fromhost.createdDate}}
+                                                    May 2016
                                                 </p>
                                             </div>
                                         </li>
-
                                     </ul>
-
-
                                 </div>
                             </div>
+
                         </div>
                     </div>
-
-
                 </div>
             </div>
         </div>
@@ -353,10 +353,9 @@
     $.datepicker.setDefaults($.datepicker.regional["en"])
 </script>
 
+<script type="application/javascript" src="js/common.js"></script>
 
-<script src="js/common.js"></script>
-<script src="controller/common_controller.js"></script>
-
+<script type="application/javascript" src="controller/common_controller.js"></script>
 
 <!-- ver. 87c23752f8dfbd60bf83837d2c8b2dcd0ec660a9 -->
 <div class="tooltip tooltip-bottom-middle" role="tooltip" aria-hidden="true">

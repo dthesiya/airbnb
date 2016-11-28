@@ -13,7 +13,8 @@ var mongoose = require('mongoose');
 var ObjectId = require('mongodb').ObjectID;
 exports.doSearch = function (msg, callback) {
     "use strict";
-
+    //added
+    var user_id = msg.user_id;
     var location = msg.location;
     var property_type = (msg.property_type.trim().length === 0) ? ["Entire home/apt", "Private room", "Shared room"] : msg.property_type.split(",");
     var checkin = toDate(msg.checkin);
@@ -38,6 +39,7 @@ exports.doSearch = function (msg, callback) {
     var len = property_type.length;
     Property.find(
         {
+            hostId: {$ne: user_id},
             $text: {$search: location},
             maxGuest: {$gte: guests},
             isAvailable: true,
@@ -56,7 +58,7 @@ exports.doSearch = function (msg, callback) {
                 if (!properties) {
                     callback(null, null);
                 } else {
-                    for (let i = 0; i < properties.length; i++) {
+                    for (var i = 0; i < properties.length; i++) {
                         Trip.aggregate([
                                 {
                                     $match: {
@@ -97,13 +99,12 @@ exports.doSearch = function (msg, callback) {
                         )
                     }
 
-
                     setTimeout(function (flag) {
-                        for (let i = 0; i < properties.length; i++) {
+                        for (var i = 0; i < properties.length; i++) {
                             var record = properties[i];
                             var exists = false;
                             console.log(record._id);
-                            for (let j = 0; j < propertiesIds.length; j++) {
+                            for (var j = 0; j < propertiesIds.length; j++) {
 
                                 if (new ObjectId(propertiesIds[j]).equals(new ObjectId(record._id))) {
                                     exists = true;

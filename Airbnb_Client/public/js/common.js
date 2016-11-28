@@ -456,6 +456,7 @@ $('#checkout').datepicker({
 });
 
 // Coupon Code
+var app = angular.module('App', []);
 app.controller('payment', ['$scope', '$http', function ($scope, $http) {
     $('.open-coupon-section-link').click(function () {
         $("#billing-table").addClass("coupon-section-open");

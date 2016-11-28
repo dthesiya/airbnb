@@ -34,9 +34,6 @@
     <![endif]-->
 
 
-    <link media="all" type="text/css" rel="stylesheet" href="stylesheets/payout_preferences.css">
-
-
     <style type="text/css">
         .ui-selecting {
             background: #FECA40;
@@ -72,20 +69,21 @@
 <% include header.ejs %>
 <% include modal.ejs %>
 <main id="site-content" role="main" ng-controller="account_user_management">
+
     <div class="subnav hide-print">
         <div class="page-container-responsive">
             <ul class="subnav-list">
                 <li>
-                    <a href="#" aria-selected="false" class="subnav-item">Dashboard</a>
+                    <a href="/getDashBoardPage" aria-selected="false" class="subnav-item">Dashboard</a>
                 </li>
                 <li>
-                    <a href="#" aria-selected="false" class="subnav-item">Your Listings</a>
+                    <a href="/yourListings" aria-selected="false" class="subnav-item">Your Listings</a>
                 </li>
                 <li>
-                    <a href="#" aria-selected="false" class="subnav-item">Your Trips</a>
+                    <a href="/yourTrips" aria-selected="false" class="subnav-item">Your Trips</a>
                 </li>
                 <li>
-                    <a href="#" aria-selected="false" class="subnav-item">Profile</a>
+                    <a href="/profile" aria-selected="false" class="subnav-item">Profile</a>
                 </li>
                 <li>
                     <a href="#" aria-selected="true" class="subnav-item">Account</a>
@@ -261,29 +259,20 @@
 <script type="text/javascript"
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBXyRBiyRcEzHDJ8iU00zECMUP4cXBIm6A&sensor=false&libraries=places"></script>
 
-<script type="text/javascript"
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBXyRBiyRcEzHDJ8iU00zECMUP4cXBIm6A&sensor=false&libraries=places"></script>
-
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.3/i18n/jquery-ui-i18n.min.js"></script>
-
-<script type="text/javascript" src="http://makent.trioangle.com/js/i18n/datepicker-en.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/ui/1.11.3/jquery-ui.min.js"></script>
 
 <script type="text/javascript"
         src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
-
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.2/angular.min.js"></script>
 
 <script type="text/javascript"
         src="https://cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.3.2/angular-sanitize.min.js"></script>
 
-
 <script type="text/javascript"
         src="https://cdnjs.cloudflare.com/ajax/libs/ResponsiveSlides.js/1.53/responsiveslides.min.js"></script>
-
 
 <script type="text/javascript">
     $(document).ready(function () {
@@ -364,8 +353,7 @@
 </script>
 <script>
     var app = angular.module('App', ['ngSanitize']);
-    var APP_URL = "http:\/\/makent.trioangle.com";
-    var USER_ID = 10001
+    var APP_URL = "http:\/\/localhost:3000";
     $.datepicker.setDefaults($.datepicker.regional["en"])
 </script>
 

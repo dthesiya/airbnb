@@ -80,7 +80,7 @@
 
     <div id="main-view" class="main-view page-container-responsive row-space-top-6 row-space-6">
 
-        <form action="http://makent.trioangle.com/payments/create_booking" method="post" id="checkout-form">
+        <form>
             <input name="room_id" type="hidden" value="10002">
             <input name="checkin" type="hidden" value="29-11-2016">
             <input name="special_offer_id" type="hidden" value="">
@@ -88,6 +88,8 @@
             <input name="number_of_guests" type="hidden" value="1">
             <input name="nights" type="hidden" value="1">
             <input name="currency" type="hidden" value="USD">
+            <input name="hostId" type="hidden" ng-model="hostId">
+
 
             <input name="_token" type="hidden" value="o1E0PMYFpqTGH62DbzoykMU0BY2r4LlU871dzvoO">
 
@@ -119,7 +121,7 @@
                                             <td>Cancellation Policy</td>
                                             <td>
                                                 <a href="#"
-                                                   class="cancel-policy-link" >Flexible</a>
+                                                   class="cancel-policy-link">Flexible</a>
                                             </td>
                                         </tr>
                                         <tr>
@@ -192,7 +194,8 @@
                                             <tr class="total">
                                                 <td class="name"><span class="h3">Total</span></td>
                                                 <td class="text-special icon-dark-gray text-right"><span class="h3">&#36;</span>
-                                                    <span class="h3" id="payment_total">{{totalperday * days}}</span></td>
+                                                    <span class="h3" id="payment_total">{{totalperday * days}}</span>
+                                                </td>
                                             </tr>
 
                                             </tbody>
@@ -359,7 +362,7 @@
                                                                     messages.login.month
                                                                 </label>
                                                                 <select class="cc-short" id="credit-card-expire-month"
-                                                                        name="cc_expire_month">
+                                                                        name="cc_expire_month" ng-model="expMonth">
                                                                     <option value="" selected="selected">mm</option>
                                                                     <option value="1">1</option>
                                                                     <option value="2">2</option>
@@ -383,7 +386,7 @@
                                                                     messages.login.year
                                                                 </label>
                                                                 <select class="cc-short" id="credit-card-expire-year"
-                                                                        name="cc_expire_year">
+                                                                        name="cc_expire_year" ng-model="expYear">
                                                                     <option value="" selected="selected">yyyy</option>
                                                                     <option value="2016">2016</option>
                                                                     <option value="2017">2017</option>
@@ -450,7 +453,6 @@
                                             <div class="row">
 
 
-
                                                 <div class="control-group cc-zip cc-zip-new
 
                          col-md-6 col-lg-3">
@@ -491,7 +493,8 @@
                                 <input name="payment_method" type="hidden" value="cc">
                                 <input name="country" type="hidden" value="">
                                 <input name="digital_river[country]" type="hidden" value="">
-
+                            </div>
+                        </div>
                     </section>
 
                     <section id="house-rules-agreement" class="checkout-main__section">
@@ -499,7 +502,7 @@
                             House Rules
                         </h2>
                         <p>
-                            By booking this space you&rsquo;re agreeing to follow Mick&#039;s House Rules..
+                            By booking this space you&rsquo;re agreeing to follow House Rules..
                         </p>
                         <div class="row-space-2">
                             <div class="expandable expandable-trigger-more house-rules-panel-body expanded">
@@ -532,7 +535,7 @@
                     <p>
                     </p>
                     <div id="paypal-container"></div>
-                    <button id="payment-form-submit" type="submit" class="btn btn-large btn-primary">
+                    <button class="btn btn-large btn-primary" ng-click="confirmBooking()">
                         Confirm
                     </button>
                     <p></p>
@@ -560,7 +563,7 @@
                         <div class="panel-header">
                             <a href="javascript:void(0);" class="panel-close" data-behavior="modal-close">
                                 ×
-              <span class="screen-reader-only">
+                                <span class="screen-reader-only">
                 messages.payments.house_rules
               </span>
                             </a>
@@ -581,7 +584,7 @@
                             <a href="http://makent.trioangle.com/payments/book?hosting_id=3357255&amp;s=q315#"
                                class="panel-close" data-behavior="modal-close">
                                 ×
-              <span class="screen-reader-only">
+                                <span class="screen-reader-only">
                 Security Deposit
               </span>
                             </a>
@@ -622,20 +625,18 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.3/i18n/jquery-ui-i18n.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/ui/1.11.3/jquery-ui.min.js"></script>
 
-<script src="http://makent.trioangle.com/js/i18n/datepicker-en.js"></script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.2/angular.min.js"></script>
 
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.3.2/angular-sanitize.min.js"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.2/angular.min.js"></script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.3.2/angular-sanitize.min.js"></script>
-
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/ResponsiveSlides.js/1.53/responsiveslides.min.js"></script>
-
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/ResponsiveSlides.js/1.53/responsiveslides.min.js"></script>
 
 <script type="text/javascript">
     $(document).ready(function () {
@@ -716,8 +717,7 @@
 </script>
 <script>
     var app = angular.module('App', ['ngSanitize']);
-    var APP_URL = "http:\/\/makent.trioangle.com";
-    var USER_ID = 10001
+    var APP_URL = "http:\/\/localhost:3000";
     $.datepicker.setDefaults($.datepicker.regional["en"])
 </script>
 

@@ -16,7 +16,7 @@ var userSchema = new Schema({
     profileImage: {type: String},
     cardNumber: {type: Number},
     cvv: {type: Number},
-    expDate: {type: Number},
+    expDate: {type: String},
     isHost: {type: Boolean},
     isActivated: {type: Boolean},
     isApproved: {type: Boolean},

@@ -8,6 +8,14 @@ var review = require('./services/review');
 var property_detail = require('./services/property_detail');
 var account_management = require("./services/account_management");
 
+////////////////////////////
+
+var trips = require('./services/trips');
+var listings = require('./services/listings');
+var user = require('./services/user');
+
+////////////////////////////
+
 var cnn = amqp.createConnection({host: '127.0.0.1'});
 //require('./services/biddingChecker');
 cnn.on('error', function (e) {
@@ -310,5 +318,202 @@ cnn.on('ready', function () {
             });
         });
     });
+
+
+    cnn.queue('confirmBooking_queue', function (q) {
+        q.subscribe(function (message, headers, deliveryInfo, m) {
+            util.log(util.format(deliveryInfo.routingKey, message));
+            util.log("Message: " + JSON.stringify(message));
+            util.log("DeliveryInfo: " + JSON.stringify(deliveryInfo));
+            account.confirmBooking(message, function (err, res) {
+                //return index sent
+                cnn.publish(m.replyTo, res, {
+                    contentType: 'application/json',
+                    contentEncoding: 'utf-8',
+                    correlationId: m.correlationId
+                });
+            });
+        });
+    });
     
+
+
+    cnn.queue('getUserTrips_queue', function (q) {
+        q.subscribe(function (message, headers, deliveryInfo, m) {
+            // util.log(util.format(deliveryInfo.routingKey, message));
+            // util.log("Message: " + JSON.stringify(message));
+            // util.log("DeliveryInfo: " + JSON.stringify(deliveryInfo));
+            trips.getUserTrips(message, function (err, res) {
+                //return index sent
+                cnn.publish(m.replyTo, res, {
+                    contentType: 'application/json',
+                    contentEncoding: 'utf-8',
+                    correlationId: m.correlationId
+                });
+            });
+        });
+    });
+
+    cnn.queue('getActiveListings_queue', function (q) {
+        q.subscribe(function (message, headers, deliveryInfo, m) {
+            // util.log(util.format(deliveryInfo.routingKey, message));
+            // util.log("Message: " + JSON.stringify(message));
+            // util.log("DeliveryInfo: " + JSON.stringify(deliveryInfo));
+            listings.getActiveListings(message, function (err, res) {
+                //return index sent
+                cnn.publish(m.replyTo, res, {
+                    contentType: 'application/json',
+                    contentEncoding: 'utf-8',
+                    correlationId: m.correlationId
+                });
+            });
+        });
+    });
+
+
+    cnn.queue('addNewListing_queue', function (q) {
+        q.subscribe(function (message, headers, deliveryInfo, m) {
+            // util.log(util.format(deliveryInfo.routingKey, message));
+            // util.log("Message: " + JSON.stringify(message));
+            // util.log("DeliveryInfo: " + JSON.stringify(deliveryInfo));
+            listings.addNewListing(message, function (err, res) {
+                //return index sent
+                cnn.publish(m.replyTo, res, {
+                    contentType: 'application/json',
+                    contentEncoding: 'utf-8',
+                    correlationId: m.correlationId
+                });
+            });
+        });
+    });
+
+    cnn.queue('getReservations_queue', function (q) {
+        q.subscribe(function (message, headers, deliveryInfo, m) {
+            // util.log(util.format(deliveryInfo.routingKey, message));
+            // util.log("Message: " + JSON.stringify(message));
+            // util.log("DeliveryInfo: " + JSON.stringify(deliveryInfo));
+            listings.getReservations(message, function (err, res) {
+                //return index sent
+                cnn.publish(m.replyTo, res, {
+                    contentType: 'application/json',
+                    contentEncoding: 'utf-8',
+                    correlationId: m.correlationId
+                });
+            });
+        });
+    });
+
+    cnn.queue('acceptTrip_queue', function (q) {
+        q.subscribe(function (message, headers, deliveryInfo, m) {
+            // util.log(util.format(deliveryInfo.routingKey, message));
+            // util.log("Message: " + JSON.stringify(message));
+            // util.log("DeliveryInfo: " + JSON.stringify(deliveryInfo));
+            trips.acceptTrip(message, function (err, res) {
+                //return index sent
+                cnn.publish(m.replyTo, res, {
+                    contentType: 'application/json',
+                    contentEncoding: 'utf-8',
+                    correlationId: m.correlationId
+                });
+            });
+        });
+    });
+
+    cnn.queue('getItinerary_queue', function (q) {
+        q.subscribe(function (message, headers, deliveryInfo, m) {
+            // util.log(util.format(deliveryInfo.routingKey, message));
+            // util.log("Message: " + JSON.stringify(message));
+            // util.log("DeliveryInfo: " + JSON.stringify(deliveryInfo));
+            trips.getItinerary(message, function (err, res) {
+                //return index sent
+                cnn.publish(m.replyTo, res, {
+                    contentType: 'application/json',
+                    contentEncoding: 'utf-8',
+                    correlationId: m.correlationId
+                });
+            });
+        });
+    });
+
+    cnn.queue('getUserProfile_queue', function (q) {
+        q.subscribe(function (message, headers, deliveryInfo, m) {
+            // util.log(util.format(deliveryInfo.routingKey, message));
+            // util.log("Message: " + JSON.stringify(message));
+            // util.log("DeliveryInfo: " + JSON.stringify(deliveryInfo));
+            user.getUserProfile(message, function (err, res) {
+                //return index sent
+                cnn.publish(m.replyTo, res, {
+                    contentType: 'application/json',
+                    contentEncoding: 'utf-8',
+                    correlationId: m.correlationId
+                });
+            });
+        });
+    });
+
+    cnn.queue('getUserReview_queue', function (q) {
+        q.subscribe(function (message, headers, deliveryInfo, m) {
+            // util.log(util.format(deliveryInfo.routingKey, message));
+            // util.log("Message: " + JSON.stringify(message));
+            // util.log("DeliveryInfo: " + JSON.stringify(deliveryInfo));
+            user.getUserReview(message, function (err, res) {
+                //return index sent
+                cnn.publish(m.replyTo, res, {
+                    contentType: 'application/json',
+                    contentEncoding: 'utf-8',
+                    correlationId: m.correlationId
+                });
+            });
+        });
+    });
+
+    cnn.queue('getHostReview_queue', function (q) {
+        q.subscribe(function (message, headers, deliveryInfo, m) {
+            // util.log(util.format(deliveryInfo.routingKey, message));
+            // util.log("Message: " + JSON.stringify(message));
+            // util.log("DeliveryInfo: " + JSON.stringify(deliveryInfo));
+            user.getHostReview(message, function (err, res) {
+                //return index sent
+                cnn.publish(m.replyTo, res, {
+                    contentType: 'application/json',
+                    contentEncoding: 'utf-8',
+                    correlationId: m.correlationId
+                });
+            });
+        });
+    });
+
+    cnn.queue('addUserReview_queue', function (q) {
+        q.subscribe(function (message, headers, deliveryInfo, m) {
+            // util.log(util.format(deliveryInfo.routingKey, message));
+            // util.log("Message: " + JSON.stringify(message));
+            // util.log("DeliveryInfo: " + JSON.stringify(deliveryInfo));
+            user.addUserReview(message, function (err, res) {
+                //return index sent
+                cnn.publish(m.replyTo, res, {
+                    contentType: 'application/json',
+                    contentEncoding: 'utf-8',
+                    correlationId: m.correlationId
+                });
+            });
+        });
+    });
+
+    cnn.queue('addHostReview_queue', function (q) {
+        q.subscribe(function (message, headers, deliveryInfo, m) {
+            // util.log(util.format(deliveryInfo.routingKey, message));
+            // util.log("Message: " + JSON.stringify(message));
+            // util.log("DeliveryInfo: " + JSON.stringify(deliveryInfo));
+            user.addHostReview(message, function (err, res) {
+                //return index sent
+                cnn.publish(m.replyTo, res, {
+                    contentType: 'application/json',
+                    contentEncoding: 'utf-8',
+                    correlationId: m.correlationId
+                });
+            });
+        });
+    });
+
+
 });

@@ -4,13 +4,16 @@ var Schema = mongoose.Schema;
 var tripSchema = new Schema({
     tripId: {type: String},
     propertyId: {type: Schema.Types.ObjectId, ref: 'property'},
-    userId: {type: String, ref: 'user'},
-    hostId: {type: String, ref: 'user'},
+    userId: {type: Schema.Types.ObjectId, ref: 'user'},
+    hostId: {type: Schema.Types.ObjectId, ref: 'user'},
     checkIn: {type: Number},
     checkOut: {type: Number},
     noOfGuests: {type: Number},
     isAccepted: {type: Boolean},
-    createdDate: {type: Number}
+    createdDate: {type: Number},
+    price:{type: Number},
+    days : {type:Number},
+    total: {type:Number}
 
 });
 

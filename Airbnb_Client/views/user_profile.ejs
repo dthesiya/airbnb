@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="en-IN" xmlns:fb="http://ogp.me/ns/fb#"><!--<![endif]-->
+<html ng-app="App" lang="en-IN" xmlns:fb="http://ogp.me/ns/fb#"><!--<![endif]-->
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link rel="dns-prefetch" href="https://maps.googleapis.com/">
@@ -8,7 +8,6 @@
     <link rel="dns-prefetch" href="https://mts0.googleapis.com/">
     <link rel="dns-prefetch" href="https://mts1.googleapis.com/">
 
-    <link rel="shortcut icon" href="http://makent.trioangle.com/images/logos/favicon.ico">
 
     <!--[if IE]><![endif]-->
     <meta charset="utf-8">
@@ -18,13 +17,13 @@
 
     <![endif]-->
     <!--[if !(IE 8)]><!-->
-    <link media="all" type="text/css" rel="stylesheet" href="css/common.css">
+    <link media="all" type="text/css" rel="stylesheet" href="/css/common.css">
 
-    <link media="all" type="text/css" rel="stylesheet" href="css/home.css">
+    <link media="all" type="text/css" rel="stylesheet" href="/css/home.css">
 
-    <link media="all" type="text/css" rel="stylesheet" href="css/themes.css">
+    <link media="all" type="text/css" rel="stylesheet" href="/css/themes.css">
 
-    <link media="all" type="text/css" rel="stylesheet" href="css/dynamic.css">
+    <link media="all" type="text/css" rel="stylesheet" href="/css/dynamic.css">
 
     <!--<![endif]-->
 
@@ -48,7 +47,7 @@
         }
     </style>
 
-    <title>John&#039;s Profile </title>
+    <title>Profile </title>
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
@@ -68,13 +67,38 @@
     <meta name="theme-color" content="#f5f5f5">
 
 </head>
-<body class="" ng-app="App">
+<body class="">
+
 <% include header.ejs %>
 <% include modal.ejs %>
-<main id="site-content" role="main">
+
+<main id="site-content" role="main" ng-controller="profile_controller">
+
+    <div class="subnav hide-print">
+        <div class="page-container-responsive">
+            <ul class="subnav-list">
+                <li>
+                    <a href="/getDashBoardPage" aria-selected="false" class="subnav-item">Dashboard</a>
+                </li>
+                <li>
+                    <a href="/yourListings" aria-selected="false" class="subnav-item">Your Listings</a>
+                </li>
+                <li>
+                    <a href="/yourTrips" aria-selected="false" class="subnav-item">Your Trips</a>
+                </li>
+                <li>
+                    <a href="#" aria-selected="true" class="subnav-item">Profile</a>
+                </li>
+                <li>
+                    <a href="/Account_Transactions" aria-selected="false" class="subnav-item">Account</a>
+                </li>
+            </ul>
+        </div>
+    </div>
 
     <div id="recommendation_container" class="clearfix container">
     </div>
+
 
     <div class="page-container page-container-responsive row-space-top-4 row-space-8">
         <div class="row">
@@ -139,11 +163,11 @@
                     </div>
                     <div class="col-sm-8 col-md-12 col-lg-12">
                         <h1>
-                            Hey, I&rsquo;m John!!
+                            Hey, I'm {{user.firstName}}!
                         </h1>
                         <div class="h5 row-space-top-2">
                       <span class="text-normal">
-              Member since November 2016
+              Member since {{user.createdDate | date:'MMM yyyy'}}
             </span>
                         </div>
                         <div class="flag_controls text-muted row-space-top-2 hide"></div>
@@ -158,10 +182,10 @@
                     <div class="row-space-6 hide-sm">
                         <h2 class="row-space-3">
                             Property List
-                            <small>(2)</small>
+                            <small>({{numberOfProperties}})</small>
                         </h2>
                         <div class="row">
-                            <div class="col-lg-4 col-md-6">
+                            <div ng-repeat="property in listed" class="col-lg-4 col-md-6">
                                 <div class="panel">
                                     <a href=""
                                        class="panel-image media-photo media-link media-photo-block wishlist-unit">
@@ -171,33 +195,15 @@
                                         <div class="row row-table row-full-height">
                                             <div class="col-12 col-middle text-center text-contrast">
                                                 <div class="panel-body">
-                                                    <div class="h2"><strong>London</strong></div>
+                                                    <div class="h2"><strong>{{property.city}}</strong></div>
                                                 </div>
-                                                <div class="btn btn-guest">1 Listing</div>
+                                                <div class="btn btn-guest">View Listing</div>
                                             </div>
                                         </div>
                                     </a>
                                 </div>
                             </div>
 
-                            <div class="col-lg-4 col-md-6">
-                                <div class="panel">
-                                    <a href=""
-                                       class="panel-image media-photo media-link media-photo-block wishlist-unit">
-                                        <div class="media-cover media-cover-dark wishlist-bg-img"
-                                             style="background-image:url('http://makent.trioangle.com/images/rooms/10004/1454913686_05ab76e9-e4ae-43bc-a495-75904cc9b3e3.jpg ');">
-                                        </div>
-                                        <div class="row row-table row-full-height">
-                                            <div class="col-12 col-middle text-center text-contrast">
-                                                <div class="panel-body">
-                                                    <div class="h2"><strong>Paris</strong></div>
-                                                </div>
-                                                <div class="btn btn-guest">1 Listing</div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
                         </div>
                         <div class="row-space-top-2">
                         </div>
@@ -208,14 +214,14 @@
                     <div id="reviews" class="reviews row-space-4">
                         <h2>
                             Reviews
-                            <small>(1)</small>
+                            <small>({{numberOfTotalReviews}})</small>
                         </h2>
                         <div>
                             <div class="reviews_section as_guest row-space-top-3">
                                 <h4 class="row-space-4">
-                                    Reviews From Hosts
+                                    Reviews From Users
                                 </h4>
-                                <div class="reviews">
+                                <div class="reviews" ng-repeat="review in userReviews">
                                     <div id="review-1" class="row text-center-sm">
                                         <div class="col-md-2 col-sm-12">
                                             <div class="avatar-wrapper">
@@ -227,17 +233,17 @@
                                                              class="lazy" alt="Test" width="68" height="68">
                                                     </div>
                                                     <div class="text-center profile-name text-wrap">
-                                                        Test
+                                                        {{review.userId.firstName}}
                                                     </div>
                                                 </a>
-                                                <div class="text-muted date show-sm">May 2016</div>
+                                                <div class="text-muted date show-sm">{{review.userId.createdDate}}</div>
                                             </div>
                                         </div>
                                         <div class="col-md-10 col-sm-12">
                                             <div class="row-space-2">
                                                 <div class="comment-container expandable expandable-trigger-more row-space-2 expanded">
                                                     <div class="expandable-content">
-                                                        <p>its good</p>
+                                                        <p>{{review.review}}</p>
                                                         <div class="expandable-indicator"></div>
                                                     </div>
                                                     <a href="http://makent.trioangle.com/users/show/49483864#"
@@ -246,7 +252,7 @@
                                                     </a>
                                                 </div>
                                                 <div class="text-muted date hide-sm pull-left">
-                                                    May 2016
+                                                    {{review.userId.createdDate | date: 'MMM yyyy'}}
                                                 </div>
                                             </div>
                                         </div>
@@ -258,6 +264,56 @@
                                     </div>
                                 </div>
                             </div>
+
+                            <div class="reviews_section as_guest row-space-top-3">
+                                <h4 class="row-space-4">
+                                    Reviews From Hosts
+                                </h4>
+                                <div class="reviews" ng-repeat="review in hostReviews">
+                                    <div id="review-1" class="row text-center-sm">
+                                        <div class="col-md-2 col-sm-12">
+                                            <div class="avatar-wrapper">
+                                                <a class="text-muted"
+                                                   href="http://makent.trioangle.com/users/show/10001">
+                                                    <div class="media-photo media-round row-space-1">
+                                                        <img style="display: inline;" title="Test"
+                                                             src="http://makent.trioangle.com/images/users/10001/profile_pic_1462128586.jpg"
+                                                             class="lazy" alt="Test" width="68" height="68">
+                                                    </div>
+                                                    <div class="text-center profile-name text-wrap">
+                                                        {{review.userId.firstName}}
+                                                    </div>
+                                                </a>
+                                                <div class="text-muted date show-sm">{{review.userId.createdDate}}</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-10 col-sm-12">
+                                            <div class="row-space-2">
+                                                <div class="comment-container expandable expandable-trigger-more row-space-2 expanded">
+                                                    <div class="expandable-content">
+                                                        <p>{{review.review}}</p>
+                                                        <div class="expandable-indicator"></div>
+                                                    </div>
+                                                    <a href="http://makent.trioangle.com/users/show/49483864#"
+                                                       class="expandable-trigger-more text-muted">
+                                                        <strong>+ More</strong>
+                                                    </a>
+                                                </div>
+                                                <div class="text-muted date hide-sm pull-left">
+                                                    {{review.userId.createdDate | date: 'MMM yyyy'}}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row row-space-2 line-separation">
+                                        <div class="col-10 col-offset-2">
+                                            <hr>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
                         </div>
                     </div>
                 </div>
@@ -268,6 +324,7 @@
     <div id="staged-photos"></div>
 
 </main>
+
 <% include footer.ejs %>
 
 <div id="gmap-preload" class="hide"></div>
@@ -372,15 +429,11 @@
         });
     });
 </script>
-<script>
-    var app = angular.module('App', ['ngSanitize']);
-    var APP_URL = "http:\/\/makent.trioangle.com";
-    var USER_ID = 10001
-    $.datepicker.setDefaults($.datepicker.regional["en"])
-</script>
 
 
-<script src="js/common.js"></script>
+<script src="/js/common.js"></script>
+
+<script src="/controller/common_controller.js"></script>
 
 
 <!-- ver. 87c23752f8dfbd60bf83837d2c8b2dcd0ec660a9 -->
