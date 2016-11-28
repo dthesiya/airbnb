@@ -97,7 +97,6 @@ exports.doSearch = function (msg, callback) {
                         )
                     }
 
-
                     setTimeout(function (flag) {
                         for (var i = 0; i < properties.length; i++) {
                             var record = properties[i];
