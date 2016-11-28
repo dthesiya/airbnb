@@ -766,6 +766,7 @@ app.controller('payment_controller', function ($scope, $window, $location, $http
                 console.log("PROPPERTY");
                 console.log(data.data);
                 var property = data.data;
+                $scope.hostId = property.hostId._id;
                 $scope.propertName = property.name;
                 $scope.location = property.city + ", " + property.state + ", " + property.country;
                 $scope.guest = guest;
@@ -775,6 +776,60 @@ app.controller('payment_controller', function ($scope, $window, $location, $http
                 $scope.days = days;
             } else {
                 console.log("Error occured to get property data");
+            }
+        }).error(function (error) {
+            console.log(error);
+        });
+
+
+    };
+
+
+    $scope.confirmBooking = function () {
+
+
+
+        var cardnumber = $scope.cardNumber;
+        var expMonth = $scope.expMonth;
+        var expYear = $scope.expYear;
+        var cvv = $scope.cvv;
+        var guest = $scope.guest;
+        var checkin = $scope
+        var checkout = $scope
+        var properyId = $scope
+        var price = $scope
+        var days = $scope
+        var hostId = $scope.hostId;
+
+
+
+        $http({
+            method: "POST",
+            url: '/confirmBooking',
+            data: {
+                "propertyId": properyId,
+                "cardNumber" : cardnumber,
+                "expMonth" : expMonth,
+                "expYear" :expYear,
+                "cvv" : cvv,
+                "guest" : guest,
+                "checkin" : checkin,
+                "checkout" : checkout,
+                "price" : price,
+                "days": days,
+                "hostId":hostId
+
+            }
+        }).success(function (data) {
+            if (data.statusCode == 200) {
+
+                console.log("SAVED TRIP");
+                console.log(data.data);
+                
+
+
+            } else {
+                console.log("Error occured to booking");
             }
         }).error(function (error) {
             console.log(error);
