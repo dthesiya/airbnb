@@ -80,7 +80,7 @@
 
     <div id="main-view" class="main-view page-container-responsive row-space-top-6 row-space-6">
 
-        <form action="http://makent.trioangle.com/payments/create_booking" method="post" id="checkout-form">
+        <form>
             <input name="room_id" type="hidden" value="10002">
             <input name="checkin" type="hidden" value="29-11-2016">
             <input name="special_offer_id" type="hidden" value="">
@@ -88,6 +88,8 @@
             <input name="number_of_guests" type="hidden" value="1">
             <input name="nights" type="hidden" value="1">
             <input name="currency" type="hidden" value="USD">
+            <input name="hostId" type="hidden" ng-model="hostId">
+
 
             <input name="_token" type="hidden" value="o1E0PMYFpqTGH62DbzoykMU0BY2r4LlU871dzvoO">
 
@@ -360,7 +362,7 @@
                                                                     messages.login.month
                                                                 </label>
                                                                 <select class="cc-short" id="credit-card-expire-month"
-                                                                        name="cc_expire_month">
+                                                                        name="cc_expire_month" ng-model="expMonth">
                                                                     <option value="" selected="selected">mm</option>
                                                                     <option value="1">1</option>
                                                                     <option value="2">2</option>
@@ -384,7 +386,7 @@
                                                                     messages.login.year
                                                                 </label>
                                                                 <select class="cc-short" id="credit-card-expire-year"
-                                                                        name="cc_expire_year">
+                                                                        name="cc_expire_year" ng-model="expYear">
                                                                     <option value="" selected="selected">yyyy</option>
                                                                     <option value="2016">2016</option>
                                                                     <option value="2017">2017</option>
@@ -500,7 +502,7 @@
                             House Rules
                         </h2>
                         <p>
-                            By booking this space you&rsquo;re agreeing to follow Mick&#039;s House Rules..
+                            By booking this space you&rsquo;re agreeing to follow House Rules..
                         </p>
                         <div class="row-space-2">
                             <div class="expandable expandable-trigger-more house-rules-panel-body expanded">
@@ -533,7 +535,7 @@
                     <p>
                     </p>
                     <div id="paypal-container"></div>
-                    <button id="payment-form-submit" type="submit" class="btn btn-large btn-primary">
+                    <button class="btn btn-large btn-primary" ng-click="confirmBooking()">
                         Confirm
                     </button>
                     <p></p>

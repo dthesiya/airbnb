@@ -83,6 +83,7 @@ app.get('/getDashBoardPage', account.getDashBoardPage);
 app.get('/getPaymentPage', account.getPaymentPage);
 app.post('/loadPaymentPage', account.loadPaymentPage);
 app.post('/getPropertyDetails', account.getPropertyDetails);
+app.post('/confirmBooking', account.confirmBooking);
 
 app.get('/receipt/:billingID', account_management.receiptPage);
 

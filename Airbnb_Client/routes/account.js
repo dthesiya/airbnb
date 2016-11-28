@@ -292,8 +292,7 @@ exports.loadPaymentPage = function (req,res) {
 exports.getPropertyDetails = function (req,res) {
 
 
-    var propertyId = "583737ae83cd51786c7539d6" ;
-        //req.param("propertyId");
+    var propertyId = req.param("propertyId");
     var userId = req.session.userId;
     var msg_payload = {
         userId: userId,
@@ -320,6 +319,61 @@ exports.getPropertyDetails = function (req,res) {
             res.end();
         }
     });
+
+
+};
+
+exports.confirmBooking = function (req,res) {
+
+        var userId = req.session.userId;
+        var properyId = req.param("propertyId");
+        var cardnumber = req.param("cardNumber");
+        var expMonth = req.param("expMonth");
+        var expYear = req.param("expYear" );
+        var cvv = req.param("cvv");
+        var guest = req.param("guest");
+        var checkin = req.param("checkin" );
+        var checkout = req.param("checkout");
+        var price = req.param("price");
+        var days = req.param("days");
+        var hostId = req.param("hostId");
+
+
+    var msg_payload = {
+        "userId": userId,
+        "propertyId": properyId,
+        "cardNumber" : cardnumber,
+        "expMonth" : expMonth,
+        "expYear" :expYear,
+        "cvv" : cvv,
+        "guest" : guest,
+        "checkin" : checkin,
+        "checkout" : checkout,
+        "price" : price,
+        "days": days,
+        "hostId":hostId
+    };
+
+    console.log("msg payload");
+    console.log(msg_payload);
+
+    mq_client.make_request('confirmBooking_queue', msg_payload, function (err, data) {
+        if (err) {
+            console.log(err);
+            console.log("In confirm booking queue");
+            var json_responses = {"statusCode": 401};
+            res.send(json_responses);
+            res.end();
+        } else {
+            console.log("After confirming booking in client");
+            console.log(data);
+            var json_responses = {"statusCode": 200, "data": data};
+            res.send(json_responses);
+            res.end();
+        }
+    });
+
+
 
 
 };

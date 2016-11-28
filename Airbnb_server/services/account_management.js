@@ -56,7 +56,7 @@ exports.updatePassword = function (msg, callback) {
 exports.updatePaymentMethod = function (msg, callback) {
     var cvv = msg.cvv;
     var cnos = Number(msg.cno);
-    var edate = Number(msg.expm + msg.expy);
+    var edate = msg.expm +"/"+ msg.expy;
     console.log(msg.expm+"  "+msg.expy);
     var username = msg.email;
     console.log(username);

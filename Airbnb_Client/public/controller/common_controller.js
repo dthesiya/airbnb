@@ -136,6 +136,7 @@ app.controller('account_user_management', function ($scope, $window, $location, 
             }
         }).success(function (result) {
             if (result == "OK") {
+                console.log("ok result");
                 $scope.alert2 = true;
             }
         }).error(function (err) {
@@ -144,12 +145,14 @@ app.controller('account_user_management', function ($scope, $window, $location, 
     }
 
     //transaction code
+
     $http({
         method: "GET",
         url: '/payinTransaction',
         params: {}
     }).success(function (result) {
         $scope.payin = result;
+        console.log(result);
     }).error(function (err) {
         console.log(err);
     });
@@ -160,6 +163,7 @@ app.controller('account_user_management', function ($scope, $window, $location, 
         params: {}
     }).success(function (result) {
         $scope.payout = result;
+        console.log(result);
     }).error(function (err) {
         console.log(err);
     });
@@ -438,7 +442,7 @@ app.controller('search-page', ['$scope', '$http', '$compile', '$filter', functio
     $scope.range = [];
 
     function no_results() {
-        if ($('.search-results').hasClass('loading'))
+        if($('.search-results').hasClass('loading'))
             $('#no_results').hide();
         else
             $('#no_results').show();
@@ -450,31 +454,31 @@ app.controller('search-page', ['$scope', '$http', '$compile', '$filter', functio
     var current_url = (window.location.href).replace('/search', '/searchResult');
 
 
-    $(document).ready(function () {
+    $(document).ready(function(){
         localStorage.removeItem("map_lat_long");
         var room_type = [];
-        $('.room-type:checked').each(function (i) {
+        $('.room-type:checked').each(function(i){
             room_type[i] = $(this).val();
         });
 
 
         $('.search-results').addClass('loading');
         no_results();
-        $http.get(current_url).then(function (response) {
+        $http.get(current_url).then(function(response) {
             // $scope.room_result = response;
             $('.search-results').removeClass('loading');
             no_results();
             $scope.room_result = response.data;
-            $scope.totalPages = response.data.last_page;
-            $scope.currentPage = response.data.current_page;
+            $scope.totalPages   = response.data.last_page;
+            $scope.currentPage  = response.data.current_page;
             $scope.checkin = getParameterByName("checkin");
             $scope.checkout = getParameterByName("checkout");
             $scope.guests = getParameterByName("guests");
-            $scope.room_type = getParameterByName("room_type");
+            $scope.room_type=getParameterByName("room_type");
             var room_type = getParameterByName("room_type").split(',');
 
-            for (var i = 0; i < room_type.length; i++) {
-                switch (room_type[i]) {
+            for(var i = 0; i < room_type.length; i++){
+                switch(room_type[i]) {
                     case "Entire home/apt":
                         $scope.room_type_1 = true;
                         break;
@@ -501,13 +505,14 @@ app.controller('search-page', ['$scope', '$http', '$compile', '$filter', functio
     });
 
 
+
     function initialize(response) {
 
         var latitude = $("#lat").val();
         var longitude = $("#long").val();
 
         var myOptions = {
-            center: new google.maps.LatLng(latitude, longitude),
+            center: new google.maps.LatLng(latitude,longitude),
             zoom: 9,
             mapTypeId: google.maps.MapTypeId.ROADMAP
 
@@ -520,17 +525,18 @@ app.controller('search-page', ['$scope', '$http', '$compile', '$filter', functio
 
     }
 
-    function setMarkers(map, response) {
+    function setMarkers(map,response){
 
         var marker;
         var data = response.data;
         var guests = 1;
-        for (var i = 0; i < data.length; i++) {
+        for (var i = 0; i < data.length; i++)
+        {
 
             var name = data[i].name;
             var lat = Number(data[i].rooms_address.latitude);
             var lon = Number(data[i].rooms_address.longitude);
-            var labelTxt = "$" + data[i].rooms_price.night;
+            var labelTxt = "$"+data[i].rooms_price.night;
             latlngset = new google.maps.LatLng(lat, lon);
 
             /*
@@ -558,32 +564,32 @@ app.controller('search-page', ['$scope', '$http', '$compile', '$filter', functio
 
             map.setCenter(marker.getPosition());
 
-            var html = '<div id="info_window_' + data[i].id + '" class="listing listing-map-popover" data-price="' + data[i].rooms_price.currency.symbol + '" data-id="' + data[i].id + '" data-user="' + data[i].user_id + '"  data-name="' + data[i].name + '" data-lng="' + data[i].rooms_address.longitude + '" data-lat="' + data[i].rooms_address.latitude + '"><div class="panel-image listing-img">';
-            html += '<a class="media-photo media-cover" target="listing_' + data[i].id + '" ><div class="listing-img-container media-cover text-center"><img id="marker_image_' + data[i].id + '" rooms_image = "" alt="' + data[i].name + '" class="img-responsive-height" data-current="0" src="' + APP_URL + '/images/' + data[i].photo_name + '"></div></a>';
-            html += '<a class="link-reset panel-overlay-bottom-left panel-overlay-label panel-overlay-listing-label" target="listing_' + data[i].id + '" ><div>';
+            var html = '<div id="info_window_'+data[i].id+'" class="listing listing-map-popover" data-price="'+data[i].rooms_price.currency.symbol+'" data-id="'+data[i].id+'" data-user="'+data[i].user_id+'"  data-name="'+data[i].name+'" data-lng="'+data[i].rooms_address.longitude+'" data-lat="'+data[i].rooms_address.latitude+'"><div class="panel-image listing-img">';
+            html += '<a class="media-photo media-cover" target="listing_'+data[i].id+'" ><div class="listing-img-container media-cover text-center"><img id="marker_image_'+data[i].id+'" rooms_image = "" alt="'+data[i].name+'" class="img-responsive-height" data-current="0" src="'+APP_URL+'/images/'+data[i].photo_name+'"></div></a>';
+            html += '<a class="link-reset panel-overlay-bottom-left panel-overlay-label panel-overlay-listing-label" target="listing_'+data[i].id+'" ><div>';
 
             var instant_book = '';
 
-            if (data[i].booking_type == 'instant_book')
+            if(data[i].booking_type == 'instant_book')
                 instant_book = '<span aria-label="Book Instantly" data-behavior="tooltip" class="h3 icon-beach"><i class="icon icon-instant-book icon-flush-sides"></i></span>';
 
-            html += '<sup class="h6 text-contrast">' + data[i].rooms_price.currency.symbol + '</sup><span class="h3 text-contrast price-amount">' + data[i].rooms_price.night + '</span><sup class="h6 text-contrast"></sup>' + instant_book + '</div></a></div>';
-            html += '<div class="panel-body panel-card-section"><div class="media"><h3 class="h5 listing-name text-truncate row-space-top-1" itemprop="name" title="' + data[i].name + '">' + name + '</a></h3>';
+            html += '<sup class="h6 text-contrast">'+data[i].rooms_price.currency.symbol+'</sup><span class="h3 text-contrast price-amount">'+data[i].rooms_price.night+'</span><sup class="h6 text-contrast"></sup>'+instant_book+'</div></a></div>';
+            html += '<div class="panel-body panel-card-section"><div class="media"><h3 class="h5 listing-name text-truncate row-space-top-1" itemprop="name" title="'+data[i].name+'">'+name+'</a></h3>';
 
             var star_rating = '';
 
-            if (data[i].overall_star_rating != '')
-                star_rating = ' · ' + data[i].overall_star_rating;
+            if(data[i].overall_star_rating != '')
+                star_rating = ' · '+data[i].overall_star_rating;
 
             var reviews_count = '';
             var review_plural = (data[i].reviews_count > 1) ? 's' : '';
 
-            if (data[i].reviews_count != 0)
-                reviews_count = ' · ' + data[i].reviews_count + ' review' + review_plural;
+            if(data[i].reviews_count != 0)
+                reviews_count = ' · '+data[i].reviews_count+' review'+review_plural;
 
-            html += '<div class="text-muted listing-location text-truncate" itemprop="description"><a class="text-normal link-reset" >' + data[i].room_type_name + star_rating + reviews_count + '</a></div></div></div></div>';
+            html += '<div class="text-muted listing-location text-truncate" itemprop="description"><a class="text-normal link-reset" >'+data[i].room_type_name+star_rating+reviews_count+'</a></div></div></div></div>';
 
-            createInfoWindow(marker, html, map);
+            createInfoWindow(marker, html,map);
 
         }
     }
@@ -605,18 +611,20 @@ app.controller('search-page', ['$scope', '$http', '$compile', '$filter', functio
             results = regex.exec(location.search);
         return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
     }
-
-    function setGetParameter(paramName, paramValue) {
+    function setGetParameter(paramName, paramValue)
+    {
         var url = window.location.href;
 
-        if (url.indexOf(paramName + "=") >= 0) {
+        if (url.indexOf(paramName + "=") >= 0)
+        {
             var prefix = url.substring(0, url.indexOf(paramName));
             var suffix = url.substring(url.indexOf(paramName));
             suffix = suffix.substring(suffix.indexOf("=") + 1);
             suffix = (suffix.indexOf("&") >= 0) ? suffix.substring(suffix.indexOf("&")) : "";
             url = prefix + paramName + "=" + paramValue + suffix;
         }
-        else {
+        else
+        {
             if (url.indexOf("?") < 0)
                 url += "?" + paramName + "=" + paramValue;
             else
@@ -624,14 +632,13 @@ app.controller('search-page', ['$scope', '$http', '$compile', '$filter', functio
         }
         history.pushState(null, null, url);
     }
-
-    function createInfoWindow(marker, popupContent, map) {
+    function createInfoWindow(marker, popupContent,map) {
         infoBubble = new InfoBubble({
             maxWidth: 3000
         });
 
         var contentString = $compile(popupContent)($scope);
-        google.maps.event.addListener(marker, 'click', function () {
+        google.maps.event.addListener(marker, 'click', function() {
 
             if (infoBubble.isOpen()) {
                 infoBubble.close();
@@ -655,11 +662,12 @@ app.controller('search-page', ['$scope', '$http', '$compile', '$filter', functio
             var minHeight = 245;
             infoBubble.setMinHeight(minHeight);
 
-            infoBubble.open(map, marker);
+            infoBubble.open(map,marker);
         });
     }
 
-    $scope.apply_filter = function () {
+    $scope.apply_filter = function()
+    {
         $scope.search_result();
     };
 
@@ -667,11 +675,11 @@ app.controller('search-page', ['$scope', '$http', '$compile', '$filter', functio
     $scope.search_result = function () {
 
         var room_type = [];
-        $('.room-type:checked').each(function (i) {
+        $('.room-type:checked').each(function(i){
             room_type[i] = $(this).val();
         });
         //alert(room_type);
-        if (room_type == '') {
+        if(room_type==''){
             $('.room-type_tag').addClass('hide');
         }
 
@@ -690,36 +698,36 @@ app.controller('search-page', ['$scope', '$http', '$compile', '$filter', functio
         $('.search-results').addClass('loading');
         no_results();
         var change_url = "/search?";
-        change_url += "location=" + location1 + "&";
-        change_url += "room_type=" + room_type + "&";
-        change_url += "checkin=" + checkin + "&";
-        change_url += "checkout=" + checkout + "&";
-        change_url += "guests=" + guest_select;
+        change_url += "location=" +location1+"&";
+        change_url += "room_type=" +room_type+"&";
+        change_url += "checkin=" +checkin+"&";
+        change_url += "checkout=" +checkout+"&";
+        change_url += "guests=" +guest_select;
         var encoded_url = encodeURI(change_url);
         window.location.href = encoded_url;
 
     };
 
-    $(document).on('click', '.rooms-slider', function () {
+    $(document).on('click', '.rooms-slider', function() {
         var rooms_id = $(this).attr("data-room_id");
-        var img_url = $("#rooms_image_" + rooms_id).attr("src").substr(29);
+        var img_url =$("#rooms_image_"+rooms_id).attr("src").substr(29);
         var room;
-        for (var i = 0; i < $scope.room_result.data.length; i++) {
+        for(var i = 0; i < $scope.room_result.data.length; i++){
             var temp = $scope.room_result.data[i];
-            if (temp.id === rooms_id) {
+            if(temp.id === rooms_id){
                 room = temp;
                 break;
             }
         }
         var images = room.images;
-        if ($(this).is(".target-prev") == true) {
+        if($(this).is(".target-prev") == true){
             var set_img_url = (images) ? ((images.indexOf(img_url) === images.length - 1) ? images[0] : images[images.indexOf(img_url) + 1]) : "";
             set_img_url = APP_URL + "/images/" + set_img_url;
-            $("#rooms_image_" + rooms_id).attr("src", set_img_url);
-        } else {
+            $("#rooms_image_"+rooms_id).attr("src",set_img_url);
+        }else{
             var set_img_url = (images) ? ((images.indexOf(img_url) === 0) ? images[images.length - 1] : images[images.indexOf(img_url) - 1]) : "";
             set_img_url = APP_URL + "/images/" + set_img_url;
-            $("#rooms_image_" + rooms_id).attr("src", set_img_url);
+            $("#rooms_image_"+rooms_id).attr("src",set_img_url);
         }
     });
 
@@ -759,6 +767,13 @@ app.controller('room_details_controller', function ($scope, $window, $location, 
 
 app.controller('payment_controller', function ($scope, $window, $location, $http) {
 
+    var propertyId = getParameterByName("propertyId");
+    var guest = getParameterByName("guests");
+    var checkin = getParameterByName("checkin");
+    var checkout = getParameterByName("checkout");
+    var totalperday = getParameterByName("price");
+    var days = getParameterByName("nights");
+
     $scope.loadPaymentPage = function () {
         $http.post('/loadPaymentPage')
             .success(function (data) {
@@ -779,14 +794,7 @@ app.controller('payment_controller', function ($scope, $window, $location, $http
                 console.log("Error to get data");
                 console.log(data);
             });
-
-        var propertyId = getParameterByName("propertyId");
-        var guest = getParameterByName("guests");
-        var checkin = getParameterByName("checkin");
-        var checkout = getParameterByName("checkout");
-        var totalperday = getParameterByName("price");
-        var days = getParameterByName("nights");
-
+        
         $http({
             method: "POST",
             url: '/getPropertyDetails',
@@ -799,6 +807,7 @@ app.controller('payment_controller', function ($scope, $window, $location, $http
                 console.log("PROPPERTY");
                 console.log(data.data);
                 var property = data.data;
+                $scope.hostId = property.hostId._id;
                 $scope.propertName = property.name;
                 $scope.location = property.city + ", " + property.state + ", " + property.country;
                 $scope.guest = guest;
@@ -814,6 +823,60 @@ app.controller('payment_controller', function ($scope, $window, $location, $http
         });
     };
 });
+
+
+    };
+
+
+    $scope.confirmBooking = function () {
+
+
+
+        var cardnumber = $scope.cardNumber;
+        var expMonth = $scope.expMonth;
+        var expYear = $scope.expYear;
+        var cvv = $scope.cvv;
+        var guest1 = guest;
+        var checkin1 = checkin;
+        var checkout1 = checkout;
+        var properyId1 = propertyId;
+        var price = totalperday;
+        var days1 = days;
+        var hostId = $scope.hostId;
+
+
+
+        $http({
+            method: "POST",
+            url: '/confirmBooking',
+            data: {
+                "propertyId": properyId1,
+                "cardNumber" : cardnumber,
+                "expMonth" : expMonth,
+                "expYear" :expYear,
+                "cvv" : cvv,
+                "guest" : guest1,
+                "checkin" : checkin1,
+                "checkout" : checkout1,
+                "price" : price,
+                "days": days1,
+                "hostId":hostId
+
+            }
+        }).success(function (data) {
+            if (data.statusCode == 200) {
+
+                console.log("SAVED TRIP");
+                console.log(data.data);
+
+
+
+            } else {
+                console.log("Error occured to booking");
+            }
+        }).error(function (error) {
+            console.log(error);
+        });
 
 app.controller('itinerary_controller', function ($scope, $http, $window) {
 
