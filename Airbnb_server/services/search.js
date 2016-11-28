@@ -13,7 +13,7 @@ var mongoose = require('mongoose');
 var ObjectId = require('mongodb').ObjectID;
 exports.doSearch = function (msg, callback) {
     "use strict";
-
+    //added
     var user_id = msg.user_id;
     var location = msg.location;
     var property_type = (msg.property_type.trim().length === 0) ? ["Entire home/apt", "Private room", "Shared room"] : msg.property_type.split(",");
