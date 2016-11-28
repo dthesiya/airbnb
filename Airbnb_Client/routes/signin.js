@@ -62,7 +62,7 @@ exports.authenticateUser = function (req, res, next) {
             sess.firstName = user.firstName;
             sess.isLoggedIn = true;
             // sess.last_name = user.last_name;
-            // sess.user_id = user._id;
+            sess.userId = user._id;
             // // sess.last_access = user.last_access;
 
 //		        res.statusCode = 200;

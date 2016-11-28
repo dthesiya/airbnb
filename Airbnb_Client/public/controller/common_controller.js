@@ -4,7 +4,7 @@
 /**
  * http://usejsdoc.org/
  */
-var app = angular.module('App',[]);
+var app = angular.module('App', []);
 app.controller('authentication_controller', function ($scope, $window, $location, $http) {
 
     $scope.checkLogin = function () {
@@ -141,7 +141,7 @@ app.controller('account_user_management', function ($scope, $window, $location, 
 
 });
 
-app.controller('editUser_controller', function($scope,$window,$location,$http) {
+app.controller('editUser_controller', function ($scope, $window, $location, $http) {
 
     console.log("in editUser_controller");
 
@@ -150,26 +150,25 @@ app.controller('editUser_controller', function($scope,$window,$location,$http) {
         $scope.success_model = false;
 
         $http.post('/loadEditUserPage')
-            .success(function(data){
-                if(data.statusCode==200){
+            .success(function (data) {
+                if (data.statusCode == 200) {
 
-                    $scope.user=data.data;
+                    $scope.user = data.data;
                     console.log("Data is :")
                     console.log($scope.user);
 
                 }
-                else{
+                else {
 
                     console.log("Error in loading edit profile page");
                 }
             })
-            .error(function(data) {
+            .error(function (data) {
 
             });
 
 
     };
-
 
 
     $scope.uploadProfileImage = function () {
@@ -182,14 +181,12 @@ app.controller('editUser_controller', function($scope,$window,$location,$http) {
         //fileUpload.uploadFileToUrl(file, uploadUrl);
 
 
-
-
-        $http.post('/uploadProfileImage',file,{'enctype':"multipart/form-data"})
-            .success(function(data){
+        $http.post('/uploadProfileImage', file, {'enctype': "multipart/form-data"})
+            .success(function (data) {
 
                 console.log("Uploaded");
             })
-            .error(function(data) {
+            .error(function (data) {
 
                 console.log("Not upoaded");
 
@@ -199,8 +196,6 @@ app.controller('editUser_controller', function($scope,$window,$location,$http) {
     };
 
 
-
-
     $scope.saveUserData = function () {
 
         init();
@@ -208,83 +203,81 @@ app.controller('editUser_controller', function($scope,$window,$location,$http) {
         console.log($scope.user);
         var validate = true;
 
-        if($scope.user.firstName==undefined || $scope.user.firstName==""){
+        if ($scope.user.firstName == undefined || $scope.user.firstName == "") {
             validate = false;
             $scope.first_invalid = true;
         }
 
-        if($scope.user.lastName==undefined || $scope.user.lastName==""){
+        if ($scope.user.lastName == undefined || $scope.user.lastName == "") {
             validate = false;
             $scope.last_invalid = true;
         }
 
-        if($scope.user.address==undefined || $scope.user.address==""){
+        if ($scope.user.address == undefined || $scope.user.address == "") {
             validate = false;
             $scope.address_invalid = true;
         }
 
-        if($scope.user.city==undefined || $scope.user.city==""){
+        if ($scope.user.city == undefined || $scope.user.city == "") {
             validate = false;
             $scope.city_invalid = true;
         }
 
-        if($scope.user.state==undefined || $scope.user.state==""){
+        if ($scope.user.state == undefined || $scope.user.state == "") {
             validate = false;
             $scope.state_invalid = true;
         }
 
-        if($scope.user.zip==undefined || $scope.user.zip==""){
+        if ($scope.user.zip == undefined || $scope.user.zip == "") {
             validate = false;
             $scope.pin_invalid = true;
         }
 
-        if($scope.user.email==undefined || $scope.user.email==""){
+        if ($scope.user.email == undefined || $scope.user.email == "") {
             validate = false;
             $scope.email_invalid = true;
         }
 
-        if(validate==false){
+        if (validate == false) {
             return;
         }
 
         var isValidZip = /(^\d{5}$)|(^\d{5}-\d{4}$)/.test($scope.user.zip);
 
-        if(isValidZip)
-        {}
-        else
-        {
+        if (isValidZip) {
+        }
+        else {
             $scope.pin_wrong = true;
             validate = false;
         }
 
 
-        if(validate){
+        if (validate) {
 
             $http({
-                method : "POST",
-                url : '/editUser',
-                data : {
-                    "firstName" : $scope.user.firstName,
-                    "lastName" : $scope.user.lastName,
-                    "address" : $scope.user.address,
-                    "city" : $scope.user.city,
-                    "state" : $scope.user.state,
+                method: "POST",
+                url: '/editUser',
+                data: {
+                    "firstName": $scope.user.firstName,
+                    "lastName": $scope.user.lastName,
+                    "address": $scope.user.address,
+                    "city": $scope.user.city,
+                    "state": $scope.user.state,
                     "zip": $scope.user.zip,
-                    "email":$scope.user.email
+                    "email": $scope.user.email
                 }
-            }).success(function(data) {
+            }).success(function (data) {
 
                 if (data.statusCode == 401) {
                     console.log("status code 401");
                     $scope.fail_model = true;
                 }
-                else
-                {
+                else {
                     console.log("statuscode 200");
                     $scope.success_model = true;
 
                 }
-            }).error(function(error) {
+            }).error(function (error) {
                 console.log(error);
             });
 
@@ -300,50 +293,47 @@ app.controller('editUser_controller', function($scope,$window,$location,$http) {
 
 
         $http.post('/loadProfilePhotoPage')
-            .success(function(data){
-                if(data.statusCode==200){
+            .success(function (data) {
+                if (data.statusCode == 200) {
 
-                    $scope.user=data.data;
+                    $scope.user = data.data;
                     console.log("Data is :")
                     console.log($scope.user);
 
                 }
-                else{
+                else {
 
                     console.log("Error in loading profile photo page");
                 }
             })
-            .error(function(data) {
+            .error(function (data) {
 
             });
-
-
 
 
     };
 
 
-
-    function init(){
+    function init() {
 
         $scope.ccv_invalid = false;
         $scope.ccv_wrong = false;
         $scope.expdate_invalid = false;
         $scope.expdate_wrong = false;
-        $scope.ccnumber_invalid= false;
+        $scope.ccnumber_invalid = false;
         $scope.ccnumber_wrong = false;
-        $scope.phone_invalid =false;
+        $scope.phone_invalid = false;
         $scope.phone_wrong = false;
-        $scope.pin_invalid =false;
+        $scope.pin_invalid = false;
         $scope.pin_wrong = false;
         $scope.city_invalid = false;
         $scope.state_invalid = false;
-        $scope.address_invalid =false;
-        $scope.last_invalid= false;
+        $scope.address_invalid = false;
+        $scope.last_invalid = false;
         $scope.first_invalid = false;
         $scope.bdate_invalid = false;
-        $scope.fail_model=false;
-        $scope.success_model =false;
+        $scope.fail_model = false;
+        $scope.success_model = false;
 
     }
 
@@ -351,70 +341,69 @@ app.controller('editUser_controller', function($scope,$window,$location,$http) {
 });
 
 
-
-app.controller('review_controller', [ '$scope', 'fileUpload',function($scope,$window,$location,$http) {
+app.controller('review_controller', function ($scope, $window, $location, $http) {
 
     console.log("in review controller");
-   
+
     $scope.loadReviewAboutPage = function () {
-        
+
         $http.post('/loadReviewAboutPage')
-            .success(function(data){
-                
+            .success(function (data) {
+
+                if (data.statusCode = 200) {
+
+
+                    console.log("REVIEWS");
+                    console.log(data.data);
+                    $scope.fromHostReview = data.data.fromHostReview;
+                    $scope.fromUserReview = data.data.fromUserReview;
+                    console.log($scope.fromHostReview);
+                    console.log($scope.fromUserReview);
+                }
+                else {
+                    console.log("Error in getting review");
+                }
+
             })
-            .error(function(data) {
-               
+            .error(function (data) {
+
+                console.log(data);
+
             });
 
 
     };
 
 
-    $scope.loadReviewAboutPage = function () {
+    $scope.loadReviewByPage = function () {
 
         $http.post('/loadReviewByPage')
-            .success(function(data){
+            .success(function (data) {
+
+                if (data.statusCode = 200) {
+
+
+                    console.log("REVIEWS");
+                    console.log(data.data);
+                    $scope.toUserReview = data.data.toUserReview;
+                    $scope.toHostReview = data.data.toHostReview;
+
+                }
+                else {
+                    console.log("Error in getting review");
+                }
 
             })
-            .error(function(data) {
+            .error(function (data) {
 
+                console.log(data);
             });
 
 
     };
 
 
-
-}]);
-
-
-
-
-/*
-app.controller('search-page', ['$scope', '$http', '$compile', '$filter', function ($scope, $http, $compile, $filter) {
-
-
-    var current_url = (window.location.href).replace('/search', '/searchResult');
-    $http.get(current_url).then(function(response) {
-        // $scope.room_result = response;
-        $('.search-results').removeClass('loading');
-        no_results();
-        $scope.room_result = response.data;
-        $scope.totalPages   = response.data.last_page;
-        $scope.currentPage  = response.data.current_page;
-
-        // marker(response.data);
-    });
-
-    function no_results() {
-        if($('.search-results').hasClass('loading'))
-            $('#no_results').hide();
-        else
-            $('#no_results').show();
-    }
-}]);
-*/
-
+});
 
 app.controller('search-page', ['$scope', '$http', '$compile', '$filter', function ($scope, $http, $compile, $filter) {
 
@@ -502,7 +491,7 @@ app.controller('search-page', ['$scope', '$http', '$compile', '$filter', functio
         var map = new google.maps.Map(document.getElementById("map_canvas"),
             myOptions);
 
-       setMarkers(map, response)
+        setMarkers(map, response)
         // marker(map,response);
 
     }
@@ -521,22 +510,18 @@ app.controller('search-page', ['$scope', '$http', '$compile', '$filter', functio
             var labelTxt = "$"+data[i].rooms_price.night;
             latlngset = new google.maps.LatLng(lat, lon);
 
-/*
-
-            var image = {
-                url: 'images/locate-pin.png',
-
-                size: new google.maps.Size(32, 32),
-
-                origin: new google.maps.Point(0, 0),
-
-                anchor: new google.maps.Point(0, 32)
-            };
-            var shape = {
-                coords: [1, 1, 1, 20, 18, 20, 18, 1],
-                type: 'poly'
-            };
-*/
+            /*
+             var image = {
+             url: 'images/locate-pin.png',
+             size: new google.maps.Size(32, 32),
+             origin: new google.maps.Point(0, 0),
+             anchor: new google.maps.Point(0, 32)
+             };
+             var shape = {
+             coords: [1, 1, 1, 20, 18, 20, 18, 1],
+             type: 'poly'
+             };
+             */
 
             var marker = new MarkerWithLabel({
                 position: latlngset,
@@ -575,7 +560,7 @@ app.controller('search-page', ['$scope', '$http', '$compile', '$filter', functio
 
             html += '<div class="text-muted listing-location text-truncate" itemprop="description"><a class="text-normal link-reset" >'+data[i].room_type_name+star_rating+reviews_count+'</a></div></div></div></div>';
 
-             createInfoWindow(marker, html,map);
+            createInfoWindow(marker, html,map);
 
         }
     }
@@ -736,4 +721,67 @@ app.controller('room_details_controller', function ($scope, $window, $location, 
             results = regex.exec(location.search);
         return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
     }
+});
+
+
+app.controller('payment_controller', function ($scope, $window, $location, $http) {
+
+    $scope.loadPaymentPage = function () {
+        $http.post('/loadPaymentPage')
+            .success(function (data) {
+                if (data.statusCode == 200) {
+                    console.log("USER");
+                    console.log(data.data);
+                    var user = data.data;
+                    $scope.cardNumber = user.cardNumber;
+                    $scope.cvv = user.cvv;
+                    $scope.firstName = user.firstName;
+                    $scope.lastName = user.lastName;
+                    $scope.zip = user.zip;
+                } else {
+                    console.log("Error occured to get data");
+                }
+            })
+            .error(function (data) {
+                console.log("Error to get data");
+                console.log(data);
+            });
+
+        var propertyId = "Hello";
+        var guest = 4;
+        var checkin = 432423434;
+        var checkout = 3234324343;
+        var totalperday = 4343;
+        var days = 2;
+
+        $http({
+            method: "POST",
+            url: '/getPropertyDetails',
+            data: {
+                "propertyId": propertyId
+            }
+        }).success(function (data) {
+            if (data.statusCode == 200) {
+
+                console.log("PROPPERTY");
+                console.log(data.data);
+                var property = data.data;
+                $scope.propertName = property.name;
+                $scope.location = property.city + ", " + property.state + ", " + property.country;
+                $scope.guest = guest;
+                $scope.checkin = checkin;
+                $scope.checkout = checkout;
+                $scope.totalperday = totalperday;
+                $scope.days = days;
+            } else {
+                console.log("Error occured to get property data");
+            }
+        }).error(function (error) {
+            console.log(error);
+        });
+
+
+    };
+
+
 });
