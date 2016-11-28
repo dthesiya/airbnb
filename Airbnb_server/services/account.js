@@ -188,12 +188,11 @@ exports.confirmBooking = function (msg, callback) {
     var expDate = expMonth + "/" + expYear;
     var cvv = msg.cvv;
     var guest = msg.guest;
-    var checkin = msg.checkin;
-    var checkout = msg.checkout;
+    var checkin = toDate(msg.checkin).getTime();
+    var checkout = toDate(msg.checkout).getTime();
     var price = msg.price;
     var days = msg.days;
     var hostId = msg.hostId;
-
 
     User.update({_id: userId},
         {
@@ -201,25 +200,15 @@ exports.confirmBooking = function (msg, callback) {
                 cardNumber: cardNumber,
                 cvv: cvv,
                 expDate: expDate
-
             }
         }, function (err, user) {
-
             if (err) {
-
                 console.log("Error to save Credit card details");
                 console.log(err);
-
-            }
-            else {
-
+            } else {
                 console.log("Credit Card details saved");
-
             }
-
-
         });
-
 
     var trip = new Trip();
     trip.tripId = ssn.generate();
@@ -230,9 +219,9 @@ exports.confirmBooking = function (msg, callback) {
     trip.checkOut = checkout;
     trip.noOfGuests = guest;
     trip.isAccepted = false;
-    trip.price= Number(price);
-    trip.days =Number(days);
-    trip.total = Number(price)*Number(days);
+    trip.price = Number(price);
+    trip.days = Number(days);
+    trip.total = Number(price) * Number(days);
     trip.createdDate = new Date().getTime();
 
     console.log("TRIP IS");
@@ -241,19 +230,18 @@ exports.confirmBooking = function (msg, callback) {
     trip.save(function (err) {
 
         if (err) {
-
             console.log("ERROR TO SAVE TRIP");
             console.log(err);
             callback(err, null);
-
         }
         else {
-
             console.log("TRIP SAVED");
             callback(null, trip);
         }
-
     });
-
-
 };
+
+function toDate(dateStr) {
+    var parts = dateStr.split("-");
+    return new Date(parts[2], parts[1] - 1, parts[0]);
+}

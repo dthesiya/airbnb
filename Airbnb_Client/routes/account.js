@@ -261,7 +261,7 @@ exports.getDashBoardPage = function (req, res) {
 };
 
 
-exports.loadPaymentPage = function (req,res) {
+exports.loadPaymentPage = function (req, res) {
 
     var userId = req.session.userId;
     var msg_payload = {
@@ -285,11 +285,11 @@ exports.loadPaymentPage = function (req,res) {
             res.end();
         }
     });
-    
-    
+
+
 };
 
-exports.getPropertyDetails = function (req,res) {
+exports.getPropertyDetails = function (req, res) {
 
 
     var propertyId = req.param("propertyId");
@@ -323,35 +323,34 @@ exports.getPropertyDetails = function (req,res) {
 
 };
 
-exports.confirmBooking = function (req,res) {
+exports.confirmBooking = function (req, res) {
 
-        var userId = req.session.userId;
-        var properyId = req.param("propertyId");
-        var cardnumber = req.param("cardNumber");
-        var expMonth = req.param("expMonth");
-        var expYear = req.param("expYear" );
-        var cvv = req.param("cvv");
-        var guest = req.param("guest");
-        var checkin = req.param("checkin" );
-        var checkout = req.param("checkout");
-        var price = req.param("price");
-        var days = req.param("days");
-        var hostId = req.param("hostId");
-
+    var userId = req.session.userId;
+    var properyId = req.param("propertyId");
+    var cardnumber = req.param("cardNumber");
+    var expMonth = req.param("expMonth");
+    var expYear = req.param("expYear");
+    var cvv = req.param("cvv");
+    var guest = req.param("guest");
+    var checkin = req.param("checkin");
+    var checkout = req.param("checkout");
+    var price = req.param("price");
+    var days = req.param("days");
+    var hostId = req.param("hostId");
 
     var msg_payload = {
         "userId": userId,
         "propertyId": properyId,
-        "cardNumber" : cardnumber,
-        "expMonth" : expMonth,
-        "expYear" :expYear,
-        "cvv" : cvv,
-        "guest" : guest,
-        "checkin" : checkin,
-        "checkout" : checkout,
-        "price" : price,
+        "cardNumber": cardnumber,
+        "expMonth": expMonth,
+        "expYear": expYear,
+        "cvv": cvv,
+        "guest": guest,
+        "checkin": checkin,
+        "checkout": checkout,
+        "price": price,
         "days": days,
-        "hostId":hostId
+        "hostId": hostId
     };
 
     console.log("msg payload");
@@ -372,8 +371,6 @@ exports.confirmBooking = function (req,res) {
             res.end();
         }
     });
-
-
 
 
 };

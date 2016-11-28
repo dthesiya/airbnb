@@ -22,21 +22,21 @@ exports.loadSearchPg = function (req, res) {
     var long;
     var location = req.param("location");
     var viewport;
-    geocoder.geocode(location,function(err,data){
+    geocoder.geocode(location, function (err, data) {
         lat = data.results[0].geometry.location.lat;
         long = data.results[0].geometry.location.lng;
         viewport = JSON.stringify(data.results[0].geometry.viewport);
-        var user_data ={
-            "email" : sess.email,
-            "isLoggedIn" : sess.isLoggedIn,
-            "firstname" : sess.firstName,
-            "lat":lat,
-            "long":long,
-            "viewport":viewport,
-            "location":location
+        var user_data = {
+            "email": sess.email,
+            "isLoggedIn": sess.isLoggedIn,
+            "firstname": sess.firstName,
+            "lat": lat,
+            "long": long,
+            "viewport": viewport,
+            "location": location
         };
-        ejs.renderFile('../views/searchPage.ejs', user_data,function (err,result) {
-            if(err){
+        ejs.renderFile('../views/searchPage.ejs', user_data, function (err, result) {
+            if (err) {
 
             } else {
 
@@ -58,7 +58,8 @@ exports.search = function (req, res, next) {
         property_type: property_type,
         checkin: checkin,
         checkout: checkout,
-        guests: guests
+        guests: guests,
+        user_id: req.session.userId
     };
 
 
