@@ -726,6 +726,16 @@ app.controller('room_details_controller', function ($scope, $window, $location, 
 
 app.controller('payment_controller', function ($scope, $window, $location, $http) {
 
+    var propertyId = "583737ae83cd51786c7539d6";
+    var guest = 4;
+    var checkin = 432423434;
+    var checkout = 3234324343;
+    var totalperday = 4343;
+    var days = 2;
+
+
+
+
     $scope.loadPaymentPage = function () {
         $http.post('/loadPaymentPage')
             .success(function (data) {
@@ -747,12 +757,7 @@ app.controller('payment_controller', function ($scope, $window, $location, $http
                 console.log(data);
             });
 
-        var propertyId = "Hello";
-        var guest = 4;
-        var checkin = 432423434;
-        var checkout = 3234324343;
-        var totalperday = 4343;
-        var days = 2;
+
 
         $http({
             method: "POST",
@@ -793,12 +798,12 @@ app.controller('payment_controller', function ($scope, $window, $location, $http
         var expMonth = $scope.expMonth;
         var expYear = $scope.expYear;
         var cvv = $scope.cvv;
-        var guest = $scope.guest;
-        var checkin = $scope
-        var checkout = $scope
-        var properyId = $scope
-        var price = $scope
-        var days = $scope
+        var guest1 = guest;
+        var checkin1 = checkin;
+        var checkout1 = checkout;
+        var properyId1 = propertyId;
+        var price = totalperday;
+        var days1 = days;
         var hostId = $scope.hostId;
 
 
@@ -807,16 +812,16 @@ app.controller('payment_controller', function ($scope, $window, $location, $http
             method: "POST",
             url: '/confirmBooking',
             data: {
-                "propertyId": properyId,
+                "propertyId": properyId1,
                 "cardNumber" : cardnumber,
                 "expMonth" : expMonth,
                 "expYear" :expYear,
                 "cvv" : cvv,
-                "guest" : guest,
-                "checkin" : checkin,
-                "checkout" : checkout,
+                "guest" : guest1,
+                "checkin" : checkin1,
+                "checkout" : checkout1,
                 "price" : price,
-                "days": days,
+                "days": days1,
                 "hostId":hostId
 
             }
@@ -825,7 +830,7 @@ app.controller('payment_controller', function ($scope, $window, $location, $http
 
                 console.log("SAVED TRIP");
                 console.log(data.data);
-                
+
 
 
             } else {

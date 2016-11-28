@@ -292,8 +292,7 @@ exports.loadPaymentPage = function (req,res) {
 exports.getPropertyDetails = function (req,res) {
 
 
-    var propertyId = "583737ae83cd51786c7539d6" ;
-        //req.param("propertyId");
+    var propertyId = req.param("propertyId");
     var userId = req.session.userId;
     var msg_payload = {
         userId: userId,

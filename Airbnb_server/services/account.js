@@ -230,7 +230,13 @@ exports.confirmBooking = function (msg, callback) {
     trip.checkOut = checkout;
     trip.noOfGuests = guest;
     trip.isAccepted = false;
+    trip.price= Number(price);
+    trip.days =Number(days);
+    trip.total = Number(price)*Number(days);
     trip.createdDate = new Date().getTime();
+
+    console.log("TRIP IS");
+    console.log(trip);
 
     trip.save(function (err) {
 
