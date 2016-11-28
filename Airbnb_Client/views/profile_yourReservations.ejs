@@ -47,25 +47,19 @@
         <div class="page-container-responsive">
             <ul class="subnav-list">
                 <li>
-                    <a href="" aria-selected="false" class="subnav-item">Dashboard</a>
+                    <a href="/getDashBoardPage" aria-selected="false" class="subnav-item">Dashboard</a>
                 </li>
                 <li>
-                    <a href="" aria-selected="false" class="subnav-item">Inbox</a>
+                    <a href="#" aria-selected="true" class="subnav-item">Your Listings</a>
                 </li>
                 <li>
-                    <a href="" aria-selected="true" class="subnav-item">Your Listings</a>
+                    <a href="/yourTrips" aria-selected="false" class="subnav-item">Your Trips</a>
                 </li>
                 <li>
-                    <a href="profile_yourTrips.ejs" aria-selected="false" class="subnav-item">Your Trips</a>
+                    <a href="/profile" aria-selected="false" class="subnav-item">Profile</a>
                 </li>
                 <li>
-                    <a href="" aria-selected="false" class="subnav-item">Profile</a>
-                </li>
-                <li>
-                    <a href="" aria-selected="false" class="subnav-item">Account</a>
-                </li>
-                <li>
-                    <a href="" class="subnav-item">Travel Credit</a>
+                    <a href="/Account_Transactions" aria-selected="false" class="subnav-item">Account</a>
                 </li>
             </ul>
         </div>
@@ -181,8 +175,6 @@
         </div>
     </div>
     <input type="hidden" value="" id="print">
-
-
 </main>
 <% include footer.ejs %>
 <div id="gmap-preload" class="hide"></div>
@@ -190,6 +182,7 @@
 <div id="fb-root"></div>
 <script type="text/javascript"
         src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&sensor=false"></script>
+
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
 <script type="text/javascript" src="http://code.jquery.com/ui/1.11.3/jquery-ui.min.js"></script>
@@ -284,8 +277,7 @@
 </script>
 <script>
     var app = angular.module('App', ['ngSanitize']);
-    var APP_URL = "http:\/\/makent.trioangle.com";
-    var USER_ID = 10001
+    var APP_URL = "http:\/\/localhost:3000";
     $.datepicker.setDefaults($.datepicker.regional["en"])
 </script>
 <script src="../js/common.js"></script>

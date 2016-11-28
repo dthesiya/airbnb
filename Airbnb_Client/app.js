@@ -19,6 +19,8 @@ var search = require('./routes/search');
 var review = require('./routes/review');
 var property = require('./routes/property');
 var account_management = require('./routes/account_management');
+var listings = require('./routes/listings');
+var trips = require('./routes/trips');
 
 
 var app = express();
@@ -39,7 +41,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 // uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(favicon(path.join(__dirname, 'public', 'images', 'logos', 'airbnb.png')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
@@ -75,14 +77,46 @@ app.post('/paymentMethodUpdate', account_management.updatePaymentMethod);
 app.get('/hostReviewsCount', review.getHostReviewsCount);
 app.post('/loadReviewAboutPage', review.loadReviewAboutPage);
 app.post('/loadReviewByPage', review.loadReviewAboutPage);
-app.post('/uploadProfileImage',account.uploadProfileImage );
-app.post('/loadProfilePhotoPage',account.loadProfilePhotoPage);
+app.post('/uploadProfileImage', account.uploadProfileImage);
+app.post('/loadProfilePhotoPage', account.loadProfilePhotoPage);
 app.get('/getDashBoardPage', account.getDashBoardPage);
-app.get('/getPaymemtPage', account.getPaymentPage);
+app.get('/getPaymentPage', account.getPaymentPage);
 app.post('/loadPaymentPage', account.loadPaymentPage);
 app.post('/getPropertyDetails', account.getPropertyDetails);
 
 app.get('/receipt/:billingID', account_management.receiptPage);
+
+////////////////////////////////////////////
+
+app.get('/yourTrips', trips.tripPage);
+app.get('/addProperty', property.addProperty);
+app.get('/yourListings', listings.yourListings);
+app.get('/profile', users.userProfile);
+
+app.get('/addListing', listings.addListing);
+app.get('/becomeHost', listings.becomeHost);
+app.get('/test/*', listings.test);
+
+
+app.get('/getUserProfile/:userId', users.getUserProfile);
+
+app.get('/getUserReview/:userId', review.getUserReview);
+app.get('/getHostReview/:hostId', review.getHostReview);
+app.post('/addUserReview', review.addUserReview);
+app.post('/addHostReview', review.addHostReview);
+
+app.post('/addNewListing', listings.addNewListing);
+app.get('/getActiveListings', listings.getActiveListings);
+app.get('/getActiveListings/:userId', listings.getActiveListingsFromId);
+app.get('/getReservations', listings.getReservations);
+
+
+app.get('/getUserTrips', trips.getUserTrips);
+app.post('/acceptTrip', trips.acceptTrip);
+app.get('/itinerary/:tripId', trips.displayItinerary);
+
+////////////////////////////////////////////
+
 
 app.get('/signin', isAuthenticated, function (req, res) {
     res.redirect('/');

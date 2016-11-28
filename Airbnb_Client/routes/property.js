@@ -11,12 +11,17 @@ var express = require('express');
 var fecha = require('fecha');
 var mq_client = require("../rpc/client.js");
 var ejs = require("ejs");
-/*var log = require("./log");*/
-/*
- var mongo = require("./mongo");
- var config = require('./config.js');
- */
 
+exports.addProperty = function (req, res) {
+    var user_data = {
+        "email": req.session.email,
+        "isLoggedIn": req.session.isLoggedIn,
+        "firstname": req.session.firstName
+    };
+    ejs.renderFile('../views/becomehostMainPage.ejs', user_data, function (err, result) {
+        res.end(result);
+    });
+};
 
 exports.loadDetailPg = function (req, res) {
     var user_data = {

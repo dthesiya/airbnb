@@ -4,7 +4,36 @@
 /**
  * http://usejsdoc.org/
  */
+function getParameterByName(name) {
+    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+        results = regex.exec(location.search);
+    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+}
+
+function toDate(dateStr) {
+    var parts = dateStr.split("-");
+    return new Date(parts[2], parts[1] - 1, parts[0]);
+}
+
 var app = angular.module('App', []);
+
+app.factory('Data', function ($window) {
+
+    return {
+        getData: function () {
+            return $window.sessionStorage.getItem("Data");
+        },
+        setData: function (data) {
+            $window.sessionStorage.setItem("Data", JSON.stringify(data));
+        },
+        clearData: function () {
+            $window.sessionStorage.clear();
+        },
+
+    };
+});
+
 app.controller('authentication_controller', function ($scope, $window, $location, $http) {
 
     $scope.checkLogin = function () {
@@ -107,7 +136,6 @@ app.controller('account_user_management', function ($scope, $window, $location, 
             }
         }).success(function (result) {
             if (result == "OK") {
-                console.log("ok result");
                 $scope.alert2 = true;
             }
         }).error(function (err) {
@@ -116,14 +144,12 @@ app.controller('account_user_management', function ($scope, $window, $location, 
     }
 
     //transaction code
-
     $http({
         method: "GET",
         url: '/payinTransaction',
         params: {}
     }).success(function (result) {
         $scope.payin = result;
-        console.log(result);
     }).error(function (err) {
         console.log(err);
     });
@@ -134,7 +160,6 @@ app.controller('account_user_management', function ($scope, $window, $location, 
         params: {}
     }).success(function (result) {
         $scope.payout = result;
-        console.log(result);
     }).error(function (err) {
         console.log(err);
     });
@@ -413,7 +438,7 @@ app.controller('search-page', ['$scope', '$http', '$compile', '$filter', functio
     $scope.range = [];
 
     function no_results() {
-        if($('.search-results').hasClass('loading'))
+        if ($('.search-results').hasClass('loading'))
             $('#no_results').hide();
         else
             $('#no_results').show();
@@ -425,31 +450,31 @@ app.controller('search-page', ['$scope', '$http', '$compile', '$filter', functio
     var current_url = (window.location.href).replace('/search', '/searchResult');
 
 
-    $(document).ready(function(){
+    $(document).ready(function () {
         localStorage.removeItem("map_lat_long");
         var room_type = [];
-        $('.room-type:checked').each(function(i){
+        $('.room-type:checked').each(function (i) {
             room_type[i] = $(this).val();
         });
 
 
         $('.search-results').addClass('loading');
         no_results();
-        $http.get(current_url).then(function(response) {
+        $http.get(current_url).then(function (response) {
             // $scope.room_result = response;
             $('.search-results').removeClass('loading');
             no_results();
             $scope.room_result = response.data;
-            $scope.totalPages   = response.data.last_page;
-            $scope.currentPage  = response.data.current_page;
+            $scope.totalPages = response.data.last_page;
+            $scope.currentPage = response.data.current_page;
             $scope.checkin = getParameterByName("checkin");
             $scope.checkout = getParameterByName("checkout");
             $scope.guests = getParameterByName("guests");
-            $scope.room_type=getParameterByName("room_type");
+            $scope.room_type = getParameterByName("room_type");
             var room_type = getParameterByName("room_type").split(',');
 
-            for(var i = 0; i < room_type.length; i++){
-                switch(room_type[i]) {
+            for (var i = 0; i < room_type.length; i++) {
+                switch (room_type[i]) {
                     case "Entire home/apt":
                         $scope.room_type_1 = true;
                         break;
@@ -476,14 +501,13 @@ app.controller('search-page', ['$scope', '$http', '$compile', '$filter', functio
     });
 
 
-
     function initialize(response) {
 
         var latitude = $("#lat").val();
         var longitude = $("#long").val();
 
         var myOptions = {
-            center: new google.maps.LatLng(latitude,longitude),
+            center: new google.maps.LatLng(latitude, longitude),
             zoom: 9,
             mapTypeId: google.maps.MapTypeId.ROADMAP
 
@@ -496,18 +520,17 @@ app.controller('search-page', ['$scope', '$http', '$compile', '$filter', functio
 
     }
 
-    function setMarkers(map,response){
+    function setMarkers(map, response) {
 
         var marker;
         var data = response.data;
         var guests = 1;
-        for (var i = 0; i < data.length; i++)
-        {
+        for (var i = 0; i < data.length; i++) {
 
             var name = data[i].name;
             var lat = Number(data[i].rooms_address.latitude);
             var lon = Number(data[i].rooms_address.longitude);
-            var labelTxt = "$"+data[i].rooms_price.night;
+            var labelTxt = "$" + data[i].rooms_price.night;
             latlngset = new google.maps.LatLng(lat, lon);
 
             /*
@@ -535,32 +558,32 @@ app.controller('search-page', ['$scope', '$http', '$compile', '$filter', functio
 
             map.setCenter(marker.getPosition());
 
-            var html = '<div id="info_window_'+data[i].id+'" class="listing listing-map-popover" data-price="'+data[i].rooms_price.currency.symbol+'" data-id="'+data[i].id+'" data-user="'+data[i].user_id+'"  data-name="'+data[i].name+'" data-lng="'+data[i].rooms_address.longitude+'" data-lat="'+data[i].rooms_address.latitude+'"><div class="panel-image listing-img">';
-            html += '<a class="media-photo media-cover" target="listing_'+data[i].id+'" ><div class="listing-img-container media-cover text-center"><img id="marker_image_'+data[i].id+'" rooms_image = "" alt="'+data[i].name+'" class="img-responsive-height" data-current="0" src="'+APP_URL+'/images/'+data[i].photo_name+'"></div></a>';
-            html += '<a class="link-reset panel-overlay-bottom-left panel-overlay-label panel-overlay-listing-label" target="listing_'+data[i].id+'" ><div>';
+            var html = '<div id="info_window_' + data[i].id + '" class="listing listing-map-popover" data-price="' + data[i].rooms_price.currency.symbol + '" data-id="' + data[i].id + '" data-user="' + data[i].user_id + '"  data-name="' + data[i].name + '" data-lng="' + data[i].rooms_address.longitude + '" data-lat="' + data[i].rooms_address.latitude + '"><div class="panel-image listing-img">';
+            html += '<a class="media-photo media-cover" target="listing_' + data[i].id + '" ><div class="listing-img-container media-cover text-center"><img id="marker_image_' + data[i].id + '" rooms_image = "" alt="' + data[i].name + '" class="img-responsive-height" data-current="0" src="' + APP_URL + '/images/' + data[i].photo_name + '"></div></a>';
+            html += '<a class="link-reset panel-overlay-bottom-left panel-overlay-label panel-overlay-listing-label" target="listing_' + data[i].id + '" ><div>';
 
             var instant_book = '';
 
-            if(data[i].booking_type == 'instant_book')
+            if (data[i].booking_type == 'instant_book')
                 instant_book = '<span aria-label="Book Instantly" data-behavior="tooltip" class="h3 icon-beach"><i class="icon icon-instant-book icon-flush-sides"></i></span>';
 
-            html += '<sup class="h6 text-contrast">'+data[i].rooms_price.currency.symbol+'</sup><span class="h3 text-contrast price-amount">'+data[i].rooms_price.night+'</span><sup class="h6 text-contrast"></sup>'+instant_book+'</div></a></div>';
-            html += '<div class="panel-body panel-card-section"><div class="media"><h3 class="h5 listing-name text-truncate row-space-top-1" itemprop="name" title="'+data[i].name+'">'+name+'</a></h3>';
+            html += '<sup class="h6 text-contrast">' + data[i].rooms_price.currency.symbol + '</sup><span class="h3 text-contrast price-amount">' + data[i].rooms_price.night + '</span><sup class="h6 text-contrast"></sup>' + instant_book + '</div></a></div>';
+            html += '<div class="panel-body panel-card-section"><div class="media"><h3 class="h5 listing-name text-truncate row-space-top-1" itemprop="name" title="' + data[i].name + '">' + name + '</a></h3>';
 
             var star_rating = '';
 
-            if(data[i].overall_star_rating != '')
-                star_rating = ' · '+data[i].overall_star_rating;
+            if (data[i].overall_star_rating != '')
+                star_rating = ' · ' + data[i].overall_star_rating;
 
             var reviews_count = '';
             var review_plural = (data[i].reviews_count > 1) ? 's' : '';
 
-            if(data[i].reviews_count != 0)
-                reviews_count = ' · '+data[i].reviews_count+' review'+review_plural;
+            if (data[i].reviews_count != 0)
+                reviews_count = ' · ' + data[i].reviews_count + ' review' + review_plural;
 
-            html += '<div class="text-muted listing-location text-truncate" itemprop="description"><a class="text-normal link-reset" >'+data[i].room_type_name+star_rating+reviews_count+'</a></div></div></div></div>';
+            html += '<div class="text-muted listing-location text-truncate" itemprop="description"><a class="text-normal link-reset" >' + data[i].room_type_name + star_rating + reviews_count + '</a></div></div></div></div>';
 
-            createInfoWindow(marker, html,map);
+            createInfoWindow(marker, html, map);
 
         }
     }
@@ -582,20 +605,18 @@ app.controller('search-page', ['$scope', '$http', '$compile', '$filter', functio
             results = regex.exec(location.search);
         return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
     }
-    function setGetParameter(paramName, paramValue)
-    {
+
+    function setGetParameter(paramName, paramValue) {
         var url = window.location.href;
 
-        if (url.indexOf(paramName + "=") >= 0)
-        {
+        if (url.indexOf(paramName + "=") >= 0) {
             var prefix = url.substring(0, url.indexOf(paramName));
             var suffix = url.substring(url.indexOf(paramName));
             suffix = suffix.substring(suffix.indexOf("=") + 1);
             suffix = (suffix.indexOf("&") >= 0) ? suffix.substring(suffix.indexOf("&")) : "";
             url = prefix + paramName + "=" + paramValue + suffix;
         }
-        else
-        {
+        else {
             if (url.indexOf("?") < 0)
                 url += "?" + paramName + "=" + paramValue;
             else
@@ -603,13 +624,14 @@ app.controller('search-page', ['$scope', '$http', '$compile', '$filter', functio
         }
         history.pushState(null, null, url);
     }
-    function createInfoWindow(marker, popupContent,map) {
+
+    function createInfoWindow(marker, popupContent, map) {
         infoBubble = new InfoBubble({
             maxWidth: 3000
         });
 
         var contentString = $compile(popupContent)($scope);
-        google.maps.event.addListener(marker, 'click', function() {
+        google.maps.event.addListener(marker, 'click', function () {
 
             if (infoBubble.isOpen()) {
                 infoBubble.close();
@@ -633,12 +655,11 @@ app.controller('search-page', ['$scope', '$http', '$compile', '$filter', functio
             var minHeight = 245;
             infoBubble.setMinHeight(minHeight);
 
-            infoBubble.open(map,marker);
+            infoBubble.open(map, marker);
         });
     }
 
-    $scope.apply_filter = function()
-    {
+    $scope.apply_filter = function () {
         $scope.search_result();
     };
 
@@ -646,11 +667,11 @@ app.controller('search-page', ['$scope', '$http', '$compile', '$filter', functio
     $scope.search_result = function () {
 
         var room_type = [];
-        $('.room-type:checked').each(function(i){
+        $('.room-type:checked').each(function (i) {
             room_type[i] = $(this).val();
         });
         //alert(room_type);
-        if(room_type==''){
+        if (room_type == '') {
             $('.room-type_tag').addClass('hide');
         }
 
@@ -669,36 +690,36 @@ app.controller('search-page', ['$scope', '$http', '$compile', '$filter', functio
         $('.search-results').addClass('loading');
         no_results();
         var change_url = "/search?";
-        change_url += "location=" +location1+"&";
-        change_url += "room_type=" +room_type+"&";
-        change_url += "checkin=" +checkin+"&";
-        change_url += "checkout=" +checkout+"&";
-        change_url += "guests=" +guest_select;
+        change_url += "location=" + location1 + "&";
+        change_url += "room_type=" + room_type + "&";
+        change_url += "checkin=" + checkin + "&";
+        change_url += "checkout=" + checkout + "&";
+        change_url += "guests=" + guest_select;
         var encoded_url = encodeURI(change_url);
         window.location.href = encoded_url;
 
     };
 
-    $(document).on('click', '.rooms-slider', function() {
+    $(document).on('click', '.rooms-slider', function () {
         var rooms_id = $(this).attr("data-room_id");
-        var img_url =$("#rooms_image_"+rooms_id).attr("src").substr(29);
+        var img_url = $("#rooms_image_" + rooms_id).attr("src").substr(29);
         var room;
-        for(var i = 0; i < $scope.room_result.data.length; i++){
+        for (var i = 0; i < $scope.room_result.data.length; i++) {
             var temp = $scope.room_result.data[i];
-            if(temp.id === rooms_id){
+            if (temp.id === rooms_id) {
                 room = temp;
                 break;
             }
         }
         var images = room.images;
-        if($(this).is(".target-prev") == true){
+        if ($(this).is(".target-prev") == true) {
             var set_img_url = (images) ? ((images.indexOf(img_url) === images.length - 1) ? images[0] : images[images.indexOf(img_url) + 1]) : "";
             set_img_url = APP_URL + "/images/" + set_img_url;
-            $("#rooms_image_"+rooms_id).attr("src",set_img_url);
-        }else{
+            $("#rooms_image_" + rooms_id).attr("src", set_img_url);
+        } else {
             var set_img_url = (images) ? ((images.indexOf(img_url) === 0) ? images[images.length - 1] : images[images.indexOf(img_url) - 1]) : "";
             set_img_url = APP_URL + "/images/" + set_img_url;
-            $("#rooms_image_"+rooms_id).attr("src",set_img_url);
+            $("#rooms_image_" + rooms_id).attr("src", set_img_url);
         }
     });
 
@@ -706,6 +727,9 @@ app.controller('search-page', ['$scope', '$http', '$compile', '$filter', functio
 
 app.controller('room_details_controller', function ($scope, $window, $location, $http) {
     var room_id = getParameterByName('propertyId');
+    $scope.checkin = getParameterByName("checkin");
+    $scope.checkout = getParameterByName("checkout");
+    $scope.guests = getParameterByName("guests");
     var url = "/detail?propertyId=" + room_id;
     $http.get(url).then(function (response) {
         $scope.room_result = response.data;
@@ -715,11 +739,20 @@ app.controller('room_details_controller', function ($scope, $window, $location, 
         });
     });
 
-    function getParameterByName(name) {
-        name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
-        var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
-            results = regex.exec(location.search);
-        return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+    $scope.book = function () {
+        var days = daydiff(toDate($scope.checkout), toDate($scope.checkin));
+        var change_url = "/getPaymentPage?";
+        change_url += "propertyId=" + $scope.room_result.id + "&";
+        change_url += "checkin=" + $scope.checkin + "&";
+        change_url += "checkout=" + $scope.checkout + "&";
+        change_url += "guests=" + $scope.guests;
+        change_url += "nights=" + days;
+        change_url += "price=" + $scope.room_result.rooms_price.night;
+        window.location.href = change_url;
+    };
+
+    function daydiff(first, second) {
+        return Math.round((second - first) / (1000 * 60 * 60 * 24));
     }
 });
 
@@ -747,12 +780,12 @@ app.controller('payment_controller', function ($scope, $window, $location, $http
                 console.log(data);
             });
 
-        var propertyId = "Hello";
-        var guest = 4;
-        var checkin = 432423434;
-        var checkout = 3234324343;
-        var totalperday = 4343;
-        var days = 2;
+        var propertyId = getParameterByName("propertyId");
+        var guest = getParameterByName("guests");
+        var checkin = getParameterByName("checkin");
+        var checkout = getParameterByName("checkout");
+        var totalperday = getParameterByName("price");
+        var days = getParameterByName("nights");
 
         $http({
             method: "POST",
@@ -779,9 +812,492 @@ app.controller('payment_controller', function ($scope, $window, $location, $http
         }).error(function (error) {
             console.log(error);
         });
+    };
+});
 
+app.controller('itinerary_controller', function ($scope, $http, $window) {
+
+    $scope.init = function (stringifiedArray) {
+        var info = JSON.parse(stringifiedArray);
+        $scope.trips = info.trip;
+        $scope.bills = info.bill;
+    };
+});
+
+app.controller('addListing_controller', function ($scope, $http, Data, $window) {
+    $scope.formData = Data.getData();
+    var address = JSON.parse($scope.formData).address.split(",");
+    Data.clearData();
+    $scope.address_1 = address[0];
+    $scope.city = address[address.length - 3];
+    $scope.state = address[address.length - 2];
+    $scope.country = address[address.length - 1];
+    $scope.photosDiv = true;
+    $scope.locationDiv = true;
+    $scope.pricingDiv = true;
+    $scope.calendarDiv = true;
+    $scope.basicsDiv = false;
+    $scope.descriptionDiv = true;
+
+    $scope.selectBasicsDiv = function () {
+        $scope.basicsDiv = false;
+        $scope.locationDiv = true;
+        $scope.photosDiv = true;
+        $scope.descriptionDiv = true;
+        $scope.pricingDiv = true;
+        $scope.calendarDiv = true;
+    };
+
+    $scope.selectLocationDiv = function () {
+        $scope.basicsDiv = true;
+        $scope.locationDiv = false;
+        $scope.photosDiv = true;
+        $scope.descriptionDiv = true;
+        $scope.pricingDiv = true;
+        $scope.calendarDiv = true;
+    };
+
+    $scope.selectDescriptionDiv = function () {
+        $scope.basicsDiv = true;
+        $scope.locationDiv = true;
+        $scope.photosDiv = true;
+        $scope.descriptionDiv = false;
+        $scope.pricingDiv = true;
+        $scope.calendarDiv = true;
+    };
+
+    $scope.selectPhotosDiv = function () {
+        $scope.basicsDiv = true;
+        $scope.locationDiv = true;
+        $scope.photosDiv = false;
+        $scope.descriptionDiv = true;
+        $scope.pricingDiv = true;
+        $scope.calendarDiv = true;
+    };
+
+    $scope.selectPricingDiv = function () {
+        $scope.basicsDiv = true;
+        $scope.locationDiv = true;
+        $scope.photosDiv = true;
+        $scope.descriptionDiv = true;
+        $scope.pricingDiv = false;
+        $scope.calendarDiv = true;
+    };
+
+    $scope.selectCalendarDiv = function () {
+        $scope.basicsDiv = true;
+        $scope.locationDiv = true;
+        $scope.photosDiv = true;
+        $scope.descriptionDiv = true;
+        $scope.pricingDiv = true;
+        $scope.calendarDiv = false;
+    };
+
+    $scope.addNewListing = function () {
+        $http
+        ({
+            method: 'POST',
+            url: '/addNewListing',
+            data: {
+                "maxGuest": JSON.parse($scope.formData).accommodates,
+                "roomType": JSON.parse($scope.formData).roomType,
+                "propertyType": JSON.parse($scope.formData).propertyType,
+                "address": $scope.address_1,
+                "city": $scope.city,
+                "state": $scope.state,
+                "country": $scope.country,
+                "zipCode": $scope.pinCode,
+                "bedrooms": $scope.bedrooms,
+                "beds": $scope.beds,
+                "bathrooms": $scope.bathrooms,
+                "name": $scope.name,
+                "description": $scope.summary,
+                "price": $scope.base_price,
+                "latitude": JSON.parse($scope.formData).latitude,
+                "longitude": JSON.parse($scope.formData).longitude,
+                "createdDate": Date.now() / 1000,
+                "isApproved": false,
+                "isBidding": $scope.bidding
+            }
+        }).success(function (data) {
+            if (data.result.statusCode == 200) {
+                $window.location.assign("yourListings");
+            }
+        });
+    }
+});
+
+app.controller('addProperty_controller', function ($scope, $http, Data, $window) {
+
+    $scope.accommodates_value = 1;
+    $scope.city_show = false;
+    var i = 0;
+
+    $scope.city_rm = function () {
+        $scope.city_show = false;
+    };
+
+    $scope.property_type = function (id, name, icon) {
+        $scope.property_type_id = id;
+        $scope.selected_property_type = name;
+        $scope.property_type_icon = icon;
+        $('.fieldset_property_type_id .active-selection').css('display', 'block');
+    };
+
+    $scope.property_type_rm = function () {
+        $scope.property_type_id = '';
+        $scope.selected_property_type = '';
+        $scope.property_type_icon = '';
+    };
+
+    $scope.property_change = function (value) {
+        $scope.property_type_id = value;
+        $scope.selected_property_type = $('#property_type_dropdown option:selected').text();
+        $scope.property_type_icon = $('#property_type_dropdown option:selected').attr('data-icon-class');
+        $('.fieldset_property_type_id .active-selection').css('display', 'block');
+    };
+
+    $scope.room_type = function (id, name, icon) {
+        $scope.room_type_id = id;
+        $scope.selected_room_type = name;
+        $scope.room_type_icon = icon;
+        $('.fieldset_room_type .active-selection').css('display', 'block');
+    };
+
+    $scope.room_type_rm = function () {
+        $scope.room_type_id = '';
+        $scope.selected_room_type = '';
+        $scope.room_type_icon = '';
+    };
+    $scope.room_change = function (value) {
+        $scope.room_type_id = value;
+        $scope.selected_room_type = $('#room_type_dropdown option:selected').text();
+        $scope.room_type_icon = $('#room_type_dropdown option:selected').attr('data-icon-class');
+        $('.fieldset_room_type .active-selection').css('display', 'block');
+    };
+
+    $scope.change_accommodates = function (value) {
+        $scope.selected_accommodates = value;
+        $('.fieldset_person_capacity .active-selection').css('display', 'block');
+        i = 1;
+    };
+
+    $scope.accommodates_rm = function () {
+        $scope.selected_accommodates = '';
+    };
+
+    $scope.city_click = function () {
+        if (i == 0)
+            $scope.change_accommodates(1);
+    };
+
+    initAutocomplete(); // Call Google Autocomplete Initialize Function
+
+// Google Place Autocomplete Code
+
+    var autocomplete;
+    var componentForm = {
+        street_number: 'short_name',
+        route: 'long_name',
+        locality: 'long_name',
+        administrative_area_level_1: 'long_name',
+        country: 'short_name',
+        postal_code: 'short_name'
+    };
+
+    function initAutocomplete() {
+        autocomplete = new google.maps.places.Autocomplete(document.getElementById('location_input'));
+        autocomplete.addListener('place_changed', fillInAddress);
+    }
+
+    function fillInAddress() {
+        $scope.city = '';
+        $scope.state = '';
+        $scope.country = '';
+
+        var place = autocomplete.getPlace();
+
+        for (var i = 0; i < place.address_components.length; i++) {
+            var addressType = place.address_components[i].types[0];
+            if (componentForm[addressType]) {
+                var val = place.address_components[i][componentForm[addressType]];
+
+                if (addressType == 'street_number')
+                    $scope.street_number = val;
+                if (addressType == 'route')
+                    $scope.route = val;
+                if (addressType == 'postal_code')
+                    $scope.postal_code = val;
+                if (addressType == 'locality')
+                    $scope.city = val;
+                if (addressType == 'administrative_area_level_1')
+                    $scope.state = val;
+                if (addressType == 'country')
+                    $scope.country = val;
+            }
+        }
+        var address = $('#location_input').val();
+        var latitude = place.geometry.location.lat();
+        var longitude = place.geometry.location.lng();
+
+        $scope.address = address;
+        $scope.city_show = true;
+        $scope.latitude = latitude;
+        $scope.longitude = longitude;
+        $scope.$apply();
+        $('.fieldset_city .active-selection').css('display', 'block');
+    }
+
+    $scope.saveFormData = function () {
+        var data =
+        {
+            "accommodates": $scope.accommodates_value,
+            "roomType": $scope.selected_room_type,
+            "propertyType": $scope.selected_property_type,
+            "address": $scope.address,
+            "latitude": $scope.latitude,
+            "longitude": $scope.longitude
+        }
+        Data.setData(data);
+        $window.location.assign('addListing');
+    }
+});
+
+
+app.controller('profile_controller', function ($scope, $http, $window) {
+
+    $scope.numberOfTotalReviews = 0;
+
+    var userSSN = window.location.pathname.split('/')[2] || "Unknown";
+    console.log(userSSN);
+    if (userSSN == "Unknown") {
+        console.log('ok');
+        // $window.location.href = '/home';
+
+    } else {
+        $http({
+            method: 'GET',
+            url: '/getUserProfile/' + userSSN
+        })
+            .success(function (data) {
+                $scope.user = data.user;
+                $scope.getUserReview($scope.user._id);
+                $scope.getHostReview($scope.user._id);
+                $scope.getProperties($scope.user._id);
+
+            });
+
+        $scope.getUserReview = function (userId) {
+            $http({
+                method: 'GET',
+                url: '/getUserReview/' + userId
+            })
+                .success(function (data) {
+                    // console.log(data);
+                    $scope.userReviews = data.userReview;
+                    $scope.numberOfUserReviews = $scope.userReviews.length;
+                    $scope.numberOfTotalReviews = $scope.numberOfTotalReviews + $scope.numberOfUserReviews;
+                });
+        };
+
+        $scope.getHostReview = function (userId) {
+            $http({
+                method: 'GET',
+                url: '/getHostReview/' + userId
+            })
+                .success(function (data) {
+                    // console.log(data);
+                    $scope.hostReviews = data.hostReview;
+                    $scope.numberOfHostReviews = $scope.hostReviews.length;
+                    $scope.numberOfTotalReviews = $scope.numberOfTotalReviews + $scope.numberOfHostReviews;
+                });
+        };
+
+        $scope.getProperties = function (userId) {
+
+            $http({
+                method: 'GET',
+                url: '/getActiveListings/' + userId
+            })
+                .success(function (data) {
+                    console.log(data);
+                    $scope.listed = data.listed;
+                    $scope.unlisted = data.unlisted;
+                    $scope.pending = data.pending;
+                    $scope.numberOfProperties = $scope.listed.length;
+
+                });
+        };
+    }
+});
+
+app.controller('yourTrips_controller', function ($scope, $http, $sce) {
+
+    $scope.isItinerary = false;
+    $scope.toggle = [];
+
+    $http({
+        method: 'GET',
+        url: '/getUserTrips'
+    })
+        .success(function (data) {
+            console.log(data);
+            $scope.trips = data;
+        });
+
+    $scope.viewItinerary = function (tripId) {
+
+        $http({
+            method: 'POST',
+            url: '/itinerary',
+            data: {"tripId": tripId}
+        })
+            .success(function (data) {
+                $scope.isItinerary = true;
+                console.log(data);
+                $scope.tripItinerary = $sce.trustAsHtml(data);
+            })
+    };
+
+    $scope.toggleReview = function () {
+
+        $scope.writeReview = !$scope.writeReview;
+    };
+
+    $scope.submitReview = function (review, userId, rating, image) {
+
+        if (!review) {
+            console.log('No Review');
+            return;
+        }
+
+        console.log(rating);
+        console.log(review, userId);
+        $http({
+            method: 'POST',
+            url: '/addHostReview',
+            data: {"hostId": userId, "review": review, "rating": rating, "image": image}
+        })
+            .success(function (data) {
+                console.log(data);
+            })
+    };
+});
+
+
+app.controller('activeListings_controller', function ($scope, $http, $window) {
+
+    $scope.activeListings = true;
+    $scope.pendingListings = false;
+    $scope.reservationListings = false;
+    $scope.unapprovedReservationListings = false;
+    $scope.pastText = "View Past Reservations";
+
+    $http({
+        method: 'GET',
+        url: '/getActiveListings'
+    })
+        .success(function (data) {
+            $scope.listed = data.listed;
+            $scope.unlisted = data.unlisted;
+            $scope.pending = data.pending;
+
+
+        });
+
+    $http({
+        method: 'GET',
+        url: '/getReservations'
+    })
+        .success(function (data) {
+            $scope.upcoming = data.upcoming;
+            $scope.past = data.past;
+            $scope.unapproved = data.unapproved;
+            console.log($scope.past);
+
+        });
+
+
+    $scope.acceptTrip = function (tripId) {
+
+        console.log(tripId);
+
+        $http({
+            method: 'POST',
+            url: '/acceptTrip',
+            data: {"tripId": tripId}
+        })
+            .then(function success(data) {
+
+                    $window.location.href = "/yourListings";
+                },
+                function error(err) {
+                    console.log(err);
+
+                })
 
     };
 
+    $scope.clickPending = function () {
+        $scope.activeListings = false;
+        $scope.pendingListings = true;
+        $scope.reservationListings = false;
+        $scope.unapprovedReservationListings = false;
+    };
+
+    $scope.clickActive = function () {
+        $scope.activeListings = true;
+        $scope.pendingListings = false;
+        $scope.reservationListings = false;
+        $scope.unapprovedReservationListings = false;
+    };
+
+    $scope.clickReservation = function () {
+        $scope.activeListings = false;
+        $scope.pendingListings = false;
+        $scope.reservationListings = true;
+        $scope.unapprovedReservationListings = false;
+    };
+
+    $scope.clickUnapprovedReservation = function () {
+        $scope.activeListings = false;
+        $scope.pendingListings = false;
+        $scope.reservationListings = false;
+        $scope.unapprovedReservationListings = true;
+    };
+
+    $scope.clickPast = function () {
+
+        $scope.showPast = !$scope.showPast;
+        if ($scope.pastText == "View Past Reservations")
+            $scope.pastText = "Hide Past Reservations";
+        else
+            $scope.pastText = "View Past Reservations";
+    };
+
+    $scope.toggleReview = function () {
+
+        $scope.writeReview = !$scope.writeReview;
+    };
+
+    $scope.submitReview = function (review, userId, rating, image) {
+
+
+        if (!review) {
+            console.log('No Review');
+            return;
+        }
+
+        console.log(rating);
+        console.log(review, userId);
+        $http({
+            method: 'POST',
+            url: '/addUserReview',
+            data: {"hostId": userId, "review": review, "rating": rating, "image": image}
+        })
+            .success(function (data) {
+                console.log(data);
+            })
+    };
 
 });

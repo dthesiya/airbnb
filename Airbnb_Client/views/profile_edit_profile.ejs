@@ -1,7 +1,7 @@
-
 <!DOCTYPE html>
 
-<html  lang="en-IN" xmlns:fb="http://ogp.me/ns/fb#"><!--<![endif]--><head>
+<html lang="en-IN" xmlns:fb="http://ogp.me/ns/fb#"><!--<![endif]-->
+<head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link rel="dns-prefetch" href="https://maps.googleapis.com/">
     <link rel="dns-prefetch" href="https://maps.gstatic.com/">
@@ -34,27 +34,6 @@
     <![endif]-->
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <link media="all" type="text/css" rel="stylesheet" href="css/address_widget.css">
 
     <link media="all" type="text/css" rel="stylesheet" href="css/phonenumbers.css">
@@ -62,16 +41,15 @@
     <link media="all" type="text/css" rel="stylesheet" href="/css/edit_profile.css">
 
 
-
-
-
-
-
-
-
     <style type="text/css">
-        .ui-selecting { background: #FECA40; }
-        .ui-selected { background: #F39814; color: white; }
+        .ui-selecting {
+            background: #FECA40;
+        }
+
+        .ui-selected {
+            background: #F39814;
+            color: white;
+        }
     </style>
 
     <title>Profile </title>
@@ -95,9 +73,8 @@
 
 </head>
 <body class="" ng-app="App">
-<%include header.ejs%>
-<%include modal.ejs%>
-
+<% include header.ejs %>
+<% include modal.ejs %>
 
 <main id="site-content" role="main" ng-controller="editUser_controller" ng-init="loadEditProfilePage()">
 
@@ -105,27 +82,23 @@
         <div class="page-container-responsive">
             <ul class="subnav-list">
                 <li>
-                    <a href="#" aria-selected="false" class="subnav-item">Dashboard</a>
-                </li>
-
-                <li>
-                    <a href="#" aria-selected="false" class="subnav-item">Your Listings</a>
+                    <a href="/getDashBoardPage" aria-selected="false" class="subnav-item">Dashboard</a>
                 </li>
                 <li>
-                    <a href="#" aria-selected="false" class="subnav-item">Your Trips</a>
+                    <a href="/yourListings" aria-selected="false" class="subnav-item">Your Listings</a>
+                </li>
+                <li>
+                    <a href="/yourTrips" aria-selected="false" class="subnav-item">Your Trips</a>
                 </li>
                 <li>
                     <a href="#" aria-selected="true" class="subnav-item">Profile</a>
                 </li>
                 <li>
-                    <a href="#" aria-selected="false" class="subnav-item">Account</a>
+                    <a href="/Account_Transactions" aria-selected="false" class="subnav-item">Account</a>
                 </li>
-
             </ul>
         </div>
     </div>
-
-
 
     <div id="notification-area"></div>
     <div class="page-container-responsive space-top-4 space-4">
@@ -133,7 +106,6 @@
             <div class="col-md-3 space-sm-4">
                 <div class="sidenav">
                     <ul class="sidenav-list">
-
 
 
                         <li>
@@ -155,7 +127,7 @@
 
                 <div id="dashboard-content">
 
-                    <form  accept-charset="UTF-8" >
+                    <form accept-charset="UTF-8">
 
 
                         <div class="panel row-space-4">
@@ -169,7 +141,8 @@
                                     </label>
                                     <div class="col-sm-9">
 
-                                        <input id="user_first_name" size="30" class="focus" name="first_name" type="text" ng-model="user.firstName">
+                                        <input id="user_first_name" size="30" class="focus" name="first_name"
+                                               type="text" ng-model="user.firstName">
                                         <span class="text-danger"></span>
                                         <p style="color:red" ng-show="first_invalid">First Name is Required</p>
                                     </div>
@@ -181,25 +154,31 @@
                                     </label>
                                     <div class="col-sm-9">
 
-                                        <input id="user_last_name" size="30" class="focus" name="last_name" type="text" ng-model="user.lastName">
+                                        <input id="user_last_name" size="30" class="focus" name="last_name" type="text"
+                                               ng-model="user.lastName">
                                         <span class="text-danger"></span>
                                         <p style="color:red" ng-show="last_invalid">Last Name is Required</p>
-                                        <div class="text-muted row-space-top-1">This is only shared once you have a confirmed booking with another Makent user.</div>
+                                        <div class="text-muted row-space-top-1">This is only shared once you have a
+                                            confirmed booking with another Makent user.
+                                        </div>
                                     </div>
                                 </div>
 
 
-
                                 <div class="row row-condensed space-4">
                                     <label class="text-right col-sm-3" for="user_email">
-                                        Email Address <i class="icon icon-lock icon-ebisu" data-behavior="tooltip" aria-label="Private"></i>
+                                        Email Address <i class="icon icon-lock icon-ebisu" data-behavior="tooltip"
+                                                         aria-label="Private"></i>
                                     </label>
                                     <div class="col-sm-9">
 
-                                        <input id="user_email" size="30" class="focus" name="email" type="text" ng-model="user.email">
+                                        <input id="user_email" size="30" class="focus" name="email" type="text"
+                                               ng-model="user.email">
                                         <span class="text-danger"></span>
                                         <p style="color:red" ng-show="email_invalid">Email is Required</p>
-                                        <div class="text-muted row-space-top-1">We won&rsquo;t share your private email address with other Makent users.</div>
+                                        <div class="text-muted row-space-top-1">We won&rsquo;t share your private email
+                                            address with other Makent users.
+                                        </div>
                                     </div>
                                 </div>
 
@@ -209,7 +188,8 @@
                                     </label>
                                     <div class="col-sm-9">
 
-                                        <input id="user_live"  size="30" class="focus" name="live" type="text" ng-model="user.address">
+                                        <input id="user_live" size="30" class="focus" name="live" type="text"
+                                               ng-model="user.address">
                                         <p style="color:red" ng-show="address_invalid">Address is Required</p>
                                     </div>
                                 </div>
@@ -220,7 +200,8 @@
                                     </label>
                                     <div class="col-sm-9">
 
-                                        <input id="user_live"  size="30" class="focus" name="live" type="text" ng-model="user.state">
+                                        <input id="user_live" size="30" class="focus" name="live" type="text"
+                                               ng-model="user.state">
                                         <p style="color:red" ng-show="State_invalid">State is Required</p>
                                     </div>
                                 </div>
@@ -232,7 +213,8 @@
                                     </label>
                                     <div class="col-sm-9">
 
-                                        <input id="user_live"  size="30" class="focus" name="live" type="text" ng-model="user.city">
+                                        <input id="user_live" size="30" class="focus" name="live" type="text"
+                                               ng-model="user.city">
                                         <p style="color:red" ng-show="city_invalid">City is Required</p>
                                     </div>
                                 </div>
@@ -244,7 +226,8 @@
                                     </label>
                                     <div class="col-sm-9">
 
-                                        <input id="user_live"  size="30" class="focus" name="live" type="text" ng-model="user.zip">
+                                        <input id="user_live" size="30" class="focus" name="live" type="text"
+                                               ng-model="user.zip">
                                         <p style="color:red" ng-show="pin_invalid">Zip Code is Required</p>
                                     </div>
                                 </div>
@@ -253,11 +236,11 @@
                         </div>
 
 
-
                         <button class="btn btn-primary btn-large" ng-click="saveUserData()">
                             Save
                         </button>
-                        <div ng-show="success_model" class="alert alert-success">Account Details Saved Successfully.</div>
+                        <div ng-show="success_model" class="alert alert-success">Account Details Saved Successfully.
+                        </div>
 
                     </form>
                 </div>
@@ -267,25 +250,15 @@
 
 </main>
 
-
-
-
-
-
-
-
-
-
-
-
-<%include footer.ejs%>
+<% include footer.ejs %>
 <div id="gmap-preload" class="hide"></div>
 
 <div class="ipad-interstitial-wrapper"><span data-reactid=".1"></span></div>
 
 <div id="fb-root"></div>
 
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBXyRBiyRcEzHDJ8iU00zECMUP4cXBIm6A&sensor=false&libraries=places"></script>
+<script type="text/javascript"
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBXyRBiyRcEzHDJ8iU00zECMUP4cXBIm6A&sensor=false&libraries=places"></script>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
@@ -304,108 +277,96 @@
 
 
 <script type="text/javascript">
-    $(document).ready(function() {
-        $('.login_popup_head').click(function(e){
+    $(document).ready(function () {
+        $('.login_popup_head').click(function (e) {
             e.preventDefault();
             $("body").addClass("pos-fix");
             $(".login_popup").show();
             $(".signup_popup").hide();
             $(".signup_popup2").hide();
         });
-        $('.login-close').click(function(event){
+        $('.login-close').click(function (event) {
             $("body").removeClass("pos-fix");
             $(".login_popup").hide();
         });
-        $('.top-home').click(function(event){
+        $('.top-home').click(function (event) {
             event.stopPropagation();
         });
     });
 </script>
 
 <script type="text/javascript">
-    $(document).ready(function() {
-        $('.forgot-password-popup').click(function(e){
+    $(document).ready(function () {
+        $('.forgot-password-popup').click(function (e) {
             e.preventDefault();
             $("body").addClass("pos-fix");
             $(".login_popup").hide();
             $(".forgot-passward").show();
         });
-        $('.login-close').click(function(event){
+        $('.login-close').click(function (event) {
             $("body").removeClass("pos-fix");
             $(".forgot-passward").hide();
         });
-        $('.top-home').click(function(event){
+        $('.top-home').click(function (event) {
             event.stopPropagation();
         });
     });
 </script>
 <script type="text/javascript">
-    $(document).ready(function() {
-        $('.signup_popup_head').click(function(e){
+    $(document).ready(function () {
+        $('.signup_popup_head').click(function (e) {
             e.preventDefault();
             $("body").addClass("pos-fix");
             $(".signup_popup").show();
             $(".login_popup").hide();
         });
-        $('.login-close').click(function(){
+        $('.login-close').click(function () {
             $("body").removeClass("pos-fix");
             $(".signup_popup").hide();
         });
-        $('.top-home').click(function(event){
+        $('.top-home').click(function (event) {
             event.stopPropagation();
         });
     });
 </script>
 <script type="text/javascript">
-    $(document).ready(function() {
-        $('.signup_popup_head2').click(function(e){
+    $(document).ready(function () {
+        $('.signup_popup_head2').click(function (e) {
             e.preventDefault();
             $("body").addClass("pos-fix");
             $(".signup_popup2").show();
             $(".signup_popup").hide();
         });
-        $('.login-close').click(function(){
+        $('.login-close').click(function () {
             $("body").removeClass("pos-fix");
             $(".signup_popup2").hide();
         });
-        $('.top-home').click(function(event){
+        $('.top-home').click(function (event) {
             event.stopPropagation();
         });
     });
 </script>
 <script type="text/javascript">
-    $(document).ready(function() {
-        $('ul.menu-group li a').click(function()
-        {
-            $('.nav--sm').css('visibility','hidden');
+    $(document).ready(function () {
+        $('ul.menu-group li a').click(function () {
+            $('.nav--sm').css('visibility', 'hidden');
         });
     });
 </script>
 <script>
     var app = angular.module('App', ['ngSanitize']);
-    var APP_URL = "http:\/\/makent.trioangle.com";
-    var USER_ID = 10006
-    $.datepicker.setDefaults($.datepicker.regional[ "en" ])
+    var APP_URL = "http:\/\/localhost:3000";
+    $.datepicker.setDefaults($.datepicker.regional["en"])
 </script>
-
-
-
 
 
 <script src="js/common.js"></script>
 <script src="controller/common_controller.js"></script>
 
 
-
-
-
-
-
-
-
-
-
 <!-- ver. 87c23752f8dfbd60bf83837d2c8b2dcd0ec660a9 -->
 <div class="tooltip tooltip-bottom-middle" role="tooltip" aria-hidden="true">
     <p class="panel-body">To sign up, you must be 18 or older. Other people won’t see your birthday.</p>
-</div></body></html>
+</div>
+</body>
+</html>

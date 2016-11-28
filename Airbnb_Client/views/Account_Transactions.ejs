@@ -77,22 +77,20 @@
         <div class="page-container-responsive">
             <ul class="subnav-list">
                 <li>
-                    <a href="#" aria-selected="false" class="subnav-item">Dashboard</a>
-                </li>
-
-                <li>
-                    <a href="#" aria-selected="false" class="subnav-item">Your Listings</a>
+                    <a href="/getDashBoardPage" aria-selected="false" class="subnav-item">Dashboard</a>
                 </li>
                 <li>
-                    <a href="#t" aria-selected="false" class="subnav-item">Your Trips</a>
+                    <a href="/yourListings" aria-selected="false" class="subnav-item">Your Listings</a>
                 </li>
                 <li>
-                    <a href="#" aria-selected="false" class="subnav-item">Profile</a>
+                    <a href="/yourTrips" aria-selected="false" class="subnav-item">Your Trips</a>
+                </li>
+                <li>
+                    <a href="/profile" aria-selected="false" class="subnav-item">Profile</a>
                 </li>
                 <li>
                     <a href="#" aria-selected="true" class="subnav-item">Account</a>
                 </li>
-
             </ul>
         </div>
     </div>
@@ -294,8 +292,7 @@
 </script>
 <script>
     var app = angular.module('App', ['ngSanitize']);
-    var APP_URL = "http:\/\/makent.trioangle.com";
-    var USER_ID = 10001
+    var APP_URL = "http:\/\/localhost:3000";
     $.datepicker.setDefaults($.datepicker.regional["en"])
 </script>
 
