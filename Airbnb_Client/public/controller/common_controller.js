@@ -1244,7 +1244,6 @@ app.controller('profile_controller', function ($scope, $http, $window) {
                     $scope.unlisted = data.unlisted;
                     $scope.pending = data.pending;
                     $scope.numberOfProperties = $scope.listed.length;
-
                 });
         };
     }
