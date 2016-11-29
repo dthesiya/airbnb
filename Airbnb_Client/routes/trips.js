@@ -9,7 +9,8 @@ exports.tripPage = function (req, res) {
     var user_data = {
         "email": req.session.email,
         "isLoggedIn": req.session.isLoggedIn,
-        "firstname": req.session.firstName
+        "firstname": req.session.firstName,
+        "profileImg": req.session.profileImg
     };
     ejs.renderFile('../views/profile_yourTrips.ejs', user_data, function (err, result) {
         res.end(result);
@@ -17,11 +18,7 @@ exports.tripPage = function (req, res) {
 };
 
 exports.getUserTrips = function (request, response) {
-
-
     var userId = request.session.userId;
-    // var userId = 'ObjectId("5833baaecbf1171f6806c745")';
-
     var msg_payload = {userId: userId};
 
     mq_client.make_request('getUserTrips_queue', msg_payload, function (err, trips) {
@@ -29,20 +26,16 @@ exports.getUserTrips = function (request, response) {
         if (!err) {
             console.log(trips);
             for (var i = 0; i < trips.length; i++) {
-
                 if (trips[i].isAccepted) {
                     trips[i].isAccepted = "Accepted";
                 }
                 else {
                     trips[i].isAccepted = "Pending";
                 }
-
             }
             response.end(JSON.stringify(trips));
         }
-
     });
-
 };
 
 exports.acceptTrip = function (request, response) {
@@ -56,7 +49,6 @@ exports.acceptTrip = function (request, response) {
     mq_client.make_request('acceptTrip_queue', msg_payload, function (err, result) {
 
         if (!err && result.code == 200) {
-
             console.log('done');
             response.status(200);
             response.end();
@@ -70,11 +62,8 @@ exports.acceptTrip = function (request, response) {
 };
 
 exports.displayItinerary = function (request, response) {
-
-
     var tripId = request.params.tripId;
     var userId = request.session.userId;
-
     var msg_payload = {tripId: tripId, userId: userId};
 
     mq_client.make_request('getItinerary_queue', msg_payload, function (err, trips) {
@@ -86,7 +75,6 @@ exports.displayItinerary = function (request, response) {
                     "isLoggedIn": request.session.isLoggedIn,
                     "firstname": request.session.firstName,
                     "itinerary": JSON.stringify(trips)
-
                 };
                 ejs.renderFile('../views/viewitinerary.ejs', user_data, function (err, result) {
                     response.end(result);
@@ -98,6 +86,4 @@ exports.displayItinerary = function (request, response) {
         response.status(400);
         response.end();
     });
-
-
 };

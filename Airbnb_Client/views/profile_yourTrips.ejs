@@ -49,13 +49,13 @@
                     <a href="/getDashBoardPage" aria-selected="false" class="subnav-item">Dashboard</a>
                 </li>
                 <li>
-                    <a href="/yourListings" aria-selected="true" class="subnav-item">Your Listings</a>
+                    <a href="/yourListings" aria-selected="false" class="subnav-item">Your Listings</a>
                 </li>
                 <li>
                     <a href="#" aria-selected="true" class="subnav-item">Your Trips</a>
                 </li>
                 <li>
-                    <a href="/profile" aria-selected="false" class="subnav-item">Profile</a>
+                    <a href="/editProfilePage" aria-selected="false" class="subnav-item">Profile</a>
                 </li>
                 <li>
                     <a href="/Account_Transactions" aria-selected="false" class="subnav-item">Account</a>
@@ -90,15 +90,16 @@
 
                             <tr ng-repeat="trip in trips">
                                 <td class="status">
-        <span class="label label-orange label-success">
-          {{trip.isAccepted}}
-        </span>
+                                <span class="label label-orange label-success">
+                                  {{trip.isAccepted}}
+                                </span>
                                     <br>
                                 </td>
                                 <td class="location">
                                     {{trip.propertyId.address}}, {{trip.propertyId.city}}
                                 </td>
-                                <td class="host"><a href="#">{{trip.hostId.firstName}} {{trip.hostId.lastName}}</a></td>
+                                <td class="host"><a href="profile/{{trip.hostId.userId}}">{{trip.hostId.firstName}}
+                                        {{trip.hostId.lastName}}</a></td>
                                 <td class="dates">{{trip.checkIn}}--{{trip.checkOut}}</td>
 
                                 <td>

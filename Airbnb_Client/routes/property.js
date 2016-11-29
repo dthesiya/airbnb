@@ -16,7 +16,8 @@ exports.addProperty = function (req, res) {
     var user_data = {
         "email": req.session.email,
         "isLoggedIn": req.session.isLoggedIn,
-        "firstname": req.session.firstName
+        "firstname": req.session.firstName,
+        "profileImg": req.session.profileImg
     };
     ejs.renderFile('../views/becomehostMainPage.ejs', user_data, function (err, result) {
         res.end(result);
@@ -27,7 +28,8 @@ exports.loadDetailPg = function (req, res) {
     var user_data = {
         "email": req.session.email,
         "isLoggedIn": req.session.isLoggedIn,
-        "firstname": req.session.firstName
+        "firstname": req.session.firstName,
+        "profileImg": req.session.profileImg
     };
     ejs.renderFile('../views/detail.ejs', user_data, function (err, result) {
         res.end(result);

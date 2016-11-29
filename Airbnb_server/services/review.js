@@ -32,18 +32,13 @@ exports.loadReviewAboutPage = function (msg, callback) {
             hostReview.find({hostId: userId}).populate('userId').exec(function (err, result1) {
 
                 if (err) {
-                    console.log("Getting error in from user reviews");
                     console.log(err);
                     callback(err, null);
                 } else {
-                    console.log("User/Host Reviews got");
-                    console.log(result1);
                     var json = {
                         "fromHostReview": result,
                         "fromUserReview": result1
                     };
-                    console.log("------------------------------------------------------");
-                    console.log(json);
                     callback(null, json);
                 }
             });
@@ -60,7 +55,6 @@ exports.loadReviewByPage = function (msg, callback) {
     userReview.find({hostId: userId}).populate('userId').exec(function (err, result) {
 
         if (err) {
-            console.log("Getting error in user reviews by page");
             console.log(err);
             callback(err, null);
         } else {
@@ -68,18 +62,13 @@ exports.loadReviewByPage = function (msg, callback) {
             hostReview.find({userId: userId}).populate('hostId').exec(function (err, result1) {
 
                 if (err) {
-                    console.log("Getting error in from user reviews by page in host");
                     console.log(err);
                     callback(err, null);
                 } else {
-                    console.log("User/Host Reviews got");
-                    console.log(result1);
                     var json = {
                         "toUserReview": result,
                         "toHostReview": result1
                     };
-                    console.log("------------------------------------------------------");
-                    console.log(json);
                     callback(null, json);
                 }
             });

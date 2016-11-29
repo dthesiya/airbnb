@@ -138,6 +138,7 @@ exports.getProperty = function (msg, callback) {
                                 },
                                 users: (record.hostId) ? {
                                     id: record.hostId._id,
+                                    userSSN: record.hostId.userId,
                                     first_name: record.hostId.firstName,
                                     last_name: record.hostId.lastName,
                                     email: record.hostId.email,

@@ -21,7 +21,8 @@ exports.loginpg = function (req, res) {
     var user_data = {
         "email": sess.email,
         "isLoggedIn": sess.isLoggedIn,
-        "firstname": sess.firstName
+        "firstname": sess.firstName,
+        "profileImg": sess.profileImg
     };
     ejs.renderFile('../views/login.ejs', user_data, function (err, result) {
         if (err) {
@@ -39,33 +40,29 @@ exports.authenticateUser = function (req, res, next) {
 //	var pwd = req.body.password;
     var sess = req.session;
     sess.isLoggedIn = false;
-    console.log("in signin");
     passport.authenticate('login', function (err, user) {
-        console.log("Result" + user);
         if (err) {
             return next(err);
         }
 
         if (!user) {
-
             res.json({
                 success: false,
                 message: 'No user found'
             });
             res.end();
-            /*return res.redirect('/signup');*/
         }
 
         if (user) {
 
             sess.email = user.email;
             sess.firstName = user.firstName;
+            sess.userSSN = user.userId;
             sess.isLoggedIn = true;
+            sess.profileImg = user.profileImage;
             // sess.last_name = user.last_name;
             sess.userId = user._id;
             // // sess.last_access = user.last_access;
-
-//		        res.statusCode = 200;
             res.json({
                 success: true,
                 message: 'Logged in'
@@ -107,7 +104,6 @@ exports.registerUser = function (req, res) {
             res.end();
         }
         if (results) {
-
             sess.userSSN = results.userId;
             sess.firstName = results.firstName;
             sess.lastName = results.lastName;
@@ -127,7 +123,6 @@ exports.registerUser = function (req, res) {
             res.end();
         }
     });
-
 };
 
 

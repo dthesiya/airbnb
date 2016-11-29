@@ -12,7 +12,8 @@ exports.homepg = function(req,res){
     var user_data ={
         "email" : sess.email,
         "isLoggedIn" : sess.isLoggedIn,
-        "firstname" : sess.firstName
+        "firstname" : sess.firstName,
+        "profileImg": req.session.profileImg
     };
     ejs.renderFile('../views/homewithoutlogin.ejs', user_data,function (err,result) {
         if(err){

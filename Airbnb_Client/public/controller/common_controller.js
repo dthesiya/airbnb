@@ -1118,16 +1118,14 @@ app.controller('addProperty_controller', function ($scope, $http, Data, $window)
 
 
 app.controller('profile_controller', function ($scope, $http, $window) {
-
     $scope.numberOfTotalReviews = 0;
 
-    var userSSN = window.location.pathname.split('/')[2] || "Unknown";
-    console.log(userSSN);
-    if (userSSN == "Unknown") {
-        console.log('ok');
-        // $window.location.href = '/home';
-
-    } else {
+    $scope.initProfile = function (ssn) {
+        var userSSN = window.location.pathname.split('/')[2] || "Unknown";
+        console.log(ssn);
+        if (userSSN == "Unknown") {
+            userSSN = ssn;
+        }
         $http({
             method: 'GET',
             url: '/getUserProfile/' + userSSN
@@ -1137,50 +1135,46 @@ app.controller('profile_controller', function ($scope, $http, $window) {
                 $scope.getUserReview($scope.user._id);
                 $scope.getHostReview($scope.user._id);
                 $scope.getProperties($scope.user._id);
+            })
+    };
 
+    $scope.getUserReview = function (userId) {
+        $http({
+            method: 'GET',
+            url: '/getUserReview/' + userId
+        })
+            .success(function (data) {
+                $scope.userReviews = data.userReview;
+                $scope.numberOfUserReviews = $scope.userReviews.length;
+                $scope.numberOfTotalReviews = $scope.numberOfTotalReviews + $scope.numberOfUserReviews;
             });
+    };
 
-        $scope.getUserReview = function (userId) {
-            $http({
-                method: 'GET',
-                url: '/getUserReview/' + userId
-            })
-                .success(function (data) {
-                    // console.log(data);
-                    $scope.userReviews = data.userReview;
-                    $scope.numberOfUserReviews = $scope.userReviews.length;
-                    $scope.numberOfTotalReviews = $scope.numberOfTotalReviews + $scope.numberOfUserReviews;
-                });
-        };
+    $scope.getHostReview = function (userId) {
+        $http({
+            method: 'GET',
+            url: '/getHostReview/' + userId
+        })
+            .success(function (data) {
+                $scope.hostReviews = data.hostReview;
+                $scope.numberOfHostReviews = $scope.hostReviews.length;
+                $scope.numberOfTotalReviews = $scope.numberOfTotalReviews + $scope.numberOfHostReviews;
+            });
+    };
 
-        $scope.getHostReview = function (userId) {
-            $http({
-                method: 'GET',
-                url: '/getHostReview/' + userId
-            })
-                .success(function (data) {
-                    // console.log(data);
-                    $scope.hostReviews = data.hostReview;
-                    $scope.numberOfHostReviews = $scope.hostReviews.length;
-                    $scope.numberOfTotalReviews = $scope.numberOfTotalReviews + $scope.numberOfHostReviews;
-                });
-        };
+    $scope.getProperties = function (userId) {
 
-        $scope.getProperties = function (userId) {
-
-            $http({
-                method: 'GET',
-                url: '/getActiveListings/' + userId
-            })
-                .success(function (data) {
-                    console.log(data);
-                    $scope.listed = data.listed;
-                    $scope.unlisted = data.unlisted;
-                    $scope.pending = data.pending;
-                    $scope.numberOfProperties = $scope.listed.length;
-                });
-        };
-    }
+        $http({
+            method: 'GET',
+            url: '/getActiveListings/' + userId
+        })
+            .success(function (data) {
+                $scope.listed = data.listed;
+                $scope.unlisted = data.unlisted;
+                $scope.pending = data.pending;
+                $scope.numberOfProperties = $scope.listed.length;
+            });
+    };
 });
 
 app.controller('yourTrips_controller', function ($scope, $http, $sce) {

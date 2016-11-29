@@ -92,7 +92,7 @@ app.get('/receipt/:billingID', account_management.receiptPage);
 app.get('/yourTrips', trips.tripPage);
 app.get('/addProperty', property.addProperty);
 app.get('/yourListings', listings.yourListings);
-app.get('/profile', users.userProfile);
+app.get('/profile/*', users.userProfile);
 
 app.get('/addListing', listings.addListing);
 app.get('/becomeHost', listings.becomeHost);

@@ -73,7 +73,6 @@ exports.search = function (req, res, next) {
             // var json_responses = {"statusCode": 200, "data": result};
             res.send(result);
             res.end();
-
         }
     });
 };

@@ -10,7 +10,8 @@ exports.test = function (req, res) {
         "hello": "hello",
         "email": req.session.email,
         "isLoggedIn": req.session.isLoggedIn,
-        "firstname": req.session.firstName
+        "firstname": req.session.firstName,
+        "profileImg": req.session.profileImg
     };
     ejs.renderFile('../views/viewitinerary.ejs', user_data, function (err, result) {
         res.end(result);
@@ -21,7 +22,8 @@ exports.addListing = function (req, res) {
     var user_data = {
         "email": req.session.email,
         "isLoggedIn": req.session.isLoggedIn,
-        "firstname": req.session.firstName
+        "firstname": req.session.firstName,
+        "profileImg": req.session.profileImg
     };
     ejs.renderFile('../views/becomehostDescription.ejs', user_data, function (err, result) {
         res.end(result);
@@ -32,7 +34,8 @@ exports.becomeHost = function (req, res) {
     var user_data = {
         "email": req.session.email,
         "isLoggedIn": req.session.isLoggedIn,
-        "firstname": req.session.firstName
+        "firstname": req.session.firstName,
+        "profileImg": req.session.profileImg
     };
     ejs.renderFile('../views/becomeHostMainPage.ejs', user_data, function (err, result) {
         res.end(result);
@@ -43,7 +46,8 @@ exports.yourListings = function (req, res) {
     var user_data = {
         "email": req.session.email,
         "isLoggedIn": req.session.isLoggedIn,
-        "firstname": req.session.firstName
+        "firstname": req.session.firstName,
+        "profileImg": req.session.profileImg
     };
     ejs.renderFile('../views/profile_activeListings.ejs', user_data, function (err, result) {
         res.end(result);

@@ -10,7 +10,8 @@ exports.accountPage = function (req, res, next) {
     var user_data = {
         "email": req.session.email,
         "isLoggedIn": req.session.isLoggedIn,
-        "firstname": req.session.firstName
+        "firstname": req.session.firstName,
+        "profileImg": req.session.profileImg
     };
     res.render('Account_Transactions', user_data);
 };
@@ -19,7 +20,8 @@ exports.accountSecurityPage = function (req, res, next) {
     var user_data = {
         "email": req.session.email,
         "isLoggedIn": req.session.isLoggedIn,
-        "firstname": req.session.firstName
+        "firstname": req.session.firstName,
+        "profileImg": req.session.profileImg
     };
     res.render('Account_Security', user_data);
 };
@@ -28,7 +30,8 @@ exports.accountPaymentMethodPage = function (req, res, next) {
     var user_data = {
         "email": req.session.email,
         "isLoggedIn": req.session.isLoggedIn,
-        "firstname": req.session.firstName
+        "firstname": req.session.firstName,
+        "profileImg": req.session.profileImg
     };
     res.render('Account_Payment_Method', user_data);
 };

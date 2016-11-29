@@ -6,7 +6,9 @@ exports.userProfile = function (req, res) {
     var user_data = {
         "email": req.session.email,
         "isLoggedIn": req.session.isLoggedIn,
-        "firstname": req.session.firstName
+        "firstname": req.session.firstName,
+        "userSSN": req.session.userSSN,
+        "profileImg": req.session.profileImg
     };
     ejs.renderFile('../views/user_profile.ejs', user_data, function (err, result) {
         res.end(result);
@@ -15,7 +17,6 @@ exports.userProfile = function (req, res) {
 
 exports.getUserProfile = function (request, response) {
     var userId = request.params.userId;
-    console.log(userId);
     var msg_payload =
     {
         userId: userId

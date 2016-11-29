@@ -54,7 +54,8 @@ exports.getEditProfilePage = function (req, res) {
     var user_data = {
         "email": sess.email,
         "isLoggedIn": sess.isLoggedIn,
-        "firstname": sess.firstName
+        "firstname": sess.firstName,
+        "profileImg": sess.profileImg
     };
     ejs.renderFile('../views/profile_edit_profile.ejs', user_data, function (err, result) {
         if (err) {
@@ -73,7 +74,8 @@ exports.getPaymentPage = function (req, res) {
     var user_data = {
         "email": sess.email,
         "isLoggedIn": sess.isLoggedIn,
-        "firstname": sess.firstName
+        "firstname": sess.firstName,
+        "profileImg": sess.profileImg
     };
     ejs.renderFile('../views/paymentpage.ejs', user_data, function (err, result) {
         if (err) {
@@ -114,7 +116,8 @@ exports.getUserPhotoPage = function (req, res) {
     var user_data = {
         "email": sess.email,
         "isLoggedIn": sess.isLoggedIn,
-        "firstname": sess.firstName
+        "firstname": sess.firstName,
+        "profileImg": sess.profileImg
     };
 
     ejs.renderFile('../views/profile_photo_tab.ejs', user_data, function (err, result) {
@@ -134,7 +137,8 @@ exports.getUserReviewAboutPage = function (req, res) {
     var user_data = {
         "email": sess.email,
         "isLoggedIn": sess.isLoggedIn,
-        "firstname": sess.firstName
+        "firstname": sess.firstName,
+        "profileImg": sess.profileImg
     };
 
     ejs.renderFile('../views/profile_review_about_you.ejs', user_data, function (err, result) {
@@ -154,7 +158,8 @@ exports.getUserReviewbyPage = function (req, res) {
     var user_data = {
         "email": sess.email,
         "isLoggedIn": sess.isLoggedIn,
-        "firstname": sess.firstName
+        "firstname": sess.firstName,
+        "profileImg": sess.profileImg
     };
 
     ejs.renderFile('../views/profile_review_by_you.ejs', user_data, function (err, result) {
@@ -246,6 +251,7 @@ exports.getDashBoardPage = function (req, res) {
         "email": sess.email,
         "isLoggedIn": sess.isLoggedIn,
         "firstname": sess.firstName,
+        "profileImg": sess.profileImg,
         "userId": sess.userId + '.png'
     };
 
@@ -371,6 +377,4 @@ exports.confirmBooking = function (req, res) {
             res.end();
         }
     });
-
-
 };
