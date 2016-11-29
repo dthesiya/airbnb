@@ -33,7 +33,7 @@ exports.loadReviewAboutPage = function (req, res) {
 
             console.log("After editing user in client");
             //console.log(user);
-            var json_responses = {"statusCode": 200};
+            var json_responses = {"statusCode": 200,"data":user};
             res.send(json_responses);
             res.end();
 
@@ -68,7 +68,7 @@ exports.loadReviewByPage = function (req, res) {
 
             console.log("After editing user in client");
             //console.log(user);
-            var json_responses = {"statusCode": 200};
+            var json_responses = {"statusCode": 200,"data":user};
             res.send(json_responses);
             res.end();
 
