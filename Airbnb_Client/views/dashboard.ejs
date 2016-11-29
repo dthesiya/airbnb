@@ -72,11 +72,11 @@
     <meta name="theme-color" content="#f5f5f5">
 
 </head>
-<body class="" ng-app="App">
+<body class="" ng-app="App" >
 <% include header.ejs %>
 <% include modal.ejs %>
 
-<main id="site-content" role="main">
+<main id="site-content" role="main" ng-controoler="editUser_controller">
 
     <div class="subnav hide-print">
         <div class="page-container-responsive">
@@ -106,13 +106,13 @@
                 <div class="panel space-4">
                     <div class="media media-photo-block
              dashboard-profile-photo panel-image ">
-                        <a href="http://makent.trioangle.com/users/show/10001" title="View Profile">
-                            <img src="http://makent.trioangle.com/images/users/10001/profile_pic_1462128586.jpg"
-                                 class="img-responsive" width="190" height="190" title="Test" alt="Test">
+                        <a href="#" title="View Profile">
+                            <img src="http://localhost:3000/images/<%=userId%>"
+                                 class="img-responsive" width="190" height="190" title="Test">
                         </a>
 
                         <div class="upload-profile-photo-cta btn btn-contrast btn-block text-wrap">
-                            <a href="#" class="link-reset">
+                            <a href="/getUserPhotoPage" class="link-reset">
                                 <i class="icon icon-camera"></i>
                                 Add Profile Photo
                             </a>
@@ -120,14 +120,14 @@
                     </div>
                     <div class="panel-body">
                         <h2 class="text-center">
-                            Test
+                            <%=firstname%>
                         </h2>
                         <ul class="list-unstyled text-center">
                             <li>
-                                <a href="#">View Profile</a>
+                                <a href="/getUserPhotoPage">View Profile</a>
                             </li>
                             <li>
-                                <a href="#" class="btn btn-primary btn-block text-wrap space-top-1" id="edit-profile">Complete
+                                <a href="/editProfilePage" class="btn btn-primary btn-block text-wrap space-top-1" id="edit-profile">Complete
                                     Profile</a>
                             </li>
                         </ul>
@@ -167,7 +167,7 @@
 
                 <div class="panel space-4">
                     <div class="panel-header">
-                        Welcome to Makent, Test!
+                        Welcome to Airbnb, <%=firstname%>!
                     </div>
                     <div class="panel-body">
                         <p>
@@ -176,7 +176,7 @@
 
                         <ul class="list-unstyled">
                             <li class="space-2">
-                                <strong><a href="http://makent.trioangle.com/users/edit">Complete Your
+                                <strong><a href="/editProfilePage">Complete Your
                                         Profile</a></strong>
                                 <div>Upload a photo and write a short bio to help hosts get to know you before inviting
                                     you into their home.
@@ -301,6 +301,8 @@
 
 
 <script src="js/common.js"></script>
+<script src="controller/common_controller.js"></script>
+
 
 <!-- ver. 87c23752f8dfbd60bf83837d2c8b2dcd0ec660a9 -->
 <div class="tooltip tooltip-bottom-middle" role="tooltip" aria-hidden="true">
