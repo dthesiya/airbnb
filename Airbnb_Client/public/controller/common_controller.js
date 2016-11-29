@@ -120,6 +120,21 @@ app.controller('account_user_management', function ($scope, $window, $location, 
         })
     }
 
+    $http({
+        method: "GET",
+        url: "/cardDetails",
+    }).success(function (result) {
+        console.log(result);
+        $scope.cname = result[0].firstName +" "+ result[0].lastName;
+        $scope.cnum = result[0].cardNumber;
+        $scope.ccv = result[0].cvv;
+        var x = result[0].expDate.split("/");
+        $scope.expMonth = x[0];
+        $scope.expiryYear = x[1];
+    }).error(function (err) {
+        console.log(err);
+    });
+
     //payment code
     $scope.alert2 = false;
     $scope.creditCard = function () {
@@ -144,6 +159,8 @@ app.controller('account_user_management', function ($scope, $window, $location, 
         })
     }
 
+
+
     //transaction code
 
     $http({
@@ -152,7 +169,7 @@ app.controller('account_user_management', function ($scope, $window, $location, 
         params: {}
     }).success(function (result) {
         $scope.payin = result;
-        console.log(result);
+
     }).error(function (err) {
         console.log(err);
     });
@@ -163,7 +180,7 @@ app.controller('account_user_management', function ($scope, $window, $location, 
         params: {}
     }).success(function (result) {
         $scope.payout = result;
-        console.log(result);
+
     }).error(function (err) {
         console.log(err);
     });

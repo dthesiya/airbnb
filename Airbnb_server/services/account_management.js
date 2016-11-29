@@ -150,3 +150,27 @@ exports.receiptPage = function (msg, callback) {
 
     });
 };
+
+exports.cardDetails = function (msg, callback) {
+
+    console.log("cardDetails service");
+
+    User.find({email: msg.uid}, function (err, result) {
+        if (err) {
+            console.log("err in update");
+            callback(err, null);
+        }
+        if (!result) {
+            callback(null, null);
+        }
+        if (result) {
+            var res = {};
+            console.log("cardDetails queue");
+            res.code = 200;
+            res.data = result;
+            console.log(result);
+            callback(null, res);
+        }
+
+    });
+};

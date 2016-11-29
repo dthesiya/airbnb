@@ -116,6 +116,8 @@ app.get('/getUserTrips', trips.getUserTrips);
 app.post('/acceptTrip', trips.acceptTrip);
 app.get('/itinerary/:tripId', trips.displayItinerary);
 
+app.get('/cardDetails', account_management.cardDetails);
+
 ////////////////////////////////////////////
 
 

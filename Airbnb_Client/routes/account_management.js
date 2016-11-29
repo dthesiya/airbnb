@@ -149,3 +149,22 @@ exports.receiptPage = function (req, res, next) {
     });
 
 };
+
+exports.cardDetails = function (req, res, next) {
+
+    var msg_payload = {
+        uid: req.session.email
+    };
+
+    mq_client.make_request('cardDetail_queue', msg_payload, function (err, user) {
+        if (err) {
+            console.log(err);
+            res.send(err);
+        } else {
+            console.log("card Details");
+            console.log(user);
+            res.send(user.data);
+        }
+    });
+
+};
