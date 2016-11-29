@@ -141,7 +141,7 @@
                                 </thead>
                                 <tbody>
                                 <tr ng-repeat="x in payin">
-                                    <td>{{x.createdDate}}</td>
+                                    <td>{{x.createdDate | date:"MM/dd/yyyy"}}</td>
                                     <td>Credit Card</td>
                                     <td>{{x.propertyId.name }}</td>
                                     <td>{{x.total}}</td>
@@ -166,7 +166,7 @@
                                 </thead>
                                 <tbody>
                                 <tr ng-repeat="x in payout">
-                                    <td>{{x.createdDate}}</td>
+                                    <td>{{x.createdDate | date:"MM/dd/yyyy"}}</td>
                                     <td>Credit Card</td>
                                     <td>{{x.propertyId.name }}</td>
                                     <td>{{x.total}}</td>

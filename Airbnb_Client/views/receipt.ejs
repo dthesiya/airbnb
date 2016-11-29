@@ -149,7 +149,7 @@
               Check In
             </h6>
             <p class="text-lead">
-                <strong><%= new Date(data[0].fromDate).toString()%></strong><br>Flexible check in time
+                <strong><%= new Date(data[0].fromDate).toLocaleDateString()%></strong><br>Flexible check in time
             </p>
           </div>
           <div class="col-3">
@@ -157,7 +157,7 @@
               Check Out
             </h6>
             <p class="text-lead">
-               <strong> <%=new Date(data[0].toDate).toString()%></strong><br>Flexible check out time
+               <strong> <%=new Date(data[0].toDate).toLocaleDateString()%></strong><br>Flexible check out time
             </p>
           </div>
         </div>
