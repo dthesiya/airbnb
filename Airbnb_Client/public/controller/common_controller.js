@@ -781,6 +781,10 @@ app.controller('payment_controller', function ($scope, $window, $location, $http
                     $scope.firstName = user.firstName;
                     $scope.lastName = user.lastName;
                     $scope.zip = user.zip;
+                    var ccDate = user.expDate.split("/");
+                    $scope.expMonth=ccDate[0];
+                    $scope.expYear=ccDate[1];
+
                 } else {
                     console.log("Error occured to get data");
                 }
@@ -822,6 +826,10 @@ app.controller('payment_controller', function ($scope, $window, $location, $http
     $scope.confirmBooking = function () {
 
 
+        $scope.card_wrong=false;
+        $scope.dates_wrong = false;
+        $scope.cvv_wrong = false;
+
         var cardnumber = $scope.cardNumber;
         var expMonth = $scope.expMonth;
         var expYear = $scope.expYear;
@@ -834,37 +842,95 @@ app.controller('payment_controller', function ($scope, $window, $location, $http
         var days1 = days;
         var hostId = $scope.hostId;
 
-
-        $http({
-            method: "POST",
-            url: '/confirmBooking',
-            data: {
-                "propertyId": properyId1,
-                "cardNumber": cardnumber,
-                "expMonth": expMonth,
-                "expYear": expYear,
-                "cvv": cvv,
-                "guest": guest1,
-                "checkin": checkin1,
-                "checkout": checkout1,
-                "price": price,
-                "days": days1,
-                "hostId": hostId
-            }
-        }).success(function (data) {
-            if (data.statusCode == 200) {
-
-                console.log("SAVED TRIP");
-                console.log(data.data);
+        var date = new Date();
+        var currMonth = date.getMonth();
+        var currYear = date.getFullYear();
+        var check =false;
 
 
-            } else {
-                console.log("Error occured to booking");
-            }
-        }).error(function (error) {
-            console.log(error);
-        });
+        if(expYear>currYear){
+            check = true;
+        }
+        else if(expYear==currYear){
+            if(expMonth>=currMonth)
+                check = true;
+            else
+                $scope.dates_wrong = true;
+
+        }
+        else{
+            $scope.dates_wrong = true;
+
+        }
+
+        if(!validateCardNumber(cardnumber)) {
+            $scope.card_wrong = true;
+        }
+
+        if(!validateCCV(cvv)){
+            $scope.cvv_wrong = true;
+        }
+
+        if(check && validateCardNumber(cardnumber) && validateCCV(cvv)) {
+            console.log("aLL CHECKED" + check);
+
+             $http({
+             method: "POST",
+             url: '/confirmBooking',
+             data: {
+             "propertyId": properyId1,
+             "cardNumber": cardnumber,
+             "expMonth": expMonth,
+             "expYear": expYear,
+             "cvv": cvv,
+             "guest": guest1,
+             "checkin": checkin1,
+             "checkout": checkout1,
+             "price": price,
+             "days": days1,
+             "hostId": hostId
+             }
+             }).success(function (data) {
+             if (data.statusCode == 200) {
+
+             console.log("SAVED TRIP");
+             console.log(data.data);
+
+
+             } else {
+             console.log("Error occured to booking");
+             }
+             }).error(function (error) {
+             console.log(error);
+             });
+
+        }
+
+
+
+
+
+    };
+
+
+    function validateCardNumber(number) {
+        var regex = new RegExp("^[0-9]{16}$");
+        if (!regex.test(number))
+            return false;
+
+        return true;
     }
+
+    function validateCCV(number) {
+        var regex = new RegExp("^[0-9]{3}$");
+        if (!regex.test(number))
+            return false;
+
+        return true;
+    }
+
+
+
 });
 
 

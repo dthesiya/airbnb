@@ -347,6 +347,7 @@
                                                     </label>
                                                     <input class="cc-med" id="credit-card-number" autocomplete="off"
                                                            name="cc_number" type="text" ng-model="cardNumber">
+                                                    <p style="color:red" ng-show="card_wrong">Please Enter Valid Card Details</p>
                                                 </div>
                                             </div>
                                             <div class="row">
@@ -377,6 +378,7 @@
                                                                     <option value="11">11</option>
                                                                     <option value="12">12</option>
                                                                 </select>
+                                                                <p style="color:red" ng-show="dates_wrong">Please Enter Valid Expire Dates</p>
                                                             </div>
                                                         </div>
                                                         <div class="col-sm-6">
@@ -413,6 +415,7 @@
                                                             <input class="cc-short" id="credit-card-security-code"
                                                                    autocomplete="off" pattern="[0-9]*"
                                                                    name="cc_security_code" type="text" ng-model="cvv">
+                                                            <p style="color:red" ng-show="cvv_wrong">Please Enter Valid Security Code</p>
                                                         </div>
                                                     </div>
                                                 </div>
