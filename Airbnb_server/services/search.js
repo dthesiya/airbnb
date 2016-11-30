@@ -46,7 +46,7 @@ exports.doSearch = function (msg, callback) {
             isApproved: true,
             category: {$in: property_type}
         }
-    )
+        )
         .populate('hostId')
         .populate('mediaId')
         .exec(function (err, properties) {
@@ -87,8 +87,8 @@ exports.doSearch = function (msg, callback) {
                                     }
 
                                 }], function (err, prop) {
-                                console.log(prop.length);
-                                if (prop.length > 0 && new ObjectId(prop[0].propertyId).equals(new ObjectId(properties[i]._id))) {
+                                console.log(properties);
+                                if (properties[i] && prop.length > 0 && new ObjectId(prop[0].propertyId).equals(new ObjectId(properties[i]._id))) {
                                     propertiesIds.push(prop[0].propertyId);
                                     console.log(prop[0].propertyId);
                                 }
