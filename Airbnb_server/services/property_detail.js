@@ -72,7 +72,7 @@ exports.getProperty = function (msg, callback) {
                                 photo_name: (record.mediaId) ? record.mediaId.imageUrl[0] : "",
                                 images: (record.mediaId) ? record.mediaId.imageUrl : [],
                                 video_url: (record.mediaId) ? record.mediaId.videoUrl : "",
-                                isBidding: record.isBidding,
+                                isBidding: (record.isBidding) ? record.isBidding : false,
                                 sub_name: "",
                                 property_type: "Apartment",
                                 room_type: 0,

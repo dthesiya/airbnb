@@ -406,7 +406,6 @@ app.controller('review_controller', function ($scope, $window, $location, $http)
             });
     };
 });
-
 app.controller('search-page', ['$scope', '$http', '$compile', '$filter', function ($scope, $http, $compile, $filter) {
 
     $scope.current_date = new Date();
@@ -699,8 +698,7 @@ app.controller('search-page', ['$scope', '$http', '$compile', '$filter', functio
             $("#rooms_image_" + rooms_id).attr("src", set_img_url);
         }
     });
-
-}]);
+}])
 
 app.controller('room_details_controller', function ($scope, $window, $location, $http) {
     var room_id = getParameterByName('propertyId');
@@ -710,6 +708,7 @@ app.controller('room_details_controller', function ($scope, $window, $location, 
     var url = "/detail?propertyId=" + room_id;
     $http.get(url).then(function (response) {
         $scope.room_result = response.data;
+        console.log($scope.room_result);
         url = "/hostReviewsCount?hostId=" + $scope.room_result.users.id;
         $http.get(url).then(function (response) {
             $scope.hostReviews = response.data;
@@ -1311,7 +1310,6 @@ app.controller('activeListings_controller', function ($scope, $http, $window) {
                     console.log(err);
 
                 })
-
     };
 
     $scope.clickPending = function () {
@@ -1375,5 +1373,4 @@ app.controller('activeListings_controller', function ($scope, $http, $window) {
                 console.log(data);
             })
     };
-
 });

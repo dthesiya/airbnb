@@ -30,17 +30,14 @@ exports.loadSearchPg = function (req, res) {
             "email": sess.email,
             "isLoggedIn": sess.isLoggedIn,
             "firstname": sess.firstName,
+            "profileImg": sess.profileImg,
             "lat": lat,
             "long": long,
             "viewport": viewport,
             "location": location
         };
+        console.log(user_data);
         ejs.renderFile('../views/searchPage.ejs', user_data, function (err, result) {
-            if (err) {
-
-            } else {
-
-            }
             res.end(result);
         });
     });

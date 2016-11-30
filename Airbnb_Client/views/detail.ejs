@@ -259,7 +259,8 @@
                             </div>
 
                             <div id="book_it" class="display-subtotal" style="top: 0px;">
-                                <div class="panel book-it-panel">
+                                <div ng-show="room_result.isBidding === false"
+                                     ng-hide="room_result.isBidding === true" class="panel book-it-panel">
                                     <div class="panel-body panel-light">
                                         <div class="form-fields">
                                             <div class="row row-condensed space-3">
@@ -420,20 +421,11 @@ top: -34px;">
                                                 </div>
 
                                                 <div class="js-book-it-btn-container ">
-                                                    <button ng-show="{{room_result.isBidding === false}}"
-                                                            ng-hide="{{room_result.isBidding === true}}" type="submit"
+                                                    <button type="submit"
                                                             ng-click="book()"
                                                             class="js-book-it-btn btn btn-large btn-block btn-primary">
                                                             <span class="book-it__btn-text ">
                                                               Request to Book
-                                                            </span>
-                                                    </button>
-                                                    <button ng-show="{{room_result.isBidding === true}}"
-                                                            ng-hide="{{room_result.isBidding === false}}" type="submit"
-                                                            ng-click="placeBid()"
-                                                            class="js-book-it-btn btn btn-large btn-block btn-primary">
-                                                            <span class="book-it__btn-text ">
-                                                              Place Bid
                                                             </span>
                                                     </button>
                                                 </div>
@@ -446,11 +438,44 @@ top: -34px;">
                                         </div>
                                     </div>
                                 </div>
-
-
+                                <div ng-show="room_result.isBidding === true"
+                                     ng-hide="room_result.isBidding === false" class="panel book-it-panel">
+                                    <div class="panel-body panel-light">
+                                        <div class="form-fields">
+                                            <div class="row row-condensed space-3">
+                                                <div class="col-md-1"></div>
+                                                <div class="col-md-10">
+                                                    <div class="row">
+                                                        <div class="space-1-sm">
+                                                            <label for="bid">
+                                                                Bid Amount
+                                                            </label>
+                                                            <input ng-model="bid"
+                                                                   class="checkin"
+                                                                   autocomplete="off" id="bid" name="bid"
+                                                                   placeholder="Bid Amount" type="text">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-1"></div>
+                                            </div>
+                                        </div>
+                                        <div class="js-book-it-status">
+                                            <div class="js-book-it-enabled clearfix">
+                                                <div class="js-book-it-btn-container ">
+                                                    <button type="submit"
+                                                            ng-click="placeBid()"
+                                                            class="js-book-it-btn btn btn-large btn-block btn-primary">
+                                                            <span class="book-it__btn-text ">
+                                                              Place Bid
+                                                            </span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-
-
                             <input id="hosting_id" name="hosting_id" type="hidden" value="{{room_result.id}}">
                         </form>
                     </div>
