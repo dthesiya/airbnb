@@ -241,7 +241,33 @@ exports.confirmBooking = function (msg, callback) {
     });
 };
 
+exports.checkHost = function (msg, callback) {
+
+
+    var userId = msg.userId;
+
+    User.findOne({_id: userId}, function (err, user) {
+
+        if (err) {
+
+            console.log(err);
+            callback(err, null);
+
+        }
+        else {
+
+            console.log("IS HOST " + user.isHost);
+            callback(null, user);
+        }
+
+    });
+
+
+};
+
+
 function toDate(dateStr) {
     var parts = dateStr.split("-");
     return new Date(parts[2], parts[1] - 1, parts[0]);
 }
+

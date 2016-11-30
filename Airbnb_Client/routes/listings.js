@@ -29,13 +29,50 @@ exports.addListing = function (req, res) {
 };
 
 exports.becomeHost = function (req, res) {
-    var user_data = {
-        "email": req.session.email,
-        "isLoggedIn": req.session.isLoggedIn,
-        "firstname": req.session.firstName
+
+
+    var userId = req.session.userId;
+
+    var msg_payload = {
+        userId: userId
     };
-    ejs.renderFile('../views/becomeHostMainPage.ejs', user_data, function (err, result) {
-        res.end(result);
+
+    mq_client.make_request('checkHost_queue', msg_payload, function (err, user) {
+        if (err) {
+
+            console.log(err);
+
+        } else {
+
+            if (user.isHost == true) {
+
+                var user_data = {
+                    "email": req.session.email,
+                    "isLoggedIn": req.session.isLoggedIn,
+                    "firstname": req.session.firstName
+                };
+                ejs.renderFile('../views/becomeHostMainPage.ejs', user_data, function (err, result) {
+                    res.end(result);
+                });
+
+
+            }
+            else {
+
+                var user_data = {
+                    "email": req.session.email,
+                    "isLoggedIn": req.session.isLoggedIn,
+                    "firstname": req.session.firstName
+                };
+                ejs.renderFile('../views/requestForHost.ejs', user_data, function (err, result) {
+                    res.end(result);
+                });
+
+
+            }
+
+
+        }
     });
 };
 

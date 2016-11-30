@@ -826,7 +826,7 @@ app.controller('payment_controller', function ($scope, $window, $location, $http
     $scope.confirmBooking = function () {
 
 
-        $scope.card_wrong=false;
+        $scope.card_wrong = false;
         $scope.dates_wrong = false;
         $scope.cvv_wrong = false;
 
@@ -845,69 +845,66 @@ app.controller('payment_controller', function ($scope, $window, $location, $http
         var date = new Date();
         var currMonth = date.getMonth();
         var currYear = date.getFullYear();
-        var check =false;
+        var check = false;
 
 
-        if(expYear>currYear){
+        if (expYear > currYear) {
             check = true;
         }
-        else if(expYear==currYear){
-            if(expMonth>=currMonth)
+        else if (expYear == currYear) {
+            if (expMonth >= currMonth)
                 check = true;
             else
                 $scope.dates_wrong = true;
 
         }
-        else{
+        else {
             $scope.dates_wrong = true;
 
         }
 
-        if(!validateCardNumber(cardnumber)) {
+        if (!validateCardNumber(cardnumber)) {
             $scope.card_wrong = true;
         }
 
-        if(!validateCCV(cvv)){
+        if (!validateCCV(cvv)) {
             $scope.cvv_wrong = true;
         }
 
-        if(check && validateCardNumber(cardnumber) && validateCCV(cvv)) {
+        if (check && validateCardNumber(cardnumber) && validateCCV(cvv)) {
             console.log("aLL CHECKED" + check);
 
-             $http({
-             method: "POST",
-             url: '/confirmBooking',
-             data: {
-             "propertyId": properyId1,
-             "cardNumber": cardnumber,
-             "expMonth": expMonth,
-             "expYear": expYear,
-             "cvv": cvv,
-             "guest": guest1,
-             "checkin": checkin1,
-             "checkout": checkout1,
-             "price": price,
-             "days": days1,
-             "hostId": hostId
-             }
-             }).success(function (data) {
-             if (data.statusCode == 200) {
+            $http({
+                method: "POST",
+                url: '/confirmBooking',
+                data: {
+                    "propertyId": properyId1,
+                    "cardNumber": cardnumber,
+                    "expMonth": expMonth,
+                    "expYear": expYear,
+                    "cvv": cvv,
+                    "guest": guest1,
+                    "checkin": checkin1,
+                    "checkout": checkout1,
+                    "price": price,
+                    "days": days1,
+                    "hostId": hostId
+                }
+            }).success(function (data) {
+                if (data.statusCode == 200) {
 
-             console.log("SAVED TRIP");
-             console.log(data.data);
+                    console.log("SAVED TRIP");
+                    console.log(data.data);
 
 
-             } else {
-             console.log("Error occured to booking");
-             }
-             }).error(function (error) {
-             console.log(error);
-             });
+                } else {
+                    console.log("Error occured to booking");
+                }
+            }).error(function (error) {
+                console.log(error);
+            });
 
         }
-
-
-
 
 
     };
@@ -928,7 +925,6 @@ app.controller('payment_controller', function ($scope, $window, $location, $http
 
         return true;
     }
-
 
 
 });
