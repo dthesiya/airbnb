@@ -76,7 +76,7 @@ app.post('/paymentMethodUpdate', account_management.updatePaymentMethod);
 
 app.get('/hostReviewsCount', review.getHostReviewsCount);
 app.post('/loadReviewAboutPage', review.loadReviewAboutPage);
-app.post('/loadReviewByPage', review.loadReviewAboutPage);
+app.post('/loadReviewByPage', review.loadReviewByPage);
 app.post('/uploadProfileImage', account.uploadProfileImage);
 app.post('/loadProfilePhotoPage', account.loadProfilePhotoPage);
 app.get('/getDashBoardPage', account.getDashBoardPage);
