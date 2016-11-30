@@ -120,23 +120,27 @@ app.controller('account_user_management', function ($scope, $window, $location, 
         })
     }
 
-    $http({
-        method: "GET",
-        url: "/cardDetails",
-    }).success(function (result) {
-        console.log(result);
-        $scope.cname = result[0].firstName +" "+ result[0].lastName;
-        $scope.cnum = result[0].cardNumber;
-        $scope.ccv = result[0].cvv;
-        var x = result[0].expDate.split("/");
-        $scope.expMonth = x[0];
-        $scope.expiryYear = x[1];
-    }).error(function (err) {
-        console.log(err);
-    });
+
+
 
     //payment code
     $scope.alert2 = false;
+    $scope.paymentInit = function () {
+        $http({
+            method: "GET",
+            url: "/cardDetails",
+        }).success(function (result) {
+            $scope.cname = result[0].firstName +" "+ result[0].lastName;
+            $scope.cnum = result[0].cardNumber;
+            $scope.ccv = result[0].cvv;
+            var x = result[0].expDate.split("/");
+            $scope.expMonth = x[0];
+            $scope.expiryYear = x[1];
+        }).error(function (err) {
+            console.log(err);
+        });
+    };
+
     $scope.creditCard = function () {
         console.log($scope.ccv, $scope.cnum, $scope.expMonth, $scope.expYear);
         $http({
@@ -147,11 +151,9 @@ app.controller('account_user_management', function ($scope, $window, $location, 
                 cno: $scope.cnum,
                 expm: $scope.expMonth,
                 expy: $scope.expYear
-
             }
         }).success(function (result) {
             if (result == "OK") {
-                console.log("ok result");
                 $scope.alert2 = true;
             }
         }).error(function (err) {
@@ -159,32 +161,30 @@ app.controller('account_user_management', function ($scope, $window, $location, 
         })
     }
 
-
-
     //transaction code
+    $scope.transactionInit = function () {
+        $http({
+            method: "GET",
+            url: '/payinTransaction',
+            params: {}
+        }).success(function (result) {
+            $scope.payin = result;
 
-    $http({
-        method: "GET",
-        url: '/payinTransaction',
-        params: {}
-    }).success(function (result) {
-        $scope.payin = result;
+        }).error(function (err) {
+            console.log(err);
+        });
 
-    }).error(function (err) {
-        console.log(err);
-    });
+        $http({
+            method: "GET",
+            url: '/payoutTransaction',
+            params: {}
+        }).success(function (result) {
+            $scope.payout = result;
 
-    $http({
-        method: "GET",
-        url: '/payoutTransaction',
-        params: {}
-    }).success(function (result) {
-        $scope.payout = result;
-
-    }).error(function (err) {
-        console.log(err);
-    });
-
+        }).error(function (err) {
+            console.log(err);
+        });
+    }
 });
 
 app.controller('editUser_controller', function ($scope, $window, $location, $http) {
