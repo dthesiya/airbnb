@@ -117,6 +117,8 @@ app.post('/acceptTrip', trips.acceptTrip);
 app.get('/itinerary/:tripId', trips.displayItinerary);
 app.post('/itinerary', trips.loadItinerary);
 
+app.get('/cardDetails', account_management.cardDetails);
+
 ////////////////////////////////////////////
 
 
