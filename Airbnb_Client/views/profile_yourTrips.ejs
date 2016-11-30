@@ -66,6 +66,7 @@
 
 
     <div class="page-container-responsive space-top-4 space-4">
+        <div class="alert alert-success" ng-show="reviewadded">"Your Review has been Submitted"</div>
         <div class="row">
             <div class="col-md-1">
 
@@ -88,7 +89,7 @@
                                 <th>Options</th>
                             </tr>
 
-                            <tr ng-repeat="trip in trips">
+                            <tr ng-repeat="trip in trips" ng-init="writeReview=[]">
                                 <td class="status">
         <span class="label label-orange label-success">
           {{trip.isAccepted}}
@@ -104,8 +105,8 @@
                                 <td>
                                     <ul class="unstyled button-list list-unstyled">
                                         <li class="row-space-1">
-                                            <a ng-click="toggleReview()" href="#">Write Review</a>
-                                            <div ng-show="writeReview"><textarea ng-model="review[trip._id]" rows="4"
+                                            <a ng-click="writeReview[$index]=true" href="#">Write Review</a>
+                                            <div ng-show="writeReview[$index]"><textarea ng-model="review[trip._id]" rows="4"
                                                                                  cols="10"></textarea>
                                                 <select ng-model="rating">
                                                     <option>1</option>
@@ -114,7 +115,7 @@
                                                     <option>4</option>
                                                     <option>5</option>
                                                 </select>
-                                                <button ng-click="submitReview(review[trip._id], trip.hostId._id, rating)"
+                                                <button ng-click="submitReview(review[trip._id], trip.hostId._id, rating,$index)"
                                                         type="button" class="btn btn-primary btn">
                                                     Submit Review
                                                 </button>

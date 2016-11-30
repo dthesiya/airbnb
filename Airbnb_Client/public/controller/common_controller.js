@@ -1273,12 +1273,13 @@ app.controller('yourTrips_controller', function ($scope, $http, $sce) {
             })
     };
 
-    $scope.toggleReview = function () {
+    $scope.toggleReview = function ($index) {
 
-        $scope.writeReview = !$scope.writeReview;
+        $scope.writeReview[$index] = true;
+            //!$scope.writeReview[$index];
     };
 
-    $scope.submitReview = function (review, userId, rating, image) {
+    $scope.submitReview = function (review, userId, rating, image,$index) {
 
         if (!review) {
             console.log('No Review');
@@ -1294,6 +1295,9 @@ app.controller('yourTrips_controller', function ($scope, $http, $sce) {
         })
             .success(function (data) {
                 console.log(data);
+                $scope.reviewadded=true;
+               
+
             })
     };
 });
