@@ -139,12 +139,11 @@
         <div id="photos" class="with-photos with-modal">
 
     <span class="cover-img-container img-box1" data-hook="cover-img-container">
-     <a href="http://makent.trioangle.com/rooms/10008/slider" oncontextmenu="return false" class="gallery"
-        data-lightbox-type="iframe">
+
       <div id="frontimage_slider" class="cover-img" data-hook="img-lg" style="background-image:
                   url(images/{{room_result.images[0]}})">
           <!--#darshit change url to {{room_result.images[0]}}-->
-      </div></a>
+      </div>
 
         </span>
         </div>
@@ -1279,52 +1278,23 @@ top: -34px;">
 
 
                                 <div id="photo-gallery" class="photo-grid row-space-4 row-space-top-4 hide-sm ">
-
-
-                                    <!--  -->
-                                    <!-- 5 -->
-
-
-                                    <div class="row featured-height">
-                                        <div class="col-12 row-full-height img-box1">
-                                            <a class="photo-grid-photo photo-trigger gallery"
-                                               style="background-image: url(http://makent.trioangle.com/images/rooms/10008/1455189946_2b078a37_original.jpg)"
-                                               href="http://makent.trioangle.com/rooms/10008/slider" data-index="1"
-                                               data-lightbox-type="iframe">
-                                                <img src="images/rooms/10008/1455189946_2b078a37_original.jpg"
-                                                     class="hide"
-                                                     alt="">
-                                            </a>
-                                        </div>
-                                    </div>
-
-
-                                    <div class="col-6 supporting-height img-box1">
-                                        <a class="photo-grid-photo photo-trigger gallery"
-                                           style="background-image: url(http://makent.trioangle.com/images/rooms/10008/1455189953_46b9b911_original.jpg)"
-                                           href="http://makent.trioangle.com/rooms/10008/slider" data-index="2"
-                                           data-lightbox-type="iframe">
-                                            <img src="images/rooms/10008/1455189953_46b9b911_original.jpg" class="hide"
-                                                 alt="">
-                                        </a>
-                                    </div>
-
-
-                                    <div class="col-6 supporting-height img-box1">
-                                        <div class="media-photo media-photo-block row-full-height">
-                                            <div class="media-cover media-cover-dark img-box1">
-                                                <a class="photo-grid-photo photo-trigger gallery"
-                                                   style="background-image: url(http://makent.trioangle.com/images/rooms/10008/1455189958_e2760ad0_original.jpg)"
-                                                   href="http://makent.trioangle.com/rooms/10008/slider"
-                                                   data-index="5" data-lightbox-type="iframe">
-                                                    <img src="url(http://makent.trioangle.com/images/rooms/10008/1455189958_e2760ad0_original.jpg)"
-                                                         class="hide"
-                                                         alt="Private shower/Longterm/Decent B&amp;B">
-                                                </a>
+                                    <div class="panel-image listing-img">
+                                        <a  class="media-photo media-cover">
+                                            <div class="listing-img-container media-cover text-center">
+                                                <img id="rooms_image_{{ room_result.id}}"
+                                                     src="http://localhost:3000/images/{{ room_result.photo_name }}"
+                                                     class="img-responsive-height" alt="{{ room_result.name }}">
                                             </div>
+                                        </a>
+
+                                        <div class="target-prev target-control rooms-slider block-link"  data-room_images="{{room_result.images}}" data-room_id="{{room_result.id}}">
+                                            <i class="icon icon-chevron-left icon-size-2 icon-white"></i>
                                         </div>
 
-
+                                        <div class="target-next target-control rooms-slider block-link" data-room_images="{{room_result.images}}" data-room_id="{{room_result.id}}">
+                                            <i class="icon icon-chevron-right icon-size-2 icon-white"></i>
+                                        </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -1382,7 +1352,10 @@ top: -34px;">
                         </div>
                     </div>
                 </div>
-
+                <div id="rating" class="page-container-responsive space-top-8 space-8">
+                    <label for="input-7-xs" class="control-label">Extra Small Rating</label>
+                    <input id="input-7-xs" class="rating rating-loading" value="1" data-min="0" data-max="5" data-step="0.5" data-size="xs"><hr/>
+                </div>
                 <div id="host-profile" class="room-section webkit-render-fix">
                     <div class="page-container-responsive space-top-8 space-8">
                         <div class="row">
@@ -1560,6 +1533,11 @@ top: -34px;">
 
 <script src="http://makent.trioangle.com/js/jquery.bxslider.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.5/jquery.bxslider.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.js"></script>
+<link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-star-rating/4.0.1/css/star-rating.min.css" media="all" rel="stylesheet" type="text/css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-star-rating/4.0.1/js/star-rating.js"></script>
+
 
 
 <!-- ver. 87c23752f8dfbd60bf83837d2c8b2dcd0ec660a9 -->

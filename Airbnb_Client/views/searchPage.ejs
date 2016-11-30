@@ -1006,17 +1006,16 @@
                                             <div class="summary">
                                                 <p>
                                                     {{ rooms.summary }}
-                                                    <a href="http://makent.trioangle.com/s/{{ location }}?checkin={{ checkin }}&checkout={{ checkout }}&guests={{ guests }}"
+                                                    <a
                                                        id="tooltip-sticky-{{ rooms.id }}" class="learn-more">Learn
                                                         More</a>
                                                 </p>
 
                                             </div>
-                                            <p class="address">{{ rooms.city }}</p>
+                                            <p class="address">{{rooms.city}}</p>
 
                                         </div>
-                                        <a href="/property?propertyId={{rooms.id}}&checkin={{ checkin }}&checkout={{ checkout }}&guests={{ guests }}"
-                                           target="listing_{{ rooms.id }}"
+                                        <a href="/property?propertyId={{rooms.id}}&checkin={{checkin}}&checkout={{checkout}}&guests={{guests}}"
                                            class="media-photo media-cover">
                                             <div class="listing-img-container media-cover text-center">
                                                 <img id="rooms_image_{{ rooms.id}}"
@@ -1031,7 +1030,6 @@
                                         </div>
 
                                         <a href="/property?propertyId={{rooms.id}}&checkin={{ checkin }}&checkout={{ checkout }}&guests={{ guests }}"
-                                           target="listing_{{ rooms.id }}"
                                            class="link-reset panel-overlay-bottom-left panel-overlay-label panel-overlay-listing-label">
                                             <div>
                                                 <sup class="h6 text-contrast"><span
@@ -1059,15 +1057,7 @@
                       <span class="screen-reader-only">Wishlist</span>
                       <i class="icon icon-heart icon-rausch icon-size-2 rich-toggle-checked"></i>
                       <i class="icon icon-heart wishlist-heart-unchecked icon-size-2 rich-toggle-unchecked"></i>
-                      <i class="icon icon-heart-alt icon-white icon-size-2" id="wishlist-widget-icon-{{ rooms.id }}"
-                         data-room_id="{{ rooms.id }}"
-                         data-img="http://makent.trioangle.com/images/{{ rooms.photo_name }}"
-                         data-name="{{ rooms.name }}" data-address="{{ rooms.rooms_address.city }}"
-                         data-price="{{ rooms.rooms_price.currency.symbol }}{{ rooms.rooms_price.night }}"
-                         data-review_count="" data-host_img="{{ rooms.users.profile_picture.src }}" data-star_rating=""
-                         data-summary="{{ rooms.summary }}" data-room_type="{{ rooms.room_type_name }}"
-                         data-property_type_name="{{ rooms.property_type_name }}" data-person_capacity_string=""
-                         data-bedrooms_string="" data-space_tab_content="" data-neighborhood_tab_content=""></i>
+                      <i class="icon icon-heart-alt icon-white icon-size-2" id="wishlist-widget-icon-{{ rooms.id }}"></i>
                     </label>
                   </span>
 
@@ -1084,7 +1074,6 @@
                                                 </div>
                                             </a>
                                             <a href="/property?propertyId={{rooms.id}}&checkin={{ checkin }}&checkout={{ checkout }}&guests={{ guests }}&room_type={{room_type}}"
-                                               target="listing_{{ rooms.id }}"
                                                class="text-normal">
                                                 <h3 title="{{ rooms.name }}" itemprop="name"
                                                     class="h5 listing-name text-truncate row-space-top-1">

@@ -745,6 +745,24 @@ app.controller('room_details_controller', function ($scope, $window, $location, 
     function daydiff(first, second) {
         return Math.round((second - first) / (1000 * 60 * 60 * 24));
     }
+
+    $(document).on('click', '.rooms-slider', function () {
+        var rooms_id = $(this).attr("data-room_id");
+        var img_url = $("#rooms_image_" + rooms_id).attr("src").substr(29);
+
+        console.log( $scope.room_result);
+
+        var images = $scope.room_result.images;
+        if ($(this).is(".target-prev") == true) {
+            var set_img_url = (images) ? ((images.indexOf(img_url) === images.length - 1) ? images[0] : images[images.indexOf(img_url) + 1]) : "";
+            set_img_url = APP_URL + "/images/" + set_img_url;
+            $("#rooms_image_" + rooms_id).attr("src", set_img_url);
+        } else {
+            var set_img_url = (images) ? ((images.indexOf(img_url) === 0) ? images[images.length - 1] : images[images.indexOf(img_url) - 1]) : "";
+            set_img_url = APP_URL + "/images/" + set_img_url;
+            $("#rooms_image_" + rooms_id).attr("src", set_img_url);
+        }
+    });
 });
 
 
