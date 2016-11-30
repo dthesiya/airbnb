@@ -115,6 +115,7 @@ app.get('/getReservations', listings.getReservations);
 app.get('/getUserTrips', trips.getUserTrips);
 app.post('/acceptTrip', trips.acceptTrip);
 app.get('/itinerary/:tripId', trips.displayItinerary);
+app.post('/itinerary', trips.loadItinerary);
 
 ////////////////////////////////////////////
 

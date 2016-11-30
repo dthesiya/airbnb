@@ -36,11 +36,6 @@ exports.loadSearchPg = function (req, res) {
             "location": location
         };
         ejs.renderFile('../views/searchPage.ejs', user_data, function (err, result) {
-            if (err) {
-
-            } else {
-
-            }
             res.end(result);
         });
     });

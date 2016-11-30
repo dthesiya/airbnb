@@ -98,7 +98,7 @@
                                 <td class="location">
                                     {{trip.propertyId.address}}, {{trip.propertyId.city}}
                                 </td>
-                                <td class="host"><a href="profile/{{trip.hostId.userId}}">{{trip.hostId.firstName}}
+                                <td class="host"><a href="/profile/{{trip.hostId.userId}}" target="_blank">{{trip.hostId.firstName}}
                                         {{trip.hostId.lastName}}</a></td>
                                 <td class="dates">{{trip.checkIn}}--{{trip.checkOut}}</td>
 
@@ -122,8 +122,8 @@
                                             </div>
                                         </li>
                                         <li class="row-space-1">
-                                            <a class="button-steel" ng-click="viewItinerary(trip._id)"
-                                               ng-href="/itinerary/{{trip.tripId}}">View Itinerary</a>
+                                            <a class="button-steel" href="/itinerary/{{trip.tripId}}" target="_blank">View
+                                                Itinerary</a>
                                         </li>
                                         <li class="row-space-1">
                                             <a class="button-steel" href="#">View receipt</a>

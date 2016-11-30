@@ -378,60 +378,33 @@ app.controller('review_controller', function ($scope, $window, $location, $http)
 
         $http.post('/loadReviewAboutPage')
             .success(function (data) {
-
                 if (data.statusCode = 200) {
-
-
-                    console.log("REVIEWS");
-                    console.log(data.data);
                     $scope.fromHostReview = data.data.fromHostReview;
                     $scope.fromUserReview = data.data.fromUserReview;
-                    console.log($scope.fromHostReview);
-                    console.log($scope.fromUserReview);
-                }
-                else {
+                } else {
                     console.log("Error in getting review");
                 }
-
             })
             .error(function (data) {
-
                 console.log(data);
-
             });
-
-
     };
-
 
     $scope.loadReviewByPage = function () {
 
         $http.post('/loadReviewByPage')
             .success(function (data) {
-
                 if (data.statusCode = 200) {
-
-
-                    console.log("REVIEWS");
-                    console.log(data.data);
                     $scope.toUserReview = data.data.toUserReview;
                     $scope.toHostReview = data.data.toHostReview;
-
-                }
-                else {
+                } else {
                     console.log("Error in getting review");
                 }
-
             })
             .error(function (data) {
-
                 console.log(data);
             });
-
-
     };
-
-
 });
 
 app.controller('search-page', ['$scope', '$http', '$compile', '$filter', function ($scope, $http, $compile, $filter) {
@@ -782,8 +755,8 @@ app.controller('payment_controller', function ($scope, $window, $location, $http
                     $scope.lastName = user.lastName;
                     $scope.zip = user.zip;
                     var ccDate = user.expDate.split("/");
-                    $scope.expMonth=ccDate[0];
-                    $scope.expYear=ccDate[1];
+                    $scope.expMonth = ccDate[0];
+                    $scope.expYear = ccDate[1];
 
                 } else {
                     console.log("Error occured to get data");
@@ -826,7 +799,7 @@ app.controller('payment_controller', function ($scope, $window, $location, $http
     $scope.confirmBooking = function () {
 
 
-        $scope.card_wrong=false;
+        $scope.card_wrong = false;
         $scope.dates_wrong = false;
         $scope.cvv_wrong = false;
 
@@ -845,79 +818,68 @@ app.controller('payment_controller', function ($scope, $window, $location, $http
         var date = new Date();
         var currMonth = date.getMonth();
         var currYear = date.getFullYear();
-        var check =false;
+        var check = false;
 
 
-        if(expYear>currYear){
+        if (expYear > currYear) {
             check = true;
         }
-        else if(expYear==currYear){
-            if(expMonth>=currMonth)
+        else if (expYear == currYear) {
+            if (expMonth >= currMonth)
                 check = true;
             else
                 $scope.dates_wrong = true;
 
         }
-        else{
+        else {
             $scope.dates_wrong = true;
 
         }
 
-        if(!validateCardNumber(cardnumber)) {
+        if (!validateCardNumber(cardnumber)) {
             $scope.card_wrong = true;
         }
 
-        if(!validateCCV(cvv)){
+        if (!validateCCV(cvv)) {
             $scope.cvv_wrong = true;
         }
 
-        if(check && validateCardNumber(cardnumber) && validateCCV(cvv)) {
+        if (check && validateCardNumber(cardnumber) && validateCCV(cvv)) {
             console.log("aLL CHECKED" + check);
 
-             $http({
-             method: "POST",
-             url: '/confirmBooking',
-             data: {
-             "propertyId": properyId1,
-             "cardNumber": cardnumber,
-             "expMonth": expMonth,
-             "expYear": expYear,
-             "cvv": cvv,
-             "guest": guest1,
-             "checkin": checkin1,
-             "checkout": checkout1,
-             "price": price,
-             "days": days1,
-             "hostId": hostId
-             }
-             }).success(function (data) {
-             if (data.statusCode == 200) {
-
-             console.log("SAVED TRIP");
-             console.log(data.data);
-
-
-             } else {
-             console.log("Error occured to booking");
-             }
-             }).error(function (error) {
-             console.log(error);
-             });
-
+            $http({
+                method: "POST",
+                url: '/confirmBooking',
+                data: {
+                    "propertyId": properyId1,
+                    "cardNumber": cardnumber,
+                    "expMonth": expMonth,
+                    "expYear": expYear,
+                    "cvv": cvv,
+                    "guest": guest1,
+                    "checkin": checkin1,
+                    "checkout": checkout1,
+                    "price": price,
+                    "days": days1,
+                    "hostId": hostId
+                }
+            }).success(function (data) {
+                if (data.statusCode == 200) {
+                    console.log("SAVED TRIP");
+                    console.log(data.data);
+                } else {
+                    console.log("Error occured to booking");
+                }
+            }).error(function (error) {
+                console.log(error);
+            });
         }
-
-
-
-
-
     };
-
 
     function validateCardNumber(number) {
         var regex = new RegExp("^[0-9]{16}$");
         if (!regex.test(number))
             return false;
-
         return true;
     }
 
@@ -925,22 +887,24 @@ app.controller('payment_controller', function ($scope, $window, $location, $http
         var regex = new RegExp("^[0-9]{3}$");
         if (!regex.test(number))
             return false;
-
         return true;
     }
-
-
-
 });
 
 
 app.controller('itinerary_controller', function ($scope, $http, $window) {
 
-    $scope.init = function (stringifiedArray) {
-        var info = JSON.parse(stringifiedArray);
-        $scope.trips = info.trip;
-        $scope.bills = info.bill;
-    };
+    var tripId = getParameterByName("tripId");
+    $http.post('/itinerary', {tripId: tripId})
+        .success(function (data) {
+            console.log(data);
+            var info = data.data;
+            $scope.trips = info.trip;
+            $scope.bills = info.bill;
+        })
+        .error(function (data) {
+            console.log(data);
+        });
 });
 
 app.controller('addListing_controller', function ($scope, $http, Data, $window) {

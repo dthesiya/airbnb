@@ -26,8 +26,6 @@ exports.getUserTrips = function (msg, callback) {
                 for (var i = 0; i < trips.length; i++) {
                     trips[i].checkIn = new Date(trips[i].checkIn).toLocaleDateString();
                     trips[i].checkOut = new Date(trips[i].checkOut).toLocaleDateString();
-                    console.log(new Date(trips[i].checkIn).toLocaleDateString());
-                    console.log(new Date(trips[i].checkOut).toLocaleDateString());
                 }
                 callback(null, trips);
             }
@@ -107,7 +105,6 @@ exports.acceptTrip = function (msg, callback) {
 
 exports.getItinerary = function (msg, callback) {
 
-
     var tripId = msg.tripId;
     var userId = msg.userId;
 
@@ -115,20 +112,16 @@ exports.getItinerary = function (msg, callback) {
     itinerary.trip = [];
     itinerary.bill = [];
 
-    console.log(tripId, userId);
-
     Trip.findOne({tripId: tripId, userId: userId})
         .populate('propertyId')
         .populate('userId')
         .populate('hostId')
         .exec(function (err, trip) {
-            console.log(trip);
             itinerary.trip.push(trip);
             if (!err && trip != null) {
                 Billing.findOne({tripId: trip._id})
                     .exec(function (err, bill) {
                         if (!err) {
-                            console.log(bill);
                             itinerary.bill.push(bill);
                             callback(null, itinerary);
                         } else {

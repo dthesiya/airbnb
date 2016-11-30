@@ -8,7 +8,6 @@ var propertyReviewSchema = new Schema({
     rating: {type: Number},
     imageUrl: {type: String},
     createdDate: {type: Number}
-
 });
 
 var PropertyReview = mongoose.model('propertyReview', propertyReviewSchema,'propertyReview');

@@ -21,20 +21,22 @@ exports.loadReviewAboutPage = function (msg, callback) {
     userReview.find({userId: userId}).populate('hostId').exec(function (err, result) {
 
         if (err) {
-            console.log("Getting error in user reviews");
             console.log(err);
             callback(err, null);
         }
         else {
             //reviews from user
-            console.log("USER ID");
-            console.log(userId);
             hostReview.find({hostId: userId}).populate('userId').exec(function (err, result1) {
-
                 if (err) {
                     console.log(err);
                     callback(err, null);
                 } else {
+                    for (var i = 0; i < result.length; i++) {
+                        result[i].createdDate = new Date(result[i].createdDate).toLocaleDateString();
+                    }
+                    for (var i = 0; i < result1.length; i++) {
+                        result1[i].createdDate = new Date(result1[i].createdDate).toLocaleDateString();
+                    }
                     var json = {
                         "fromHostReview": result,
                         "fromUserReview": result1
@@ -49,8 +51,6 @@ exports.loadReviewAboutPage = function (msg, callback) {
 exports.loadReviewByPage = function (msg, callback) {
 
     var userId = msg.userId;
-
-
     // review by you to user
     userReview.find({hostId: userId}).populate('userId').exec(function (err, result) {
 
@@ -60,7 +60,6 @@ exports.loadReviewByPage = function (msg, callback) {
         } else {
             //reviews by you to host
             hostReview.find({userId: userId}).populate('hostId').exec(function (err, result1) {
-
                 if (err) {
                     console.log(err);
                     callback(err, null);

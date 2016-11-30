@@ -24,7 +24,6 @@ exports.getUserTrips = function (request, response) {
     mq_client.make_request('getUserTrips_queue', msg_payload, function (err, trips) {
 
         if (!err) {
-            console.log(trips);
             for (var i = 0; i < trips.length; i++) {
                 if (trips[i].isAccepted) {
                     trips[i].isAccepted = "Accepted";
@@ -41,7 +40,6 @@ exports.getUserTrips = function (request, response) {
 exports.acceptTrip = function (request, response) {
 
     var tripId = request.body.tripId;
-    console.log(request.body);
     var hostId = request.session.userId;
 
     var msg_payload = {tripId: tripId, hostId: hostId};
@@ -49,7 +47,6 @@ exports.acceptTrip = function (request, response) {
     mq_client.make_request('acceptTrip_queue', msg_payload, function (err, result) {
 
         if (!err && result.code == 200) {
-            console.log('done');
             response.status(200);
             response.end();
         } else {
@@ -62,28 +59,33 @@ exports.acceptTrip = function (request, response) {
 };
 
 exports.displayItinerary = function (request, response) {
-    var tripId = request.params.tripId;
+
+    var user_data = {
+        "email": request.session.email,
+        "firstname": request.session.firstName,
+        "profileImg": request.session.profileImg,
+        "isLoggedIn": request.session.isLoggedIn
+    };
+    ejs.renderFile('../views/viewitinerary.ejs', user_data, function (err, result) {
+        response.end(result);
+    });
+};
+
+exports.loadItinerary = function (request, response) {
+    var tripId = request.body.tripId;
     var userId = request.session.userId;
     var msg_payload = {tripId: tripId, userId: userId};
 
     mq_client.make_request('getItinerary_queue', msg_payload, function (err, trips) {
-
         if (!err) {
             if (trips) {
-                var user_data = {
-                    "email": request.session.email,
-                    "isLoggedIn": request.session.isLoggedIn,
-                    "firstname": request.session.firstName,
-                    "itinerary": JSON.stringify(trips)
-                };
-                ejs.renderFile('../views/viewitinerary.ejs', user_data, function (err, result) {
-                    response.end(result);
-                });
+                response.end(trips);
             } else {
                 response.end();
             }
+        } else {
+            response.status(400);
+            response.end();
         }
-        response.status(400);
-        response.end();
     });
 };

@@ -303,7 +303,8 @@
                                                         Guests
                                                     </label>
                                                     <div class="select select-block">
-                                                        <select ng-model="guests" id="number_of_guests" name="number_of_guests">
+                                                        <select ng-model="guests" id="number_of_guests"
+                                                                name="number_of_guests">
                                                             <option value="1">1</option>
                                                             <option value="2">2</option>
                                                             <option value="3">3</option>
@@ -419,14 +420,20 @@ top: -34px;">
                                                 </div>
 
                                                 <div class="js-book-it-btn-container ">
-                                                    <button type="submit" ng-click="book()"
+                                                    <button ng-show="{{room_result.isBidding === false}}"
+                                                            ng-hide="{{room_result.isBidding === true}}" type="submit"
+                                                            ng-click="book()"
                                                             class="js-book-it-btn btn btn-large btn-block btn-primary">
                                                             <span class="book-it__btn-text ">
                                                               Request to Book
                                                             </span>
-                                                        <span class="book-it__btn-text--instant">
-                                                              <i class="icon icon-bolt text-beach h4 book-it__instant-book-icon"></i>
-                                                              Instant Book
+                                                    </button>
+                                                    <button ng-show="{{room_result.isBidding === true}}"
+                                                            ng-hide="{{room_result.isBidding === false}}" type="submit"
+                                                            ng-click="placeBid()"
+                                                            class="js-book-it-btn btn btn-large btn-block btn-primary">
+                                                            <span class="book-it__btn-text ">
+                                                              Place Bid
                                                             </span>
                                                     </button>
                                                 </div>

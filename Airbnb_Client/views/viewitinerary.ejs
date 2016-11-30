@@ -43,11 +43,11 @@
     <meta name="theme-color" content="#f5f5f5">
 </head>
 <body>
+
 <% include header.ejs %>
+<% include modal.ejs %>
+
 <main role="main" id="site-content" ng-controller="itinerary_controller">
-
-    <div ng-init="init('<%= itinerary %>')"></div>
-
     <div class="shared-itinerary-container">
         <div class="page-container-responsive">
             <div class="show-sm space-4 listing-photo-main-sm">
@@ -321,7 +321,7 @@
     });
 </script>
 
-<script src="js/common.js"></script>
-<script src="controller/common_controller.js"></script>
+<script src="/js/common.js"></script>
+<script src="/controller/common_controller.js"></script>
 </body>
 </html>
