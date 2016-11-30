@@ -1279,7 +1279,7 @@ top: -34px;">
 
                                 <div id="photo-gallery" class="photo-grid row-space-4 row-space-top-4 hide-sm ">
                                     <div class="panel-image listing-img">
-                                        <a  class="media-photo media-cover">
+                                        <a class="media-photo media-cover">
                                             <div class="listing-img-container media-cover text-center">
                                                 <img id="rooms_image_{{ room_result.id}}"
                                                      src="http://localhost:3000/images/{{ room_result.photo_name }}"
@@ -1287,126 +1287,125 @@ top: -34px;">
                                             </div>
                                         </a>
 
-                                        <div class="target-prev target-control rooms-slider block-link"  data-room_images="{{room_result.images}}" data-room_id="{{room_result.id}}">
+                                        <div class="target-prev target-control rooms-slider block-link"
+                                             data-room_images="{{room_result.images}}"
+                                             data-room_id="{{room_result.id}}">
                                             <i class="icon icon-chevron-left icon-size-2 icon-white"></i>
                                         </div>
 
-                                        <div class="target-next target-control rooms-slider block-link" data-room_images="{{room_result.images}}" data-room_id="{{room_result.id}}">
+                                        <div class="target-next target-control rooms-slider block-link"
+                                             data-room_images="{{room_result.images}}"
+                                             data-room_id="{{room_result.id}}">
                                             <i class="icon icon-chevron-right icon-size-2 icon-white"></i>
                                         </div>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <div id="reviews" class="room-section webkit-render-fix">
-                    <div class="panel">
-                        <div class="page-container-responsive row-space-2">
-                            <div class="row">
-                                <div class="col-lg-8">
-                                    <div class="review-content">
-                                        <div class="panel-body">
-                                            <!--<h4 class="row-space-4 text-center-sm">-->
-                                            <!--No Reviews Yet-->
-                                            <!--</h4>-->
-                                            <ul class="list-layout reviews-list row-space-top-4">
-                                                <li class="media reviews-list-item row-space-top-2"
-                                                    ng-repeat="review in room_result.reviews">
-                                                    <div class="pull-left text-center">
-                                                        <a class="media-photo media-round" href="#">
-                                                            <img width="68" height="68" title="Mick"
-                                                                 src="images/{{review.userImg}}" alt="Mick">
-                                                        </a>
-                                                        <div class="name"><a class="text-muted" href="#">{{review.firstName}}
-                                                                {{review.lastName}}</a></div>
-                                                    </div>
-                                                    <div class="media-body response">
-                                                        <p>{{review.review}}</p>
-                                                        <hr>
-
-                                                        <div class="row-space-top-2">
-                                                            <p>
-                                                                <strong>
-                                                                    <i aria-label="Private" data-behavior="tooltip"
-                                                                       class="icon icon-lock icon-rausch"></i>
-                                                                    Rating: {{review.rating}}
-                                                                </strong>
-                                                                <br>
-
-                                                            </p>
-                                                        </div>
-                                                        <p class="clearfix text-muted">
-                                                            {{review.createdDate}}
-                                                        </p>
-                                                    </div>
-                                                </li>
-
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div id="rating" class="page-container-responsive space-top-8 space-8">
-                    <label for="input-7-xs" class="control-label">Extra Small Rating</label>
-                    <input id="input-7-xs" class="rating rating-loading" value="1" data-min="0" data-max="5" data-step="0.5" data-size="xs"><hr/>
-                </div>
-                <div id="host-profile" class="room-section webkit-render-fix">
-                    <div class="page-container-responsive space-top-8 space-8">
+            <div id="reviews" class="room-section webkit-render-fix">
+                <div class="panel">
+                    <div class="page-container-responsive row-space-2">
                         <div class="row">
                             <div class="col-lg-8">
-                                <h4 class="row-space-4 text-center-sm">
-                                    About the Host, {{room_result.users.first_name}}
-                                </h4>
-                                <div class="row">
-                                    <div class="col-md-3 text-center">
-                                        <a href="profile?hostId={{room_result.users.id}}"
-                                           class="media-photo media-round"><img alt="{{room_result.users.first_name}}"
-                                                                                data-pin-nopin="true" height="90"
-                                                                                src="images/{{room_result.users.profile_picture.src}}"
-                                                                                title="Tony" width="90"></a>
-                                    </div>
-                                    <div class="col-md-9">
-                                        <div class="row row-condensed space-2">
-                                            <div class="col-md-6">
-                                                <div>
-                                                    Member since {{room_result.users.created_at}}
+                                <div class="review-content">
+                                    <div class="panel-body">
+                                        <!--<h4 class="row-space-4 text-center-sm">-->
+                                        <!--No Reviews Yet-->
+                                        <!--</h4>-->
+                                        <ul class="list-layout reviews-list row-space-top-4">
+                                            <li class="media reviews-list-item row-space-top-2"
+                                                ng-repeat="review in room_result.reviews">
+                                                <div class="pull-left text-center">
+                                                    <a class="media-photo media-round" href="#">
+                                                        <img width="68" height="68" title="Mick"
+                                                             src="images/{{review.userImg}}" alt="Mick">
+                                                    </a>
+                                                    <div class="name"><a class="text-muted" href="#">{{review.firstName}}
+                                                            {{review.lastName}}</a></div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                        <div id="contact_wrapper">
-                                            <button id="host-profile-contact-btn" class="btn btn-small btn-primary">
-                                                Contact Host
-                                            </button>
-                                        </div>
+                                                <div class="media-body response">
+                                                    <p>{{review.review}}</p>
+                                                    <hr>
+
+                                                    <div class="row-space-top-2">
+                                                        <p>
+                                                            <strong>
+                                                                <i aria-label="Private" data-behavior="tooltip"
+                                                                   class="icon icon-lock icon-rausch"></i>
+                                                                Rating: {{review.rating}}
+                                                            </strong>
+                                                            <br>
+
+                                                        </p>
+                                                    </div>
+                                                    <p class="clearfix text-muted">
+                                                        {{review.createdDate}}
+                                                    </p>
+                                                </div>
+                                            </li>
+
+                                        </ul>
                                     </div>
                                 </div>
-
-                                <hr class="space-4 space-top-4">
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        <div class="text-muted">
-                                            Trust
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="host-profile" class="room-section webkit-render-fix">
+                <div class="page-container-responsive space-top-8 space-8">
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <h4 class="row-space-4 text-center-sm">
+                                About the Host, {{room_result.users.first_name}}
+                            </h4>
+                            <div class="row">
+                                <div class="col-md-3 text-center">
+                                    <a href="profile?hostId={{room_result.users.id}}"
+                                       class="media-photo media-round"><img alt="{{room_result.users.first_name}}"
+                                                                            data-pin-nopin="true" height="90"
+                                                                            src="images/{{room_result.users.profile_picture.src}}"
+                                                                            title="Tony" width="90"></a>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="row row-condensed space-2">
+                                        <div class="col-md-6">
+                                            <div>
+                                                Member since {{room_result.users.created_at}}
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-9">
-                                        <div class="row row-condensed">
-                                            <div class="col-sm-4 col-md-3">
-                                                <a class="link-reset" rel="nofollow"
-                                                   href="/host?hostId={{room_result.users.id}}">
-                                                    <div class="text-center text-wrap">
-                                                        <div class="badge-pill h3">
-                                                            <span class="badge-pill-count">{{hostReviews.count}}</span>
-                                                        </div>
-                                                        <div class="row-space-top-1">Reviews</div>
+                                    <div id="contact_wrapper">
+                                        <button id="host-profile-contact-btn" class="btn btn-small btn-primary">
+                                            Contact Host
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <hr class="space-4 space-top-4">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="text-muted">
+                                        Trust
+                                    </div>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="row row-condensed">
+                                        <div class="col-sm-4 col-md-3">
+                                            <a class="link-reset" rel="nofollow"
+                                               href="/host?hostId={{room_result.users.id}}">
+                                                <div class="text-center text-wrap">
+                                                    <div class="badge-pill h3">
+                                                        <span class="badge-pill-count">{{hostReviews.count}}</span>
                                                     </div>
-                                                </a>
-                                            </div>
+                                                    <div class="row-space-top-1">Reviews</div>
+                                                </div>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
@@ -1416,6 +1415,7 @@ top: -34px;">
                 </div>
             </div>
         </div>
+    </div>
     </div>
 </main>
 <% include footer.ejs %>
@@ -1530,14 +1530,8 @@ top: -34px;">
 
 <script src="controller/common_controller.js"></script>
 
-
 <script src="http://makent.trioangle.com/js/jquery.bxslider.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.5/jquery.bxslider.min.js"></script>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.js"></script>
-<link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.css" rel="stylesheet">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-star-rating/4.0.1/css/star-rating.min.css" media="all" rel="stylesheet" type="text/css" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-star-rating/4.0.1/js/star-rating.js"></script>
-
 
 
 <!-- ver. 87c23752f8dfbd60bf83837d2c8b2dcd0ec660a9 -->
