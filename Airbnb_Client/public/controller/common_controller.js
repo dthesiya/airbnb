@@ -708,7 +708,6 @@ app.controller('room_details_controller', function ($scope, $window, $location, 
     var url = "/detail?propertyId=" + room_id;
     $http.get(url).then(function (response) {
         $scope.room_result = response.data;
-        console.log($scope.room_result);
         url = "/hostReviewsCount?hostId=" + $scope.room_result.users.id;
         $http.get(url).then(function (response) {
             $scope.hostReviews = response.data;
@@ -864,8 +863,11 @@ app.controller('payment_controller', function ($scope, $window, $location, $http
                 }
             }).success(function (data) {
                 if (data.statusCode == 200) {
+
                     console.log("SAVED TRIP");
                     console.log(data.data);
+
+
                 } else {
                     console.log("Error occured to booking");
                 }
@@ -1234,12 +1236,13 @@ app.controller('yourTrips_controller', function ($scope, $http, $sce) {
             })
     };
 
-    $scope.toggleReview = function () {
+    $scope.toggleReview = function ($index) {
 
-        $scope.writeReview = !$scope.writeReview;
+        $scope.writeReview[$index] = true;
+            //!$scope.writeReview[$index];
     };
 
-    $scope.submitReview = function (review, userId, rating, image) {
+    $scope.submitReview = function (review, userId, rating, image,$index) {
 
         if (!review) {
             console.log('No Review');
@@ -1255,6 +1258,7 @@ app.controller('yourTrips_controller', function ($scope, $http, $sce) {
         })
             .success(function (data) {
                 console.log(data);
+                $scope.reviewadded=true;
             })
     };
 });
