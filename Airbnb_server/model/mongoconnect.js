@@ -13,6 +13,10 @@ mongoose.connect(dbURI, {server: {poolSize: 10}});
 mongoose.connection.on('connected', function () {
     console.log('Mongoose connected to- ' + dbURI);
 });
+
+var MongooseCache = require('mongoose-redis');
+var cache = MongooseCache(mongoose, {port: 6379, host: 'localhost', compress: true});
+
 mongoose.connection.on('error', function (err) {
     console.log('Mongoose connection error: ' + err);
 });

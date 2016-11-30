@@ -155,7 +155,7 @@ exports.cardDetails = function (msg, callback) {
 
     console.log("cardDetails service");
 
-    User.find({email: msg.uid}, function (err, result) {
+    User.find({email: msg.uid}).cache(1).exec(function (err, result) {
         if (err) {
             console.log("err in update");
             callback(err, null);
