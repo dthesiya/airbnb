@@ -46,7 +46,7 @@ exports.doSearch = function (msg, callback) {
             isApproved: true,
             category: {$in: property_type}
         }
-        )
+    )
         .populate('hostId')
         .populate('mediaId')
         .exec(function (err, properties) {
@@ -129,7 +129,7 @@ exports.doSearch = function (msg, callback) {
                                     sub_name: "",
                                     property_type: 2,
                                     room_type: 0,
-                                    beds: 1,
+                                    beds: record.beds,
                                     bed_type: 3,
                                     amenities: "1,2,4,5,6,7,10,11,15,17,18,19,22,23,24,25,28,29,30",
                                     calendar_type: "Always",
@@ -140,8 +140,8 @@ exports.doSearch = function (msg, callback) {
                                     status: "Listed",
                                     deleted_at: null,
                                     steps_count: 0,
-                                    property_type_name: "Apartment",
-                                    room_type_name: "Entire home\/apt",
+                                    property_type_name: record.category,
+                                    room_type_name: record.category,
                                     bed_type_name: "Pull-out Sofa",
                                     reviews_count: 0,
                                     overall_star_rating: "",

@@ -22,7 +22,6 @@ var account_management = require('./routes/account_management');
 var listings = require('./routes/listings');
 var trips = require('./routes/trips');
 
-
 var app = express();
 app.use(fileUpload());
 app.use(passport.initialize());
@@ -96,8 +95,6 @@ app.get('/profile/*', users.userProfile);
 
 app.get('/addListing', listings.addListing);
 app.get('/becomeHost', listings.becomeHost);
-app.get('/test/*', listings.test);
-
 
 app.get('/getUserProfile/:userId', users.getUserProfile);
 
@@ -106,6 +103,8 @@ app.get('/getHostReview/:hostId', review.getHostReview);
 app.post('/addUserReview', review.addUserReview);
 app.post('/addHostReview', review.addHostReview);
 
+app.post('/uploadImage', listings.uploadImage);
+app.post('/uploadVideo', listings.uploadVideo);
 app.post('/addNewListing', listings.addNewListing);
 app.get('/getActiveListings', listings.getActiveListings);
 app.get('/getActiveListings/:userId', listings.getActiveListingsFromId);

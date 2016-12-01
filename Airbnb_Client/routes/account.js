@@ -172,7 +172,6 @@ exports.getUserReviewbyPage = function (req, res) {
     });
 };
 
-
 exports.uploadProfileImage = function (req, res) {
 
     var file;
@@ -181,36 +180,25 @@ exports.uploadProfileImage = function (req, res) {
         var json = {"statusCode": 400}
         res.send(json);
 
-    }
-    else {
+    } else {
         var fileName = req.session.userId + '.png';
         file = req.files.profile_pic;
-        console.log("File detais");
-        console.log(file);
         file.mv('../public/images/' + fileName, function (err) {
             if (err) {
-                console.log("Error in uploading")
                 console.log(err);
                 res.status(500).send(err);
             }
             else {
-
-                console.log("File uploaded");
                 var userId = req.session.userId;
                 var msg_payload = {
                     userId: userId,
                     fileName: fileName
                 };
-
                 mq_client.make_request('uploadProfileImage_queue', msg_payload, function (err, user) {
                     if (err) {
-
                         console.log(err);
-                        console.log("In err to upload imaage user queue");
                         res.redirect('/getUserPhotoPage')
                     } else {
-                        console.log("After uploading image client");
-                        console.log(user);
                         res.redirect('/getUserPhotoPage')
                     }
                 });

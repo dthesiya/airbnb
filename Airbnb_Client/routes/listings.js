@@ -5,19 +5,6 @@
 var mq_client = require("../rpc/client.js");
 var ejs = require("ejs");
 
-exports.test = function (req, res) {
-    var user_data = {
-        "hello": "hello",
-        "email": req.session.email,
-        "isLoggedIn": req.session.isLoggedIn,
-        "firstname": req.session.firstName,
-        "profileImg": req.session.profileImg
-    };
-    ejs.renderFile('../views/viewitinerary.ejs', user_data, function (err, result) {
-        res.end(result);
-    });
-};
-
 exports.addListing = function (req, res) {
     var user_data = {
         "email": req.session.email,
@@ -103,9 +90,58 @@ exports.getActiveListingsFromId = function (request, response) {
     });
 };
 
+exports.uploadImage = function (request, response) {
+    console.log(request.files);
+    var fileName = Date.now() + request.session.userId + '.jpg';
+    var image = request.files.file;
+    image.mv('../public/images/' + fileName, function (err) {
+        if (err) {
+            console.log(err);
+            response.send({statusCode: 401});
+        } else {
+            response.send({statusCode: 200, url: fileName});
+        }
+    });
+}
+
+exports.uploadVideo = function (request, response) {
+    console.log(request.files);
+    var fileName = Date.now() + request.session.userId + '.mp4';
+    var video = request.files.file;
+    video.mv('../public/videos/' + fileName, function (err) {
+        if (err) {
+            console.log(err);
+            response.send({statusCode: 401});
+        } else {
+            response.send({statusCode: 200, url: fileName});
+        }
+    });
+}
+
+function saveMedia(Media, userId) {
+    var mediaUrls = [];
+    for (var i = 0; i < Media.length; i++) {
+        var base64Data = Media[i].replace(/^data:image\/jpeg;base64,/, "");
+        var fileName = userId + Date.now() + i + ".png";
+        mediaUrls.push(fileName);
+        require("fs").writeFile(imageFolder + fileName, base64Data, 'base64', function (err) {
+            console.log(err);
+        });
+    }
+    console.log(mediaUrls);
+    return mediaUrls;
+}
+
 exports.addNewListing = function (request, response) {
-    var msg_payload =
-    {
+    console.log(request.param("media"));
+    var mediaUrls = request.param("media");
+    var video;
+    if (request.param("video")) {
+        video = request.param("video");
+    } else {
+        video = "";
+    }
+    var msg_payload = {
         "hostId": request.session.userId,
         "maxGuest": request.param("maxGuest"),
         "roomType": request.param("roomType"),
@@ -124,14 +160,13 @@ exports.addNewListing = function (request, response) {
         "longitude": request.param("longitude"),
         "createdDate": request.param("createdDate"),
         "isApproved": request.param("isApproved"),
-        "isBidding": request.param("isBidding")
+        "isBidding": request.param("isBidding"),
+        "media": mediaUrls,
+        "video": video
     }
 
     mq_client.make_request('addNewListing_queue', msg_payload, function (err, result) {
-
-
         if (!err) {
-            console.log(result);
             if (result.statusCode == 200) {
                 response.send({result: result});
             }
