@@ -32,10 +32,16 @@ exports.loadReviewAboutPage = function (msg, callback) {
                     callback(err, null);
                 } else {
                     for (var i = 0; i < result.length; i++) {
-                        result[i].createdDate = new Date(result[i].createdDate).toLocaleDateString();
+                        var date = new Date(result[i].createdDate).toLocaleDateString();
+                        result[i].createdDate = date;
+                        console.log("Created date");
+                        console.log(result[i].createdDate);
                     }
                     for (var i = 0; i < result1.length; i++) {
-                        result1[i].createdDate = new Date(result1[i].createdDate).toLocaleDateString();
+                        var date = new Date(result1[i].createdDate).toLocaleDateString();
+                        result1[i].createdDate = date;
+                        console.log("Created 1 date");
+                        console.log(result1[i].createdDate);
                     }
                     var json = {
                         "fromHostReview": result,
