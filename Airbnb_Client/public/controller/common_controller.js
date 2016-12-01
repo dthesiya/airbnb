@@ -1301,6 +1301,7 @@ app.controller('yourTrips_controller', function ($scope, $http, $sce) {
 
 app.controller('activeListings_controller', function ($scope, $http, $window) {
 
+    $scope.reviewadded=false;
     $scope.activeListings = true;
     $scope.pendingListings = false;
     $scope.reservationListings = false;
@@ -1395,21 +1396,24 @@ app.controller('activeListings_controller', function ($scope, $http, $window) {
 
     $scope.submitReview = function (review, userId, rating, image) {
 
-
+        $scope.reviewadded=false;
         if (!review) {
             console.log('No Review');
             return;
         }
 
         console.log(rating);
+        console.log("USER ID");
         console.log(review, userId);
         $http({
             method: 'POST',
             url: '/addUserReview',
-            data: {"hostId": userId, "review": review, "rating": rating, "image": image}
+            data: {"userId": userId, "review": review, "rating": rating, "image": image}
         })
             .success(function (data) {
                 console.log(data);
+                
+                $scope.reviewadded=true;
             })
     };
 });

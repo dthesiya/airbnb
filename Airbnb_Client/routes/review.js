@@ -116,6 +116,10 @@ exports.getHostReview = function (request, response) {
 
 
 exports.addUserReview = function (request, response) {
+    
+    
+    console.log("USER ID");
+    console.log(request.body.userId);
     var msg_payload =
     {
         userId: request.body.userId,

@@ -67,6 +67,7 @@
 
     <div class="page-container-responsive space-top-4 space-4">
         <div class="alert alert-success" ng-show="reviewadded">"Your Review has been Submitted"</div>
+        <br>
         <div class="row">
             <div class="col-md-1">
 
@@ -106,7 +107,7 @@
                                 <td>
                                     <ul class="unstyled button-list list-unstyled">
                                         <li class="row-space-1">
-                                            <a ng-click="writeReview[$index]=true" href="#">Write Review</a>
+                                            <a ng-click="writeReview[$index]=!writeReview[$index]" href="#">Write Review</a>
                                             <div ng-show="writeReview[$index]"><textarea ng-model="review[trip._id]"
                                                                                          rows="4"
                                                                                          cols="10"></textarea>

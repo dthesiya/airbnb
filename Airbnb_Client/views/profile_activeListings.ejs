@@ -276,7 +276,8 @@
             </div>
 
             <div class="col-md-9" ng-show="reservationListings">
-
+                <div class="alert alert-success" ng-show="reviewadded">"Your Review has been Submitted"</div>
+                <br>
 
                 <div class="panel" id="print_area">
                     <div class="panel-header">
@@ -372,7 +373,7 @@
                                 <th>Guest</th>
                                 <th>Details</th>
                             </tr>
-                            <tr data-reservation-id="10001" class="reservation" ng-repeat="reservation in past">
+                            <tr data-reservation-id="10001" class="reservation" ng-repeat="reservation in past" ng-init="writeReview=[]">
                                 <td>
                                     <span class="label label-success">
                                       Accepted
@@ -418,8 +419,8 @@
                                     <span ng-bind=" '$' + (reservation.propertyId.price)"></span>
                                     <ul class="list-unstyled">
                                         <li>
-                                            <a ng-click="toggleReview()" href="#">Write Review</a>
-                                            <div ng-show="writeReview"><textarea ng-model="review[reservation._id]"
+                                            <a ng-click="writeReview[$index]=!writeReview[$index]" href="#">Write Review</a>
+                                            <div ng-show="writeReview[$index]"><textarea ng-model="review[reservation._id]"
                                                                                  rows="4" cols="10"></textarea>
                                                 <select ng-model="rating">
                                                     <option>1</option>
