@@ -101,7 +101,7 @@
                                 </td>
                                 <td class="host"><a href="/profile/{{trip.hostId.userId}}" target="_blank">{{trip.hostId.firstName}}
                                         {{trip.hostId.lastName}}</a></td>
-                                <td class="dates">{{trip.checkIn}}--{{trip.checkOut}}</td>
+                                <td class="dates">{{trip.checkIn | date:"shortDate" }} to {{trip.checkOut | date:"shortDate"}}</td>
 
                                 <td>
                                     <ul class="unstyled button-list list-unstyled">
