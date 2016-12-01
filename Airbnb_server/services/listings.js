@@ -5,6 +5,7 @@
 var Trip = require('../model/trip');
 var Property = require('../model/property');
 var Billing = require('../model/billing');
+var Media = require('../model/media');
 var mongoose = require('mongoose');
 var ssn = require('ssn');
 
@@ -42,19 +43,17 @@ exports.getActiveListings = function (msg, callback) {
 };
 
 exports.addNewListing = function (msg, callback) {
-    console.log("Adding new Listing");
     var newListing = new Property();
     newListing.propertyId = ssn.generate();
     newListing.hostId = msg.hostId;
     newListing.maxGuest = msg.maxGuest;
-    // newListing.roomType=msg.roomType;
     newListing.category = msg.category;
     newListing.city = msg.city;
     newListing.state = msg.state;
     newListing.address = msg.address;
     newListing.zip = msg.zipCode;
     newListing.bedrooms = msg.bedrooms;
-    // newListing.beds=msg.beds;
+    newListing.beds = msg.beds;
     newListing.bathrooms = msg.bathrooms;
     newListing.name = msg.name;
     newListing.description = msg.description;
@@ -69,16 +68,38 @@ exports.addNewListing = function (msg, callback) {
         newListing.biddingDueTime = msg.createdDate / 1000 + (4 * 60);
         newListing.maxBidPrice = 0;
     }
-    newListing.save(function (err, result) {
-        if (err) {
-            console.log(err);
-            callback(err, null);
-        }
-        else {
-            var res = {statusCode: 200};
-            callback(null, res);
-        }
-    });
+    if (msg.media) {
+        var newMedia = new Media();
+        newMedia.imageUrl = msg.media;
+        if (msg.video != "")
+            newMedia.videoUrl = msg.video;
+        newMedia.save(function (err, result) {
+            if (err)
+                return null;
+            else {
+                newListing.mediaId = result._id;
+                newListing.save(function (err, result) {
+                    if (err) {
+                        console.log(err);
+                        callback(err, null);
+                    } else {
+                        var res = {statusCode: 200};
+                        callback(null, res);
+                    }
+                });
+            }
+        });
+    } else {
+        newListing.save(function (err, result) {
+            if (err) {
+                console.log(err);
+                callback(err, null);
+            } else {
+                var res = {statusCode: 200};
+                callback(null, res);
+            }
+        });
+    }
 }
 
 exports.getReservations = function (msg, callback) {

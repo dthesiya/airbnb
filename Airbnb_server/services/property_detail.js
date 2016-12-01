@@ -74,7 +74,7 @@ exports.getProperty = function (msg, callback) {
                                 video_url: (record.mediaId) ? record.mediaId.videoUrl : "",
                                 isBidding: (record.isBidding) ? record.isBidding : false,
                                 sub_name: "",
-                                property_type: "Apartment",
+                                property_type: record.category,
                                 room_type: 0,
                                 beds: 3,
                                 bed_type: "Pull-out Sofa",

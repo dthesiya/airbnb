@@ -13,6 +13,7 @@ var propertySchema = new Schema({
     country: {type: String},
     zip: {type: String},
     maxGuest: {type: Number},
+    beds: {type: Number},
     bedrooms: {type: Number},
     bathrooms: {type: Number},
     description: {type: String},

@@ -8,7 +8,7 @@
     <link rel="dns-prefetch" href="https://mts0.googleapis.com/">
     <link rel="dns-prefetch" href="https://mts1.googleapis.com/">
 
-    <link rel="shortcut icon" href="http://makent.trioangle.com/images/logos/favicon.ico">
+    
 
     <!--[if IE]><![endif]-->
     <meta charset="utf-8">
@@ -159,7 +159,7 @@
 
                                     <div class="media-photo-badge">
 
-                                        <a href="http://makent.trioangle.com/users/show/10003"
+                                        <a href=""
                                            class="media-photo media-round">
 
                                             <img alt="User Profile Image" class="host-profile-image"
@@ -1365,7 +1365,7 @@ top: -34px;">
                             </h4>
                             <div class="row">
                                 <div class="col-md-3 text-center">
-                                    <a href="profile?hostId={{room_result.users.id}}"
+                                    <a href="profile/{{room_result.users.id}}"
                                        class="media-photo media-round"><img alt="{{room_result.users.first_name}}"
                                                                             data-pin-nopin="true" height="90"
                                                                             src="images/{{room_result.users.profile_picture.src}}"
@@ -1378,11 +1378,6 @@ top: -34px;">
                                                 Member since {{room_result.users.created_at}}
                                             </div>
                                         </div>
-                                    </div>
-                                    <div id="contact_wrapper">
-                                        <button id="host-profile-contact-btn" class="btn btn-small btn-primary">
-                                            Contact Host
-                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -1529,6 +1524,9 @@ top: -34px;">
 <script src="js/common.js"></script>
 
 <script src="controller/common_controller.js"></script>
+
+<script src="https://angular-file-upload.appspot.com/js/ng-file-upload-shim.js"></script>
+<script src="https://angular-file-upload.appspot.com/js/ng-file-upload.js"></script>
 
 <script src="http://makent.trioangle.com/js/jquery.bxslider.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.5/jquery.bxslider.min.js"></script>

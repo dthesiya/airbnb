@@ -14,7 +14,6 @@ var tripSchema = new Schema({
     price:{type: Number},
     days : {type:Number},
     total: {type:Number}
-
 });
 
 var Trip = mongoose.model('trip', tripSchema,'trip');

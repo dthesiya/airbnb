@@ -108,200 +108,10 @@
                                        type="hidden" value="">
                                 <input id="longitude" ng-model="longitude" ng-value="longitude"
                                        name="hosting[longitude]" type="hidden" value="">
-
-                                <div class="row space-top-4 space-1">
-                                    <div id="property-type-id-header" class="h5 text-light">
-                                        <strong>
-                                            Home Type
-                                        </strong>
-                                    </div>
-                                </div>
-                                <div class="row fieldset fieldset_property_type_id">
-                                    <div class="btn-group" ng-hide="property_type_id">
-                                        <button class="btn btn-large type alert-highlighted-element hover-select-highlight"
-                                                data-name="Apartment" data-type-id="1" data-icon-class="icon-apartment"
-                                                data-behavior="tooltip" type="button" data-position="bottom"
-                                                aria-label="Your space is an apartment, flat, or unit in a multi-unit building."
-                                                ng-click="property_type('1', 'Apartment', 'icon-apartment')">
-                                            <i class="icon icon-apartment h4 icon-kazan"></i>
-                                            Apartment
-                                        </button>
-                                        <button class="btn btn-large type alert-highlighted-element hover-select-highlight"
-                                                data-name="House" data-type-id="2" data-icon-class="icon-home"
-                                                data-behavior="tooltip" type="button" data-position="bottom"
-                                                aria-label="Your space is a single-family house or townhouse."
-                                                ng-click="property_type('2', 'House', 'icon-home')">
-                                            <i class="icon icon-home h4 icon-kazan"></i>
-                                            House
-                                        </button>
-                                        <button class="btn btn-large type alert-highlighted-element hover-select-highlight"
-                                                data-name="Bed &amp; Break Fast" data-type-id="3"
-                                                data-icon-class="icon-cup" data-behavior="tooltip" type="button"
-                                                data-position="bottom"
-                                                aria-label="You rent out several rooms within an establishment. Your service includes breakfast."
-                                                ng-click="property_type('3', 'Bed &amp; Break Fast', 'icon-cup')">
-                                            <i class="icon icon-cup h4 icon-kazan"></i>
-                                            Bed &amp; Break Fast
-                                        </button>
-                                        <div class="select select-large other-select" id="property-select">
-                                            <select class="alert-highlighted-element hover-select-highlight"
-                                                    id="property_type_dropdown" ng-model="change_property_value"
-                                                    ng-change="property_change(change_property_value)">
-                                                <option disabled="" selected="" value="">Other</option>
-                                                0
-                                                1
-                                                2
-                                                <option data-icon-class="icon-star-alt" data-name="Loft"
-                                                        data-type-id="4" value="4">
-                                                    Loft
-                                                </option>
-                                                3
-                                                <option data-icon-class="icon-star-alt" data-name="Townhouse"
-                                                        data-type-id="5" value="5">
-                                                    Townhouse
-                                                </option>
-                                                4
-                                                <option data-icon-class="icon-star-alt" data-name="Condominium"
-                                                        data-type-id="6" value="6">
-                                                    Condominium
-                                                </option>
-                                                5
-                                                <option data-icon-class="icon-star-alt" data-name="Bungalow"
-                                                        data-type-id="7" value="7">
-                                                    Bungalow
-                                                </option>
-                                                6
-                                                <option data-icon-class="icon-star-alt" data-name="Cabin"
-                                                        data-type-id="8" value="8">
-                                                    Cabin
-                                                </option>
-                                                7
-                                                <option data-icon-class="icon-star-alt" data-name="Villa"
-                                                        data-type-id="9" value="9">
-                                                    Villa
-                                                </option>
-                                                8
-                                                <option data-icon-class="icon-star-alt" data-name="Castle"
-                                                        data-type-id="10" value="10">
-                                                    Castle
-                                                </option>
-                                                9
-                                                <option data-icon-class="icon-star-alt" data-name="Dorm"
-                                                        data-type-id="11" value="11">
-                                                    Dorm
-                                                </option>
-                                                10
-                                                <option data-icon-class="icon-star-alt" data-name="Treehouse"
-                                                        data-type-id="12" value="12">
-                                                    Treehouse
-                                                </option>
-                                                11
-                                                <option data-icon-class="icon-star-alt" data-name="Boat"
-                                                        data-type-id="13" value="13">
-                                                    Boat
-                                                </option>
-                                                12
-                                                <option data-icon-class="icon-star-alt" data-name="Plane"
-                                                        data-type-id="14" value="14">
-                                                    Plane
-                                                </option>
-                                                13
-                                                <option data-icon-class="icon-star-alt" data-name="Camper/RV"
-                                                        data-type-id="15" value="15">
-                                                    Camper/RV
-                                                </option>
-                                                14
-                                                <option data-icon-class="icon-star-alt" data-name="Lgloo"
-                                                        data-type-id="16" value="16">
-                                                    Lgloo
-                                                </option>
-                                                15
-                                                <option data-icon-class="icon-star-alt" data-name="Lighthouse"
-                                                        data-type-id="17" value="17">
-                                                    Lighthouse
-                                                </option>
-                                                16
-                                                <option data-icon-class="icon-star-alt" data-name="Yurt"
-                                                        data-type-id="18" value="18">
-                                                    Yurt
-                                                </option>
-                                                17
-                                                <option data-icon-class="icon-star-alt" data-name="Tipi"
-                                                        data-type-id="19" value="19">
-                                                    Tipi
-                                                </option>
-                                                18
-                                                <option data-icon-class="icon-star-alt" data-name="Cave"
-                                                        data-type-id="20" value="20">
-                                                    Cave
-                                                </option>
-                                                19
-                                                <option data-icon-class="icon-star-alt" data-name="Island"
-                                                        data-type-id="21" value="21">
-                                                    Island
-                                                </option>
-                                                20
-                                                <option data-icon-class="icon-star-alt" data-name="Chalet"
-                                                        data-type-id="22" value="22">
-                                                    Chalet
-                                                </option>
-                                                21
-                                                <option data-icon-class="icon-star-alt" data-name="Earth House"
-                                                        data-type-id="23" value="23">
-                                                    Earth House
-                                                </option>
-                                                22
-                                                <option data-icon-class="icon-star-alt" data-name="Hut"
-                                                        data-type-id="24" value="24">
-                                                    Hut
-                                                </option>
-                                                23
-                                                <option data-icon-class="icon-star-alt" data-name="Train"
-                                                        data-type-id="25" value="25">
-                                                    Train
-                                                </option>
-                                                24
-                                                <option data-icon-class="icon-star-alt" data-name="Tent"
-                                                        data-type-id="26" value="26">
-                                                    Tent
-                                                </option>
-                                                25
-                                                <option data-icon-class="icon-star-alt" data-name="Other"
-                                                        data-type-id="27" value="27">
-                                                    Other
-                                                </option>
-                                                26
-                                            </select>
-                                        </div>
-                                    </div>
-
-                                    <div class="active-selection" ng-show="property_type_id"
-                                         ng-click="property_type_rm()" style="display:none;">
-                                        <div data-type="property_type_id" class="selected-item property_type_id">
-
-                                            <div class="active-panel">
-                                                <div class="active-title active-col">
-                                                    <div class="h4 title-value">
-                                                        <i class="icon icon-kazan h4 {{ property_type_icon }}"></i>
-                                                        {{ selected_property_type }}
-                                                    </div>
-                                                </div>
-                                                <div class="active-caret active-col">
-                                                    <i class="icon icon-caret-right"></i>
-                                                </div>
-                                                <div class="active-message active-col">
-                                                    Airbnb guests love the variety of home types available.
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-
-                                </div>
                                 <div class="row space-top-3 space-1">
                                     <div id="room-type-header" class="h5 text-light">
                                         <strong>
-                                            Room Type
+                                            Property Type
                                         </strong>
                                     </div>
                                 </div>
@@ -341,16 +151,6 @@
                                             <i class="icon icon-shared-room h4 icon-kazan"></i>
                                             Shared room
                                         </button>
-                                        <div class="select select-large other-select" id="room-select">
-                                            <select class="alert-highlighted-element hover-select-highlight"
-                                                    id="room_type_dropdown" ng-model="change_room_value"
-                                                    ng-change="room_change(change_room_value)">
-                                                <option disabled="" selected="" value="">Other</option>
-                                                0
-                                                1
-                                                2
-                                            </select>
-                                        </div>
                                     </div>
 
                                     <div class="active-selection" ng-show="room_type_id" ng-click="room_type_rm()"
@@ -521,7 +321,6 @@
                                             </div>
                                         </div>
                                     </div>
-
                                     <div class="active-selection" ng-show="city_show" ng-click="city_rm()"
                                          style="display:none;">
                                         <div class="selected-item city" data-type="city">
@@ -539,10 +338,8 @@
                                                     What a great place to call home
                                                 </div>
                                             </div>
-
                                         </div>
                                     </div>
-
                                 </div>
 
                                 <div class="row text-left space-top-3">
@@ -551,7 +348,7 @@
                                             <!--<button type="submit" class="btn btn-primary btn-large btn-block submit" ng-disabled="((city_show == false) || lys_new.$invalid)">-->
                                             <button type="button" class="btn btn-primary btn-large btn-block submit"
                                                     ng-click="saveFormData();"
-                                                    ng-disabled="((city_show == false) || lys_new.$invalid)">
+                                                    ng-disabled="((city_show == false))">
                                                 Continue
                                             </button>
                                         </div>
@@ -710,6 +507,9 @@
 <script src="js/common.js"></script>
 
 <script type="application/javascript" src="controller/common_controller.js"></script>
+
+<script src="https://angular-file-upload.appspot.com/js/ng-file-upload-shim.js"></script>
+<script src="https://angular-file-upload.appspot.com/js/ng-file-upload.js"></script>
 
 <div class="tooltip tooltip-bottom-middle" role="tooltip" aria-hidden="true">
     <p class="panel-body">To sign up, you must be 18 or older. Other people won’t see your birthday.</p>

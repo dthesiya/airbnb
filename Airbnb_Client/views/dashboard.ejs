@@ -8,8 +8,6 @@
     <link rel="dns-prefetch" href="https://mts0.googleapis.com/">
     <link rel="dns-prefetch" href="https://mts1.googleapis.com/">
 
-    <link rel="shortcut icon" href="http://makent.trioangle.com/images/logos/favicon.ico">
-
     <!--[if IE]><![endif]-->
     <meta charset="utf-8">
     <!--
@@ -72,7 +70,7 @@
     <meta name="theme-color" content="#f5f5f5">
 
 </head>
-<body class="" ng-app="App" >
+<body class="" ng-app="App">
 <% include header.ejs %>
 <% include modal.ejs %>
 
@@ -107,7 +105,7 @@
                     <div class="media media-photo-block
              dashboard-profile-photo panel-image ">
                         <a href="#" title="View Profile">
-                            <img src="http://localhost:3000/images/<%=userId%>"
+                            <img src="http://localhost:3000/images/<%= userId %>"
                                  class="img-responsive" width="190" height="190" title="Test">
                         </a>
 
@@ -120,14 +118,15 @@
                     </div>
                     <div class="panel-body">
                         <h2 class="text-center">
-                            <%=firstname%>
+                            <%= firstname %>
                         </h2>
                         <ul class="list-unstyled text-center">
                             <li>
                                 <a href="/getUserPhotoPage">View Profile</a>
                             </li>
                             <li>
-                                <a href="/editProfilePage" class="btn btn-primary btn-block text-wrap space-top-1" id="edit-profile">Complete
+                                <a href="/editProfilePage" class="btn btn-primary btn-block text-wrap space-top-1"
+                                   id="edit-profile">Complete
                                     Profile</a>
                             </li>
                         </ul>
@@ -167,7 +166,7 @@
 
                 <div class="panel space-4">
                     <div class="panel-header">
-                        Welcome to Airbnb, <%=firstname%>!
+                        Welcome to Airbnb, <%= firstname %>!
                     </div>
                     <div class="panel-body">
                         <p>
@@ -302,6 +301,9 @@
 
 <script src="js/common.js"></script>
 <script src="controller/common_controller.js"></script>
+
+<script src="https://angular-file-upload.appspot.com/js/ng-file-upload-shim.js"></script>
+<script src="https://angular-file-upload.appspot.com/js/ng-file-upload.js"></script>
 
 
 <!-- ver. 87c23752f8dfbd60bf83837d2c8b2dcd0ec660a9 -->

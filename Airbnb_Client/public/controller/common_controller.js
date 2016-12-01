@@ -16,7 +16,7 @@ function toDate(dateStr) {
     return new Date(parts[2], parts[1] - 1, parts[0]);
 }
 
-var app = angular.module('App', []);
+var app = angular.module('App', ['ngFileUpload']);
 
 app.factory('Data', function ($window) {
 
@@ -120,9 +120,6 @@ app.controller('account_user_management', function ($scope, $window, $location, 
         })
     }
 
-
-
-
     //payment code
     $scope.alert2 = false;
     $scope.paymentInit = function () {
@@ -130,7 +127,7 @@ app.controller('account_user_management', function ($scope, $window, $location, 
             method: "GET",
             url: "/cardDetails",
         }).success(function (result) {
-            $scope.cname = result[0].firstName +" "+ result[0].lastName;
+            $scope.cname = result[0].firstName + " " + result[0].lastName;
             $scope.cnum = result[0].cardNumber;
             $scope.ccv = result[0].cvv;
             var x = result[0].expDate.split("/");
@@ -180,7 +177,6 @@ app.controller('account_user_management', function ($scope, $window, $location, 
             params: {}
         }).success(function (result) {
             $scope.payout = result;
-
         }).error(function (err) {
             console.log(err);
         });
@@ -188,59 +184,35 @@ app.controller('account_user_management', function ($scope, $window, $location, 
 });
 
 app.controller('editUser_controller', function ($scope, $window, $location, $http) {
-
-    console.log("in editUser_controller");
-
     $scope.loadEditProfilePage = function () {
-
         $scope.success_model = false;
-
         $http.post('/loadEditUserPage')
             .success(function (data) {
                 if (data.statusCode == 200) {
-
                     $scope.user = data.data;
-                    console.log("Data is :")
-                    console.log($scope.user);
-
                 }
                 else {
-
                     console.log("Error in loading edit profile page");
                 }
             })
             .error(function (data) {
-
             });
-
-
     };
 
-
     $scope.uploadProfileImage = function () {
-
         console.log("upload profile image ::");
         var file = $scope.profileImage;
-        console.log(file);
         var uploadUrl = "/uploadProfileImage";
-
         //fileUpload.uploadFileToUrl(file, uploadUrl);
-
 
         $http.post('/uploadProfileImage', file, {'enctype': "multipart/form-data"})
             .success(function (data) {
-
                 console.log("Uploaded");
             })
             .error(function (data) {
-
                 console.log("Not upoaded");
-
             });
-
-
     };
-
 
     $scope.saveUserData = function () {
 
@@ -750,7 +722,7 @@ app.controller('room_details_controller', function ($scope, $window, $location, 
         var rooms_id = $(this).attr("data-room_id");
         var img_url = $("#rooms_image_" + rooms_id).attr("src").substr(29);
 
-        console.log( $scope.room_result);
+        console.log($scope.room_result);
 
         var images = $scope.room_result.images;
         if ($(this).is(".target-prev") == true) {
@@ -943,8 +915,10 @@ app.controller('itinerary_controller', function ($scope, $http, $window) {
         });
 });
 
-app.controller('addListing_controller', function ($scope, $http, Data, $window) {
+app.controller('addListing_controller', function ($scope, $http, Data, $window, Upload) {
+
     $scope.formData = Data.getData();
+    console.log($scope.formData);
     var address = JSON.parse($scope.formData).address.split(",");
     Data.clearData();
     $scope.address_1 = address[0];
@@ -957,6 +931,19 @@ app.controller('addListing_controller', function ($scope, $http, Data, $window) 
     $scope.calendarDiv = true;
     $scope.basicsDiv = false;
     $scope.descriptionDiv = true;
+    $scope.photoP = true;
+    $scope.videoDisp = true;
+
+    $scope.photosList = [];
+
+    $scope.loadPhotos = function () {
+        $scope.photoP = false;
+    }
+
+    $scope.loadVideo = function () {
+        console.log($scope.video);
+        $scope.videoDisp = false;
+    }
 
     $scope.selectBasicsDiv = function () {
         $scope.basicsDiv = false;
@@ -995,6 +982,7 @@ app.controller('addListing_controller', function ($scope, $http, Data, $window) 
     };
 
     $scope.selectPricingDiv = function () {
+
         $scope.basicsDiv = true;
         $scope.locationDiv = true;
         $scope.photosDiv = true;
@@ -1013,14 +1001,18 @@ app.controller('addListing_controller', function ($scope, $http, Data, $window) 
     };
 
     $scope.addNewListing = function () {
+        console.log($scope.photosList);
+        console.log($scope.videoUrl);
         $http
         ({
             method: 'POST',
             url: '/addNewListing',
             data: {
+                "media": $scope.photosList,
+                "video": $scope.videoUrl,
                 "maxGuest": JSON.parse($scope.formData).accommodates,
                 "roomType": JSON.parse($scope.formData).roomType,
-                "propertyType": JSON.parse($scope.formData).propertyType,
+                "propertyType": JSON.parse($scope.formData).roomType,
                 "address": $scope.address_1,
                 "city": $scope.city,
                 "state": $scope.state,
@@ -1044,6 +1036,56 @@ app.controller('addListing_controller', function ($scope, $http, Data, $window) 
             }
         });
     }
+
+    /*Images upload*/
+    $scope.submitImages = function () {
+        if ($scope.images) {
+            $scope.uploadImages($scope.images);
+        }
+    };
+
+    // upload on file select
+    $scope.uploadImages = function (files) {
+        for (var i = 0; i < files.length; i++) {
+            Upload.upload({
+                url: '/uploadImage',
+                data: {
+                    file: files[i]
+                }
+            }).then(function (resp) {
+                $scope.photosList.push(resp.data.url);
+            }, function (resp) {
+                console.log('Error status: ' + resp.statusCode);
+            }, function (evt) {
+                var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+                console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
+            });
+        }
+    };
+
+    /*Video upload*/
+    $scope.submitVideo = function () {
+        if ($scope.video) {
+            $scope.uploadVideo($scope.video);
+        }
+    };
+
+    // upload on file select
+    $scope.uploadVideo = function (file) {
+        Upload.upload({
+            url: '/uploadVideo',
+            data: {
+                file: file
+            }
+        }).then(function (resp) {
+            $scope.videoUrl = resp.data.url;
+        }, function (resp) {
+            console.log('Error status: ' + resp.statusCode);
+        }, function (evt) {
+            var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+            console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
+        });
+    };
 });
 
 app.controller('addProperty_controller', function ($scope, $http, Data, $window) {
@@ -1274,10 +1316,10 @@ app.controller('yourTrips_controller', function ($scope, $http, $sce) {
     $scope.toggleReview = function ($index) {
 
         $scope.writeReview[$index] = true;
-            //!$scope.writeReview[$index];
+        //!$scope.writeReview[$index];
     };
 
-    $scope.submitReview = function (review, userId, rating, image,$index) {
+    $scope.submitReview = function (review, userId, rating, image, $index) {
 
         if (!review) {
             console.log('No Review');
@@ -1293,7 +1335,7 @@ app.controller('yourTrips_controller', function ($scope, $http, $sce) {
         })
             .success(function (data) {
                 console.log(data);
-                $scope.reviewadded=true;
+                $scope.reviewadded = true;
             })
     };
 });

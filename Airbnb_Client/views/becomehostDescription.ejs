@@ -92,13 +92,10 @@
       </span>
                         </li>
                         <li>
-                            <a href="3" data-track="preview" class="subnav-item pull-right" id="preview-btn"
-                               title="Preview your listing as it will appear when active." target="_blank">
-
+                            <a href="" data-track="preview" class="subnav-item pull-right" id="preview-btn"
+                               title="Preview your listing as it will appear when active.">
                                 <i class="icon icon-eye"></i>
-
                                 Preview
-
                             </a>
                         </li>
                     </ul>
@@ -359,9 +356,6 @@
                                                             data-saving="basics1" ng-model="bedrooms">
 
                                                         <option disabled="" selected="" value="">Select...</option>
-
-                                                        <option value="0">Studio</option>
-
                                                         <option value="1">
                                                             1
                                                         </option>
@@ -576,38 +570,14 @@
             select-block">
                                                     <select id="basics-select-property_type" data-saving="basics2"
                                                             name="property_type">
-                                                        <option value="1" selected="selected">Apartment</option>
-                                                        <option value="2">House</option>
-                                                        <option value="3">Bed &amp; Break Fast</option>
-                                                        <option value="4">Loft</option>
-                                                        <option value="5">Townhouse</option>
-                                                        <option value="6">Condominium</option>
-                                                        <option value="7">Bungalow</option>
-                                                        <option value="8">Cabin</option>
-                                                        <option value="9">Villa</option>
-                                                        <option value="10">Castle</option>
-                                                        <option value="11">Dorm</option>
-                                                        <option value="12">Treehouse</option>
-                                                        <option value="13">Boat</option>
-                                                        <option value="14">Plane</option>
-                                                        <option value="15">Camper/RV</option>
-                                                        <option value="16">Lgloo</option>
-                                                        <option value="17">Lighthouse</option>
-                                                        <option value="18">Yurt</option>
-                                                        <option value="19">Tipi</option>
-                                                        <option value="20">Cave</option>
-                                                        <option value="21">Island</option>
-                                                        <option value="22">Chalet</option>
-                                                        <option value="23">Earth House</option>
-                                                        <option value="24">Hut</option>
-                                                        <option value="25">Train</option>
-                                                        <option value="26">Tent</option>
-                                                        <option value="27">Other</option>
+                                                        <option value="1" selected="selected">Entire home/apt</option>
+                                                        <option value="2">Private room</option>
+                                                        <option value="3">Shared room</option>
                                                     </select>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-4">
+                                        <div class="col-4" hidden>
                                             <label class="label-large">Room Type</label>
                                             <div id="room-type-select">
                                                 <div class="select
@@ -961,19 +931,52 @@
                                     <div class="row row-table">
                                         <div class="col-md-6">
                                             <div class="add-photos-button">
-                                                <input type="file" class="hide" name="photos[]" multiple="true"
-                                                       id="upload_photos" accept="image/*">
-                                                <button id="photo-uploader" class="btn btn-large row-space-2"
-                                                        style="position: relative; z-index: 0;">
-                                                    <i class="icon icon-upload"></i> Add Photos
+                                                <button class="button" ngf-select ng-model="images" name="images"
+                                                        ngf-pattern="'image/*'" multiple="true"
+                                                        ngf-accept="'image/*'" ngf-max-size="10MB"
+                                                        ngf-min-height="100"
+                                                        ngf-resize="{width: 40%, height: 40%}">Select Images
                                                 </button>
+
+                                                <button id="photo-uploader" type="button" ng-click="submitImages()"
+                                                        class="btn btn-large row-space-2"
+                                                        style="position: relative; z-index: 0;">
+                                                    <i class="icon icon-upload"></i> Click to Upload Images
+                                                </button>
+                                                </br>
+                                                Images preview:
+                                                <p ng-hide="photoP" ng-repeat="image in images">
+                                                    <img ng-repeat="image in images" ngf-src="image" height="50%"
+                                                         width="50%"/>
+                                                </p>&nbsp;
+                                                <!--<div ng-repeat="image in images" class="inline">-->
+                                                <!--<img ng-repeat="image in images" ngf-src="image" height="50%" width="50%"/>-->
+                                                <!--</div>-->
+                                                <!--&nbsp;-->
                                             </div>
                                         </div>
+                                    </div>
+                                    <div class="row row-table">
+                                        <div class="col-md-6">
+                                            <div class="add-photos-button">
+                                                <button class="button" ngf-select ng-model="video" name="video"
+                                                        ngf-pattern="'video/*'"
+                                                        ngf-accept="'video/mp4,video/x-m4v,video/*'"
+                                                        ngf-max-size="200MB"
+                                                        ngf-min-height="100"
+                                                        ngf-resize="{width: 40%, height: 40%}">Select
+                                                </button>
 
-                                        <div class="h4 text-right text-muted" id="photo_count"
-                                             ng-show="photos_list.length > 0" style="&quot;display:none;&quot;">
-                                            <small>{{ photos_list.length }} photo<span ng-show="photos_list.length > 1">s</span>
-                                            </small>
+                                                <!--<input type="file"  fileread="video" name="video" multiple="false" id="upload_video" accept="video/mp4,video/x-m4v,video/*">-->
+                                                <button id="photo-uploader" type="button" ng-click="submitVideo()"
+                                                        class="btn btn-large row-space-2"
+                                                        style="position: relative; z-index: 0;">
+                                                    <i class="icon icon-upload"></i> Click to Upload Video
+                                                </button>
+                                                </br>
+                                                Video preview:
+                                                <video controls ngf-src="video" height="50%" width="50%"></video>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -1548,6 +1551,10 @@
 
 <script src="js/common.js"></script>
 <script type="application/javascript" src="controller/common_controller.js"></script>
+
+<script src="https://angular-file-upload.appspot.com/js/ng-file-upload-shim.js"></script>
+<script src="https://angular-file-upload.appspot.com/js/ng-file-upload.js"></script>
+
 <div class="tooltip tooltip-bottom-middle" role="tooltip" aria-hidden="true">
     <p class="panel-body">To sign up, you must be 18 or older. Other people won’t see your birthday.</p>
 </div>
