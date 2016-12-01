@@ -16,7 +16,7 @@ exports.doSearch = function (msg, callback) {
     //added
     var user_id = msg.user_id;
     var location = msg.location;
-    var property_type = (msg.property_type.trim().length === 0) ? ["Entire home/apt", "Private room", "Shared room"] : msg.property_type.split(",");
+    var property_type = (!msg.property_type || msg.property_type.trim().length === 0) ? ["Entire home/apt", "Private room", "Shared room"] : msg.property_type.split(",");
     var checkin = toDate(msg.checkin);
     var checkout = toDate(msg.checkout);
     var checkinmillis = checkin.getTime();
