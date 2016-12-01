@@ -13,8 +13,6 @@ var Trip = require('../model/trip');
 var ssn = require('ssn');
 
 exports.editUser = function (msg, callback) {
-
-
     var firstName = msg.firstName;
     var lastName = msg.lastName;
     var email = msg.email;
@@ -24,13 +22,9 @@ exports.editUser = function (msg, callback) {
     var zip = msg.zip;
     var userId = msg.userId;
 
-
-    console.log('In edit user');
-
     User.update({_id: userId},
         {
             $set: {
-
                 firstName: firstName,
                 lastName: lastName,
                 address: address,
@@ -38,18 +32,14 @@ exports.editUser = function (msg, callback) {
                 state: state,
                 zip: zip,
                 email: email
-
             }
         },
-
         function (err, user) {
             if (err) {
-
                 console.log(err);
                 callback(err, null);
             }
             else {
-
                 callback(null, user);
             }
         });
@@ -57,20 +47,13 @@ exports.editUser = function (msg, callback) {
 
 
 exports.loadEditUserPage = function (msg, callback) {
-
-
     var userId = msg.userId;
-    console.log('In edit user');
-
     User.findOne({_id: userId}, function (err, user) {
         if (err) {
-
             console.log(err);
             callback(err, null);
         }
         else {
-            console.log("USER IS");
-            console.log(user);
             callback(null, user);
         }
     });
@@ -78,7 +61,6 @@ exports.loadEditUserPage = function (msg, callback) {
 
 
 exports.uploadProfileImage = function (msg, callback) {
-
 
     var userId = msg.userId;
     var fileName = msg.fileName;
@@ -89,97 +71,61 @@ exports.uploadProfileImage = function (msg, callback) {
                 profileImage: fileName
             }
         },
-
         function (err, user) {
             if (err) {
-
                 console.log(err);
                 callback(err, null);
             }
             else {
-
                 callback(null, user);
             }
         });
-
 };
 
 exports.loadProfilePhotoPage = function (msg, callback) {
 
     var userId = msg.userId;
-
     User.findOne({_id: userId}, function (err, user) {
         if (err) {
-
             console.log(err);
             callback(err, null);
         }
         else {
-            console.log("USER IS");
-            console.log(user);
             callback(null, user);
         }
     });
-
-
 };
 
 exports.loadPaymentPage = function (msg, callback) {
 
-
     var userId = msg.userId;
-
     User.findOne({_id: userId}, function (err, user) {
 
         if (err) {
-
-            console.log("Error occurred");
             console.log(err);
             callback(err, null);
-
         }
         else {
-
-            console.log(user);
             callback(null, user);
-
         }
-
     });
-
-
 };
 
 exports.getPropertyDetails = function (msg, callback) {
-
-
     // var userId = msg.userId;
     var propertyId = msg.propertyId;
-
     Property.findOne({_id: propertyId}).populate('mediaId').populate("hostId").exec(function (err, result) {
-
         if (err) {
-
-            console.log("ERROR TO GET PROPERTY DETAILS");
             console.log(err);
             callback(err, null);
         }
         else {
-
-            console.log("property ");
-            console.log(result);
             callback(null, result);
-
         }
-
     });
-
-
 };
 
 exports.confirmBooking = function (msg, callback) {
-
-
     var userId = msg.userId;
     var propertyId = msg.propertyId;
     var cardNumber = msg.cardNumber;
@@ -203,10 +149,7 @@ exports.confirmBooking = function (msg, callback) {
             }
         }, function (err, user) {
             if (err) {
-                console.log("Error to save Credit card details");
                 console.log(err);
-            } else {
-                console.log("Credit Card details saved");
             }
         });
 
@@ -224,47 +167,30 @@ exports.confirmBooking = function (msg, callback) {
     trip.total = Number(price) * Number(days);
     trip.createdDate = new Date().getTime();
 
-    console.log("TRIP IS");
-    console.log(trip);
-
     trip.save(function (err) {
-
         if (err) {
-            console.log("ERROR TO SAVE TRIP");
             console.log(err);
             callback(err, null);
         }
         else {
-            console.log("TRIP SAVED");
             callback(null, trip);
         }
     });
 };
 
 exports.checkHost = function (msg, callback) {
-
-
     var userId = msg.userId;
-
     User.findOne({_id: userId}, function (err, user) {
 
         if (err) {
-
             console.log(err);
             callback(err, null);
-
         }
         else {
-
-            console.log("IS HOST " + user.isHost);
             callback(null, user);
         }
-
     });
-
-
 };
-
 
 function toDate(dateStr) {
     var parts = dateStr.split("-");

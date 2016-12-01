@@ -107,8 +107,9 @@
                                     <ul class="unstyled button-list list-unstyled">
                                         <li class="row-space-1">
                                             <a ng-click="writeReview[$index]=true" href="#">Write Review</a>
-                                            <div ng-show="writeReview[$index]"><textarea ng-model="review[trip._id]" rows="4"
-                                                                                 cols="10"></textarea>
+                                            <div ng-show="writeReview[$index]"><textarea ng-model="review[trip._id]"
+                                                                                         rows="4"
+                                                                                         cols="10"></textarea>
                                                 <select ng-model="rating">
                                                     <option>1</option>
                                                     <option>2</option>
@@ -127,12 +128,12 @@
                                                 Itinerary</a>
                                         </li>
                                         <li class="row-space-1">
-                                            <a class="button-steel" href="#">View receipt</a>
+                                            <a class="button-steel" href="/receipt?tripId={{trip._id}}">View
+                                                receipt</a>
                                         </li>
                                     </ul>
                                 </td>
                             </tr>
-
                             </tbody>
                         </table>
                     </div>

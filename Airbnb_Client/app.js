@@ -85,7 +85,7 @@ app.post('/loadPaymentPage', account.loadPaymentPage);
 app.post('/getPropertyDetails', account.getPropertyDetails);
 app.post('/confirmBooking', account.confirmBooking);
 
-app.get('/receipt/:billingID', account_management.receiptPage);
+app.get('/receipt', account_management.receiptPage);
 
 ////////////////////////////////////////////
 

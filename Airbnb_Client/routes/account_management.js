@@ -37,8 +37,6 @@ exports.accountPaymentMethodPage = function (req, res, next) {
 };
 
 exports.updatePassword = function (req, res, next) {
-    console.log("in routes account_management");
-    console.log(req.param("old_password"), req.param("new_password"));
     var old_password = req.param("old_password");
     var new_password = req.param("new_password");
     var msg_payload = {
@@ -46,10 +44,8 @@ exports.updatePassword = function (req, res, next) {
         new_password: new_password,
         email: req.session.email
     };
-
     mq_client.make_request('updatePassword_queue', msg_payload, function (err, user) {
         if (err) {
-
             console.log(err);
             res.send("invalid");
         } else if (user) {
@@ -61,13 +57,10 @@ exports.updatePassword = function (req, res, next) {
 };
 
 exports.updatePaymentMethod = function (req, res, next) {
-    console.log("in routes account_management");
-    console.log(req.param("cvv"), req.param("cno"), req.param("expm"), req.param("expy"));
     var cvv = req.param("cvv");
     var cno = Number(req.param("cno"));
     var expm = req.param("expm");
     var expy = req.param("expy");
-    console.log(expm + expy);
     var msg_payload = {
         cvv: cvv,
         cno: cno,
@@ -75,53 +68,41 @@ exports.updatePaymentMethod = function (req, res, next) {
         expy: expy,
         email: req.session.email
     };
-
     mq_client.make_request('updatePaymentMethod_queue', msg_payload, function (err, user) {
         if (err) {
             console.log(err);
             res.send(err);
         } else {
-            console.log("responsed");
             res.send("OK");
         }
     });
 };
 
 exports.payinTransactions = function (req, res, next) {
-    console.log("in pay in transactions");
-
     var uid = req.session.userId;
-
     var msg_payload = {
         uid: uid
     };
-
     mq_client.make_request('payinTransaction_queue', msg_payload, function (err, user) {
         if (err) {
             console.log(err);
             res.send(err);
         } else {
-            console.log("payinTransaction_queue response");
             res.send(user.data);
         }
     });
 };
 
 exports.payoutTransactions = function (req, res, next) {
-    console.log("in payout transactions");
-
     var uid = req.session.userId;
-
     var msg_payload = {
         uid: uid
     };
-
     mq_client.make_request('payoutTransactions_queue', msg_payload, function (err, user) {
         if (err) {
             console.log(err);
             res.send(err);
         } else {
-            console.log("payoutTransactions_queue queue");
             res.send(user.data);
         }
     });
@@ -129,9 +110,11 @@ exports.payoutTransactions = function (req, res, next) {
 
 exports.receiptPage = function (req, res, next) {
 
-    var billingID = req.params.billingID;
+    var billingID = req.param("billId");
+    var tripId = req.param("tripId");
     var msg_payload = {
-        bID: billingID
+        bID: billingID,
+        tripId: tripId
     };
 
     mq_client.make_request('receiptPage_queue', msg_payload, function (err, user) {
@@ -139,35 +122,28 @@ exports.receiptPage = function (req, res, next) {
             console.log(err);
             res.send(err);
         } else {
-            console.log("receiptPage response");
             var user_data = {
                 "email": req.session.email,
                 "isLoggedIn": req.session.isLoggedIn,
                 "firstname": req.session.firstName,
+                "profileImg": req.session.profileImg,
                 "data": user.data
             };
-            console.log(user_data);
             res.render('receipt', user_data);
         }
     });
-
 };
 
 exports.cardDetails = function (req, res, next) {
-
     var msg_payload = {
         uid: req.session.email
     };
-
     mq_client.make_request('cardDetail_queue', msg_payload, function (err, user) {
         if (err) {
             console.log(err);
             res.send(err);
         } else {
-            console.log("card Details");
-            console.log(user);
             res.send(user.data);
         }
     });
-
 };
