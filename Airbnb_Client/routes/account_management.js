@@ -117,7 +117,7 @@ exports.receiptPage = function (req, res, next) {
         tripId: tripId
     };
 
-    mq_client.make_request('receiptPage_queue', msg_payload, function (err, user) {
+    mq_client.make_request('receiptPage_queue', msg_payload, function (err, bill) {
         if (err) {
             console.log(err);
             res.send(err);
@@ -127,7 +127,7 @@ exports.receiptPage = function (req, res, next) {
                 "isLoggedIn": req.session.isLoggedIn,
                 "firstname": req.session.firstName,
                 "profileImg": req.session.profileImg,
-                "data": user.data
+                "data": bill.data
             };
             res.render('receipt', user_data);
         }

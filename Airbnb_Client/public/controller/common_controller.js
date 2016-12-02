@@ -1256,7 +1256,7 @@ app.controller('profile_controller', function ($scope, $http, $window) {
 
     $scope.initProfile = function (ssn) {
         var userSSN = window.location.pathname.split('/')[2] || "Unknown";
-        console.log(ssn);
+        console.log(userSSN);
         if (userSSN == "Unknown") {
             userSSN = ssn;
         }
@@ -1311,12 +1311,12 @@ app.controller('profile_controller', function ($scope, $http, $window) {
     };
 });
 
-app.controller('yourTrips_controller', function ($scope, $http, $sce,Upload) {
+app.controller('yourTrips_controller', function ($scope, $http, $sce, Upload) {
 
     $scope.isItinerary = false;
     $scope.toggle = [];
-    $scope.writeReviewPro=[];
-    $scope.images=[];
+    $scope.writeReviewPro = [];
+    $scope.images = [];
 
     $http({
         method: 'GET',
@@ -1329,6 +1329,23 @@ app.controller('yourTrips_controller', function ($scope, $http, $sce,Upload) {
             }
             $scope.trips = data;
         });
+
+    $scope.deleteTrip = function (tripId) {
+
+        $http({
+            method: 'DELETE',
+            url: '/deleteTrip?tripId=' + tripId
+        })
+            .success(function (data) {
+                console.log(data);
+                for (var i = 0; i < $scope.trips.length; i++) {
+                    if ($scope.trips[i]._id === tripId) {
+                        $scope.trips.splice(i, 1);
+                        break;
+                    }
+                }
+            })
+    };
 
     $scope.viewItinerary = function (tripId) {
 
@@ -1371,7 +1388,7 @@ app.controller('yourTrips_controller', function ($scope, $http, $sce,Upload) {
     };
 
 
-    $scope.submitReviewtoProperty = function (review, userId, rating, propertyId,index) {
+    $scope.submitReviewtoProperty = function (review, userId, rating, propertyId, index) {
 
         if (!review) {
             console.log('No Review');
@@ -1388,22 +1405,22 @@ app.controller('yourTrips_controller', function ($scope, $http, $sce,Upload) {
         }).then(function (resp) {
 
             console.log(resp.data);
-            if(resp.data.statusCode==200){
-                console.log("Stause code "+resp.data.statusCode);
+            if (resp.data.statusCode == 200) {
+                console.log("Stause code " + resp.data.statusCode);
                 var url = resp.data.url;
                 $http({
                     method: 'POST',
                     url: '/addPropertyReview',
-                    data: {"hostId": userId, "review": review, "rating": rating, "url": url, "propertyId":propertyId}
+                    data: {"hostId": userId, "review": review, "rating": rating, "url": url, "propertyId": propertyId}
                 })
                     .success(function (data) {
                         console.log(data);
 
-                        if(data.statusCode==200){
+                        if (data.statusCode == 200) {
                             $scope.reviewadded = true;
                             console.log("Review Added with image");
                         }
-                        else{
+                        else {
                             console.log("Error occured to add review");
                         }
 
@@ -1411,34 +1428,34 @@ app.controller('yourTrips_controller', function ($scope, $http, $sce,Upload) {
                     })
 
             }
-            else if(resp.data.statusCode==201){
+            else if (resp.data.statusCode == 201) {
 
                 $http({
                     method: 'POST',
                     url: '/addPropertyReview',
-                    data: {"hostId": userId, "review": review, "rating": rating,"propertyId":propertyId}
+                    data: {"hostId": userId, "review": review, "rating": rating, "propertyId": propertyId}
                 })
                     .success(function (data) {
 
-                        if(data.statusCode==200){
+                        if (data.statusCode == 200) {
                             $scope.reviewadded = true;
                             console.log("Review Added without image");
                         }
-                        else{
+                        else {
                             console.log("Error occured to add review");
                         }
 
                     })
 
             }
-            else{
+            else {
                 console.log("Error 401");
             }
-                
+
         }, function (resp) {
-                
+
             console.log('Error status: ' + resp.statusCode);
-                
+
         });
 
     };
@@ -1448,7 +1465,7 @@ app.controller('yourTrips_controller', function ($scope, $http, $sce,Upload) {
 
 app.controller('activeListings_controller', function ($scope, $http, $window) {
 
-    $scope.reviewadded=false;
+    $scope.reviewadded = false;
     $scope.activeListings = true;
     $scope.pendingListings = false;
     $scope.reservationListings = false;
@@ -1543,7 +1560,7 @@ app.controller('activeListings_controller', function ($scope, $http, $window) {
 
     $scope.submitReview = function (review, userId, rating, image) {
 
-        $scope.reviewadded=false;
+        $scope.reviewadded = false;
         if (!review) {
             console.log('No Review');
             return;
@@ -1559,8 +1576,8 @@ app.controller('activeListings_controller', function ($scope, $http, $window) {
         })
             .success(function (data) {
                 console.log(data);
-                
-                $scope.reviewadded=true;
+
+                $scope.reviewadded = true;
             })
     };
 });

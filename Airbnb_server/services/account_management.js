@@ -118,7 +118,7 @@ exports.receiptPage = function (msg, callback) {
         .populate('propertyId')
         .populate('hostId')
         .populate('userId')
-        .populate('tripID')
+        .populate('tripId')
         .exec(function (err, result) {
             if (err) {
                 callback(err, null);

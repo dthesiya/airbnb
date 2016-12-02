@@ -14,7 +14,6 @@ exports.getUserProfile = function (msg, callback) {
             callback(err, null);
         } else {
             result.createdDate = fecha.format(((result.createdDate) ? new Date(result.createdDate) : new Date()), 'MMMM YYYY');
-            console.log(result);
             callback(null, result);
         }
     });
@@ -28,9 +27,7 @@ exports.getUserReview = function (msg, callback) {
             if (err) {
                 console.log(err);
                 callback(err, null);
-            }
-            else {
-                console.log(result);
+            } else {
                 callback(null, result);
             }
         });
@@ -43,9 +40,7 @@ exports.getHostReview = function (msg, callback) {
             if (err) {
                 console.log(err);
                 callback(err, null);
-            }
-            else {
-                console.log(result);
+            } else {
                 callback(null, result);
             }
         });
@@ -63,9 +58,7 @@ exports.addUserReview = function (msg, callback) {
         if (err) {
             console.log(err);
             callback(err, null);
-        }
-        else {
-            console.log(err);
+        } else {
             callback(null, result);
         }
     });
@@ -84,9 +77,7 @@ exports.addHostReview = function (msg, callback) {
         if (err) {
             console.log(err);
             callback(err, null);
-        }
-        else {
-            console.log(err);
+        } else {
             callback(null, result);
         }
     });
@@ -100,7 +91,6 @@ exports.deleteUser = function (msg, callback) {
         if (!err) {
             callback(null, result);
         } else {
-            console.log(err);
             callback(err, null);
         }
     });

@@ -179,7 +179,7 @@
                             <table class="table table-bordered payment-table">
                                 <tbody>
                                 <tr>
-                                    <th class="receipt-label"><%= Math.floor(data[0].total / data[0].propertyId.price) %>
+                                    <th class="receipt-label"><%= data[0].tripId.days %>
                                         Nights X $<%= data[0].propertyId.price %></th>
                                     <td class="receipt-amount">
                                         &#36;<%= (data[0].total) %>
