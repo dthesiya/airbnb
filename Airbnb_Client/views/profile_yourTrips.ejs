@@ -122,7 +122,7 @@
                                                 </button>
                                             </div>
                                         </li>
-                                        <li class="row-space-1">
+                                        <li ng-show="{{trip.isAccepted === 'Accepted'}}" class="row-space-1">
                                             <a class="button-steel" href="/receipt?tripId={{trip._id}}">View
                                                 receipt</a>
                                         </li>

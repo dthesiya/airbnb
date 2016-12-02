@@ -180,12 +180,16 @@ exports.confirmBooking = function (msg, callback) {
 exports.checkHost = function (msg, callback) {
     var userId = msg.userId;
     User.findOne({_id: userId}, function (err, user) {
-
         if (err) {
             console.log(err);
             callback(err, null);
-        }
-        else {
+        } else {
+            if (user) {
+                if (!user.isHost || user.isHost === false) {
+                    user.isHost = true;
+                    user.save();
+                }
+            }
             callback(null, user);
         }
     });

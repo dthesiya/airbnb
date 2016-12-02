@@ -57,12 +57,14 @@ exports.doSearch = function (msg, callback) {
                 if (!properties) {
                     callback(null, null);
                 } else {
-                    for (var i = 0; i < properties.length; i++) {
+                    for (let i = 0; i < properties.length; i++) {
                         Trip.aggregate([
                                 {
                                     $match: {
                                         $and: [
                                             {propertyId: properties[i]._id},
+                                            {isAccepted: true},
+                                            {isDeleted: false},
                                             {
                                                 $or: [{
                                                     $and: [
@@ -78,6 +80,11 @@ exports.doSearch = function (msg, callback) {
                                                     $and: [
                                                         {checkIn: {$eq: checkinmillis}},
                                                         {checkOut: {$eq: checkoutmillis}}
+                                                    ]
+                                                }, {
+                                                    $and: [
+                                                        {checkIn: {$gt: checkinmillis}},
+                                                        {checkOut: {$lt: checkoutmillis}}
                                                     ]
                                                 }
                                                 ]
@@ -97,10 +104,10 @@ exports.doSearch = function (msg, callback) {
                     }
 
                     setTimeout(function (flag) {
-                        for (var i = 0; i < properties.length; i++) {
+                        for (let i = 0; i < properties.length; i++) {
                             var record = properties[i];
                             var exists = false;
-                            for (var j = 0; j < propertiesIds.length; j++) {
+                            for (let j = 0; j < propertiesIds.length; j++) {
                                 if (new ObjectId(propertiesIds[j]).equals(new ObjectId(record._id))) {
                                     exists = true;
                                     break;

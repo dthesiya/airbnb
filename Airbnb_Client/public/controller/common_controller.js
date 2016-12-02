@@ -704,6 +704,23 @@ app.controller('room_details_controller', function ($scope, $window, $location, 
         });
     });
 
+    $scope.placeBid = function () {
+        $http
+        ({
+            method: 'POST',
+            url: '/updateBasePrice',
+            data: {
+                "propertyId": $scope.room_result.id,
+                "maxBidPrice": $scope.bidAmount,
+                "hostId": $scope.room_result.users.id
+            }
+        }).success(function (data) {
+            if (data.statusCode == 200) {
+                $scope.room_result.rooms_price.night = $scope.bidAmount;
+            }
+        });
+    }
+
     $scope.book = function () {
         var days = daydiff(toDate($scope.checkin), toDate($scope.checkout));
         var change_url = "/getPaymentPage?";
@@ -752,8 +769,6 @@ app.controller('payment_controller', function ($scope, $window, $location, $http
         $http.post('/loadPaymentPage')
             .success(function (data) {
                 if (data.statusCode == 200) {
-                    console.log("USER");
-                    console.log(data.data);
                     var user = data.data;
                     $scope.cardNumber = user.cardNumber;
                     $scope.cvv = user.cvv;
@@ -763,13 +778,11 @@ app.controller('payment_controller', function ($scope, $window, $location, $http
                     var ccDate = user.expDate.split("/");
                     $scope.expMonth = ccDate[0];
                     $scope.expYear = ccDate[1];
-
                 } else {
                     console.log("Error occured to get data");
                 }
             })
             .error(function (data) {
-                console.log("Error to get data");
                 console.log(data);
             });
 
@@ -938,6 +951,15 @@ app.controller('addListing_controller', function ($scope, $http, Data, $window, 
 
     $scope.photosList = [];
 
+    $scope.biddingChange = function () {
+        if ($scope.bidding == true) {
+            $scope.biddingDiv = false;
+        } else {
+            $scope.biddingDiv = true;
+        }
+
+    }
+
     $scope.loadPhotos = function () {
         $scope.photoP = false;
     }
@@ -1028,9 +1050,11 @@ app.controller('addListing_controller', function ($scope, $http, Data, $window, 
                 "price": $scope.base_price,
                 "latitude": JSON.parse($scope.formData).latitude,
                 "longitude": JSON.parse($scope.formData).longitude,
-                "createdDate": Date.now() / 1000,
+                "createdDate": Date.now(),
                 "isApproved": false,
-                "isBidding": $scope.bidding
+                "isBidding": $scope.bidding,
+                "startDate": toDate($scope.startDate).getTime(),
+                "endDate": toDate($scope.endDate).getTime()
             }
         }).success(function (data) {
             if (data.result.statusCode == 200) {

@@ -33,7 +33,7 @@ exports.becomeHost = function (req, res) {
                 "firstname": req.session.firstName,
                 "profileImg": req.session.profileImg
             };
-            if (user.isHost == true) {
+            if (user.isHost == true && user.isApproved == true) {
                 ejs.renderFile('../views/becomeHostMainPage.ejs', user_data, function (err, result) {
                     res.end(result);
                 });
@@ -161,6 +161,8 @@ exports.addNewListing = function (request, response) {
         "createdDate": request.param("createdDate"),
         "isApproved": request.param("isApproved"),
         "isBidding": request.param("isBidding"),
+        "startDate": request.param("startDate"),
+        "endDate": request.param("endDate"),
         "media": mediaUrls,
         "video": video
     }

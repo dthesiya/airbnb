@@ -8,7 +8,6 @@ var hostReviewSchema = new Schema({
     rating: {type: Number},
     imageUrl: {type: String},
     createdDate: {type: Number}
-
 });
 
 var HostReview = mongoose.model('hostReview', hostReviewSchema,'hostReview');
