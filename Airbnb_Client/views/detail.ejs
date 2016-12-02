@@ -135,9 +135,18 @@
 
     <span class="cover-img-container img-box1" data-hook="cover-img-container">
 
-      <div id="frontimage_slider" class="cover-img" data-hook="img-lg" style="background-image:
+      <!--<div id="frontimage_slider" class="cover-img" data-hook="img-lg" style="background-image:
                   url(images/{{room_result.images[0]}})">
-      </div>
+      </div>-->
+        <style>
+            video {
+                -webkit-transform: scaleX(2);
+                -moz-transform: scaleX(2);
+            }
+        </style>
+
+            <video class="col-md-12" autoplay loop ngf-src="video_url"
+                   height="100%"></video>
 
         </span>
         </div>
@@ -153,7 +162,7 @@
 
                                     <div class="media-photo-badge">
 
-                                        <a href=""
+                                        <a href="profile/{{room_result.users.userSSN}}"
                                            class="media-photo media-round">
 
                                             <img alt="User Profile Image" class="host-profile-image"
@@ -202,7 +211,7 @@
                             <div class="row">
 
                                 <div class="col-md-3 text-muted text-center hide-sm">
-                                    <a href="" class="link-reset text-wrap">{{room_result.users.first_name}}</a>
+                                    <a href="profile/{{room_result.users.userSSN}}" class="link-reset text-wrap">{{room_result.users.first_name}}</a>
                                 </div>
 
                                 <div class="col-md-9">
@@ -1359,11 +1368,11 @@ top: -34px;">
                             </h4>
                             <div class="row">
                                 <div class="col-md-3 text-center">
-                                    <a href="profile/{{room_result.users.id}}"
+                                    <a href="profile/{{room_result.users.userSSN}}"
                                        class="media-photo media-round"><img alt="{{room_result.users.first_name}}"
                                                                             data-pin-nopin="true" height="90"
                                                                             src="images/{{room_result.users.profile_picture.src}}"
-                                                                            title="Tony" width="90"></a>
+                                                                            width="90"></a>
                                 </div>
                                 <div class="col-md-9">
                                     <div class="row row-condensed space-2">
@@ -1387,7 +1396,7 @@ top: -34px;">
                                     <div class="row row-condensed">
                                         <div class="col-sm-4 col-md-3">
                                             <a class="link-reset" rel="nofollow"
-                                               href="/host?hostId={{room_result.users.id}}">
+                                               href="profile/{{room_result.users.userSSN}}">
                                                 <div class="text-center text-wrap">
                                                     <div class="badge-pill h3">
                                                         <span class="badge-pill-count">{{hostReviews.count}}</span>

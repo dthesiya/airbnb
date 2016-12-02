@@ -13,7 +13,7 @@ exports.getUserProfile = function (msg, callback) {
             console.log(err);
             callback(err, null);
         } else {
-            result.createdDate = fecha.format(new Date(result.createdDate), 'MMMM YYYY');
+            result.createdDate = fecha.format(((result.createdDate) ? new Date(result.createdDate) : new Date()), 'MMMM YYYY');
             console.log(result);
             callback(null, result);
         }

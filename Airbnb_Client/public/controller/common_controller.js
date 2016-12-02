@@ -697,6 +697,7 @@ app.controller('room_details_controller', function ($scope, $window, $location, 
     var url = "/detail?propertyId=" + room_id;
     $http.get(url).then(function (response) {
         $scope.room_result = response.data;
+        $scope.video_url = "videos/" + $scope.room_result.video_url;
         url = "/hostReviewsCount?hostId=" + $scope.room_result.users.id;
         $http.get(url).then(function (response) {
             $scope.hostReviews = response.data;
@@ -1296,7 +1297,7 @@ app.controller('yourTrips_controller', function ($scope, $http, $sce) {
         url: '/getUserTrips'
     })
         .success(function (data) {
-            for(var i = 0; i < data.length; i++){
+            for (var i = 0; i < data.length; i++) {
                 data[i].checkIn = new Date(data[i].checkIn).toLocaleDateString();
                 data[i].checkOut = new Date(data[i].checkOut).toLocaleDateString();
             }
