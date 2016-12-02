@@ -793,6 +793,7 @@ app.controller('payment_controller', function ($scope, $window, $location, $http
                 $scope.checkout = checkout;
                 $scope.totalperday = totalperday;
                 $scope.days = days;
+                $scope.imageUrl = property.mediaId.imageUrl[0];
             } else {
                 console.log("Error occured to get property data");
             }
