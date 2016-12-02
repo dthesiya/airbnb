@@ -94,14 +94,21 @@ exports.uploadImage = function (request, response) {
     console.log(request.files);
     var fileName = Date.now() + request.session.userId + '.jpg';
     var image = request.files.file;
-    image.mv('../public/images/' + fileName, function (err) {
-        if (err) {
-            console.log(err);
-            response.send({statusCode: 401});
-        } else {
-            response.send({statusCode: 200, url: fileName});
-        }
-    });
+
+    if(image){
+        image.mv('../public/images/' + fileName, function (err) {
+            if (err) {
+                console.log(err);
+                response.send({statusCode: 401});
+            } else {
+                response.send({statusCode: 200, url: fileName});
+            }
+        });
+    }
+    else{
+
+        response.send({statusCode: 201});
+    }
 }
 
 exports.uploadVideo = function (request, response) {

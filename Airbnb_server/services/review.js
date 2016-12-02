@@ -98,3 +98,25 @@ exports.getHostReviewsCount = function (msg, callback) {
         }
     });
 };
+
+
+exports.addPropertyReview = function (msg,callback) {
+
+    var newpropertyReview = new propertyReview();
+    newpropertyReview.userId = mongoose.Types.ObjectId(msg.userId);
+    newpropertyReview.ratting = msg.ratting;
+    newpropertyReview.review = msg.review;
+    if(msg.imageUrl) {
+        newpropertyReview.imageUrl = msg.imageUrl;
+    }
+    newpropertyReview.createdDate = msg.createdDate;
+    newpropertyReview.propertyId=mongoose.Types.ObjectId(msg.propertyId);
+
+    console.log("ALL Details to save");
+    console.log(newpropertyReview);
+
+    
+    
+
+
+};

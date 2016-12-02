@@ -89,7 +89,7 @@
                                 <th>Options</th>
                             </tr>
 
-                            <tr ng-repeat="trip in trips" ng-init="writeReview=[]">
+                            <tr ng-repeat="trip in trips" ng-init="writeReview=[] writeReviewPro=[]">
                                 <td class="status">
                                 <span class="label label-orange label-success">
                                   {{trip.isAccepted}}
@@ -106,7 +106,7 @@
                                 <td>
                                     <ul class="unstyled button-list list-unstyled">
                                         <li class="row-space-1">
-                                            <a ng-click="writeReview[$index]=!writeReview[$index]" href="#">Write Review</a>
+                                            <a ng-click="writeReview[$index]=!writeReview[$index]" href="#">Write Review to Host</a>
                                             <div ng-show="writeReview[$index]"><textarea ng-model="review[trip._id]"
                                                                                          rows="4"
                                                                                          cols="10"></textarea>
@@ -117,7 +117,31 @@
                                                     <option>4</option>
                                                     <option>5</option>
                                                 </select>
-                                                <button ng-click="submitReview(review[trip._id], trip.hostId._id, rating,$index)"
+                                                <button ng-click="submitReviewtoHost(review[trip._id], trip.hostId._id, rating,$index)"
+                                                        type="button" class="btn btn-primary btn">
+                                                    Submit Review
+                                                </button>
+                                            </div>
+                                        </li>
+                                        <li class="row-space-1">
+                                            <a ng-click="writeReviewPro[$index]=!writeReviewPro[$index]" href="#">Write Review to Property</a>
+                                            <div ng-show="writeReviewPro[$index]"><textarea ng-model="review[trip._id]"
+                                                                                         rows="4"
+                                                                                         cols="10"></textarea>
+                                                <select ng-model="rating">
+                                                    <option>1</option>
+                                                    <option>2</option>
+                                                    <option>3</option>
+                                                    <option>4</option>
+                                                    <option>5</option>
+                                                </select>
+                                                <button class="button" ngf-select ng-model="images" name="images"
+                                                        ngf-pattern="'image/*'" multiple="true"
+                                                        ngf-accept="'image/*'" ngf-max-size="10MB"
+                                                        ngf-min-height="100"
+                                                        ngf-resize="{width: 40%, height: 40%}">Select Images
+                                                </button>
+                                                <button ng-click="submitReviewtoProperty(review[trip._id], trip.hostId._id, rating, trip.propertyId._id)"
                                                         type="button" class="btn btn-primary btn">
                                                     Submit Review
                                                 </button>
@@ -260,7 +284,6 @@
 
 <script src="../js/common.js"></script>
 <script type="application/javascript" src="controller/common_controller.js"></script>
-
 
 <script src="https://angular-file-upload.appspot.com/js/ng-file-upload-shim.js"></script>
 <script src="https://angular-file-upload.appspot.com/js/ng-file-upload.js"></script>

@@ -1285,7 +1285,7 @@ app.controller('profile_controller', function ($scope, $http, $window) {
     };
 });
 
-app.controller('yourTrips_controller', function ($scope, $http, $sce) {
+app.controller('yourTrips_controller', function ($scope, $http, $sce,Upload) {
 
     $scope.isItinerary = false;
     $scope.toggle = [];
@@ -1319,7 +1319,7 @@ app.controller('yourTrips_controller', function ($scope, $http, $sce) {
         //!$scope.writeReview[$index];
     };
 
-    $scope.submitReview = function (review, userId, rating, image, $index) {
+    $scope.submitReviewtoHost = function (review, userId, rating, image, $index) {
 
         if (!review) {
             console.log('No Review');
@@ -1338,6 +1338,65 @@ app.controller('yourTrips_controller', function ($scope, $http, $sce) {
                 $scope.reviewadded = true;
             })
     };
+
+
+    $scope.submitReviewtoProperty = function (review, userId, rating, propertyId) {
+
+        if (!review) {
+            console.log('No Review');
+            return;
+        }
+        console.log(rating);
+        console.log(review, userId);
+
+        Upload.upload({
+            url: '/uploadImage',
+            data: {
+                file: $scope.images
+            }
+        }).then(function (resp) {
+
+            if(resp.data.statusCode=200){
+
+                var url = resp.data.url;
+                $http({
+                    method: 'POST',
+                    url: '/addPropertyReview',
+                    data: {"hostId": userId, "review": review, "rating": rating, "url": url, "propertyId":propertyId}
+                })
+                    .success(function (data) {
+                        console.log(data);
+                        console.log("Review Added with image");
+                        $scope.reviewadded = true;
+                    })
+
+            }
+            else if(resp.data.statusCode=201){
+
+                $http({
+                    method: 'POST',
+                    url: '/addPropertyReview',
+                    data: {"hostId": userId, "review": review, "rating": rating,"propertyId":propertyId}
+                })
+                    .success(function (data) {
+                        console.log(data);
+                        console.log("Review Added without image");
+                        $scope.reviewadded = true;
+                    })
+
+            }
+            else{
+                console.log("Error 401");
+            }
+                
+        }, function (resp) {
+                
+            console.log('Error status: ' + resp.statusCode);
+                
+        });
+
+    };
+
 });
 
 

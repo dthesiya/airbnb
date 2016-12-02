@@ -167,3 +167,34 @@ exports.addHostReview = function (request, response) {
 
     });
 };
+
+exports.addPropertyReview = function (req,res) {
+
+    console.log("Add property review routes");
+    var msg_payload =
+    {
+        userId: req.session.userId,
+        hostId: req.body.hostId,
+        review: req.body.review,
+        rating: req.body.rating,
+        imageUrl: req.body.url,
+        propertyId:req.body.propertyId,
+        createdDate: Date.now()
+    }
+
+    mq_client.make_request('addPropertyReview_queue', msg_payload, function (err, result) {
+
+        if (err) {
+            console.log(err);
+            response.send({statusCode: 401});
+        }
+        else {
+            response.send({statusCode: 200});
+        }
+
+    });
+
+
+
+
+};
