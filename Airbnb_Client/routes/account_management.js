@@ -147,3 +147,18 @@ exports.cardDetails = function (req, res, next) {
         }
     });
 };
+
+exports.deleteBill = function (request, response) {
+
+    var billId = request.param("billId");
+    var msg_payload = {billId: billId};
+    mq_client.make_request('DeleteBill_queue', msg_payload, function (err, result) {
+        if (!err) {
+            response.status(200);
+            response.end();
+        } else {
+            response.status(400);
+            response.end();
+        }
+    });
+};

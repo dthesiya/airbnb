@@ -13,7 +13,8 @@ var tripSchema = new Schema({
     createdDate: {type: Number},
     price:{type: Number},
     days : {type:Number},
-    total: {type:Number}
+    total: {type:Number},
+    isDeleted: {type: Boolean, default: false}
 });
 
 var Trip = mongoose.model('trip', tripSchema,'trip');

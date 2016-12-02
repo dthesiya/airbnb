@@ -11,6 +11,7 @@ var billingSchema = new Schema({
     total: {type: Number},
     createdDate: {type: Number},
     tripId: {type: Schema.Types.ObjectId, ref: 'trip'},
+    isDeleted: {type: Boolean, default: false}
 });
 
 var Billing = mongoose.model('billing', billingSchema, 'billing');

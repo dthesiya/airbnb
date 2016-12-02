@@ -54,7 +54,6 @@ exports.doSearch = function (msg, callback) {
                     console.log(err);
                     callback(err, null);
                 }
-                console.log(properties);
                 if (!properties) {
                     callback(null, null);
                 } else {
@@ -87,10 +86,8 @@ exports.doSearch = function (msg, callback) {
                                     }
 
                                 }], function (err, prop) {
-                                console.log(properties);
                                 if (properties[i] && prop.length > 0 && new ObjectId(prop[0].propertyId).equals(new ObjectId(properties[i]._id))) {
                                     propertiesIds.push(prop[0].propertyId);
-                                    console.log(prop[0].propertyId);
                                 }
                                 if (i === properties.length - 1) {
                                     flag = true;
@@ -103,9 +100,7 @@ exports.doSearch = function (msg, callback) {
                         for (var i = 0; i < properties.length; i++) {
                             var record = properties[i];
                             var exists = false;
-                            console.log(record._id);
                             for (var j = 0; j < propertiesIds.length; j++) {
-
                                 if (new ObjectId(propertiesIds[j]).equals(new ObjectId(record._id))) {
                                     exists = true;
                                     break;
@@ -230,11 +225,8 @@ exports.doSearch = function (msg, callback) {
                         callback(null, response);
                     }, 500);
                 }
-
             }
         );
-
-
 };
 
 function toDate(dateStr) {

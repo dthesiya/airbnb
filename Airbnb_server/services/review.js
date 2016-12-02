@@ -16,15 +16,13 @@ var mongoose = require('mongoose');
 exports.loadReviewAboutPage = function (msg, callback) {
 
     var userId = msg.userId;
-
     //reviews from host
     userReview.find({userId: userId}).populate('hostId').exec(function (err, result) {
 
         if (err) {
             console.log(err);
             callback(err, null);
-        }
-        else {
+        } else {
             //reviews from user
             hostReview.find({hostId: userId}).populate('userId').exec(function (err, result1) {
                 if (err) {
@@ -53,7 +51,6 @@ exports.loadReviewByPage = function (msg, callback) {
     var userId = msg.userId;
     // review by you to user
     userReview.find({hostId: userId}).populate('userId').exec(function (err, result) {
-
         if (err) {
             console.log(err);
             callback(err, null);
@@ -78,7 +75,6 @@ exports.loadReviewByPage = function (msg, callback) {
 exports.getHostReviewsCount = function (msg, callback) {
 
     var hostId = msg.hostId;
-
     hostReview.find({hostId: hostId}).count(function (err, result) {
 
         if (err) {

@@ -1295,7 +1295,10 @@ app.controller('yourTrips_controller', function ($scope, $http, $sce) {
         url: '/getUserTrips'
     })
         .success(function (data) {
-            console.log(data);
+            for(var i = 0; i < data.length; i++){
+                data[i].checkIn = new Date(data[i].checkIn).toLocaleDateString();
+                data[i].checkOut = new Date(data[i].checkOut).toLocaleDateString();
+            }
             $scope.trips = data;
         });
 

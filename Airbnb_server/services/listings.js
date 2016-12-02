@@ -112,7 +112,10 @@ exports.getReservations = function (msg, callback) {
     result.past = [];
 
     Trip
-        .find({hostId: hostId})
+        .find({
+            hostId: hostId,
+            isDeleted: false
+        })
         .populate('userId')
         .populate('propertyId')
         .populate('billingId')

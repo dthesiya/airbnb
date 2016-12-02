@@ -91,3 +91,17 @@ exports.addHostReview = function (msg, callback) {
         }
     });
 }
+
+
+exports.deleteUser = function (msg, callback) {
+
+    var userId = msg.userId;
+    User.update({_id: userId}, {$set: {isDeleted: true}}, function (err, result) {
+        if (!err) {
+            callback(null, result);
+        } else {
+            console.log(err);
+            callback(err, null);
+        }
+    });
+};

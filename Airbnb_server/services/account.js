@@ -118,8 +118,7 @@ exports.getPropertyDetails = function (msg, callback) {
         if (err) {
             console.log(err);
             callback(err, null);
-        }
-        else {
+        } else {
             callback(null, result);
         }
     });

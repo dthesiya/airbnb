@@ -18,7 +18,6 @@ var ObjectId = require('mongoose').Types.ObjectId;
 exports.getProperty = function (msg, callback) {
 
     var id = msg.id;
-    console.log(id);
     Property.findOne({_id: new ObjectId(id)})
         .populate('hostId')
         .populate('mediaId')

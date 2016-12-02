@@ -336,13 +336,60 @@ cnn.on('ready', function () {
         });
     });
 
-
     cnn.queue('getUserTrips_queue', function (q) {
         q.subscribe(function (message, headers, deliveryInfo, m) {
             // util.log(util.format(deliveryInfo.routingKey, message));
             // util.log("Message: " + JSON.stringify(message));
             // util.log("DeliveryInfo: " + JSON.stringify(deliveryInfo));
             trips.getUserTrips(message, function (err, res) {
+                //return index sent
+                cnn.publish(m.replyTo, res, {
+                    contentType: 'application/json',
+                    contentEncoding: 'utf-8',
+                    correlationId: m.correlationId
+                });
+            });
+        });
+    });
+
+    cnn.queue('DeleteTrip_queue', function (q) {
+        q.subscribe(function (message, headers, deliveryInfo, m) {
+            // util.log(util.format(deliveryInfo.routingKey, message));
+            // util.log("Message: " + JSON.stringify(message));
+            // util.log("DeliveryInfo: " + JSON.stringify(deliveryInfo));
+            trips.deleteTrip(message, function (err, res) {
+                //return index sent
+                cnn.publish(m.replyTo, res, {
+                    contentType: 'application/json',
+                    contentEncoding: 'utf-8',
+                    correlationId: m.correlationId
+                });
+            });
+        });
+    });
+
+    cnn.queue('DeleteBill_queue', function (q) {
+        q.subscribe(function (message, headers, deliveryInfo, m) {
+            // util.log(util.format(deliveryInfo.routingKey, message));
+            // util.log("Message: " + JSON.stringify(message));
+            // util.log("DeliveryInfo: " + JSON.stringify(deliveryInfo));
+            account_management.deleteBill(message, function (err, res) {
+                //return index sent
+                cnn.publish(m.replyTo, res, {
+                    contentType: 'application/json',
+                    contentEncoding: 'utf-8',
+                    correlationId: m.correlationId
+                });
+            });
+        });
+    });
+
+    cnn.queue('DeleteUser_queue', function (q) {
+        q.subscribe(function (message, headers, deliveryInfo, m) {
+            // util.log(util.format(deliveryInfo.routingKey, message));
+            // util.log("Message: " + JSON.stringify(message));
+            // util.log("DeliveryInfo: " + JSON.stringify(deliveryInfo));
+            user.deleteUser(message, function (err, res) {
                 //return index sent
                 cnn.publish(m.replyTo, res, {
                     contentType: 'application/json',
@@ -529,7 +576,7 @@ cnn.on('ready', function () {
             });
         });
     });
-    
+
     cnn.queue('cardDetail_queue', function (q) {
         q.subscribe(function (message, headers, deliveryInfo, m) {
             // util.log(util.format(deliveryInfo.routingKey, message));

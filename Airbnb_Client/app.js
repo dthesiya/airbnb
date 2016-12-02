@@ -86,6 +86,10 @@ app.post('/confirmBooking', account.confirmBooking);
 
 app.get('/receipt', account_management.receiptPage);
 
+app.delete('/deleteUser', users.deleteUser);
+app.delete('/deleteTrip', trips.deleteTrip);
+app.delete('/deleteBill', account_management.deleteBill);
+
 ////////////////////////////////////////////
 
 app.get('/yourTrips', trips.tripPage);
