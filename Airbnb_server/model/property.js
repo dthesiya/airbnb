@@ -18,6 +18,7 @@ var propertySchema = new Schema({
     bathrooms: {type: Number},
     description: {type: String},
     price: {type: Number},
+    dynamicPrice: {type: Number},
     maxBidPrice: {type: Number},
     biddingDueTime: {type: Number},
     isBidding: {type: Boolean},

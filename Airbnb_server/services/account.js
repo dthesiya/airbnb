@@ -10,6 +10,7 @@ var mongoose = require('mongoose');
 var Property = require('../model/property');
 var Billing = require('../model/billing');
 var Trip = require('../model/trip');
+var DynamicPrice = require('../model/dynamicPrice');
 var ssn = require('ssn');
 
 exports.editUser = function (msg, callback) {
@@ -162,6 +163,7 @@ exports.confirmBooking = function (msg, callback) {
     trip.noOfGuests = guest;
     trip.isAccepted = false;
     trip.price = Number(price);
+    trip.dynamicPrice = Number(price);
     trip.days = Number(days);
     trip.total = Number(price) * Number(days);
     trip.createdDate = new Date().getTime();
@@ -172,10 +174,71 @@ exports.confirmBooking = function (msg, callback) {
             callback(err, null);
         }
         else {
-            callback(null, trip);
+
+            DynamicPrice.findOne({propertyId:new mongoose.mongo.ObjectId(propertyId)},function (err,result) {
+
+               if(err){
+                   console.log(err);
+                   callback(err, null);
+               }
+                else{
+                   console.log("Find one executed");
+                   if(result){
+                       console.log("REsult found");
+                       var count = Number(result.bookedCount);
+                       console.log("Count is "+count);
+                       DynamicPrice.update({propertyId: new mongoose.mongo.ObjectId(propertyId)},
+                           {
+                               $set: {
+                                   bookedCount: count+1
+                               }
+                           },
+                           function (err, user) {
+                               if (err) {
+                                   console.log(err);
+                                   console.log("ERROR in update query");
+                                   callback(err, null);
+                               }
+                               else {
+                                   console.log("Bookedcount updaed");
+                                   callback(null, trip);
+                               }
+                           });
+
+                   }
+                   else{
+
+                       console.log("ELSE part");
+                       var dynamicP = new DynamicPrice();
+                       dynamicP.propertyId = propertyId;
+                       dynamicP.bookedCount = 1;
+
+                       dynamicP.save(function (err) {
+
+                           if(err){
+                               console.log(err);
+                               console.log("ERROR in saving dynamic price");
+                               callback(err, null);
+                           }
+                           else{
+
+                               console.log("Dynamic price saved with count 1");
+                               callback(null, trip);
+                           }
+
+                       });
+
+                   }
+
+               }
+
+            });
+            
         }
     });
 };
+
+
 
 exports.checkHost = function (msg, callback) {
     var userId = msg.userId;

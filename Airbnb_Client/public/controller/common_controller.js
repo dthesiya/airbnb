@@ -888,6 +888,7 @@ app.controller('payment_controller', function ($scope, $window, $location, $http
 
                     console.log("SAVED TRIP");
                     console.log(data.data);
+                    window.location.href='/yourTrips';
 
 
                 } else {
