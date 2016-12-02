@@ -123,14 +123,14 @@ exports.receiptPage = function (msg, callback) {
             if (err) {
                 callback(err, null);
             }
-            if (!result) {
-                callback(null, null);
-            }
             if (result) {
                 var res = {};
                 res.code = 200;
                 res.data = result;
                 callback(null, res);
+            }
+            if (!result) {
+                callback(null, null);
             }
         });
 };
