@@ -594,6 +594,19 @@ cnn.on('ready', function () {
         });
     });
 
+
+    cnn.queue('addPropertyReview_queue', function (q) {
+        q.subscribe(function (message, headers, deliveryInfo, m) {
+            review.addPropertyReview(message, function (err, res) {
+                cnn.publish(m.replyTo, res, {
+                    contentType: 'application/json',
+                    contentEncoding: 'utf-8',
+                    correlationId: m.correlationId
+                });
+            });
+        });
+    });
+
     cnn.queue('updateBasePrice_queue', function (q) {
         q.subscribe(function (message, headers, deliveryInfo, m) {
             bid.updateBasePrice(message, function (err, res) {

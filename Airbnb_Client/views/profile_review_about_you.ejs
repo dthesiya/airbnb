@@ -167,7 +167,7 @@
                                                     </p>
                                                 </div>
                                                 <p class="clearfix text-muted">
-                                                    date: {{fromuser.createdDate}}
+                                                    date: {{fromuser.createdDate | date: "shortDate"}}
                                                 </p>
                                             </div>
                                         </li>
@@ -216,7 +216,7 @@
                                                     </p>
                                                 </div>
                                                 <p class="clearfix text-muted">
-                                                    date: {{fromhost.createdDate}}
+                                                    date: {{fromhost.createdDate | date: "shortDate"}}
                                                 </p>
                                             </div>
                                         </li>

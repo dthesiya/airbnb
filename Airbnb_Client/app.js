@@ -114,7 +114,7 @@ app.get('/getUserReview/:userId', review.getUserReview);
 app.get('/getHostReview/:hostId', review.getHostReview);
 app.post('/addUserReview', review.addUserReview);
 app.post('/addHostReview', review.addHostReview);
-
+app.post('/addPropertyReview',review.addPropertyReview);
 app.post('/uploadImage', listings.uploadImage);
 app.post('/uploadVideo', listings.uploadVideo);
 app.post('/addNewListing', listings.addNewListing);

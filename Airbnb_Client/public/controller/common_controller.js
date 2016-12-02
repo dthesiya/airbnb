@@ -1311,10 +1311,12 @@ app.controller('profile_controller', function ($scope, $http, $window) {
     };
 });
 
-app.controller('yourTrips_controller', function ($scope, $http, $sce) {
+app.controller('yourTrips_controller', function ($scope, $http, $sce,Upload) {
 
     $scope.isItinerary = false;
     $scope.toggle = [];
+    $scope.writeReviewPro=[];
+    $scope.images=[];
 
     $http({
         method: 'GET',
@@ -1348,7 +1350,7 @@ app.controller('yourTrips_controller', function ($scope, $http, $sce) {
         //!$scope.writeReview[$index];
     };
 
-    $scope.submitReview = function (review, userId, rating, image, $index) {
+    $scope.submitReviewtoHost = function (review, userId, rating, image, $index) {
 
         if (!review) {
             console.log('No Review');
@@ -1367,11 +1369,86 @@ app.controller('yourTrips_controller', function ($scope, $http, $sce) {
                 $scope.reviewadded = true;
             })
     };
+
+
+    $scope.submitReviewtoProperty = function (review, userId, rating, propertyId,index) {
+
+        if (!review) {
+            console.log('No Review');
+            return;
+        }
+
+
+        var file = ($scope.images[index]) ? $scope.images[index][0] : null;
+        Upload.upload({
+            url: '/uploadImage',
+            data: {
+                "file": file
+            }
+        }).then(function (resp) {
+
+            console.log(resp.data);
+            if(resp.data.statusCode==200){
+                console.log("Stause code "+resp.data.statusCode);
+                var url = resp.data.url;
+                $http({
+                    method: 'POST',
+                    url: '/addPropertyReview',
+                    data: {"hostId": userId, "review": review, "rating": rating, "url": url, "propertyId":propertyId}
+                })
+                    .success(function (data) {
+                        console.log(data);
+
+                        if(data.statusCode==200){
+                            $scope.reviewadded = true;
+                            console.log("Review Added with image");
+                        }
+                        else{
+                            console.log("Error occured to add review");
+                        }
+
+
+                    })
+
+            }
+            else if(resp.data.statusCode==201){
+
+                $http({
+                    method: 'POST',
+                    url: '/addPropertyReview',
+                    data: {"hostId": userId, "review": review, "rating": rating,"propertyId":propertyId}
+                })
+                    .success(function (data) {
+
+                        if(data.statusCode==200){
+                            $scope.reviewadded = true;
+                            console.log("Review Added without image");
+                        }
+                        else{
+                            console.log("Error occured to add review");
+                        }
+
+                    })
+
+            }
+            else{
+                console.log("Error 401");
+            }
+                
+        }, function (resp) {
+                
+            console.log('Error status: ' + resp.statusCode);
+                
+        });
+
+    };
+
 });
 
 
 app.controller('activeListings_controller', function ($scope, $http, $window) {
 
+    $scope.reviewadded=false;
     $scope.activeListings = true;
     $scope.pendingListings = false;
     $scope.reservationListings = false;
@@ -1466,21 +1543,24 @@ app.controller('activeListings_controller', function ($scope, $http, $window) {
 
     $scope.submitReview = function (review, userId, rating, image) {
 
-
+        $scope.reviewadded=false;
         if (!review) {
             console.log('No Review');
             return;
         }
 
         console.log(rating);
+        console.log("USER ID");
         console.log(review, userId);
         $http({
             method: 'POST',
             url: '/addUserReview',
-            data: {"hostId": userId, "review": review, "rating": rating, "image": image}
+            data: {"userId": userId, "review": review, "rating": rating, "image": image}
         })
             .success(function (data) {
                 console.log(data);
+                
+                $scope.reviewadded=true;
             })
     };
 });

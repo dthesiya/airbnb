@@ -116,6 +116,10 @@ exports.getHostReview = function (request, response) {
 
 
 exports.addUserReview = function (request, response) {
+    
+    
+    console.log("USER ID");
+    console.log(request.body.userId);
     var msg_payload =
     {
         userId: request.body.userId,
@@ -162,4 +166,36 @@ exports.addHostReview = function (request, response) {
         }
 
     });
+};
+
+exports.addPropertyReview = function (req,res) {
+
+    console.log("Add property review routes");
+    var msg_payload =
+    {
+        userId: req.session.userId,
+        hostId: req.body.hostId,
+        review: req.body.review,
+        rating: req.body.rating,
+        imageUrl: req.body.url,
+        propertyId:req.body.propertyId,
+        createdDate: Date.now()
+    }
+
+    mq_client.make_request('addPropertyReview_queue', msg_payload, function (err, result) {
+
+        if (err) {
+            console.log(err);
+            res.send({statusCode: 401});
+        }
+        else {
+            console.log("after adding review property");
+            res.send({statusCode: 200});
+        }
+
+    });
+
+
+
+
 };

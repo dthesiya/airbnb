@@ -155,7 +155,7 @@
                                                     rating {{review.rating}}
                                                 </p>
                                                 <p class="clearfix text-muted">
-                                                    date {{review.createdDate}}
+                                                    date {{review.createdDate | date: "shortDate"}}
                                                 </p>
                                             </div>
                                         </li>
@@ -191,7 +191,7 @@
                                                     rating {{review.rating}}
                                                 </p>
                                                 <p class="clearfix text-muted">
-                                                    date {{review.createdDate}}
+                                                    date {{review.createdDate | date: "shortDate"}}
                                                 </p>
                                             </div>
                                         </li>

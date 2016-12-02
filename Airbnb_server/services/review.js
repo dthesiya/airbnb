@@ -30,10 +30,16 @@ exports.loadReviewAboutPage = function (msg, callback) {
                     callback(err, null);
                 } else {
                     for (var i = 0; i < result.length; i++) {
-                        result[i].createdDate = new Date(result[i].createdDate).toLocaleDateString();
+                        var date = new Date(result[i].createdDate).toLocaleDateString();
+                        result[i].createdDate = date;
+                        console.log("Created date");
+                        console.log(result[i].createdDate);
                     }
                     for (var i = 0; i < result1.length; i++) {
-                        result1[i].createdDate = new Date(result1[i].createdDate).toLocaleDateString();
+                        var date = new Date(result1[i].createdDate).toLocaleDateString();
+                        result1[i].createdDate = date;
+                        console.log("Created 1 date");
+                        console.log(result1[i].createdDate);
                     }
                     var json = {
                         "fromHostReview": result,
@@ -87,4 +93,38 @@ exports.getHostReviewsCount = function (msg, callback) {
             callback(null, json);
         }
     });
+};
+
+
+exports.addPropertyReview = function (msg,callback) {
+
+    var newpropertyReview = new propertyReview();
+    newpropertyReview.userId = mongoose.Types.ObjectId(msg.userId);
+    newpropertyReview.rating = msg.rating;
+    newpropertyReview.review = msg.review;
+    if(msg.imageUrl) {
+        newpropertyReview.imageUrl = msg.imageUrl;
+    }
+    newpropertyReview.createdDate = msg.createdDate;
+    newpropertyReview.propertyId=mongoose.Types.ObjectId(msg.propertyId);
+
+    console.log("ALL Details to save");
+    console.log(newpropertyReview);
+
+    newpropertyReview.save(function (err) {
+       
+        if(err){
+            console.log(err);
+            callback(err,null);
+        }
+        else{
+            console.log("Property review saved");
+            callback(null,newpropertyReview);
+        }
+        
+    });
+    
+    
+
+
 };
