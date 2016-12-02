@@ -13,6 +13,7 @@ var account_management = require("./services/account_management");
 var trips = require('./services/trips');
 var listings = require('./services/listings');
 var user = require('./services/user');
+var bid = require('./services/bid');
 
 ////////////////////////////
 
@@ -336,13 +337,60 @@ cnn.on('ready', function () {
         });
     });
 
-
     cnn.queue('getUserTrips_queue', function (q) {
         q.subscribe(function (message, headers, deliveryInfo, m) {
             // util.log(util.format(deliveryInfo.routingKey, message));
             // util.log("Message: " + JSON.stringify(message));
             // util.log("DeliveryInfo: " + JSON.stringify(deliveryInfo));
             trips.getUserTrips(message, function (err, res) {
+                //return index sent
+                cnn.publish(m.replyTo, res, {
+                    contentType: 'application/json',
+                    contentEncoding: 'utf-8',
+                    correlationId: m.correlationId
+                });
+            });
+        });
+    });
+
+    cnn.queue('DeleteTrip_queue', function (q) {
+        q.subscribe(function (message, headers, deliveryInfo, m) {
+            // util.log(util.format(deliveryInfo.routingKey, message));
+            // util.log("Message: " + JSON.stringify(message));
+            // util.log("DeliveryInfo: " + JSON.stringify(deliveryInfo));
+            trips.deleteTrip(message, function (err, res) {
+                //return index sent
+                cnn.publish(m.replyTo, res, {
+                    contentType: 'application/json',
+                    contentEncoding: 'utf-8',
+                    correlationId: m.correlationId
+                });
+            });
+        });
+    });
+
+    cnn.queue('DeleteBill_queue', function (q) {
+        q.subscribe(function (message, headers, deliveryInfo, m) {
+            // util.log(util.format(deliveryInfo.routingKey, message));
+            // util.log("Message: " + JSON.stringify(message));
+            // util.log("DeliveryInfo: " + JSON.stringify(deliveryInfo));
+            account_management.deleteBill(message, function (err, res) {
+                //return index sent
+                cnn.publish(m.replyTo, res, {
+                    contentType: 'application/json',
+                    contentEncoding: 'utf-8',
+                    correlationId: m.correlationId
+                });
+            });
+        });
+    });
+
+    cnn.queue('DeleteUser_queue', function (q) {
+        q.subscribe(function (message, headers, deliveryInfo, m) {
+            // util.log(util.format(deliveryInfo.routingKey, message));
+            // util.log("Message: " + JSON.stringify(message));
+            // util.log("DeliveryInfo: " + JSON.stringify(deliveryInfo));
+            user.deleteUser(message, function (err, res) {
                 //return index sent
                 cnn.publish(m.replyTo, res, {
                     contentType: 'application/json',
@@ -529,7 +577,7 @@ cnn.on('ready', function () {
             });
         });
     });
-    
+
     cnn.queue('cardDetail_queue', function (q) {
         q.subscribe(function (message, headers, deliveryInfo, m) {
             // util.log(util.format(deliveryInfo.routingKey, message));
@@ -546,12 +594,35 @@ cnn.on('ready', function () {
         });
     });
 
+
     cnn.queue('addPropertyReview_queue', function (q) {
         q.subscribe(function (message, headers, deliveryInfo, m) {
-            // util.log(util.format(deliveryInfo.routingKey, message));
-            // util.log("Message: " + JSON.stringify(message));
-            // util.log("DeliveryInfo: " + JSON.stringify(deliveryInfo));
             review.addPropertyReview(message, function (err, res) {
+                cnn.publish(m.replyTo, res, {
+                    contentType: 'application/json',
+                    contentEncoding: 'utf-8',
+                    correlationId: m.correlationId
+                });
+            });
+        });
+    });
+
+    cnn.queue('updateBasePrice_queue', function (q) {
+        q.subscribe(function (message, headers, deliveryInfo, m) {
+            bid.updateBasePrice(message, function (err, res) {
+                //return index sent
+                cnn.publish(m.replyTo, res, {
+                    contentType: 'application/json',
+                    contentEncoding: 'utf-8',
+                    correlationId: m.correlationId
+                });
+            });
+        });
+    });
+
+    cnn.queue('bidCron_queue', function (q) {
+        q.subscribe(function (message, headers, deliveryInfo, m) {
+            bid.bidCron(message, function (err, res) {
                 //return index sent
                 cnn.publish(m.replyTo, res, {
                     contentType: 'application/json',

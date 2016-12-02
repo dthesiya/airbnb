@@ -102,7 +102,7 @@
             </ul>
         </div>
         <div class="pull-right">
-            <ul class="nav pull-left help-menu list-unstyled">
+            <ul ng-show="<%= isLoggedIn %>" class="nav pull-left help-menu list-unstyled">
 
                 <li class="list-your-space pull-left">
                     <a id="list-your-space" class="become" href="/becomeHost" style="border-left:none !important;">
@@ -147,7 +147,7 @@
 
             <ul ng-show="<%= isLoggedIn %>" class="nav pull-left list-unstyled" role="navigation">
                 <li class="user-item pull-left medium-right-margin dropdown-trigger">
-                    <a class="link-reset header-avatar-trigger" id="header-avatar-trigger" href="/">
+                    <a class="link-reset header-avatar-trigger" id="header-avatar-trigger" href="">
                     <span class="value_name">
                         <%= firstname %>
                       </span>

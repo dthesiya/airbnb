@@ -20,7 +20,8 @@ var userSchema = new Schema({
     isHost: {type: Boolean},
     isActivated: {type: Boolean},
     isApproved: {type: Boolean},
-    createdDate: {type: Number}
+    createdDate: {type: Number},
+    isDeleted: {type: Boolean, default: false}
 });
 
 var User = mongoose.model('user', userSchema, 'user');

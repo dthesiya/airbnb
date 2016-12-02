@@ -68,7 +68,10 @@ exports.updatePaymentMethod = function (msg, callback) {
 };
 
 exports.payinTransactions = function (msg, callback) {
-    Billing.find({hostId: new ObjectId(msg.uid)}).populate('propertyId').populate('userId').exec(function (err, result) {
+    Billing.find({
+        hostId: new ObjectId(msg.uid),
+        isDeleted: false
+    }).populate('propertyId').populate('userId').exec(function (err, result) {
         if (err) {
             callback(err, null);
         }
@@ -85,7 +88,10 @@ exports.payinTransactions = function (msg, callback) {
 };
 
 exports.payoutTransactions = function (msg, callback) {
-    Billing.find({userId: new ObjectId(msg.uid)}).populate('propertyId').populate('hostId').exec(function (err, result) {
+    Billing.find({
+        userId: new ObjectId(msg.uid),
+        isDeleted: false
+    }).populate('propertyId').populate('hostId').exec(function (err, result) {
         if (err) {
             callback(err, null);
         }
@@ -103,6 +109,7 @@ exports.payoutTransactions = function (msg, callback) {
 
 exports.receiptPage = function (msg, callback) {
     Billing.find({
+        isDeleted: false,
         $or: [
             {_id: new ObjectId(msg.bID)},
             {tripId: new ObjectId(msg.tripId)}
@@ -116,14 +123,14 @@ exports.receiptPage = function (msg, callback) {
             if (err) {
                 callback(err, null);
             }
-            if (!result) {
-                callback(null, null);
-            }
             if (result) {
                 var res = {};
                 res.code = 200;
                 res.data = result;
                 callback(null, res);
+            }
+            if (!result) {
+                callback(null, null);
             }
         });
 };
@@ -141,6 +148,20 @@ exports.cardDetails = function (msg, callback) {
             res.code = 200;
             res.data = result;
             callback(null, res);
+        }
+    });
+};
+
+
+exports.deleteBill = function (msg, callback) {
+
+    var billId = msg.billId;
+    Billing.update({_id: billId}, {$set: {isDeleted: true}}, function (err, result) {
+        if (!err) {
+            callback(null, result);
+        } else {
+            console.log(err);
+            callback(err, null);
         }
     });
 };

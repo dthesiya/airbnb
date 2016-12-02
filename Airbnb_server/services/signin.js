@@ -12,12 +12,12 @@ var ssn = require('ssn');
 exports.doLogin = function (msg, callback) {
     var username = msg.username;
     var password = msg.password;
-    console.log("USERNAME: " + username + " PASSWORD: " + password);
 
-    User.findOne({email: username}, function (err, result) {
+    User.findOne({
+        email: username,
+        isDeleted: false
+    }, function (err, result) {
         if (err) {
-
-            console.log("err in find");
             callback(err, null);
         }
 
@@ -25,7 +25,6 @@ exports.doLogin = function (msg, callback) {
             callback(null, null);
         }
         if (result) {
-            console.log(result);
             if (bcrypt.compareSync(password, result.password)) {
                 callback(null, result);
             } else {
@@ -40,7 +39,6 @@ exports.registerUser = function (msg, callback) {
     var lastName = msg.lastName;
     var email = msg.email_id;
     var password = msg.password;
-
     var userDetails = new User();
 
     userDetails.firstName = firstName;
@@ -52,29 +50,36 @@ exports.registerUser = function (msg, callback) {
     userDetails.isHost = false;
     userDetails.isActivated = true;
 
-    console.log("SSN" + userDetails.userId + email);
     User.findOne({email: email}, function (err, result) {
         if (err) {
             callback(err, null);
-
         }
-        console.log(result);
         if (!result) {
             userDetails.save(function (err) {
-
                 if (err) {
-
                     callback(err, null);
-                }
-                else {
+                } else {
                     var id = userDetails._id;
-                    console.log("ID " + id);
                     callback(null, userDetails);
                 }
             });
         }
         if (result) {
-            callback(null, null);
+            if (result.isDeleted === false) {
+                result.firstName = firstName;
+                result.lastName = lastName;
+                result.email = email;
+                result.password = password;
+                result.userId = ssn.generate();
+                result.createdDate = new Date().getTime();
+                result.isHost = false;
+                result.isActivated = true;
+                result.isDeleted = false;
+                result.save();
+                callback(null, result);
+            } else {
+                callback(null, null);
+            }
         }
     });
 };

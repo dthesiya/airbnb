@@ -18,7 +18,6 @@ var ObjectId = require('mongoose').Types.ObjectId;
 exports.getProperty = function (msg, callback) {
 
     var id = msg.id;
-    console.log(id);
     Property.findOne({_id: new ObjectId(id)})
         .populate('hostId')
         .populate('mediaId')
@@ -64,6 +63,9 @@ exports.getProperty = function (msg, callback) {
                                 name: record.name,
                                 summary: record.description,
                                 accommodates: record.maxGuest,
+                                startDate: record.startDate,
+                                endDate: record.endDate,
+                                maxBidPrice: record.maxBidPrice,
                                 bedrooms: (record.bedrooms) ? record.bedrooms : 3,
                                 bathrooms: (record.bathrooms) ? record.bathrooms : 2.5,
                                 host_name: (record.hostId) ? record.hostId.firstName : null,

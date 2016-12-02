@@ -21,6 +21,8 @@ var property = require('./routes/property');
 var account_management = require('./routes/account_management');
 var listings = require('./routes/listings');
 var trips = require('./routes/trips');
+var bid = require('./routes/bid');
+var cronBid = require('./routes/cronBid');
 
 var app = express();
 app.use(fileUpload());
@@ -86,7 +88,17 @@ app.post('/confirmBooking', account.confirmBooking);
 
 app.get('/receipt', account_management.receiptPage);
 
-////////////////////////////////////////////
+/////////////////bidding///////////////////
+
+app.post('/updateBasePrice', bid.updateBasePrice);
+
+/////////////////delete////////////////////
+
+app.delete('/deleteUser', users.deleteUser);
+app.delete('/deleteTrip', trips.deleteTrip);
+app.delete('/deleteBill', account_management.deleteBill);
+
+/////////////////your listing and your trips//////////////////
 
 app.get('/yourTrips', trips.tripPage);
 app.get('/addProperty', property.addProperty);

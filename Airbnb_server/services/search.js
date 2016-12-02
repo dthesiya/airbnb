@@ -16,7 +16,7 @@ exports.doSearch = function (msg, callback) {
     //added
     var user_id = msg.user_id;
     var location = msg.location;
-    var property_type = (msg.property_type.trim().length === 0) ? ["Entire home/apt", "Private room", "Shared room"] : msg.property_type.split(",");
+    var property_type = (!msg.property_type || msg.property_type.trim().length === 0) ? ["Entire home/apt", "Private room", "Shared room"] : msg.property_type.split(",");
     var checkin = toDate(msg.checkin);
     var checkout = toDate(msg.checkout);
     var checkinmillis = checkin.getTime();
@@ -54,16 +54,17 @@ exports.doSearch = function (msg, callback) {
                     console.log(err);
                     callback(err, null);
                 }
-                console.log(properties);
                 if (!properties) {
                     callback(null, null);
                 } else {
-                    for (var i = 0; i < properties.length; i++) {
+                    for (let i = 0; i < properties.length; i++) {
                         Trip.aggregate([
                                 {
                                     $match: {
                                         $and: [
                                             {propertyId: properties[i]._id},
+                                            {isAccepted: true},
+                                            {isDeleted: false},
                                             {
                                                 $or: [{
                                                     $and: [
@@ -80,6 +81,11 @@ exports.doSearch = function (msg, callback) {
                                                         {checkIn: {$eq: checkinmillis}},
                                                         {checkOut: {$eq: checkoutmillis}}
                                                     ]
+                                                }, {
+                                                    $and: [
+                                                        {checkIn: {$gt: checkinmillis}},
+                                                        {checkOut: {$lt: checkoutmillis}}
+                                                    ]
                                                 }
                                                 ]
                                             }
@@ -87,10 +93,8 @@ exports.doSearch = function (msg, callback) {
                                     }
 
                                 }], function (err, prop) {
-                                console.log(properties);
                                 if (properties[i] && prop.length > 0 && new ObjectId(prop[0].propertyId).equals(new ObjectId(properties[i]._id))) {
                                     propertiesIds.push(prop[0].propertyId);
-                                    console.log(prop[0].propertyId);
                                 }
                                 if (i === properties.length - 1) {
                                     flag = true;
@@ -100,12 +104,10 @@ exports.doSearch = function (msg, callback) {
                     }
 
                     setTimeout(function (flag) {
-                        for (var i = 0; i < properties.length; i++) {
+                        for (let i = 0; i < properties.length; i++) {
                             var record = properties[i];
                             var exists = false;
-                            console.log(record._id);
-                            for (var j = 0; j < propertiesIds.length; j++) {
-
+                            for (let j = 0; j < propertiesIds.length; j++) {
                                 if (new ObjectId(propertiesIds[j]).equals(new ObjectId(record._id))) {
                                     exists = true;
                                     break;
@@ -230,11 +232,8 @@ exports.doSearch = function (msg, callback) {
                         callback(null, response);
                     }, 500);
                 }
-
             }
         );
-
-
 };
 
 function toDate(dateStr) {

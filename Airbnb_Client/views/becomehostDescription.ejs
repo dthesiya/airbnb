@@ -330,7 +330,7 @@
                                         <h3 class="col-12">Help Travelers Find the Right Fit</h3>
 
                                     </div>
-                                    <p class="text-muted">People searching on Makent can filter by listing basics to
+                                    <p class="text-muted">People searching on Airbnb can filter by listing basics to
                                         find a space that matches their needs.</p>
                                 </div>
 
@@ -945,14 +945,10 @@
                                                 </button>
                                                 </br>
                                                 Images preview:
-                                                <p ng-hide="photoP" ng-repeat="image in images">
+                                                <div class="row">
                                                     <img ng-repeat="image in images" ngf-src="image" height="50%"
-                                                         width="50%"/>
-                                                </p>&nbsp;
-                                                <!--<div ng-repeat="image in images" class="inline">-->
-                                                <!--<img ng-repeat="image in images" ngf-src="image" height="50%" width="50%"/>-->
-                                                <!--</div>-->
-                                                <!--&nbsp;-->
+                                                         width="50%"/> &nbsp;
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -1122,9 +1118,14 @@
                                         <div class="col-4">
                                             <label class="label-large">Listing for bid</label>
 
-                                            <input type="checkbox" ng-model="bidding">
+                                            <input type="checkbox" ng-model="bidding" ng-change="biddingChange();">
                                             <!--<select id="price-select-currency_code" data-saving="base_price" name="currency_code"><option value="USD" selected="selected">USD</option><option value="GBP">GBP</option><option value="EUR">EUR</option><option value="AUD">AUD</option><option value="SGD">SGD</option><option value="SEK">SEK</option><option value="DKK">DKK</option><option value="MXN">MXN</option><option value="BRL">BRL</option><option value="MYR">MYR</option><option value="PHP">PHP</option><option value="CHF">CHF</option><option value="INR">INR</option><option value="ARS">ARS</option><option value="CAD">CAD</option><option value="CNY">CNY</option><option value="CZK">CZK</option><option value="HKD">HKD</option><option value="HUF">HUF</option><option value="IDR">IDR</option><option value="ILS">ILS</option><option value="JPY">JPY</option><option value="KRW">KRW</option><option value="NOK">NOK</option><option value="NZD">NZD</option><option value="PLN">PLN</option><option value="RUB">RUB</option><option value="THB">THB</option><option value="TRY">TRY</option><option value="TWD">TWD</option><option value="VND">VND</option><option value="ZAR">ZAR</option></select>-->
-
+                                            <div ng-hide="biddingDiv">
+                                                <label class="label-small">StartDate</label>
+                                                <input type="text" ng-model="startDate">
+                                                <label class="label-small">EndDate</label>
+                                                <input type="text" ng-model="endDate">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

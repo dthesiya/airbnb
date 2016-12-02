@@ -13,7 +13,7 @@ exports.getUserProfile = function (msg, callback) {
             console.log(err);
             callback(err, null);
         } else {
-            result.createdDate = fecha.format(new Date(result.createdDate), 'MMMM YYYY');
+            result.createdDate = fecha.format(((result.createdDate) ? new Date(result.createdDate) : new Date()), 'MMMM YYYY');
             console.log(result);
             callback(null, result);
         }
@@ -91,3 +91,17 @@ exports.addHostReview = function (msg, callback) {
         }
     });
 }
+
+
+exports.deleteUser = function (msg, callback) {
+
+    var userId = msg.userId;
+    User.update({_id: userId}, {$set: {isDeleted: true}}, function (err, result) {
+        if (!err) {
+            callback(null, result);
+        } else {
+            console.log(err);
+            callback(err, null);
+        }
+    });
+};

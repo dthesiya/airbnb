@@ -697,11 +697,29 @@ app.controller('room_details_controller', function ($scope, $window, $location, 
     var url = "/detail?propertyId=" + room_id;
     $http.get(url).then(function (response) {
         $scope.room_result = response.data;
+        $scope.video_url = "videos/" + $scope.room_result.video_url;
         url = "/hostReviewsCount?hostId=" + $scope.room_result.users.id;
         $http.get(url).then(function (response) {
             $scope.hostReviews = response.data;
         });
     });
+
+    $scope.placeBid = function () {
+        $http
+        ({
+            method: 'POST',
+            url: '/updateBasePrice',
+            data: {
+                "propertyId": $scope.room_result.id,
+                "maxBidPrice": $scope.bidAmount,
+                "hostId": $scope.room_result.users.id
+            }
+        }).success(function (data) {
+            if (data.statusCode == 200) {
+                $scope.room_result.rooms_price.night = $scope.bidAmount;
+            }
+        });
+    }
 
     $scope.book = function () {
         var days = daydiff(toDate($scope.checkin), toDate($scope.checkout));
@@ -751,8 +769,6 @@ app.controller('payment_controller', function ($scope, $window, $location, $http
         $http.post('/loadPaymentPage')
             .success(function (data) {
                 if (data.statusCode == 200) {
-                    console.log("USER");
-                    console.log(data.data);
                     var user = data.data;
                     $scope.cardNumber = user.cardNumber;
                     $scope.cvv = user.cvv;
@@ -762,13 +778,11 @@ app.controller('payment_controller', function ($scope, $window, $location, $http
                     var ccDate = user.expDate.split("/");
                     $scope.expMonth = ccDate[0];
                     $scope.expYear = ccDate[1];
-
                 } else {
                     console.log("Error occured to get data");
                 }
             })
             .error(function (data) {
-                console.log("Error to get data");
                 console.log(data);
             });
 
@@ -793,6 +807,7 @@ app.controller('payment_controller', function ($scope, $window, $location, $http
                 $scope.checkout = checkout;
                 $scope.totalperday = totalperday;
                 $scope.days = days;
+                $scope.imageUrl = property.mediaId.imageUrl[0];
             } else {
                 console.log("Error occured to get property data");
             }
@@ -936,6 +951,15 @@ app.controller('addListing_controller', function ($scope, $http, Data, $window, 
 
     $scope.photosList = [];
 
+    $scope.biddingChange = function () {
+        if ($scope.bidding == true) {
+            $scope.biddingDiv = false;
+        } else {
+            $scope.biddingDiv = true;
+        }
+
+    }
+
     $scope.loadPhotos = function () {
         $scope.photoP = false;
     }
@@ -1026,9 +1050,11 @@ app.controller('addListing_controller', function ($scope, $http, Data, $window, 
                 "price": $scope.base_price,
                 "latitude": JSON.parse($scope.formData).latitude,
                 "longitude": JSON.parse($scope.formData).longitude,
-                "createdDate": Date.now() / 1000,
+                "createdDate": Date.now(),
                 "isApproved": false,
-                "isBidding": $scope.bidding
+                "isBidding": $scope.bidding,
+                "startDate": toDate($scope.startDate).getTime(),
+                "endDate": toDate($scope.endDate).getTime()
             }
         }).success(function (data) {
             if (data.result.statusCode == 200) {
@@ -1289,13 +1315,18 @@ app.controller('yourTrips_controller', function ($scope, $http, $sce,Upload) {
 
     $scope.isItinerary = false;
     $scope.toggle = [];
+    $scope.writeReviewPro=[];
+    $scope.images=[];
 
     $http({
         method: 'GET',
         url: '/getUserTrips'
     })
         .success(function (data) {
-            console.log(data);
+            for (var i = 0; i < data.length; i++) {
+                data[i].checkIn = new Date(data[i].checkIn).toLocaleDateString();
+                data[i].checkOut = new Date(data[i].checkOut).toLocaleDateString();
+            }
             $scope.trips = data;
         });
 
@@ -1340,24 +1371,25 @@ app.controller('yourTrips_controller', function ($scope, $http, $sce,Upload) {
     };
 
 
-    $scope.submitReviewtoProperty = function (review, userId, rating, propertyId) {
+    $scope.submitReviewtoProperty = function (review, userId, rating, propertyId,index) {
 
         if (!review) {
             console.log('No Review');
             return;
         }
-        console.log(rating);
-        console.log(review, userId);
 
+
+        var file = ($scope.images[index]) ? $scope.images[index][0] : null;
         Upload.upload({
             url: '/uploadImage',
             data: {
-                file: $scope.images
+                "file": file
             }
         }).then(function (resp) {
 
-            if(resp.data.statusCode=200){
-
+            console.log(resp.data);
+            if(resp.data.statusCode==200){
+                console.log("Stause code "+resp.data.statusCode);
                 var url = resp.data.url;
                 $http({
                     method: 'POST',
@@ -1366,12 +1398,20 @@ app.controller('yourTrips_controller', function ($scope, $http, $sce,Upload) {
                 })
                     .success(function (data) {
                         console.log(data);
-                        console.log("Review Added with image");
-                        $scope.reviewadded = true;
+
+                        if(data.statusCode==200){
+                            $scope.reviewadded = true;
+                            console.log("Review Added with image");
+                        }
+                        else{
+                            console.log("Error occured to add review");
+                        }
+
+
                     })
 
             }
-            else if(resp.data.statusCode=201){
+            else if(resp.data.statusCode==201){
 
                 $http({
                     method: 'POST',
@@ -1379,9 +1419,15 @@ app.controller('yourTrips_controller', function ($scope, $http, $sce,Upload) {
                     data: {"hostId": userId, "review": review, "rating": rating,"propertyId":propertyId}
                 })
                     .success(function (data) {
-                        console.log(data);
-                        console.log("Review Added without image");
-                        $scope.reviewadded = true;
+
+                        if(data.statusCode==200){
+                            $scope.reviewadded = true;
+                            console.log("Review Added without image");
+                        }
+                        else{
+                            console.log("Error occured to add review");
+                        }
+
                     })
 
             }

@@ -33,7 +33,7 @@ exports.becomeHost = function (req, res) {
                 "firstname": req.session.firstName,
                 "profileImg": req.session.profileImg
             };
-            if (user.isHost == true) {
+            if (user.isHost == true && user.isApproved == true) {
                 ejs.renderFile('../views/becomeHostMainPage.ejs', user_data, function (err, result) {
                     res.end(result);
                 });
@@ -91,10 +91,10 @@ exports.getActiveListingsFromId = function (request, response) {
 };
 
 exports.uploadImage = function (request, response) {
-    console.log(request.files);
     var fileName = Date.now() + request.session.userId + '.jpg';
-    var image = request.files.file;
-
+    var image = (request.files) ? request.files.file : null;
+    console.log("IMAGES");
+    console.log(image);
     if(image){
         image.mv('../public/images/' + fileName, function (err) {
             if (err) {
@@ -168,6 +168,8 @@ exports.addNewListing = function (request, response) {
         "createdDate": request.param("createdDate"),
         "isApproved": request.param("isApproved"),
         "isBidding": request.param("isBidding"),
+        "startDate": request.param("startDate"),
+        "endDate": request.param("endDate"),
         "media": mediaUrls,
         "video": video
     }

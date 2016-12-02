@@ -10,9 +10,9 @@ var billingSchema = new Schema({
     toDate: {type: Number},
     total: {type: Number},
     createdDate: {type: Number},
-    tripId : {type: Schema.Types.ObjectId, ref: 'trip'},
-
+    tripId: {type: Schema.Types.ObjectId, ref: 'trip'},
+    isDeleted: {type: Boolean, default: false}
 });
 
-var Billing = mongoose.model('billing', billingSchema,'billing');
+var Billing = mongoose.model('billing', billingSchema, 'billing');
 module.exports = Billing;

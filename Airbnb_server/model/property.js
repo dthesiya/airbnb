@@ -21,13 +21,16 @@ var propertySchema = new Schema({
     maxBidPrice: {type: Number},
     biddingDueTime: {type: Number},
     isBidding: {type: Boolean},
-    isBidCompleted: {type: Boolean},
-    latestBidder: {type: String},
+    isBidCompleted: {type: Boolean, default: false},
+    latestBidder: {type: Schema.Types.ObjectId, ref: 'user'},
     isApproved: {type: Boolean},
     isAvailable: {type: Boolean},
     latitude: {type: String},
     longitude: {type: String},
-    createdDate: {type: Number}
+    createdDate: {type: Number},
+    revenue: {type: Number},
+    startDate: {type: Number},
+    endDate: {type: Number}
 });
 
 propertySchema.index({city: 'text'});

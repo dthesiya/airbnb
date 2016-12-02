@@ -29,3 +29,18 @@ exports.getUserProfile = function (request, response) {
         }
     });
 };
+
+exports.deleteUser = function (request, response) {
+
+    var userId = request.session.userId;
+    var msg_payload = {userId: userId};
+    mq_client.make_request('DeleteUser_queue', msg_payload, function (err, result) {
+        if (!err) {
+            response.status(200);
+            response.end();
+        } else {
+            response.status(400);
+            response.end();
+        }
+    });
+};

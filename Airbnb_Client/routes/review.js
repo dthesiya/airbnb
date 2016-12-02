@@ -186,10 +186,11 @@ exports.addPropertyReview = function (req,res) {
 
         if (err) {
             console.log(err);
-            response.send({statusCode: 401});
+            res.send({statusCode: 401});
         }
         else {
-            response.send({statusCode: 200});
+            console.log("after adding review property");
+            res.send({statusCode: 200});
         }
 
     });

@@ -12,7 +12,10 @@ exports.getUserTrips = function (msg, callback) {
 
     var userId = msg.userId;
 
-    Trip.find({userId: msg.userId})
+    Trip.find({
+        userId: msg.userId,
+        isDeleted: false
+    })
         .populate('userId')
         .populate('hostId')
         .populate('billingId')
@@ -23,10 +26,6 @@ exports.getUserTrips = function (msg, callback) {
                 console.log(err);
                 callback(err, null);
             } else {
-                for (var i = 0; i < trips.length; i++) {
-                    trips[i].checkIn = new Date(trips[i].checkIn).toLocaleDateString();
-                    trips[i].checkOut = new Date(trips[i].checkOut).toLocaleDateString();
-                }
                 callback(null, trips);
             }
         });
@@ -38,12 +37,13 @@ exports.acceptTrip = function (msg, callback) {
 
     var hostId = msg.hostId;
     var tripId = msg.tripId;
-    console.log(msg);
-
-    Trip.findOneAndUpdate({_id: tripId, hostId: hostId}, {$set: {isAccepted: true}}, {new: true})
+    Trip.findOneAndUpdate({
+        _id: tripId,
+        hostId: hostId,
+        isDeleted: false
+    }, {$set: {isAccepted: true}}, {new: true})
         .populate('propertyId')
         .exec(function (err, doc) {
-
             if (!err) {
                 var days = doc.checkOut - doc.checkIn;
                 var total;
@@ -60,8 +60,8 @@ exports.acceptTrip = function (msg, callback) {
                 bill.tripId = doc._id;
                 bill.userId = doc.userId;
                 bill.date = Date.now();
-                bill.fromDate = new Date(doc.checkIn).toLocaleDateString();
-                bill.toDate = new Date(doc.checkOut).toLocaleDateString();
+                bill.fromDate = doc.checkIn;
+                bill.toDate = doc.checkOut;
                 bill.total = total;
                 bill.days = days;
                 bill.createdDate = Date.now();
@@ -78,7 +78,6 @@ exports.acceptTrip = function (msg, callback) {
                                 // console.log(revenue);
                                 Property.findById(doc.propertyId, function (err, newRevenue) {
                                     if (err) console.log(err);
-
                                     newRevenue.revenue = revenue;
                                     newRevenue.save(function (err, updatedTank) {
                                         if (err) console.log(err);
@@ -107,12 +106,14 @@ exports.getItinerary = function (msg, callback) {
 
     var tripId = msg.tripId;
     var userId = msg.userId;
-
     var itinerary = {};
     itinerary.trip = [];
     itinerary.bill = [];
-
-    Trip.findOne({tripId: tripId, userId: userId})
+    Trip.findOne({
+        tripId: tripId,
+        userId: userId,
+        isDeleted: false
+    })
         .populate('propertyId')
         .populate('userId')
         .populate('hostId')
@@ -134,4 +135,16 @@ exports.getItinerary = function (msg, callback) {
                 callback(err, null);
             }
         });
+};
+
+exports.deleteTrip = function (msg, callback) {
+    var tripId = msg.tripId;
+    Trip.update({_id: tripId}, {$set: {isDeleted: true}}, function (err, result) {
+        if (!err) {
+            callback(null, result);
+        } else {
+            console.log(err);
+            callback(err, null);
+        }
+    });
 };

@@ -41,9 +41,7 @@ exports.acceptTrip = function (request, response) {
 
     var tripId = request.body.tripId;
     var hostId = request.session.userId;
-
     var msg_payload = {tripId: tripId, hostId: hostId};
-
     mq_client.make_request('acceptTrip_queue', msg_payload, function (err, result) {
 
         if (!err && result.code == 200) {
@@ -54,8 +52,6 @@ exports.acceptTrip = function (request, response) {
             response.end();
         }
     });
-
-
 };
 
 exports.displayItinerary = function (request, response) {
@@ -83,6 +79,21 @@ exports.loadItinerary = function (request, response) {
             } else {
                 response.end();
             }
+        } else {
+            response.status(400);
+            response.end();
+        }
+    });
+};
+
+exports.deleteTrip = function (request, response) {
+
+    var tripId = request.param("tripId");
+    var msg_payload = {tripId: tripId};
+    mq_client.make_request('DeleteTrip_queue', msg_payload, function (err, result) {
+        if (!err) {
+            response.status(200);
+            response.end();
         } else {
             response.status(400);
             response.end();
