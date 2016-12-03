@@ -8,6 +8,7 @@ var passport = require('passport');
 var session = require('express-session');
 var mongoStore = require("connect-mongo")(session);
 var mongo = require("mongodb").MongoClient;
+var winston = require('winston');
 
 var fileUpload = require('express-fileupload');
 var routes = require('./routes/index');

@@ -697,6 +697,7 @@ app.controller('room_details_controller', function ($scope, $window, $location, 
     var url = "/detail?propertyId=" + room_id;
     $http.get(url).then(function (response) {
         $scope.room_result = response.data;
+        document.title = $scope.room_result.name;
         $scope.video_url = "videos/" + $scope.room_result.video_url;
         url = "/hostReviewsCount?hostId=" + $scope.room_result.users.id;
         $http.get(url).then(function (response) {
