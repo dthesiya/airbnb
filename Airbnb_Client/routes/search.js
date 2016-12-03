@@ -9,6 +9,7 @@ var fecha = require('fecha');
 var ejs = require("ejs");
 var geocoder = require('geocoder');
 var mq_client = require("../rpc/client.js");
+var winston = require('winston');
 /*var log = require("./log");*/
 /*
  var mongo = require("./mongo");

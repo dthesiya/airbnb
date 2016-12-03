@@ -716,8 +716,9 @@ app.controller('room_details_controller', function ($scope, $window, $location, 
                 "hostId": $scope.room_result.users.id
             }
         }).success(function (data) {
-            if (data.statusCode == 200) {
+            if (data.code == 200) {
                 $scope.room_result.rooms_price.night = $scope.bidAmount;
+                $window.location.href = "/";
             }
         });
     }
@@ -844,17 +845,13 @@ app.controller('payment_controller', function ($scope, $window, $location, $http
 
         if (expYear > currYear) {
             check = true;
-        }
-        else if (expYear == currYear) {
+        } else if (expYear == currYear) {
             if (expMonth >= currMonth)
                 check = true;
             else
                 $scope.dates_wrong = true;
-
-        }
-        else {
+        } else {
             $scope.dates_wrong = true;
-
         }
 
         if (!validateCardNumber(cardnumber)) {
@@ -866,8 +863,6 @@ app.controller('payment_controller', function ($scope, $window, $location, $http
         }
 
         if (check && validateCardNumber(cardnumber) && validateCCV(cvv)) {
-            console.log("aLL CHECKED" + check);
-
             $http({
                 method: "POST",
                 url: '/confirmBooking',
@@ -886,13 +881,6 @@ app.controller('payment_controller', function ($scope, $window, $location, $http
                 }
             }).success(function (data) {
                 if (data.statusCode == 200) {
-
-                    console.log("SAVED TRIP");
-                    console.log(data.data);
-
-
-                } else {
-                    console.log("Error occured to booking");
                 }
             }).error(function (error) {
                 console.log(error);
@@ -1054,8 +1042,8 @@ app.controller('addListing_controller', function ($scope, $http, Data, $window, 
                 "createdDate": Date.now(),
                 "isApproved": false,
                 "isBidding": $scope.bidding,
-                "startDate": toDate($scope.startDate).getTime(),
-                "endDate": toDate($scope.endDate).getTime()
+                "startDate": ($scope.bidding === true && $scope.startDate) ? toDate($scope.startDate).getTime() : 0,
+                "endDate": ($scope.bidding === true && $scope.startDate) ? toDate($scope.endDate).getTime() : 0
             }
         }).success(function (data) {
             if (data.result.statusCode == 200) {

@@ -8,6 +8,7 @@ var express = require('express');
 var fecha = require('fecha');
 var mq_client = require("../rpc/client.js");
 var ejs = require('ejs');
+var winston = require('winston');
 
 exports.loadReviewAboutPage = function (req, res) {
 
@@ -26,9 +27,7 @@ exports.loadReviewAboutPage = function (req, res) {
             res.send(json_responses);
             res.end();
         } else {
-            console.log("After editing user in client");
-            //console.log(user);
-            var json_responses = {"statusCode": 200,"data":user};
+            var json_responses = {"statusCode": 200, "data": user};
             res.send(json_responses);
             res.end();
         }
@@ -51,9 +50,7 @@ exports.loadReviewByPage = function (req, res) {
             res.send(json_responses);
             res.end();
         } else {
-            console.log("After editing user in client");
-            //console.log(user);
-            var json_responses = {"statusCode": 200,"data":user};
+            var json_responses = {"statusCode": 200, "data": user};
             res.send(json_responses);
             res.end();
         }
@@ -67,7 +64,6 @@ exports.getHostReviewsCount = function (req, res) {
     var msg_payload = {
         hostId: hostId
     };
-
     mq_client.make_request('hostReviewsCount_queue', msg_payload, function (err, result) {
         if (err) {
             console.log(err);
@@ -87,11 +83,9 @@ exports.getUserReview = function (request, response) {
         userId: userId
     }
     mq_client.make_request('getUserReview_queue', msg_payload, function (err, result) {
-
         if (err) {
             console.log(err);
-        }
-        else {
+        } else {
             response.send({userReview: result});
         }
     });
@@ -104,11 +98,9 @@ exports.getHostReview = function (request, response) {
         hostId: hostId
     }
     mq_client.make_request('getHostReview_queue', msg_payload, function (err, result) {
-
         if (err) {
             console.log(err);
-        }
-        else {
+        } else {
             response.send({hostReview: result});
         }
     });
@@ -116,8 +108,8 @@ exports.getHostReview = function (request, response) {
 
 
 exports.addUserReview = function (request, response) {
-    
-    
+
+
     console.log("USER ID");
     console.log(request.body.userId);
     var msg_payload =
@@ -131,15 +123,12 @@ exports.addUserReview = function (request, response) {
     }
 
     mq_client.make_request('addUserReview_queue', msg_payload, function (err, result) {
-
         if (err) {
             console.log(err);
             response.send({statusCode: 401});
-        }
-        else {
+        } else {
             response.send({statusCode: 200});
         }
-
     });
 };
 
@@ -160,17 +149,18 @@ exports.addHostReview = function (request, response) {
         if (err) {
             console.log(err);
             response.send({statusCode: 401});
-        }
-        else {
+        } else {
             response.send({statusCode: 200});
         }
-
     });
 };
 
-exports.addPropertyReview = function (req,res) {
-
-    console.log("Add property review routes");
+exports.addPropertyReview = function (req, res) {
+    winston.info('Property Review', {
+        'user': req.session.firstName,
+        'property_rated': req.body.propertyId,
+        'property_rating': req.body.rating
+    });
     var msg_payload =
     {
         userId: req.session.userId,
@@ -178,7 +168,7 @@ exports.addPropertyReview = function (req,res) {
         review: req.body.review,
         rating: req.body.rating,
         imageUrl: req.body.url,
-        propertyId:req.body.propertyId,
+        propertyId: req.body.propertyId,
         createdDate: Date.now()
     }
 
@@ -187,15 +177,8 @@ exports.addPropertyReview = function (req,res) {
         if (err) {
             console.log(err);
             res.send({statusCode: 401});
-        }
-        else {
-            console.log("after adding review property");
+        } else {
             res.send({statusCode: 200});
         }
-
     });
-
-
-
-
 };

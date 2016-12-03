@@ -3,6 +3,7 @@
  */
 var bcrypt = require('bcryptjs');
 var express = require('express');
+var winston = require('winston');
 
 var ejs = require("ejs");
 var fecha = require('fecha');
@@ -25,17 +26,12 @@ exports.loginpg = function (req, res) {
         "profileImg": sess.profileImg
     };
     ejs.renderFile('../views/login.ejs', user_data, function (err, result) {
-        if (err) {
-
-        } else {
-
-        }
         res.end(result);
     });
 };
 
 exports.authenticateUser = function (req, res, next) {
-
+    winston.info ('Authentication request', {'user':req.body.email, 'url_clicked':'/signin'});
 //	var email_id = req.body.email_id;
 //	var pwd = req.body.password;
     var sess = req.session;
@@ -52,9 +48,7 @@ exports.authenticateUser = function (req, res, next) {
             });
             res.end();
         }
-
         if (user) {
-
             sess.email = user.email;
             sess.firstName = user.firstName;
             sess.userSSN = user.userId;
@@ -73,13 +67,13 @@ exports.authenticateUser = function (req, res, next) {
 };
 
 exports.signout = function (req, res) {
+    winston.info ('Signout request', {'user':req.session.firstName, 'url_clicked':'/signout'});
     req.session.destroy();
     res.redirect("/");
 };
 
-
 exports.registerUser = function (req, res) {
-
+    winston.info ('Registration request', {'user':req.body.email_id, 'url_clicked':'/registerUser'});
     var f_name = req.body.first_name;
     var l_name = req.body.last_name;
     var email_id = req.body.email_id;
@@ -94,7 +88,6 @@ exports.registerUser = function (req, res) {
         email_id: email_id,
         password: passwordToSave
     };
-
     mq_client.make_request('register_queue', msg_payload, function (err, results) {
         if (err) {
             res.json({

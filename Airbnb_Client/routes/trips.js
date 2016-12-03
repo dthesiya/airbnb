@@ -4,6 +4,7 @@
 
 var mq_client = require("../rpc/client.js");
 var ejs = require("ejs");
+var winston = require('winston');
 
 exports.tripPage = function (req, res) {
     var user_data = {

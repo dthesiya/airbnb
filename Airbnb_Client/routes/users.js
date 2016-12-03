@@ -1,6 +1,7 @@
 var express = require('express');
 var mq_client = require("../rpc/client.js");
 var ejs = require("ejs");
+var winston = require('winston');
 
 exports.userProfile = function (req, res) {
     var user_data = {
@@ -36,8 +37,8 @@ exports.deleteUser = function (request, response) {
     var msg_payload = {userId: userId};
     mq_client.make_request('DeleteUser_queue', msg_payload, function (err, result) {
         if (!err) {
-            response.status(200);
-            response.end();
+            request.session.destroy();
+            response.redirect("/");
         } else {
             response.status(400);
             response.end();

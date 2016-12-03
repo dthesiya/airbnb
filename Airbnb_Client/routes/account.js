@@ -6,9 +6,10 @@ var express = require('express');
 var fecha = require('fecha');
 var mq_client = require("../rpc/client.js");
 var ejs = require('ejs');
+var winston = require('winston');
 
 exports.editUser = function (req, res) {
-
+    winston.info('Profile Edit Occured', {'user': req.session.firstName, 'url_clicked': '/editUser'});
     var firstName = req.param("firstName");
     var lastName = req.param("lastName");
     var email = req.param("email");
@@ -28,8 +29,6 @@ exports.editUser = function (req, res) {
         zip: zip,
         userId: userId
     };
-
-
     mq_client.make_request('editUser_queue', msg_payload, function (err, user) {
         if (err) {
             console.log(err);
@@ -49,7 +48,7 @@ exports.editUser = function (req, res) {
 
 
 exports.getEditProfilePage = function (req, res) {
-
+    winston.info('Edit Profile Page rendered', {'user': req.session.firstName, 'url_clicked': '/editProfilePage'});
     var sess = req.session;
     var user_data = {
         "email": sess.email,
@@ -69,7 +68,6 @@ exports.getEditProfilePage = function (req, res) {
 
 
 exports.getPaymentPage = function (req, res) {
-
     var sess = req.session;
     var user_data = {
         "email": sess.email,
@@ -79,7 +77,7 @@ exports.getPaymentPage = function (req, res) {
     };
     ejs.renderFile('../views/paymentpage.ejs', user_data, function (err, result) {
         if (err) {
-            console.log("Error in getting payment page");
+            console.log(err);
             res.send("An error occured to get payment page");
         } else {
             res.end(result);
@@ -93,17 +91,13 @@ exports.loadEditUserPage = function (req, res) {
     var msg_payload = {
         userId: userId
     };
-
     mq_client.make_request('loadEditUser_queue', msg_payload, function (err, user) {
         if (err) {
             console.log(err);
-            console.log("In err to loadedit user queue");
             var json_responses = {"statusCode": 401};
             res.send(json_responses);
             res.end();
         } else {
-            console.log("After editing user in client");
-            console.log(user);
             var json_responses = {"statusCode": 200, "data": user};
             res.send(json_responses);
             res.end();
@@ -119,10 +113,9 @@ exports.getUserPhotoPage = function (req, res) {
         "firstname": sess.firstName,
         "profileImg": sess.profileImg
     };
-
     ejs.renderFile('../views/profile_photo_tab.ejs', user_data, function (err, result) {
         if (err) {
-            console.log("Error in getting  profile photo page");
+            console.log(err);
             res.send("An error occured to get profile photo page");
         } else {
             res.end(result);
@@ -132,7 +125,6 @@ exports.getUserPhotoPage = function (req, res) {
 
 
 exports.getUserReviewAboutPage = function (req, res) {
-
     var sess = req.session;
     var user_data = {
         "email": sess.email,
@@ -140,10 +132,9 @@ exports.getUserReviewAboutPage = function (req, res) {
         "firstname": sess.firstName,
         "profileImg": sess.profileImg
     };
-
     ejs.renderFile('../views/profile_review_about_you.ejs', user_data, function (err, result) {
         if (err) {
-            console.log("Error in getting  profile review about page");
+            console.log(err);
             res.send("An error occured to get profile review about page");
         } else {
             res.end(result);
@@ -153,7 +144,6 @@ exports.getUserReviewAboutPage = function (req, res) {
 
 
 exports.getUserReviewbyPage = function (req, res) {
-
     var sess = req.session;
     var user_data = {
         "email": sess.email,
@@ -161,10 +151,9 @@ exports.getUserReviewbyPage = function (req, res) {
         "firstname": sess.firstName,
         "profileImg": sess.profileImg
     };
-
     ejs.renderFile('../views/profile_review_by_you.ejs', user_data, function (err, result) {
         if (err) {
-            console.log("Error in getting  profile review by page");
+            console.log(err);
             res.send("An error occured to get profile review by page");
         } else {
             res.end(result);
@@ -173,9 +162,7 @@ exports.getUserReviewbyPage = function (req, res) {
 };
 
 exports.uploadProfileImage = function (req, res) {
-
     var file;
-
     if (!req.files) {
         var json = {"statusCode": 400}
         res.send(json);
@@ -208,22 +195,17 @@ exports.uploadProfileImage = function (req, res) {
 };
 
 exports.loadProfilePhotoPage = function (req, res) {
-
     var userId = req.session.userId;
     var msg_payload = {
         userId: userId
     };
-
     mq_client.make_request('loadProfilePhotoPage_queue', msg_payload, function (err, user) {
         if (err) {
             console.log(err);
-            console.log("In err to load profile page queue");
             var json_responses = {"statusCode": 401};
             res.send(json_responses);
             res.end();
         } else {
-            console.log("After loading profile photo page in client");
-            console.log(user);
             var json_responses = {"statusCode": 200, "data": user};
             res.send(json_responses);
             res.end();
@@ -233,7 +215,7 @@ exports.loadProfilePhotoPage = function (req, res) {
 
 
 exports.getDashBoardPage = function (req, res) {
-
+    winston.info('Dashboard Page request', {'user': req.session.firstName, 'url_clicked': '/getDashBoardPage'});
     var sess = req.session;
     var user_data = {
         "email": sess.email,
@@ -245,7 +227,7 @@ exports.getDashBoardPage = function (req, res) {
 
     ejs.renderFile('../views/dashboard.ejs', user_data, function (err, result) {
         if (err) {
-            console.log("Error in getting  dashboard by page");
+            console.log(err);
             res.send("An error occured to get dashboared by page");
         } else {
             res.end(result);
@@ -256,36 +238,27 @@ exports.getDashBoardPage = function (req, res) {
 
 
 exports.loadPaymentPage = function (req, res) {
-
+    winston.info('Payment Page request', {'user': req.session.firstName, 'url_clicked': '/loadPaymentPage'});
     var userId = req.session.userId;
     var msg_payload = {
         userId: userId
     };
 
-    console.log("USER ID");
-    console.log(userId);
     mq_client.make_request('loadPaymentPage_queue', msg_payload, function (err, user) {
         if (err) {
             console.log(err);
-            console.log("In err to load payment user queue");
             var json_responses = {"statusCode": 401};
             res.send(json_responses);
             res.end();
         } else {
-            console.log("After payment page in client");
-            console.log(user);
             var json_responses = {"statusCode": 200, "data": user};
             res.send(json_responses);
             res.end();
         }
     });
-
-
 };
 
 exports.getPropertyDetails = function (req, res) {
-
-
     var propertyId = req.param("propertyId");
     var userId = req.session.userId;
     var msg_payload = {
@@ -293,31 +266,28 @@ exports.getPropertyDetails = function (req, res) {
         propertyId: propertyId
     };
 
-    console.log("USER ID");
-    console.log(userId);
-    console.log("PROPERTY ID");
-    console.log(propertyId);
-
     mq_client.make_request('getPropertyDetails_queue', msg_payload, function (err, property) {
         if (err) {
             console.log(err);
-            console.log("In err to get property details queue");
             var json_responses = {"statusCode": 401};
             res.send(json_responses);
             res.end();
         } else {
-            console.log("After getting property details in client");
-            console.log(property);
+            winston.info('Property Details request', {
+                'user': req.session.firstName,
+                'property_clicked': property._id,
+                'property_type': property.category,
+                'property_lat': property.latitude, 'property_long': property.longitude
+            });
             var json_responses = {"statusCode": 200, "data": property};
             res.send(json_responses);
             res.end();
         }
     });
-
-
 };
 
 exports.confirmBooking = function (req, res) {
+    winston.info('Property Book request', {'user': req.session.firstName, 'url_clicked': '/confirmBooking'});
 
     var userId = req.session.userId;
     var properyId = req.param("propertyId");
@@ -346,20 +316,13 @@ exports.confirmBooking = function (req, res) {
         "days": days,
         "hostId": hostId
     };
-
-    console.log("msg payload");
-    console.log(msg_payload);
-
     mq_client.make_request('confirmBooking_queue', msg_payload, function (err, data) {
         if (err) {
             console.log(err);
-            console.log("In confirm booking queue");
             var json_responses = {"statusCode": 401};
             res.send(json_responses);
             res.end();
         } else {
-            console.log("After confirming booking in client");
-            console.log(data);
             var json_responses = {"statusCode": 200, "data": data};
             res.send(json_responses);
             res.end();

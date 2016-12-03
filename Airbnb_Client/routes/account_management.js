@@ -5,6 +5,7 @@ var bcrypt = require('bcryptjs');
 var express = require('express');
 var fecha = require('fecha');
 var mq_client = require("../rpc/client.js");
+var winston = require('winston');
 
 exports.accountPage = function (req, res, next) {
     var user_data = {
