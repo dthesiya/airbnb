@@ -111,72 +111,74 @@ exports.bidCron = function (msg, callback) {
     });
 };
 
-exports.dynamicPriceCron = function (msg,callback) {
+exports.dynamicPriceCron = function (msg, callback) {
 
 
     var makeDate = new Date();
     makeDate = new Date(makeDate.setMonth(makeDate.getMonth() - 1)).getTime();
     console.log(makeDate);
 
-    Trip.find({createdDate:{$gt:makeDate}}).populate('propertyId').exec(function (err, result) {
+    Trip.find({createdDate: {$gt: makeDate}}).populate('propertyId').exec(function (err, result) {
 
-        if(err){
+        if (err) {
             console.log(err);
-            callback(err,null);
+            callback(err, null);
         }
-        else{
-            console.log(result);
+        else {
+
 
             var map = new Map();
             var priceMap = new Map();
 
-            for(var i=0;i<result.length;i++){
+            for (var i = 0; i < result.length; i++) {
 
-                
+
                 var propertyId = result[i].propertyId._id.toString();
-                
-                if(map.has(propertyId)){
-                    map.set(propertyId,map.get(propertyId)+1);
+
+                if (map.has(propertyId)) {
+                    map.set(propertyId, map.get(propertyId) + 1);
                 }
-                else{
-                    map.set(propertyId,1);
-                    priceMap.set(propertyId,result[i].propertyId.price);
+                else {
+                    map.set(propertyId, 1);
+                    priceMap.set(propertyId, result[i].propertyId.price);
                 }
             }
-            
+
             var propertyIDArray = [];
             var dynamicpriceArray = [];
-           
-            map.forEach(function(value, key) {
-                if(value>=10 && value<20){
+            console.log("count " + map.count());
+            if (map.count() > 0) {
 
-                    propertyIDArray.push(key);
-                    var newPrice = Number(priceMap.get(key))*1.1;
-                    dynamicpriceArray.push(Math.round(newPrice));
-                }
-                else if(value>=20 && value<40){
+                map.forEach(function (value, key) {
+                    if (value >= 10 && value < 20) {
 
-                    propertyIDArray.push(key);
-                    var newPrice = Number(priceMap.get(key))*1.4;
-                    dynamicpriceArray.push(Math.round(newPrice));
-                }
-                else if(value>=40 && value<50){
-                    propertyIDArray.push(key);
-                    var newPrice = Number(priceMap.get(key))*1.7;
-                    dynamicpriceArray.push(Math.round(newPrice));
-                }
-                else if(value>=50){
-                    propertyIDArray.push(key);
-                    var newPrice = Number(priceMap.get(key))*1.9;
-                    dynamicpriceArray.push(Math.round(newPrice));
-                }
-            });
+                        propertyIDArray.push(key);
+                        var newPrice = Number(priceMap.get(key)) * 1.1;
+                        dynamicpriceArray.push(Math.round(newPrice));
+                    }
+                    else if (value >= 20 && value < 40) {
 
+                        propertyIDArray.push(key);
+                        var newPrice = Number(priceMap.get(key)) * 1.4;
+                        dynamicpriceArray.push(Math.round(newPrice));
+                    }
+                    else if (value >= 40 && value < 50) {
+                        propertyIDArray.push(key);
+                        var newPrice = Number(priceMap.get(key)) * 1.7;
+                        dynamicpriceArray.push(Math.round(newPrice));
+                    }
+                    else if (value >= 50) {
+                        propertyIDArray.push(key);
+                        var newPrice = Number(priceMap.get(key)) * 1.9;
+                        dynamicpriceArray.push(Math.round(newPrice));
+                    }
+                });
+            }
             var bulk = Property.collection.initializeOrderedBulkOp();
 
-            for(var i=0;i<propertyIDArray.length;i++){
-                
-                console.log("Property id "+ propertyIDArray[i]+ ": "+dynamicpriceArray[i]);
+            for (var i = 0; i < propertyIDArray.length; i++) {
+
+                console.log("Property id " + propertyIDArray[i] + ": " + dynamicpriceArray[i]);
                 Property.update({_id: propertyIDArray[i]}, {
                     $set: {
                         price: dynamicpriceArray[i]
@@ -194,17 +196,11 @@ exports.dynamicPriceCron = function (msg,callback) {
                     if (result) {
                         console.log("Updated");
                         console.log(result);
-                        callback(null,result);
+                        callback(null, result);
                     }
                 });
-                
+
             }
-
-
-
-
-
-
 
 
         }
