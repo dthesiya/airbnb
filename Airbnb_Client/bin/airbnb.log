@@ -1,0 +1,22 @@
+{"user":"Darshit","property_bid":"583bc95614086d27ecf592bc","bid_price":"45","level":"info","message":"New Property Bid","timestamp":"2016-12-03T07:19:58.721Z"}
+{"user":"Darshit","property_bid":"583bc95614086d27ecf592bc","bid_price":"47","level":"info","message":"New Property Bid","timestamp":"2016-12-03T07:21:19.486Z"}
+{"user":"Darshit","property_bid":"583bc95614086d27ecf592bc","bid_price":"47","level":"info","message":"New Property Bid","timestamp":"2016-12-03T07:21:40.037Z"}
+{"user":"Darshit","property_bid":"583bc95614086d27ecf592bc","bid_price":"48","level":"info","message":"New Property Bid","timestamp":"2016-12-03T07:22:07.620Z"}
+{"user":"Darshit","property_bid":"583bc95614086d27ecf592bc","bid_price":"49","level":"info","message":"New Property Bid","timestamp":"2016-12-03T07:23:07.456Z"}
+{"user":"Darshit","property_bid":"583bc95614086d27ecf592bc","bid_price":"50","level":"info","message":"New Property Bid","timestamp":"2016-12-03T07:24:41.923Z"}
+{"user":"Darshit","property_bid":"583bc95614086d27ecf592bc","bid_price":"50","level":"info","message":"New Property Bid","timestamp":"2016-12-03T07:24:49.493Z"}
+{"user":"Darshit","property_bid":"583bc95614086d27ecf592bc","bid_price":"48","level":"info","message":"New Property Bid","timestamp":"2016-12-03T07:25:00.559Z"}
+{"user":"Darshit","property_bid":"583bc95614086d27ecf592bc","bid_price":"49","level":"info","message":"New Property Bid","timestamp":"2016-12-03T07:26:16.680Z"}
+{"user":"Darshit","property_bid":"583bc95614086d27ecf592bc","bid_price":"46","level":"info","message":"New Property Bid","timestamp":"2016-12-03T07:26:44.418Z"}
+{"user":"Darshit","property_bid":"583bc95614086d27ecf592bc","bid_price":"49","level":"info","message":"New Property Bid","timestamp":"2016-12-03T07:26:59.440Z"}
+{"user":"Darshit","url_clicked":"/loadPaymentPage","level":"info","message":"Payment Page request","timestamp":"2016-12-03T07:27:45.878Z"}
+{"user":"Darshit","property_clicked":"583737ae83cd51786c7539d6","property_type":"Entire home/apt","property_lat":"34.013132","property_long":"-118.112607","level":"info","message":"Property Details request","timestamp":"2016-12-03T07:27:46.207Z"}
+{"user":"Darshit","url_clicked":"/loadPaymentPage","level":"info","message":"Payment Page request","timestamp":"2016-12-03T07:38:46.972Z"}
+{"user":"Darshit","property_clicked":"583737ae83cd51786c7539d6","property_type":"Entire home/apt","property_lat":"34.013132","property_long":"-118.112607","level":"info","message":"Property Details request","timestamp":"2016-12-03T07:38:47.232Z"}
+{"user":"Darshit","url_clicked":"/loadPaymentPage","level":"info","message":"Payment Page request","timestamp":"2016-12-03T07:39:05.600Z"}
+{"user":"Darshit","property_clicked":"583737ae83cd51786c7539d6","property_type":"Entire home/apt","property_lat":"34.013132","property_long":"-118.112607","level":"info","message":"Property Details request","timestamp":"2016-12-03T07:39:06.015Z"}
+{"user":"Darshit","url_clicked":"/confirmBooking","level":"info","message":"Property Book request","timestamp":"2016-12-03T07:39:37.684Z"}
+{"user":"Darshit","url_clicked":"/loadPaymentPage","level":"info","message":"Payment Page request","timestamp":"2016-12-03T07:40:04.068Z"}
+{"user":"Darshit","property_clicked":"583737ae83cd51786c7539d6","property_type":"Entire home/apt","property_lat":"34.013132","property_long":"-118.112607","level":"info","message":"Property Details request","timestamp":"2016-12-03T07:40:04.300Z"}
+{"user":"Darshit","url_clicked":"/loadPaymentPage","level":"info","message":"Payment Page request","timestamp":"2016-12-03T07:42:13.717Z"}
+{"user":"Darshit","property_clicked":"583737ae83cd51786c7539d6","property_type":"Entire home/apt","property_lat":"34.013132","property_long":"-118.112607","level":"info","message":"Property Details request","timestamp":"2016-12-03T07:42:13.976Z"}
