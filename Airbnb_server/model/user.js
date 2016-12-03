@@ -17,9 +17,9 @@ var userSchema = new Schema({
     cardNumber: {type: Number},
     cvv: {type: Number},
     expDate: {type: String},
-    isHost: {type: Boolean},
-    isActivated: {type: Boolean},
-    isApproved: {type: Boolean},
+    isHost: {type: Boolean, default: false},
+    isActivated: {type: Boolean, default: true},
+    isApproved: {type: Boolean, default: false},
     createdDate: {type: Number},
     isDeleted: {type: Boolean, default: false}
 });

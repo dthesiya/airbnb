@@ -89,7 +89,7 @@
                                 <th>Options</th>
                             </tr>
 
-                            <tr ng-repeat="trip in trips" ng-init="writeReview=[]" >
+                            <tr ng-repeat="trip in trips" ng-init="writeReview=[]">
                                 <td class="status">
                                 <span class="label label-orange label-success">
                                   {{trip.isAccepted}}
@@ -101,12 +101,15 @@
                                 </td>
                                 <td class="host"><a href="/profile/{{trip.hostId.userId}}" target="_blank">{{trip.hostId.firstName}}
                                         {{trip.hostId.lastName}}</a></td>
-                                <td class="dates">{{trip.checkIn | date:"shortDate" }} to {{trip.checkOut | date:"shortDate"}}</td>
+                                <td class="dates">{{trip.checkIn | date:"shortDate" }} to {{trip.checkOut |
+                                    date:"shortDate"}}
+                                </td>
 
                                 <td>
                                     <ul class="unstyled button-list list-unstyled">
-                                        <li class="row-space-1">
-                                            <a ng-click="writeReview[$index]=!writeReview[$index]" href="#">Write Review to Host</a>
+                                        <li ng-show="{{trip.isAccepted === 'Accepted'}}" class="row-space-1">
+                                            <a ng-click="writeReview[$index]=!writeReview[$index]" href="#">Write Review
+                                                to Host</a>
                                             <div ng-show="writeReview[$index]"><textarea ng-model="review[trip._id]"
                                                                                          rows="4"
                                                                                          cols="10"></textarea>
@@ -123,11 +126,12 @@
                                                 </button>
                                             </div>
                                         </li>
-                                        <li class="row-space-1">
-                                            <a ng-click="writeReviewPro[$index]=!writeReviewPro[$index]" href="#">Write Review to Property</a>
+                                        <li ng-show="{{trip.isAccepted === 'Accepted'}}" class="row-space-1">
+                                            <a ng-click="writeReviewPro[$index]=!writeReviewPro[$index]" href="#">Write
+                                                Review to Property</a>
                                             <div ng-show="writeReviewPro[$index]"><textarea ng-model="review[trip._id]"
-                                                                                         rows="4"
-                                                                                         cols="10"></textarea>
+                                                                                            rows="4"
+                                                                                            cols="10"></textarea>
                                                 <select ng-model="rating">
                                                     <option>1</option>
                                                     <option>2</option>
@@ -135,7 +139,8 @@
                                                     <option>4</option>
                                                     <option>5</option>
                                                 </select>
-                                                <button class="button" ngf-select ng-model="images[$index]" name="images"
+                                                <button class="button" ngf-select ng-model="images[$index]"
+                                                        name="images"
                                                         ngf-pattern="'image/*'" multiple="false"
                                                         ngf-accept="'image/*'" ngf-max-size="10MB"
                                                         ngf-min-height="100"
@@ -150,6 +155,9 @@
                                         <li ng-show="{{trip.isAccepted === 'Accepted'}}" class="row-space-1">
                                             <a class="button-steel" href="/receipt?tripId={{trip._id}}">View
                                                 receipt</a>
+                                        </li>
+                                        <li class="row-space-1">
+                                            <a class="button-steel" ng-click="deleteTrip(trip._id)">Delete Trip</a>
                                         </li>
                                     </ul>
                                 </td>

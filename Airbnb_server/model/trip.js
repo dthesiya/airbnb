@@ -9,7 +9,7 @@ var tripSchema = new Schema({
     checkIn: {type: Number},
     checkOut: {type: Number},
     noOfGuests: {type: Number},
-    isAccepted: {type: Boolean},
+    isAccepted: {type: Boolean, default: false},
     createdDate: {type: Number},
     price: {type: Number},
     days: {type: Number},

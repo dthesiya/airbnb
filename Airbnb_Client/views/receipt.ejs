@@ -179,23 +179,17 @@
                             <table class="table table-bordered payment-table">
                                 <tbody>
                                 <tr>
-                                    <th class="receipt-label"><%= Math.floor(data[0].total / data[0].propertyId.price) %>
+                                    <th class="receipt-label"><%= data[0].tripId.days %>
                                         Nights X $<%= data[0].propertyId.price %></th>
                                     <td class="receipt-amount">
                                         &#36;<%= (data[0].total) %>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <th class="receipt-label">
-                                        Airbnb Service Fee
-                                    </th>
-                                    <td class="receipt-amount">&#36;23</td>
-                                </tr>
                                 </tbody>
                                 <tfoot>
                                 <tr>
                                     <th class="receipt-label">Total</th>
-                                    <td class="receipt-amount">&#36;<%= (data[0].total)+23 %></td>
+                                    <td class="receipt-amount">&#36;<%= (data[0].total) %></td>
                                 </tr>
                                 </tfoot>
                             </table>
@@ -209,7 +203,7 @@
 
                                     </th>
                                     <td class="receipt-amount">
-                                        &#36;<%= (data[0].total)+23 %>
+                                        &#36;<%= (data[0].total) %>
                                     </td>
                                 </tr>
                                 </tbody>

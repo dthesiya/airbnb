@@ -286,7 +286,7 @@
                             </div>
                             <div class="col-md-6 col-middle">
 
-                                <a class="btn pull-right" href="#">
+                                <a class="btn pull-right" onclick="print_receipt()">
                                     <i class="icon icon-description"></i>
                                     Print this page
                                 </a></div>
@@ -314,31 +314,26 @@
                                     <a locale="en" href="" ng-bind="reservation.propertyId.name"></a>
                                     <br>
                                     <span ng-bind="reservation.propertyId.address"></span>
-
                                     <br>
                                     <span ng-bind="(reservation.propertyId.city) + ' , ' + ((reservation.propertyId.state) + ' , ' + (reservation.propertyId.zip))"></span>
                                     <br>
                                 </td>
                                 <td>
                                     <div class="media va-container">
-                                        <a class="pull-left media-photo media-round" href="">
-                                            <img width="50" height="50" title="John"
-                                                 src="../images/profile_pic_1462128938.jpg" alt="John">
+                                        <a class="pull-left media-photo media-round"
+                                           href="/profile/{{reservation.userId.userId}}" target="_blank">
+                                            <img width="50" height="50"
+                                                 src="images/{{reservation.userId.profileImage}}"
+                                                 alt="{{reservation.userId.firstName}}">
                                         </a>
                                         <div class="va-top">
-                                            <a class="text-normal" href=""
+                                            <a class="text-normal" href="/profile/{{reservation.userId.userId}}"
+                                               target="_blank"
                                                ng-bind="(reservation.userId.firstName) + ' ' + (reservation.userId.lastName)"></a>
                                             <br>
-                                            <a href="#" class="text-normal">
-                                                <i class="icon icon-envelope"></i>
-                                                Send Message
-                                            </a>
-                                            <br>
-                                            <a href="mailto:john@gmail.com">
+                                            <a href="mailto:{{reservation.userId.email}}">
                                                 Contact by Email
                                             </a>
-                                            <i class="icon icon-question"
-                                               id="anonymous-email-118017996-tooltip-trigger"></i>
                                             <br>
                                         </div>
                                     </div>
@@ -369,7 +364,8 @@
                                 <th>Guest</th>
                                 <th>Details</th>
                             </tr>
-                            <tr data-reservation-id="10001" class="reservation" ng-repeat="reservation in past" ng-init="writeReview=[]">
+                            <tr data-reservation-id="10001" class="reservation" ng-repeat="reservation in past"
+                                ng-init="writeReview=[]">
                                 <td>
                                     <span class="label label-success">
                                       Accepted
@@ -389,24 +385,20 @@
                                 </td>
                                 <td>
                                     <div class="media va-container">
-                                        <a class="pull-left media-photo media-round" href="">
-                                            <img width="50" height="50" title="John"
-                                                 src="../images/profile_pic_1462128938.jpg" alt="John">
+                                        <a class="pull-left media-photo media-round"
+                                           href="/profile/{{reservation.userId.userId}}" target="_blank">
+                                            <img width="50" height="50"
+                                                 src="images/{{reservation.userId.profileImage}}"
+                                                 alt="{{reservation.userId.firstName}}">
                                         </a>
                                         <div class="va-top">
-                                            <a class="text-normal" href=""
+                                            <a class="text-normal" href="/profile/{{reservation.userId.userId}}"
+                                               target="_blank"
                                                ng-bind="(reservation.userId.firstName) + ' ' + (reservation.userId.lastName)"></a>
                                             <br>
-                                            <a href="#" class="text-normal">
-                                                <i class="icon icon-envelope"></i>
-                                                Send Message
-                                            </a>
-                                            <br>
-                                            <a href="mailto:john@gmail.com">
+                                            <a href="mailto:{{reservation.userId.email}}">
                                                 Contact by Email
                                             </a>
-                                            <i class="icon icon-question"
-                                               id="anonymous-email-118017996-tooltip-trigger"></i>
                                             <br>
                                         </div>
                                     </div>
@@ -415,9 +407,11 @@
                                     <span ng-bind=" '$' + (reservation.propertyId.price)"></span>
                                     <ul class="list-unstyled">
                                         <li>
-                                            <a ng-click="writeReview[$index]=!writeReview[$index]" href="#">Write Review</a>
-                                            <div ng-show="writeReview[$index]"><textarea ng-model="review[reservation._id]"
-                                                                                 rows="4" cols="10"></textarea>
+                                            <a ng-click="writeReview[$index]=!writeReview[$index]" href="#">Write
+                                                Review</a>
+                                            <div ng-show="writeReview[$index]"><textarea
+                                                        ng-model="review[reservation._id]"
+                                                        rows="4" cols="10"></textarea>
                                                 <select ng-model="rating">
                                                     <option>1</option>
                                                     <option>2</option>
@@ -455,7 +449,7 @@
                             </div>
                             <div class="col-md-6 col-middle">
 
-                                <a class="btn pull-right" href="">
+                                <a class="btn pull-right" onclick="print_receipt()">
                                     <i class="icon icon-description"></i>
                                     Print this page
                                 </a></div>
@@ -491,24 +485,20 @@
                                 </td>
                                 <td>
                                     <div class="media va-container">
-                                        <a class="pull-left media-photo media-round" href="">
-                                            <img width="50" height="50" title="John"
-                                                 src="../images/profile_pic_1462128938.jpg" alt="John">
+                                        <a class="pull-left media-photo media-round"
+                                           href="/profile/{{reservation.userId.userId}}" target="_blank">
+                                            <img width="50" height="50"
+                                                 src="images/{{reservation.userId.profileImage}}"
+                                                 alt="{{reservation.userId.firstName}}">
                                         </a>
                                         <div class="va-top">
-                                            <a class="text-normal" href=""
+                                            <a class="text-normal" href="/profile/{{reservation.userId.userId}}"
+                                               target="_blank"
                                                ng-bind="(reservation.userId.firstName) + ' ' + (reservation.userId.lastName)"></a>
                                             <br>
-                                            <a href="#" class="text-normal">
-                                                <i class="icon icon-envelope"></i>
-                                                Send Message
-                                            </a>
-                                            <br>
-                                            <a href="mailto:john@gmail.com">
+                                            <a href="mailto:{{reservation.userId.email}}">
                                                 Contact by Email
                                             </a>
-                                            <i class="icon icon-question"
-                                               id="anonymous-email-118017996-tooltip-trigger"></i>
                                             <br>
                                         </div>
                                     </div>
@@ -643,6 +633,12 @@
 
 <script src="https://angular-file-upload.appspot.com/js/ng-file-upload-shim.js"></script>
 <script src="https://angular-file-upload.appspot.com/js/ng-file-upload.js"></script>
+
+<script>
+    function print_receipt() {
+        window.print();
+    }
+</script>
 
 </body>
 </html>
