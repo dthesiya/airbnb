@@ -934,6 +934,8 @@ app.controller('addListing_controller', function ($scope, $http, Data, $window, 
     $scope.descriptionDiv = true;
     $scope.photoP = true;
     $scope.videoDisp = true;
+    $scope.alertimages = false;
+    $scope.alertvideo = false;
 
     $scope.photosList = [];
 
@@ -1058,6 +1060,7 @@ app.controller('addListing_controller', function ($scope, $http, Data, $window, 
 
     // upload on file select
     $scope.uploadImages = function (files) {
+        $scope.alertimages = false;
         for (var i = 0; i < files.length; i++) {
             Upload.upload({
                 url: '/uploadImage',
@@ -1066,7 +1069,7 @@ app.controller('addListing_controller', function ($scope, $http, Data, $window, 
                 }
             }).then(function (resp) {
                 $scope.photosList.push(resp.data.url);
-                alert("Images Uploaded Successfully");
+                $scope.alertimages = true;
             }, function (resp) {
                 console.log('Error status: ' + resp.statusCode);
             }, function (evt) {
@@ -1085,6 +1088,7 @@ app.controller('addListing_controller', function ($scope, $http, Data, $window, 
 
     // upload on file select
     $scope.uploadVideo = function (file) {
+        $scope.alertvideo = false;
         Upload.upload({
             url: '/uploadVideo',
             data: {
@@ -1092,7 +1096,7 @@ app.controller('addListing_controller', function ($scope, $http, Data, $window, 
             }
         }).then(function (resp) {
             $scope.videoUrl = resp.data.url;
-            alert("Video Uploaded Successfully");
+            $scope.alertvideo = true;
         }, function (resp) {
             console.log('Error status: ' + resp.statusCode);
         }, function (evt) {
