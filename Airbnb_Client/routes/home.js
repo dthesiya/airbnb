@@ -2,6 +2,7 @@
  * Created by vicky on 11/20/2016.
  */
 var ejs = require("ejs");
+var winston = require('winston');
 
 exports.homepg = function (req, res) {
     var sess = req.session;
@@ -11,7 +12,6 @@ exports.homepg = function (req, res) {
         "firstname": sess.firstName,
         "profileImg": req.session.profileImg
     };
-    console.log(user_data);
     ejs.renderFile('../views/homewithoutlogin.ejs', user_data, function (err, result) {
         res.end(result);
     });

@@ -11,6 +11,7 @@ var express = require('express');
 var fecha = require('fecha');
 var mq_client = require("../rpc/client.js");
 var ejs = require("ejs");
+var winston = require('winston');
 
 exports.addProperty = function (req, res) {
     var user_data = {

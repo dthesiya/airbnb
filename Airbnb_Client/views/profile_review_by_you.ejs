@@ -8,7 +8,6 @@
     <link rel="dns-prefetch" href="https://mts0.googleapis.com/">
     <link rel="dns-prefetch" href="https://mts1.googleapis.com/">
 
-    
 
     <!--[if IE]><![endif]-->
     <meta charset="utf-8">
@@ -140,12 +139,15 @@
                                     <ul class="list-layout reviews-list">
                                         <li class="reviews-list-item media row-space-top-2"
                                             ng-repeat="review in toHostReview">
-                                            <a class="media-photo media-round pull-left row-space-top-0" href="">
+                                            <a class="media-photo media-round pull-left row-space-top-0"
+                                               href="/profile/{{review.hostId.userId}}" target="_blank">
                                                 <img width="50" height="50" src="/images/{{review.hostId.profileImg}}">
                                             </a>
                                             <div class="media-body">
                                                 <h5>
-                                                    Review for <a class="text-normal" href="#">{{review.hostId.firstName}}
+                                                    Review for <a class="text-normal"
+                                                                  href="/profile/{{review.hostId.userId}}"
+                                                                  target="_blank">{{review.hostId.firstName}}
                                                         {{review.hostId.lastName}}</a>
                                                 </h5>
                                                 <p>
@@ -176,12 +178,15 @@
                                     <ul class="list-layout reviews-list">
                                         <li class="reviews-list-item media row-space-top-2"
                                             ng-repeat="review in toUserReview">
-                                            <a class="media-photo media-round pull-left row-space-top-0" href="">
-                                                <img width="50" height="50"src="/images/{{review.userId.profileImg}}">
+                                            <a class="media-photo media-round pull-left row-space-top-0"
+                                               href="/profile/{{review.userId.userId}}" target="_blank">
+                                                <img width="50" height="50" src="/images/{{review.userId.profileImg}}">
                                             </a>
                                             <div class="media-body">
                                                 <h5>
-                                                    Review for <a class="text-normal" href="#">{{review.userId.firstName}}
+                                                    Review for <a class="text-normal"
+                                                                  href="/profile/{{review.userId.userId}}"
+                                                                  target="_blank">{{review.userId.firstName}}
                                                         {{review.userId.lastName}}</a>
                                                 </h5>
                                                 <p>

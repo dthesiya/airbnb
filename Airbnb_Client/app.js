@@ -8,6 +8,7 @@ var passport = require('passport');
 var session = require('express-session');
 var mongoStore = require("connect-mongo")(session);
 var mongo = require("mongodb").MongoClient;
+var winston = require('winston');
 
 var fileUpload = require('express-fileupload');
 var routes = require('./routes/index');
@@ -37,6 +38,11 @@ app.use(session({
         url: "mongodb://team14:airbnb_14@ds011863.mlab.com:11863/airbnb"
     })
 }));
+
+winston.add(winston.transports.File, {
+    filename: 'airbnb.log'
+});
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -114,7 +120,7 @@ app.get('/getUserReview/:userId', review.getUserReview);
 app.get('/getHostReview/:hostId', review.getHostReview);
 app.post('/addUserReview', review.addUserReview);
 app.post('/addHostReview', review.addHostReview);
-app.post('/addPropertyReview',review.addPropertyReview);
+app.post('/addPropertyReview', review.addPropertyReview);
 app.post('/uploadImage', listings.uploadImage);
 app.post('/uploadVideo', listings.uploadVideo);
 app.post('/addNewListing', listings.addNewListing);
