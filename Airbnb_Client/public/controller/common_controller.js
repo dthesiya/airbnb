@@ -810,8 +810,6 @@ app.controller('payment_controller', function ($scope, $window, $location, $http
                 $scope.totalperday = totalperday;
                 $scope.days = days;
                 $scope.imageUrl = property.mediaId.imageUrl[0];
-            } else {
-                console.log("Error occured to get property data");
             }
         }).error(function (error) {
             console.log(error);
@@ -819,8 +817,6 @@ app.controller('payment_controller', function ($scope, $window, $location, $http
     };
 
     $scope.confirmBooking = function () {
-
-
         $scope.card_wrong = false;
         $scope.dates_wrong = false;
         $scope.cvv_wrong = false;
@@ -881,14 +877,7 @@ app.controller('payment_controller', function ($scope, $window, $location, $http
                 }
             }).success(function (data) {
                 if (data.statusCode == 200) {
-
-                    console.log("SAVED TRIP");
-                    console.log(data.data);
                     window.location.href='/yourTrips';
-
-
-                } else {
-                    console.log("Error occured to booking");
                 }
             }).error(function (error) {
                 console.log(error);
