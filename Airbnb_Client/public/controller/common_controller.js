@@ -1081,6 +1081,7 @@ app.controller('addListing_controller', function ($scope, $http, Data, $window, 
                 }
             }).then(function (resp) {
                 $scope.photosList.push(resp.data.url);
+                alert("Images Uploaded Successfully");
             }, function (resp) {
                 console.log('Error status: ' + resp.statusCode);
             }, function (evt) {
@@ -1106,6 +1107,7 @@ app.controller('addListing_controller', function ($scope, $http, Data, $window, 
             }
         }).then(function (resp) {
             $scope.videoUrl = resp.data.url;
+            alert("Video Uploaded Successfully");
         }, function (resp) {
             console.log('Error status: ' + resp.statusCode);
         }, function (evt) {

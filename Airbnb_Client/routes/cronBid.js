@@ -5,6 +5,7 @@ var express = require('express');
 var ejs = require('ejs');
 var cron = require('node-cron');
 var mq_client = require('../rpc/client');
+/*
 
 cron.schedule('* 5 * * * *', function (req, res, next) {
     var msg_payload = {};
@@ -17,7 +18,7 @@ cron.schedule('* 5 * * * *', function (req, res, next) {
     });
 });
 
-cron.schedule('*/5 * * * * *', function (req, res, next) {
+cron.schedule('*!/5 * * * * *', function (req, res, next) {
     var msg_payload = {};
     mq_client.make_request('dynamicPriceCron_queue', msg_payload, function (err, results) {
         if (err) {
@@ -26,4 +27,4 @@ cron.schedule('*/5 * * * * *', function (req, res, next) {
             console.log("dynamic Cron Success");
         }
     });
-});
+});*/
