@@ -6,6 +6,7 @@ var Bidding = require('../model/bidding');
 var Trip = require('../model/trip');
 var mongoose = require('mongoose');
 var ssn = require('ssn');
+var DynamicPrice = require('../model/dynamicPrice');
 var ObjectId = require('mongoose').Types.ObjectId;
 
 exports.updateBasePrice = function (msg, callback) {
@@ -105,6 +106,23 @@ exports.bidCron = function (msg, callback) {
             }
             res.code = 200;
             callback(null, res);
+        }
+    });
+};
+
+exports.dynamicPriceCron = function (msg,callback) {
+
+
+    var makeDate = new Date();
+    makeDate = new Date(makeDate.setMonth(makeDate.getMonth() - 1));
+    Trip.find({createdDate:{$gt:makeDate}},function (err,result) {
+
+        if(err){
+            console.log(err);
+            callback(err,null);
+        }
+        else{
+            console.log(result);
         }
     });
 };

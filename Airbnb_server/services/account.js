@@ -174,66 +174,7 @@ exports.confirmBooking = function (msg, callback) {
             callback(err, null);
         }
         else {
-
-            DynamicPrice.findOne({propertyId:new mongoose.mongo.ObjectId(propertyId)},function (err,result) {
-
-               if(err){
-                   console.log(err);
-                   callback(err, null);
-               }
-                else{
-                   console.log("Find one executed");
-                   if(result){
-                       console.log("REsult found");
-                       var count = Number(result.bookedCount);
-                       console.log("Count is "+count);
-                       DynamicPrice.update({propertyId: new mongoose.mongo.ObjectId(propertyId)},
-                           {
-                               $set: {
-                                   bookedCount: count+1
-                               }
-                           },
-                           function (err, user) {
-                               if (err) {
-                                   console.log(err);
-                                   console.log("ERROR in update query");
-                                   callback(err, null);
-                               }
-                               else {
-                                   console.log("Bookedcount updaed");
-                                   callback(null, trip);
-                               }
-                           });
-
-                   }
-                   else{
-
-                       console.log("ELSE part");
-                       var dynamicP = new DynamicPrice();
-                       dynamicP.propertyId = propertyId;
-                       dynamicP.bookedCount = 1;
-
-                       dynamicP.save(function (err) {
-
-                           if(err){
-                               console.log(err);
-                               console.log("ERROR in saving dynamic price");
-                               callback(err, null);
-                           }
-                           else{
-
-                               console.log("Dynamic price saved with count 1");
-                               callback(null, trip);
-                           }
-
-                       });
-
-                   }
-
-               }
-
-            });
-            
+            callback(null, trip);
         }
     });
 };
