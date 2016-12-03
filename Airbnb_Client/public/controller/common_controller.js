@@ -881,6 +881,14 @@ app.controller('payment_controller', function ($scope, $window, $location, $http
                 }
             }).success(function (data) {
                 if (data.statusCode == 200) {
+
+                    console.log("SAVED TRIP");
+                    console.log(data.data);
+                    window.location.href='/yourTrips';
+
+
+                } else {
+                    console.log("Error occured to booking");
                 }
             }).error(function (error) {
                 console.log(error);

@@ -10,6 +10,7 @@ var mongoose = require('mongoose');
 var Property = require('../model/property');
 var Billing = require('../model/billing');
 var Trip = require('../model/trip');
+var DynamicPrice = require('../model/dynamicPrice');
 var ssn = require('ssn');
 
 exports.editUser = function (msg, callback) {
@@ -162,6 +163,7 @@ exports.confirmBooking = function (msg, callback) {
     trip.noOfGuests = guest;
     trip.isAccepted = false;
     trip.price = Number(price);
+    trip.dynamicPrice = Number(price);
     trip.days = Number(days);
     trip.total = Number(price) * Number(days);
     trip.createdDate = new Date().getTime();
@@ -176,6 +178,8 @@ exports.confirmBooking = function (msg, callback) {
         }
     });
 };
+
+
 
 exports.checkHost = function (msg, callback) {
     var userId = msg.userId;
