@@ -17,7 +17,7 @@ cron.schedule('* 5 * * * *', function (req, res, next) {
     });
 });
 
-cron.schedule('* * * * */1 *', function (req, res, next) {
+cron.schedule('* * * 1 *', function (req, res, next) {
     var msg_payload = {};
     mq_client.make_request('dynamicPriceCron_queue', msg_payload, function (err, results) {
         if (err) {
