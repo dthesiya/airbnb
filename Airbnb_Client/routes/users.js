@@ -44,7 +44,7 @@ exports.getUserProfile = function (request, response) {
                         response.send({user: result});
                         /*response.send({user: result});*/
                     }
-                });
+                });``
             } else {
                 console.log(reply);
                 response.send({user: JSON.parse(reply)});
