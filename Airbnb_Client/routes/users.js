@@ -28,36 +28,36 @@ exports.getUserProfile = function (request, response) {
         userId: userId
     };
 
-    /*var client = redis.getClient();
+    var client = redis.getClient();
 
-     if(client.hget("users",userId,function (err, reply) {
-     if(err){
-     console.log("error in redis cache: "+ err);
-     }else if(reply == null){
-     console.log("property not in redis cache");
-     mq_client.make_request('getUserProfile_queue', msg_payload, function (err, result) {
+    if (client.hget("users", userId, function (err, reply) {
+            if (err) {
+                console.log("error in redis cache: " + err);
+            } else if (!reply) {
+                console.log("user not in redis cache");
+                mq_client.make_request('getUserProfile_queue', msg_payload, function (err, result) {
+                    if (err) {
+                        console.log(err);
+                    } else {
+                        client.hmset("users", userId, JSON.stringify(result), redis.print);
+                        console.log("cache set");
+                        response.send({user: result});
+                        /*response.send({user: result});*/
+                    }
+                });``
+            } else {
+                console.log(reply);
+                response.send({user: JSON.parse(reply)});
+            }
+        }));
+
+    /*mq_client.make_request('getUserProfile_queue', msg_payload, function (err, result) {
      if (err) {
      console.log(err);
      } else {
-     client.hmset("users",userId, JSON.stringify(result),redis.print);
      response.send({user: result});
      }
-     });
-     }else if(reply){
-     console.log(reply);
-     // var json_responses = {"statusCode": 200, "data": result};
-     response.send({user: reply});
-     }
-     })
-     );*/
-
-    mq_client.make_request('getUserProfile_queue', msg_payload, function (err, result) {
-        if (err) {
-            console.log(err);
-        } else {
-            response.send({user: result});
-        }
-    });
+     });*/
 
 };
 
