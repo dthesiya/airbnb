@@ -17,6 +17,8 @@ var winston = require('winston');
  */
 
 
+
+
 exports.loadSearchPg = function (req, res) {
     var sess = req.session;
     var lat;
@@ -51,6 +53,9 @@ exports.search = function (req, res, next) {
     var checkout = req.param("checkout");
     var guests = req.param("guests");
     winston.info('Search Properties request', {'user': req.session.firstName, 'url_clicked': '/searchResult'});
+
+
+
 
     var msg_payload = {
         location: location,

@@ -26,6 +26,8 @@ var trips = require('./routes/trips');
 var bid = require('./routes/bid');
 var cronBid = require('./routes/cronBid');
 var errorPage = require('./routes/errorPage');
+var redis = require('./routes/redisConnect');
+
 
 var app = express();
 app.use(fileUpload());
@@ -121,7 +123,7 @@ app.post('/updateBasePrice', bid.updateBasePrice);
 
 /////////////////delete////////////////////
 
-app.delete('/deleteUser', users.deleteUser);
+app.get('/deleteUser', users.deleteUser);
 app.delete('/deleteTrip', trips.deleteTrip);
 app.delete('/deleteBill', account_management.deleteBill);
 

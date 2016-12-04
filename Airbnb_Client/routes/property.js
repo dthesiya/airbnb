@@ -12,6 +12,7 @@ var fecha = require('fecha');
 var mq_client = require("../rpc/client.js");
 var ejs = require("ejs");
 var winston = require('winston');
+var redis = require('./redisConnect');
 
 exports.addProperty = function (req, res) {
     winston.info('Property add page rendered', {'user': req.session.firstName, 'url_clicked': '/addProperty'});
@@ -45,17 +46,43 @@ exports.getProperty = function (req, res, next) {
     var msg_payload = {
         id: id
     };
-    mq_client.make_request('property_detail_queue', msg_payload, function (err, result) {
-        if (err) {
-            console.log(err);
-            var json_responses = {"statusCode": 401};
-            res.send(json_responses);
-        } else {
-            console.log(result);
-            // var json_responses = {"statusCode": 200, "data": result};
-            res.send(result);
-            res.end();
 
-        }
-    });
+    var client = redis.getClient();
+
+    if (client.get(req.param("propertyId"), function (err, reply) {
+            if (err) {
+                console.log("error in redis cache: " + err);
+            } else if (reply == null) {
+                console.log("property not in redis cache");
+                mq_client.make_request('property_detail_queue', msg_payload, function (err, result) {
+                    if (err) {
+                        console.log(err);
+                        var json_responses = {"statusCode": 401};
+                        res.send(json_responses);
+                    } else {
+                        client.set(req.param("propertyId"), result);
+                        res.send(result);
+                        res.end();
+                    }
+                });
+            } else if (reply) {
+                res.send(reply);
+                res.end();
+            }
+        })
+    );
+
+    /*mq_client.make_request('property_detail_queue', msg_payload, function (err, result) {
+     if (err) {
+     console.log(err);
+     var json_responses = {"statusCode": 401};
+     res.send(json_responses);
+     } else {
+     console.log(result);
+     // var json_responses = {"statusCode": 200, "data": result};
+     res.send(result);
+     res.end();
+
+     }
+     });*/
 };

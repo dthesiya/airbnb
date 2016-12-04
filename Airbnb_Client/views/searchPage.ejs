@@ -15,7 +15,6 @@
     <link rel="dns-prefetch" href="https://mts0.googleapis.com/">
     <link rel="dns-prefetch" href="https://mts1.googleapis.com/">
 
-    
 
     <!--[if IE]><![endif]-->
     <meta charset="utf-8">
@@ -1007,7 +1006,7 @@
                                                 <p>
                                                     {{ rooms.summary }}
                                                     <a
-                                                       id="tooltip-sticky-{{ rooms.id }}" class="learn-more">Learn
+                                                            id="tooltip-sticky-{{ rooms.id }}" class="learn-more">Learn
                                                         More</a>
                                                 </p>
 
@@ -1034,7 +1033,7 @@
                                             <div>
                                                 <sup class="h6 text-contrast"><span
                                                             ng-bind-html="rooms.rooms_price.currency.symbol"></span></sup>
-                                                <span class="h3 text-contrast price-amount"> {{ rooms.rooms_price.night }}</span>
+                                                <span class="h3 text-contrast price-amount"> $ {{ rooms.rooms_price.night }}</span>
                                                 <sup class="h6 text-contrast"></sup>
                                                 <span aria-label="Book Instantly" data-behavior="tooltip"
                                                       class="h3 icon-beach"
@@ -1057,7 +1056,8 @@
                       <span class="screen-reader-only">Wishlist</span>
                       <i class="icon icon-heart icon-rausch icon-size-2 rich-toggle-checked"></i>
                       <i class="icon icon-heart wishlist-heart-unchecked icon-size-2 rich-toggle-unchecked"></i>
-                      <i class="icon icon-heart-alt icon-white icon-size-2" id="wishlist-widget-icon-{{ rooms.id }}"></i>
+                      <i class="icon icon-heart-alt icon-white icon-size-2"
+                         id="wishlist-widget-icon-{{ rooms.id }}"></i>
                     </label>
                   </span>
 
