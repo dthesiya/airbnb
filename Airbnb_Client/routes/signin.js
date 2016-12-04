@@ -54,6 +54,8 @@ exports.authenticateUser = function (req, res, next) {
             sess.userSSN = user.userId;
             sess.isLoggedIn = true;
             sess.profileImg = user.profileImage;
+            sess.isHost = user.isHost;
+            sess.isApproved = user.isApproved;
             // sess.last_name = user.last_name;
             sess.userId = user._id;
             // // sess.last_access = user.last_access;
@@ -80,6 +82,7 @@ exports.registerUser = function (req, res) {
     var pwd = req.body.password;
     var sess = req.session;
     sess.isLoggedIn = false;
+
     var salt = bcrypt.genSaltSync(10);
     var passwordToSave = bcrypt.hashSync(pwd, salt);
     var msg_payload = {
@@ -102,6 +105,8 @@ exports.registerUser = function (req, res) {
             sess.lastName = results.lastName;
             sess.userId = results._id;
             sess.email = results.email;
+            sess.isHost = results.isHost;
+            sess.isApproved = results.isApproved;
             sess.isLoggedIn = true;
             res.json({
                 success: true,

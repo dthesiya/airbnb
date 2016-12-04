@@ -18,7 +18,7 @@ var bid = require('./services/bid');
 /////////////////////test////////////
 
 // var test = require('./services/test');
-// test.testUser();
+//test.testUser();
 
 ////////////////////////////
 
