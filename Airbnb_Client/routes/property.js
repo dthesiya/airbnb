@@ -12,6 +12,7 @@ var fecha = require('fecha');
 var mq_client = require("../rpc/client.js");
 var ejs = require("ejs");
 var winston = require('winston');
+var redis = require('./redisConnect');
 
 exports.addProperty = function (req, res) {
     var user_data = {
@@ -44,7 +45,37 @@ exports.getProperty = function (req, res, next) {
         id: id
     };
 
-    mq_client.make_request('property_detail_queue', msg_payload, function (err, result) {
+    var client = redis.getClient();
+
+    if(client.get(req.param("propertyId"),function (err, reply) {
+            if(err){
+                console.log("error in redis cache: "+ err);
+            }else if(reply == null){
+                console.log("property not in redis cache");
+                mq_client.make_request('property_detail_queue', msg_payload, function (err, result) {
+                    if (err) {
+                        console.log(err);
+                        var json_responses = {"statusCode": 401};
+                        res.send(json_responses);
+                    } else {
+                        console.log(result);
+                        // var json_responses = {"statusCode": 200, "data": result};
+                        client.set(req.param("propertyId"),result);
+                        res.send(result);
+                        res.end();
+
+                    }
+                });
+            }else if(reply){
+                console.log(reply);
+                // var json_responses = {"statusCode": 200, "data": result};
+                res.send(reply);
+                res.end();
+            }
+        })
+    );
+
+    /*mq_client.make_request('property_detail_queue', msg_payload, function (err, result) {
         if (err) {
             console.log(err);
             var json_responses = {"statusCode": 401};
@@ -56,5 +87,5 @@ exports.getProperty = function (req, res, next) {
             res.end();
 
         }
-    });
+    });*/
 };
