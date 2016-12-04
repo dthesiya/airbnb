@@ -61,7 +61,6 @@ exports.getProperty = function (req, res, next) {
                         client.set(req.param("propertyId"), result);
                         res.send(result);
                         res.end();
-
                     }
                 });
             } else if (reply) {
