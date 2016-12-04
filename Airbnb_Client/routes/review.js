@@ -74,7 +74,7 @@ exports.getHostReviewsCount = function (req, res) {
 
 exports.getUserReview = function (request, response) {
     var userId = request.params.userId;
-    winston.info('List review for user', {'user': req.session.firstName, 'url_clicked': '/getUserReview/'+userId});
+    winston.info('List review for user', {'user': request.session.firstName, 'url_clicked': '/getUserReview/'+userId});
     var msg_payload =
     {
         userId: userId
@@ -90,7 +90,7 @@ exports.getUserReview = function (request, response) {
 
 exports.getHostReview = function (request, response) {
     var hostId = request.params.hostId;
-    winston.info('List review for host', {'user': req.session.firstName, 'url_clicked': '/getHostReview/'+hostId});
+    winston.info('List review for host', {'user': request.session.firstName, 'url_clicked': '/getHostReview/'+hostId});
     var msg_payload =
     {
         hostId: hostId
@@ -107,7 +107,7 @@ exports.getHostReview = function (request, response) {
 
 exports.addUserReview = function (request, response) {
 
-    winston.info('add user review', {'user': req.session.firstName, 'url_clicked': '/addUserReview'});
+    winston.info('add user review', {'user': request.session.firstName, 'url_clicked': '/addUserReview'});
     var msg_payload =
     {
         userId: request.body.userId,
@@ -130,7 +130,7 @@ exports.addUserReview = function (request, response) {
 
 
 exports.addHostReview = function (request, response) {
-    winston.info('add host review', {'user': req.session.firstName, 'url_clicked': '/addHostReview'});
+    winston.info('add host review', {'user': request.session.firstName, 'url_clicked': '/addHostReview'});
     var msg_payload =
     {
         userId: request.session.userId,

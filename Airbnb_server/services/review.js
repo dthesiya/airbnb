@@ -11,6 +11,7 @@ var userReview = require('../model/userReview');
 var hostReview = require('../model/hostReview');
 var propertyReview = require('../model/propertyReview');
 var mongoose = require('mongoose');
+var ObjectId = require('mongoose').Types.ObjectId;
 
 
 exports.loadReviewAboutPage = function (msg, callback) {
@@ -81,7 +82,7 @@ exports.loadReviewByPage = function (msg, callback) {
 exports.getHostReviewsCount = function (msg, callback) {
 
     var hostId = msg.hostId;
-    hostReview.find({hostId: hostId}).count(function (err, result) {
+    hostReview.find({hostId: new ObjectId(hostId)}).count(function (err, result) {
 
         if (err) {
             console.log(err);
@@ -96,35 +97,30 @@ exports.getHostReviewsCount = function (msg, callback) {
 };
 
 
-exports.addPropertyReview = function (msg,callback) {
+exports.addPropertyReview = function (msg, callback) {
 
     var newpropertyReview = new propertyReview();
     newpropertyReview.userId = mongoose.Types.ObjectId(msg.userId);
     newpropertyReview.rating = msg.rating;
     newpropertyReview.review = msg.review;
-    if(msg.imageUrl) {
+    if (msg.imageUrl) {
         newpropertyReview.imageUrl = msg.imageUrl;
     }
     newpropertyReview.createdDate = msg.createdDate;
-    newpropertyReview.propertyId=mongoose.Types.ObjectId(msg.propertyId);
+    newpropertyReview.propertyId = mongoose.Types.ObjectId(msg.propertyId);
 
     console.log("ALL Details to save");
     console.log(newpropertyReview);
 
     newpropertyReview.save(function (err) {
-       
-        if(err){
+
+        if (err) {
             console.log(err);
-            callback(err,null);
+            callback(err, null);
         }
-        else{
+        else {
             console.log("Property review saved");
-            callback(null,newpropertyReview);
+            callback(null, newpropertyReview);
         }
-        
     });
-    
-    
-
-
 };

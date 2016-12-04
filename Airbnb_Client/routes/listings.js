@@ -63,7 +63,7 @@ exports.yourListings = function (req, res) {
 };
 
 exports.getActiveListings = function (request, response) {
-    winston.info('List active property', {'user': req.session.firstName, 'url_clicked': '/yourListings'});
+    winston.info('List active property', {'user': request.session.firstName, 'url_clicked': '/yourListings'});
     var userId = request.session.userId;
     console.log(userId);
     var msg_payload = {userId: userId};
@@ -80,7 +80,7 @@ exports.getActiveListings = function (request, response) {
 
 exports.getActiveListingsFromId = function (request, response) {
     var userId = request.params.userId;
-    winston.info('List active property by id', {'user': req.session.firstName, 'url_clicked': '/getActiveListings/'+userId});
+    winston.info('List active property by id', {'user': request.session.firstName, 'url_clicked': '/getActiveListings/'+userId});
     var msg_payload = {userId: userId};
 
     mq_client.make_request('getActiveListings_queue', msg_payload, function (err, properties) {
@@ -94,7 +94,7 @@ exports.getActiveListingsFromId = function (request, response) {
 };
 
 exports.uploadImage = function (request, response) {
-    winston.info('Image upload', {'user': req.session.firstName, 'url_clicked': '/uploadImage'});
+    winston.info('Image upload', {'user': request.session.firstName, 'url_clicked': '/uploadImage'});
     var fileName = Date.now() + request.session.userId + '.jpg';
     var image = (request.files) ? request.files.file : null;
     console.log("IMAGES");
@@ -116,7 +116,7 @@ exports.uploadImage = function (request, response) {
 }
 
 exports.uploadVideo = function (request, response) {
-    winston.info('Video upload', {'user': req.session.firstName, 'url_clicked': '/uploadVideo'});
+    winston.info('Video upload', {'user': request.session.firstName, 'url_clicked': '/uploadVideo'});
     var fileName = Date.now() + request.session.userId + '.mp4';
     var video = request.files.file;
     video.mv('../public/videos/' + fileName, function (err) {
@@ -144,7 +144,7 @@ function saveMedia(Media, userId) {
 }
 
 exports.addNewListing = function (request, response) {
-    winston.info('New Listing added', {'user': req.session.firstName, 'url_clicked': '/addNewListing'});
+    winston.info('New Listing added', {'user': request.session.firstName, 'url_clicked': '/addNewListing'});
     var mediaUrls = request.param("media");
     var video;
     if (request.param("video")) {
@@ -191,7 +191,7 @@ exports.addNewListing = function (request, response) {
 }
 
 exports.getReservations = function (request, response) {
-    winston.info('List reservation', {'user': req.session.firstName, 'url_clicked': '/getReservations'});
+    winston.info('List reservation', {'user': request.session.firstName, 'url_clicked': '/getReservations'});
     var hostId = request.session.userId;
     var msg_payload = {hostId: hostId};
 

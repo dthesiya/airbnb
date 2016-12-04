@@ -21,7 +21,7 @@ exports.tripPage = function (req, res) {
 exports.getUserTrips = function (request, response) {
     var userId = request.session.userId;
     var msg_payload = {userId: userId};
-    winston.info('User Trips get request', {'user': req.session.firstName, 'url_clicked': '/getUserTrips'});
+    winston.info('User Trips get request', {'user': request.session.firstName, 'url_clicked': '/getUserTrips'});
 
     mq_client.make_request('getUserTrips_queue', msg_payload, function (err, trips) {
 
@@ -40,7 +40,7 @@ exports.getUserTrips = function (request, response) {
 };
 
 exports.acceptTrip = function (request, response) {
-    winston.info('Accept Trip request', {'user': req.session.firstName, 'url_clicked': '/acceptTrip'});
+    winston.info('Accept Trip request', {'user': request.session.firstName, 'url_clicked': '/acceptTrip'});
     var tripId = request.body.tripId;
     var hostId = request.session.userId;
     var msg_payload = {tripId: tripId, hostId: hostId};
@@ -89,7 +89,7 @@ exports.loadItinerary = function (request, response) {
 };
 
 exports.deleteTrip = function (request, response) {
-    winston.info('Delete Trip request', {'user': req.session.firstName, 'url_clicked': '/deleteTrip'});
+    winston.info('Delete Trip request', {'user': request.session.firstName, 'url_clicked': '/deleteTrip'});
     var tripId = request.param("tripId");
     var msg_payload = {tripId: tripId};
     mq_client.make_request('DeleteTrip_queue', msg_payload, function (err, result) {

@@ -158,7 +158,7 @@ exports.cardDetails = function (req, res, next) {
 };
 
 exports.deleteBill = function (request, response) {
-    winston.info('Delete details', {'user': req.session.firstName, 'url_clicked': '/deleteBill'});
+    winston.info('Delete details', {'user': request.session.firstName, 'url_clicked': '/deleteBill'});
     var billId = request.param("billId");
     var msg_payload = {billId: billId};
     mq_client.make_request('DeleteBill_queue', msg_payload, function (err, result) {

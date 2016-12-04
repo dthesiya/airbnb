@@ -48,11 +48,10 @@ exports.getProperty = function (req, res, next) {
     };
 
     var client = redis.getClient();
-
-    if (client.get(req.param("propertyId"), function (err, reply) {
+    if (client.hget("properties",req.param("propertyId"), function (err, reply) {
             if (err) {
                 console.log("error in redis cache: " + err);
-            } else if (reply == null) {
+            } else if (!reply) {
                 console.log("property not in redis cache");
                 mq_client.make_request('property_detail_queue', msg_payload, function (err, result) {
                     if (err) {
@@ -60,7 +59,7 @@ exports.getProperty = function (req, res, next) {
                         var json_responses = {"statusCode": 401};
                         res.send(json_responses);
                     } else {
-                        client.set(req.param("propertyId"), result);
+                        client.hmset("properties",req.param("propertyId"), JSON.stringify(result),redis.print);
                         res.send(result);
                         res.end();
                     }
@@ -72,7 +71,10 @@ exports.getProperty = function (req, res, next) {
         })
     );
 
-    /*mq_client.make_request('property_detail_queue', msg_payload, function (err, result) {
+
+
+   /* mq_client.make_request('property_detail_queue', msg_payload, function (err, result) {
+     console.log(result);
      if (err) {
      console.log(err);
      var json_responses = {"statusCode": 401};

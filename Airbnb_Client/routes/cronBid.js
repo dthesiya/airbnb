@@ -6,7 +6,7 @@ var ejs = require('ejs');
 var cron = require('node-cron');
 var mq_client = require('../rpc/client');
 
-cron.schedule('* 5 * * * *', function (req, res, next) {
+cron.schedule('* * 5 * * *', function (req, res, next) {
     var msg_payload = {};
     mq_client.make_request('bidCron_queue', msg_payload, function (err, results) {
         if (err) {
