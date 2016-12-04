@@ -15,13 +15,19 @@ var listings = require('./services/listings');
 var user = require('./services/user');
 var bid = require('./services/bid');
 
-////////////////////////////
+/////////////////////test////////////
 
+var test = require('./services/test');
+test.testUser();
+
+////////////////////////////
+/*
 var cnn = amqp.createConnection({host: '127.0.0.1'});
 //require('./services/biddingChecker');
 cnn.on('error', function (e) {
     console.log("error from amqp " + e);
 });
+
 
 cnn.on('ready', function () {
 
@@ -646,5 +652,5 @@ cnn.on('ready', function () {
             });
         });
     });
-
 });
+ */

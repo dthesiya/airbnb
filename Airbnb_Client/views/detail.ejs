@@ -1378,9 +1378,8 @@ top: -34px;">
                                                 <div class="media-body response">
                                                     <p>{{review.review}}</p>
                                                     <hr>
-                                                    <div id="frontimage_slider" class="cover-img" data-hook="img-lg"
-                                                         style="background-image:url(images/{{review.imageUrl}})">
-                                                    </div>
+                                                    <img ng-show="review.imageUrl !== ''" width="150" height="80"
+                                                         src="images/{{review.imageUrl}}">
 
                                                     <div class="row-space-top-2">
                                                         <p>
