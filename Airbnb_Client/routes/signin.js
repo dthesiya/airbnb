@@ -31,7 +31,7 @@ exports.loginpg = function (req, res) {
 };
 
 exports.authenticateUser = function (req, res, next) {
-    winston.info ('Authentication request', {'user':req.body.email, 'url_clicked':'/signin'});
+    winston.info ('Authentication request', {'user':req.body.email_id, 'url_clicked':'/signin'});
 //	var email_id = req.body.email_id;
 //	var pwd = req.body.password;
     var sess = req.session;

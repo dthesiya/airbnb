@@ -3,8 +3,8 @@
  */
 var mongoose = require('mongoose');
 var gracefulShutdown;
-// var dbURI = 'mongodb://team14:airbnb_14@ds011863.mlab.com:11863/airbnb';
-var dbURI = 'mongodb://localhost:27017/airbnb';
+var dbURI = 'mongodb://team14:airbnb_14@ds011863.mlab.com:11863/airbnb';
+// var dbURI = 'mongodb://localhost:27017/airbnb';
 if (process.env.NODE_ENV === 'production') {
     dbURI = process.env.MONGOLAB_URI;
 }

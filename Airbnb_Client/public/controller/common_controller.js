@@ -20,6 +20,7 @@ var app = angular.module('App', ['ngFileUpload']);
 
 app.factory('Data', function ($window) {
 
+
     return {
         getData: function () {
             return $window.sessionStorage.getItem("Data");

@@ -20,3 +20,12 @@
 {"user":"Darshit","property_clicked":"583737ae83cd51786c7539d6","property_type":"Entire home/apt","property_lat":"34.013132","property_long":"-118.112607","level":"info","message":"Property Details request","timestamp":"2016-12-03T07:40:04.300Z"}
 {"user":"Darshit","url_clicked":"/loadPaymentPage","level":"info","message":"Payment Page request","timestamp":"2016-12-03T07:42:13.717Z"}
 {"user":"Darshit","property_clicked":"583737ae83cd51786c7539d6","property_type":"Entire home/apt","property_lat":"34.013132","property_long":"-118.112607","level":"info","message":"Property Details request","timestamp":"2016-12-03T07:42:13.976Z"}
+{"url_clicked":"/signin","level":"info","message":"Authentication request","timestamp":"2016-12-04T01:11:24.856Z"}
+{"url_clicked":"/signin","level":"info","message":"Authentication request","timestamp":"2016-12-04T01:12:07.690Z"}
+{"user":"dthesiya@gmail.com","url_clicked":"/signin","level":"info","message":"Authentication request","timestamp":"2016-12-04T01:12:25.136Z"}
+{"user":"dthesiya@gmail.com","url_clicked":"/signin","level":"info","message":"Authentication request","timestamp":"2016-12-04T01:12:25.141Z"}
+{"user":"dthesiya@gmail.com","url_clicked":"/signin","level":"info","message":"Authentication request","timestamp":"2016-12-04T01:12:30.182Z"}
+{"user":"dthesiya@gmail.com","url_clicked":"/signin","level":"info","message":"Authentication request","timestamp":"2016-12-04T01:14:23.576Z"}
+{"user":"dthesiya@gmail.com","url_clicked":"/signin","level":"info","message":"Authentication request","timestamp":"2016-12-04T01:15:02.446Z"}
+{"user":"dthesiya@gmail.com","url_clicked":"/signin","level":"info","message":"Authentication request","timestamp":"2016-12-04T01:15:08.747Z"}
+{"user":"Darshit","url_clicked":"/signout","level":"info","message":"Signout request","timestamp":"2016-12-04T01:16:04.438Z"}

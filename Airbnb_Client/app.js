@@ -9,6 +9,7 @@ var session = require('express-session');
 var mongoStore = require("connect-mongo")(session);
 var mongo = require("mongodb").MongoClient;
 var winston = require('winston');
+var url = require('url');
 
 var fileUpload = require('express-fileupload');
 var routes = require('./routes/index');
@@ -55,6 +56,25 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+//Authentication and Authorization Middleware
+app.use(function (req, res, next) {
+    res.header(
+        'Cache-Control',
+        'no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0');
+    var authorizeUrlArr = ["/signin", "/login", "/registerUser", "/searchResult", "/search",
+        "/property", "/detail", "/hostReviewsCount", "/profile", "/getUserProfile", "/", ""];
+    var url_parts = url.parse(req.url, true);
+    if (authorizeUrlArr.indexOf(url_parts.pathname.split("/")[0]) > -1) {
+        return next();
+    } else {
+        if (req.session.userId) {
+            return next();
+        } else {
+            res.redirect("/");
+        }
+    }
+});
 
 app.post('/signin', signin.authenticateUser);
 app.post('/registerUser', signin.registerUser);
