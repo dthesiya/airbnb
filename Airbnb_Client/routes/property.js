@@ -47,10 +47,10 @@ exports.getProperty = function (req, res, next) {
 
     var client = redis.getClient();
 
-    if(client.get(req.param("propertyId"),function (err, reply) {
-            if(err){
-                console.log("error in redis cache: "+ err);
-            }else if(reply == null){
+    if (client.get(req.param("propertyId"), function (err, reply) {
+            if (err) {
+                console.log("error in redis cache: " + err);
+            } else if (reply == null) {
                 console.log("property not in redis cache");
                 mq_client.make_request('property_detail_queue', msg_payload, function (err, result) {
                     if (err) {
@@ -58,17 +58,13 @@ exports.getProperty = function (req, res, next) {
                         var json_responses = {"statusCode": 401};
                         res.send(json_responses);
                     } else {
-                        console.log(result);
-                        // var json_responses = {"statusCode": 200, "data": result};
-                        client.set(req.param("propertyId"),result);
+                        client.set(req.param("propertyId"), result);
                         res.send(result);
                         res.end();
 
                     }
                 });
-            }else if(reply){
-                console.log(reply);
-                // var json_responses = {"statusCode": 200, "data": result};
+            } else if (reply) {
                 res.send(reply);
                 res.end();
             }
@@ -76,16 +72,16 @@ exports.getProperty = function (req, res, next) {
     );
 
     /*mq_client.make_request('property_detail_queue', msg_payload, function (err, result) {
-        if (err) {
-            console.log(err);
-            var json_responses = {"statusCode": 401};
-            res.send(json_responses);
-        } else {
-            console.log(result);
-            // var json_responses = {"statusCode": 200, "data": result};
-            res.send(result);
-            res.end();
+     if (err) {
+     console.log(err);
+     var json_responses = {"statusCode": 401};
+     res.send(json_responses);
+     } else {
+     console.log(result);
+     // var json_responses = {"statusCode": 200, "data": result};
+     res.send(result);
+     res.end();
 
-        }
-    });*/
+     }
+     });*/
 };
