@@ -774,3 +774,150 @@
 {"user":"hardik","url_clicked":"/getUserReview/undefined","level":"info","message":"List review for user","timestamp":"2016-12-04T08:15:08.371Z"}
 {"user":"hardik","url_clicked":"/getHostReview/undefined","level":"info","message":"List review for host","timestamp":"2016-12-04T08:15:08.375Z"}
 {"user":"hardik","url_clicked":"/getActiveListings/undefined","level":"info","message":"List active property by id","timestamp":"2016-12-04T08:15:08.381Z"}
+{"url_clicked":"/","level":"info","message":"Home page rendered","timestamp":"2016-12-04T20:44:49.454Z"}
+{"url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-04T20:44:51.277Z"}
+{"url_clicked":"/","level":"info","message":"Home page rendered","timestamp":"2016-12-04T20:44:53.231Z"}
+{"user":"dthesiya@gmail.com","url_clicked":"/signin","level":"info","message":"Authentication request","timestamp":"2016-12-04T20:44:55.172Z"}
+{"user":"Darshit","url_clicked":"/","level":"info","message":"Home page rendered","timestamp":"2016-12-04T20:44:56.001Z"}
+{"user":"Darshit","url_clicked":"/","level":"info","message":"Home page rendered","timestamp":"2016-12-04T20:44:57.472Z"}
+{"user":"Darshit","url_clicked":"/images/%7B%7B%20rooms.photo_name%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T20:45:02.117Z"}
+{"user":"Darshit","url_clicked":"/images/%7B%7B%20rooms.users.profile_picture.src%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T20:45:02.126Z"}
+{"user":"Darshit","url_clicked":"/searchResult","level":"info","message":"Search Properties request","timestamp":"2016-12-04T20:45:02.585Z"}
+{"user":"Darshit","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-04T20:45:03.632Z"}
+{"user":"Darshit","url_clicked":"/property","level":"info","message":"detail page loaded","timestamp":"2016-12-04T20:45:04.998Z"}
+{"user":"Darshit","url_clicked":"/images/%7B%7B%20room_result.photo_name%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T20:45:05.632Z"}
+{"user":"Darshit","url_clicked":"/images/%7B%7Breview.userImg%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T20:45:05.640Z"}
+{"user":"Darshit","url_clicked":"/images/%7B%7Broom_result.users.profile_picture.src%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T20:45:05.645Z"}
+{"user":"Darshit","url_clicked":"/images/%7B%7Breview.imageUrl%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T20:45:05.887Z"}
+{"user":"Darshit","url_clicked":"/detail","level":"info","message":"Display specific property by id","timestamp":"2016-12-04T20:45:06.120Z"}
+{"user":"Darshit","url_clicked":"/hostReviewsCount","level":"info","message":"Host review count","timestamp":"2016-12-04T20:45:06.730Z"}
+{"user":"Darshit","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-04T20:45:06.737Z"}
+{"user":"Darshit","url_clicked":"/videos/","level":"info","message":"Error occured","timestamp":"2016-12-04T20:45:06.772Z"}
+{"user":"Darshit","url_clicked":"/images/%7B%7B%20user.profileImage%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T20:45:08.624Z"}
+{"user":"Darshit","url_clicked":"/images/%7B%7Breview.userId.profileImage%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T20:45:08.651Z"}
+{"user":"Darshit","url_clicked":"/images/%7B%7Breview.hostId.profileImage%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T20:45:08.656Z"}
+{"user":"Darshit","url_clicked":"/images/%7B%7Bproperty.mediaId.imageUrl[0]%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T20:45:08.873Z"}
+{"user":"Darshit","url_clicked":"/getUserProfile","level":"info","message":"Get User Profile request","timestamp":"2016-12-04T20:45:08.977Z"}
+{"user":"Darshit","url_clicked":"/getUserReview/583dcd3e7539d612a002fe13","level":"info","message":"List review for user","timestamp":"2016-12-04T20:45:09.299Z"}
+{"user":"Darshit","url_clicked":"/getHostReview/583dcd3e7539d612a002fe13","level":"info","message":"List review for host","timestamp":"2016-12-04T20:45:09.300Z"}
+{"user":"Darshit","url_clicked":"/getActiveListings/583dcd3e7539d612a002fe13","level":"info","message":"List active property by id","timestamp":"2016-12-04T20:45:09.301Z"}
+{"user":"Darshit","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-04T20:45:09.767Z"}
+{"user":"Darshit","url_clicked":"/images/%7B%7B%20user.profileImage%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T20:45:14.014Z"}
+{"user":"Darshit","url_clicked":"/images/%7B%7Breview.hostId.profileImage%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T20:45:14.023Z"}
+{"user":"Darshit","url_clicked":"/images/%7B%7Breview.userId.profileImage%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T20:45:14.031Z"}
+{"user":"Darshit","url_clicked":"/images/%7B%7Bproperty.mediaId.imageUrl[0]%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T20:45:14.275Z"}
+{"user":"Darshit","url_clicked":"/getUserProfile","level":"info","message":"Get User Profile request","timestamp":"2016-12-04T20:45:14.371Z"}
+{"user":"Darshit","url_clicked":"/getUserReview/5835decb9f1f872740dbdaf5","level":"info","message":"List review for user","timestamp":"2016-12-04T20:45:14.666Z"}
+{"user":"Darshit","url_clicked":"/getActiveListings/5835decb9f1f872740dbdaf5","level":"info","message":"List active property by id","timestamp":"2016-12-04T20:45:14.681Z"}
+{"user":"Darshit","url_clicked":"/getHostReview/5835decb9f1f872740dbdaf5","level":"info","message":"List review for host","timestamp":"2016-12-04T20:45:14.683Z"}
+{"user":"Darshit","url_clicked":"/images/%7B%7Breview.hostId.profileImage%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T20:45:21.763Z"}
+{"user":"Darshit","url_clicked":"/images/%7B%7B%20user.profileImage%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T20:45:21.774Z"}
+{"user":"Darshit","url_clicked":"/images/%7B%7Breview.userId.profileImage%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T20:45:21.784Z"}
+{"user":"Darshit","url_clicked":"/images/%7B%7Bproperty.mediaId.imageUrl[0]%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T20:45:22.022Z"}
+{"user":"Darshit","url_clicked":"/getUserProfile","level":"info","message":"Get User Profile request","timestamp":"2016-12-04T20:45:22.146Z"}
+{"user":"Darshit","url_clicked":"/getActiveListings/583dcd3e7539d612a002fe13","level":"info","message":"List active property by id","timestamp":"2016-12-04T20:45:22.492Z"}
+{"user":"Darshit","url_clicked":"/getUserReview/583dcd3e7539d612a002fe13","level":"info","message":"List review for user","timestamp":"2016-12-04T20:45:22.492Z"}
+{"user":"Darshit","url_clicked":"/getHostReview/583dcd3e7539d612a002fe13","level":"info","message":"List review for host","timestamp":"2016-12-04T20:45:22.495Z"}
+{"user":"Darshit","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-04T20:45:23.194Z"}
+{"user":"Darshit","url_clicked":"/images/%7B%7B%20user.profileImage%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T20:47:31.618Z"}
+{"user":"Darshit","url_clicked":"/images/%7B%7Breview.userId.profileImage%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T20:47:31.627Z"}
+{"user":"Darshit","url_clicked":"/images/%7B%7Breview.hostId.profileImage%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T20:47:31.639Z"}
+{"user":"Darshit","url_clicked":"/images/%7B%7Bproperty.mediaId.imageUrl[0]%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T20:47:32.288Z"}
+{"user":"Darshit","url_clicked":"/getUserProfile","level":"info","message":"Get User Profile request","timestamp":"2016-12-04T20:47:32.464Z"}
+{"user":"Darshit","url_clicked":"/getUserReview/583dcd3e7539d612a002fe13","level":"info","message":"List review for user","timestamp":"2016-12-04T20:47:32.819Z"}
+{"user":"Darshit","url_clicked":"/getHostReview/583dcd3e7539d612a002fe13","level":"info","message":"List review for host","timestamp":"2016-12-04T20:47:32.825Z"}
+{"user":"Darshit","url_clicked":"/getActiveListings/583dcd3e7539d612a002fe13","level":"info","message":"List active property by id","timestamp":"2016-12-04T20:47:32.836Z"}
+{"user":"Darshit","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-04T20:47:33.324Z"}
+{"user":"Darshit","url_clicked":"/images/%7B%7Breview.hostId.profileImage%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T20:47:38.554Z"}
+{"user":"Darshit","url_clicked":"/images/%7B%7Breview.userId.profileImage%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T20:47:38.571Z"}
+{"user":"Darshit","url_clicked":"/images/%7B%7B%20user.profileImage%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T20:47:38.576Z"}
+{"user":"Darshit","url_clicked":"/images/%7B%7Bproperty.mediaId.imageUrl[0]%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T20:47:38.754Z"}
+{"user":"Darshit","url_clicked":"/getUserProfile","level":"info","message":"Get User Profile request","timestamp":"2016-12-04T20:47:38.916Z"}
+{"user":"Darshit","url_clicked":"/getHostReview/58335ff4613e244b24e142af","level":"info","message":"List review for host","timestamp":"2016-12-04T20:47:39.210Z"}
+{"user":"Darshit","url_clicked":"/getUserReview/58335ff4613e244b24e142af","level":"info","message":"List review for user","timestamp":"2016-12-04T20:47:39.213Z"}
+{"user":"Darshit","url_clicked":"/getActiveListings/58335ff4613e244b24e142af","level":"info","message":"List active property by id","timestamp":"2016-12-04T20:47:39.216Z"}
+{"user":"Darshit","url_clicked":"/images/%7B%7B%20user.profileImage%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T20:47:42.209Z"}
+{"user":"Darshit","url_clicked":"/images/%7B%7Bproperty.mediaId.imageUrl[0]%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T20:47:42.215Z"}
+{"user":"Darshit","url_clicked":"/images/%7B%7Breview.userId.profileImage%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T20:47:42.268Z"}
+{"user":"Darshit","url_clicked":"/images/%7B%7Breview.hostId.profileImage%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T20:47:42.274Z"}
+{"user":"Darshit","url_clicked":"/getUserProfile","level":"info","message":"Get User Profile request","timestamp":"2016-12-04T20:47:42.462Z"}
+{"user":"Darshit","url_clicked":"/getUserReview/583dcd3e7539d612a002fe13","level":"info","message":"List review for user","timestamp":"2016-12-04T20:47:42.662Z"}
+{"user":"Darshit","url_clicked":"/getHostReview/583dcd3e7539d612a002fe13","level":"info","message":"List review for host","timestamp":"2016-12-04T20:47:42.662Z"}
+{"user":"Darshit","url_clicked":"/getActiveListings/583dcd3e7539d612a002fe13","level":"info","message":"List active property by id","timestamp":"2016-12-04T20:47:42.664Z"}
+{"user":"Darshit","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-04T20:47:43.224Z"}
+{"user":"Darshit","url_clicked":"/images/%7B%7Breview.userId.profileImage%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T20:47:56.145Z"}
+{"user":"Darshit","url_clicked":"/images/%7B%7B%20user.profileImage%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T20:47:56.153Z"}
+{"user":"Darshit","url_clicked":"/images/%7B%7Breview.hostId.profileImage%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T20:47:56.159Z"}
+{"user":"Darshit","url_clicked":"/images/%7B%7Bproperty.mediaId.imageUrl[0]%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T20:47:56.468Z"}
+{"user":"Darshit","url_clicked":"/getUserProfile","level":"info","message":"Get User Profile request","timestamp":"2016-12-04T20:47:56.741Z"}
+{"user":"Darshit","url_clicked":"/getUserReview/583dcd3e7539d612a002fe13","level":"info","message":"List review for user","timestamp":"2016-12-04T20:47:56.954Z"}
+{"user":"Darshit","url_clicked":"/getHostReview/583dcd3e7539d612a002fe13","level":"info","message":"List review for host","timestamp":"2016-12-04T20:47:56.956Z"}
+{"user":"Darshit","url_clicked":"/getActiveListings/583dcd3e7539d612a002fe13","level":"info","message":"List active property by id","timestamp":"2016-12-04T20:47:56.964Z"}
+{"user":"Darshit","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-04T20:47:57.519Z"}
+{"user":"Darshit","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-04T20:48:13.060Z"}
+{"user":"Darshit","url_clicked":"/images/%7B%7Breview.userId.profileImage%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T20:48:20.091Z"}
+{"user":"Darshit","url_clicked":"/images/%7B%7B%20user.profileImage%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T20:48:20.099Z"}
+{"user":"Darshit","url_clicked":"/images/%7B%7Breview.hostId.profileImage%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T20:48:20.108Z"}
+{"user":"Darshit","url_clicked":"/images/%7B%7Bproperty.mediaId.imageUrl[0]%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T20:48:20.425Z"}
+{"user":"Darshit","url_clicked":"/getUserProfile","level":"info","message":"Get User Profile request","timestamp":"2016-12-04T20:48:20.623Z"}
+{"user":"Darshit","url_clicked":"/getHostReview/583dcd3e7539d612a002fe13","level":"info","message":"List review for host","timestamp":"2016-12-04T20:48:20.853Z"}
+{"user":"Darshit","url_clicked":"/getActiveListings/583dcd3e7539d612a002fe13","level":"info","message":"List active property by id","timestamp":"2016-12-04T20:48:20.856Z"}
+{"user":"Darshit","url_clicked":"/getUserReview/583dcd3e7539d612a002fe13","level":"info","message":"List review for user","timestamp":"2016-12-04T20:48:20.857Z"}
+{"user":"Darshit","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-04T20:48:21.369Z"}
+{"user":"Darshit","url_clicked":"/images/%7B%7Breview.userId.profileImage%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T20:48:22.915Z"}
+{"user":"Darshit","url_clicked":"/images/%7B%7B%20user.profileImage%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T20:48:22.924Z"}
+{"user":"Darshit","url_clicked":"/images/%7B%7Breview.hostId.profileImage%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T20:48:22.933Z"}
+{"user":"Darshit","url_clicked":"/images/%7B%7Bproperty.mediaId.imageUrl[0]%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T20:48:23.267Z"}
+{"user":"Darshit","url_clicked":"/getUserProfile","level":"info","message":"Get User Profile request","timestamp":"2016-12-04T20:48:23.507Z"}
+{"user":"Darshit","url_clicked":"/getUserReview/583dcd3e7539d612a002fe13","level":"info","message":"List review for user","timestamp":"2016-12-04T20:48:23.711Z"}
+{"user":"Darshit","url_clicked":"/getHostReview/583dcd3e7539d612a002fe13","level":"info","message":"List review for host","timestamp":"2016-12-04T20:48:23.725Z"}
+{"user":"Darshit","url_clicked":"/getActiveListings/583dcd3e7539d612a002fe13","level":"info","message":"List active property by id","timestamp":"2016-12-04T20:48:23.726Z"}
+{"user":"Darshit","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-04T20:48:24.306Z"}
+{"user":"Darshit","url_clicked":"/images/%7B%7B%20user.profileImage%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T20:48:34.760Z"}
+{"user":"Darshit","url_clicked":"/images/%7B%7Breview.userId.profileImage%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T20:48:34.768Z"}
+{"user":"Darshit","url_clicked":"/images/%7B%7Breview.hostId.profileImage%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T20:48:34.780Z"}
+{"user":"Darshit","url_clicked":"/images/%7B%7Bproperty.mediaId.imageUrl[0]%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T20:48:35.106Z"}
+{"user":"Darshit","url_clicked":"/getUserProfile","level":"info","message":"Get User Profile request","timestamp":"2016-12-04T20:48:35.311Z"}
+{"user":"Darshit","url_clicked":"/getUserReview/5835decb9f1f872740dbdaf5","level":"info","message":"List review for user","timestamp":"2016-12-04T20:48:35.658Z"}
+{"user":"Darshit","url_clicked":"/getActiveListings/5835decb9f1f872740dbdaf5","level":"info","message":"List active property by id","timestamp":"2016-12-04T20:48:35.665Z"}
+{"user":"Darshit","url_clicked":"/getHostReview/5835decb9f1f872740dbdaf5","level":"info","message":"List review for host","timestamp":"2016-12-04T20:48:35.667Z"}
+{"user":"Darshit","url_clicked":"/images/%7B%7Breview.hostId.profileImage%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T20:48:41.100Z"}
+{"user":"Darshit","url_clicked":"/images/%7B%7Breview.userId.profileImage%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T20:48:41.108Z"}
+{"user":"Darshit","url_clicked":"/images/%7B%7B%20user.profileImage%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T20:48:41.117Z"}
+{"user":"Darshit","url_clicked":"/images/%7B%7Bproperty.mediaId.imageUrl[0]%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T20:48:41.411Z"}
+{"user":"Darshit","url_clicked":"/getUserProfile","level":"info","message":"Get User Profile request","timestamp":"2016-12-04T20:48:41.642Z"}
+{"user":"Darshit","url_clicked":"/getUserReview/5835decb9f1f872740dbdaf5","level":"info","message":"List review for user","timestamp":"2016-12-04T20:48:41.856Z"}
+{"user":"Darshit","url_clicked":"/getHostReview/5835decb9f1f872740dbdaf5","level":"info","message":"List review for host","timestamp":"2016-12-04T20:48:41.857Z"}
+{"user":"Darshit","url_clicked":"/getActiveListings/5835decb9f1f872740dbdaf5","level":"info","message":"List active property by id","timestamp":"2016-12-04T20:48:41.859Z"}
+{"user":"Darshit","url_clicked":"/images/%7B%7B%20user.profileImage%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T20:48:44.496Z"}
+{"user":"Darshit","url_clicked":"/images/%7B%7Breview.userId.profileImage%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T20:48:44.508Z"}
+{"user":"Darshit","url_clicked":"/images/%7B%7Breview.hostId.profileImage%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T20:48:44.519Z"}
+{"user":"Darshit","url_clicked":"/images/%7B%7Bproperty.mediaId.imageUrl[0]%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T20:48:44.840Z"}
+{"user":"Darshit","url_clicked":"/getUserProfile","level":"info","message":"Get User Profile request","timestamp":"2016-12-04T20:48:45.056Z"}
+{"user":"Darshit","url_clicked":"/getUserReview/5835decb9f1f872740dbdaf5","level":"info","message":"List review for user","timestamp":"2016-12-04T20:48:45.272Z"}
+{"user":"Darshit","url_clicked":"/getHostReview/5835decb9f1f872740dbdaf5","level":"info","message":"List review for host","timestamp":"2016-12-04T20:48:45.275Z"}
+{"user":"Darshit","url_clicked":"/getActiveListings/5835decb9f1f872740dbdaf5","level":"info","message":"List active property by id","timestamp":"2016-12-04T20:48:45.281Z"}
+{"user":"Darshit","url_clicked":"/images/%7B%7Breview.userId.profileImage%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T20:48:47.178Z"}
+{"user":"Darshit","url_clicked":"/images/%7B%7B%20user.profileImage%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T20:48:47.205Z"}
+{"user":"Darshit","url_clicked":"/images/%7B%7Breview.hostId.profileImage%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T20:48:47.210Z"}
+{"user":"Darshit","url_clicked":"/images/%7B%7Bproperty.mediaId.imageUrl[0]%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T20:48:47.557Z"}
+{"user":"Darshit","url_clicked":"/getUserProfile","level":"info","message":"Get User Profile request","timestamp":"2016-12-04T20:48:47.691Z"}
+{"user":"Darshit","url_clicked":"/getActiveListings/5835decb9f1f872740dbdaf5","level":"info","message":"List active property by id","timestamp":"2016-12-04T20:48:47.947Z"}
+{"user":"Darshit","url_clicked":"/getUserReview/5835decb9f1f872740dbdaf5","level":"info","message":"List review for user","timestamp":"2016-12-04T20:48:47.949Z"}
+{"user":"Darshit","url_clicked":"/getHostReview/5835decb9f1f872740dbdaf5","level":"info","message":"List review for host","timestamp":"2016-12-04T20:48:47.951Z"}
+{"user":"Darshit","url_clicked":"/images/%7B%7B%20user.profileImage%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T20:48:50.182Z"}
+{"user":"Darshit","url_clicked":"/images/%7B%7Breview.userId.profileImage%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T20:48:50.189Z"}
+{"user":"Darshit","url_clicked":"/images/%7B%7Breview.hostId.profileImage%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T20:48:50.201Z"}
+{"user":"Darshit","url_clicked":"/images/%7B%7Bproperty.mediaId.imageUrl[0]%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T20:48:50.529Z"}
+{"user":"Darshit","url_clicked":"/getUserProfile","level":"info","message":"Get User Profile request","timestamp":"2016-12-04T20:48:50.827Z"}
+{"user":"Darshit","url_clicked":"/getHostReview/5835decb9f1f872740dbdaf5","level":"info","message":"List review for host","timestamp":"2016-12-04T20:48:51.140Z"}
+{"user":"Darshit","url_clicked":"/getUserReview/5835decb9f1f872740dbdaf5","level":"info","message":"List review for user","timestamp":"2016-12-04T20:48:51.143Z"}
+{"user":"Darshit","url_clicked":"/getActiveListings/5835decb9f1f872740dbdaf5","level":"info","message":"List active property by id","timestamp":"2016-12-04T20:48:51.146Z"}
+{"user":"Darshit","url_clicked":"/images/%7B%7Breview.userId.profileImage%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T20:48:54.385Z"}
+{"user":"Darshit","url_clicked":"/images/%7B%7Breview.hostId.profileImage%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T20:48:54.393Z"}
+{"user":"Darshit","url_clicked":"/images/%7B%7B%20user.profileImage%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T20:48:54.400Z"}
+{"user":"Darshit","url_clicked":"/images/%7B%7Bproperty.mediaId.imageUrl[0]%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T20:48:54.590Z"}
+{"user":"Darshit","url_clicked":"/getUserProfile","level":"info","message":"Get User Profile request","timestamp":"2016-12-04T20:48:55.010Z"}
+{"user":"Darshit","url_clicked":"/getUserReview/5835decb9f1f872740dbdaf5","level":"info","message":"List review for user","timestamp":"2016-12-04T20:48:55.295Z"}
+{"user":"Darshit","url_clicked":"/getActiveListings/5835decb9f1f872740dbdaf5","level":"info","message":"List active property by id","timestamp":"2016-12-04T20:48:55.296Z"}
+{"user":"Darshit","url_clicked":"/getHostReview/5835decb9f1f872740dbdaf5","level":"info","message":"List review for host","timestamp":"2016-12-04T20:48:55.297Z"}
