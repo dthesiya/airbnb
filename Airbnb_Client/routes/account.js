@@ -229,7 +229,9 @@ exports.getDashBoardPage = function (req, res) {
         "isLoggedIn": sess.isLoggedIn,
         "firstname": sess.firstName,
         "profileImg": sess.profileImg,
-        "userId": sess.userId + '.png'
+        "userId": sess.userId + '.png',
+        "isHost" :sess.isHost,
+        "isApproved" : sess.isApproved
     };
 
     ejs.renderFile('../views/dashboard.ejs', user_data, function (err, result) {

@@ -774,3 +774,127 @@
 {"user":"hardik","url_clicked":"/getUserReview/undefined","level":"info","message":"List review for user","timestamp":"2016-12-04T08:15:08.371Z"}
 {"user":"hardik","url_clicked":"/getHostReview/undefined","level":"info","message":"List review for host","timestamp":"2016-12-04T08:15:08.375Z"}
 {"user":"hardik","url_clicked":"/getActiveListings/undefined","level":"info","message":"List active property by id","timestamp":"2016-12-04T08:15:08.381Z"}
+{"url_clicked":"/","level":"info","message":"Home page rendered","timestamp":"2016-12-04T19:47:21.660Z"}
+{"url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-04T19:47:22.849Z"}
+{"url_clicked":"/","level":"info","message":"Home page rendered","timestamp":"2016-12-04T19:47:23.739Z"}
+{"user":"s@k.com","url_clicked":"/signin","level":"info","message":"Authentication request","timestamp":"2016-12-04T19:47:28.411Z"}
+{"user":"Sandeep","url_clicked":"/","level":"info","message":"Home page rendered","timestamp":"2016-12-04T19:47:29.062Z"}
+{"user":"Sandeep","url_clicked":"/","level":"info","message":"Home page rendered","timestamp":"2016-12-04T19:47:30.415Z"}
+{"user":"Sandeep","url_clicked":"/images/%7B%7B%20rooms.photo_name%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T19:47:35.534Z"}
+{"user":"Sandeep","url_clicked":"/images/%7B%7B%20rooms.users.profile_picture.src%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T19:47:35.544Z"}
+{"user":"Sandeep","url_clicked":"/searchResult","level":"info","message":"Search Properties request","timestamp":"2016-12-04T19:47:35.912Z"}
+{"user":"Sandeep","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-04T19:47:36.904Z"}
+{"user":"Sandeep","url_clicked":"/images/%7B%7B%20rooms.photo_name%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T19:47:43.129Z"}
+{"user":"Sandeep","url_clicked":"/images/%7B%7B%20rooms.users.profile_picture.src%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T19:47:43.136Z"}
+{"user":"Sandeep","url_clicked":"/searchResult","level":"info","message":"Search Properties request","timestamp":"2016-12-04T19:47:43.484Z"}
+{"user":"Sandeep","url_clicked":"/images/%7B%7B%20rooms.users.profile_picture.src%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T19:47:53.260Z"}
+{"user":"Sandeep","url_clicked":"/images/%7B%7B%20rooms.photo_name%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T19:47:53.275Z"}
+{"user":"Sandeep","url_clicked":"/searchResult","level":"info","message":"Search Properties request","timestamp":"2016-12-04T19:47:53.654Z"}
+{"user":"Sandeep","url_clicked":"/images/%7B%7B%20rooms.photo_name%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T19:48:12.863Z"}
+{"user":"Sandeep","url_clicked":"/images/%7B%7B%20rooms.users.profile_picture.src%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T19:48:12.873Z"}
+{"user":"Sandeep","url_clicked":"/searchResult","level":"info","message":"Search Properties request","timestamp":"2016-12-04T19:48:13.254Z"}
+{"user":"Sandeep","url_clicked":"/images/%7B%7B%20rooms.users.profile_picture.src%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T19:48:17.406Z"}
+{"user":"Sandeep","url_clicked":"/images/%7B%7B%20rooms.photo_name%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T19:48:17.414Z"}
+{"user":"Sandeep","url_clicked":"/searchResult","level":"info","message":"Search Properties request","timestamp":"2016-12-04T19:48:17.805Z"}
+{"user":"Sandeep","url_clicked":"/images/%7B%7B%20rooms.users.profile_picture.src%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T19:48:21.727Z"}
+{"user":"Sandeep","url_clicked":"/images/%7B%7B%20rooms.photo_name%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T19:48:21.733Z"}
+{"user":"Sandeep","url_clicked":"/searchResult","level":"info","message":"Search Properties request","timestamp":"2016-12-04T19:48:22.056Z"}
+{"user":"Sandeep","url_clicked":"/property","level":"info","message":"detail page loaded","timestamp":"2016-12-04T19:48:25.378Z"}
+{"user":"Sandeep","url_clicked":"/images/%7B%7Broom_result.users.profile_picture.src%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T19:48:25.934Z"}
+{"user":"Sandeep","url_clicked":"/images/%7B%7Breview.userImg%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T19:48:25.941Z"}
+{"user":"Sandeep","url_clicked":"/images/%7B%7B%20room_result.photo_name%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T19:48:25.948Z"}
+{"user":"Sandeep","url_clicked":"/images/%7B%7Breview.imageUrl%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T19:48:26.170Z"}
+{"user":"Sandeep","url_clicked":"/detail","level":"info","message":"Display specific property by id","timestamp":"2016-12-04T19:48:26.314Z"}
+{"user":"Sandeep","url_clicked":"/hostReviewsCount","level":"info","message":"Host review count","timestamp":"2016-12-04T19:48:26.996Z"}
+{"user":"Sandeep","url_clicked":"/","level":"info","message":"Home page rendered","timestamp":"2016-12-04T19:49:01.332Z"}
+{"user":"Sandeep","url_clicked":"/","level":"info","message":"Home page rendered","timestamp":"2016-12-04T19:49:02.681Z"}
+{"user":"Sandeep","url_clicked":"/editProfilePage","level":"info","message":"Edit Profile Page rendered","timestamp":"2016-12-04T19:49:34.833Z"}
+{"user":"Sandeep","url_clicked":"/loadEditUserPage","level":"info","message":"Edit user page load","timestamp":"2016-12-04T19:49:36.106Z"}
+{"user":"Sandeep","url_clicked":"/deleteUser","level":"info","message":"Delete User request","timestamp":"2016-12-04T19:49:45.389Z"}
+{"url_clicked":"/","level":"info","message":"Home page rendered","timestamp":"2016-12-04T19:49:45.593Z"}
+{"url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-04T19:49:46.104Z"}
+{"user":"s@k.com","url_clicked":"/signin","level":"info","message":"Authentication request","timestamp":"2016-12-04T19:49:58.701Z"}
+{"url_clicked":"/","level":"info","message":"Home page rendered","timestamp":"2016-12-04T19:50:04.063Z"}
+{"url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-04T19:50:04.644Z"}
+{"url_clicked":"/","level":"info","message":"Home page rendered","timestamp":"2016-12-04T19:50:05.460Z"}
+{"user":"s@k.com","url_clicked":"/signin","level":"info","message":"Authentication request","timestamp":"2016-12-04T19:51:04.180Z"}
+{"user":"Sandeep","url_clicked":"/","level":"info","message":"Home page rendered","timestamp":"2016-12-04T19:51:04.802Z"}
+{"user":"Sandeep","url_clicked":"/","level":"info","message":"Home page rendered","timestamp":"2016-12-04T19:51:06.110Z"}
+{"user":"Sandeep","url_clicked":"/","level":"info","message":"Home page rendered","timestamp":"2016-12-04T20:39:51.825Z"}
+{"user":"Sandeep","url_clicked":"/","level":"info","message":"Home page rendered","timestamp":"2016-12-04T20:39:55.034Z"}
+{"user":"Sandeep","url_clicked":"/getDashBoardPage","level":"info","message":"Dashboard Page request","timestamp":"2016-12-04T20:39:58.741Z"}
+{"user":"Sandeep","url_clicked":"/yourListings","level":"info","message":"Your listing page rendered","timestamp":"2016-12-04T20:40:02.841Z"}
+{"user":"Sandeep","url_clicked":"/images/%7B%7Blisting.mediaId.imageUrl[0]%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T20:40:03.311Z"}
+{"user":"Sandeep","url_clicked":"/images/%7B%7Breservation.userId.profileImage%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T20:40:03.327Z"}
+{"user":"Sandeep","url_clicked":"/yourListings","level":"info","message":"List active property","timestamp":"2016-12-04T20:40:03.684Z"}
+{"user":"Sandeep","url_clicked":"/getReservations","level":"info","message":"List reservation","timestamp":"2016-12-04T20:40:03.685Z"}
+{"user":"Sandeep","url_clicked":"/getUserTrips","level":"info","message":"User Trips get request","timestamp":"2016-12-04T20:40:05.756Z"}
+{"user":"Sandeep","url_clicked":"/editProfilePage","level":"info","message":"Edit Profile Page rendered","timestamp":"2016-12-04T20:40:06.566Z"}
+{"user":"Sandeep","url_clicked":"/loadEditUserPage","level":"info","message":"Edit user page load","timestamp":"2016-12-04T20:40:07.414Z"}
+{"user":"Sandeep","url_clicked":"/Account_Transactions","level":"info","message":"Account page rendered","timestamp":"2016-12-04T20:40:08.742Z"}
+{"user":"Sandeep","url_clicked":"/payinTransaction","level":"info","message":"Fetch payin transaction","timestamp":"2016-12-04T20:40:09.527Z"}
+{"user":"Sandeep","url_clicked":"/payoutTransaction","level":"info","message":"Fetch payout transaction","timestamp":"2016-12-04T20:40:09.529Z"}
+{"user":"Sandeep","url_clicked":"/editProfilePage","level":"info","message":"Edit Profile Page rendered","timestamp":"2016-12-04T20:40:34.651Z"}
+{"user":"Sandeep","url_clicked":"/loadEditUserPage","level":"info","message":"Edit user page load","timestamp":"2016-12-04T20:40:35.506Z"}
+{"user":"Sandeep","url_clicked":"/signout","level":"info","message":"Signout request","timestamp":"2016-12-04T20:41:06.939Z"}
+{"user":"Sandeep","url_clicked":"/","level":"info","message":"Home page rendered","timestamp":"2016-12-04T20:41:07.069Z"}
+{"url_clicked":"/signout","level":"info","message":"Signout request","timestamp":"2016-12-04T20:41:10.424Z"}
+{"url_clicked":"/","level":"info","message":"Home page rendered","timestamp":"2016-12-04T20:41:10.538Z"}
+{"url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-04T20:41:11.113Z"}
+{"url_clicked":"/images/text-field-icons-9c18e4e23864cb33a8f0f7c32c0b86ee.png","level":"info","message":"Error occured","timestamp":"2016-12-04T20:41:15.709Z"}
+{"user":"tes1@gmail.com","url_clicked":"/signin","level":"info","message":"Authentication request","timestamp":"2016-12-04T20:41:28.162Z"}
+{"user":"test1@gmail.com","url_clicked":"/signin","level":"info","message":"Authentication request","timestamp":"2016-12-04T20:41:33.366Z"}
+{"user":"Arden","url_clicked":"/","level":"info","message":"Home page rendered","timestamp":"2016-12-04T20:41:33.898Z"}
+{"user":"Arden","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-04T20:41:34.507Z"}
+{"user":"Arden","url_clicked":"/editProfilePage","level":"info","message":"Edit Profile Page rendered","timestamp":"2016-12-04T20:41:39.366Z"}
+{"user":"Arden","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-04T20:41:39.979Z"}
+{"user":"Arden","url_clicked":"/loadEditUserPage","level":"info","message":"Edit user page load","timestamp":"2016-12-04T20:41:40.173Z"}
+{"user":"Arden","url_clicked":"/editUser","level":"info","message":"Profile Edit Occured","timestamp":"2016-12-04T20:41:48.389Z"}
+{"user":"Arden","url_clicked":"/getUserPhotoPage","level":"info","message":"User photo page rendered","timestamp":"2016-12-04T20:41:51.618Z"}
+{"user":"Arden","url_clicked":"/images/%7B%7Buser.profileImage%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T20:41:51.964Z"}
+{"user":"Arden","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-04T20:41:52.155Z"}
+{"user":"Arden","url_clicked":"/loadProfilePhotoPage","level":"info","message":"Profile photo load","timestamp":"2016-12-04T20:41:52.280Z"}
+{"user":"Arden","url_clicked":"/uploadProfileImage","level":"info","message":"profile image uploaded","timestamp":"2016-12-04T20:42:01.511Z"}
+{"user":"Arden","url_clicked":"/getUserPhotoPage","level":"info","message":"User photo page rendered","timestamp":"2016-12-04T20:42:01.613Z"}
+{"user":"Arden","url_clicked":"/images/%7B%7Buser.profileImage%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T20:42:02.076Z"}
+{"user":"Arden","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-04T20:42:02.247Z"}
+{"user":"Arden","url_clicked":"/loadProfilePhotoPage","level":"info","message":"Profile photo load","timestamp":"2016-12-04T20:42:02.393Z"}
+{"user":"Arden","url_clicked":"/getUserReviewAboutPage","level":"info","message":"User review about page rendered","timestamp":"2016-12-04T20:42:31.234Z"}
+{"user":"Arden","url_clicked":"/images/%7B%7Bfromuser.userId.profileImage%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T20:42:31.704Z"}
+{"user":"Arden","url_clicked":"/images/%7B%7Bfromhost.hostId.profileImage%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T20:42:31.712Z"}
+{"user":"Arden","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-04T20:42:31.882Z"}
+{"user":"Arden","url_clicked":"/loadReviewAboutPage","level":"info","message":"Load review about","timestamp":"2016-12-04T20:42:32.045Z"}
+{"user":"Arden","url_clicked":"/Account_Transactions","level":"info","message":"Account page rendered","timestamp":"2016-12-04T20:42:33.458Z"}
+{"user":"Arden","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-04T20:42:33.896Z"}
+{"user":"Arden","url_clicked":"/payinTransaction","level":"info","message":"Fetch payin transaction","timestamp":"2016-12-04T20:42:34.120Z"}
+{"user":"Arden","url_clicked":"/payoutTransaction","level":"info","message":"Fetch payout transaction","timestamp":"2016-12-04T20:42:34.126Z"}
+{"user":"Arden","url_clicked":"/Account_Payment_Method","level":"info","message":"Account payment method page rendered","timestamp":"2016-12-04T20:42:36.031Z"}
+{"user":"Arden","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-04T20:42:36.480Z"}
+{"user":"Arden","url_clicked":"/cardDetails","level":"info","message":"Fetch card details","timestamp":"2016-12-04T20:42:36.622Z"}
+{"user":"Arden","url_clicked":"/paymentMethodUpdate","level":"info","message":"Payment method update","timestamp":"2016-12-04T20:42:43.862Z"}
+{"user":"Arden","url_clicked":"/getDashBoardPage","level":"info","message":"Dashboard Page request","timestamp":"2016-12-04T20:45:39.676Z"}
+{"user":"Arden","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-04T20:45:40.354Z"}
+{"user":"Arden","url_clicked":"/getDashBoardPage","level":"info","message":"Dashboard Page request","timestamp":"2016-12-04T20:46:55.316Z"}
+{"user":"Arden","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-04T20:46:56.247Z"}
+{"user":"Arden","url_clicked":"/getDashBoardPage","level":"info","message":"Dashboard Page request","timestamp":"2016-12-04T20:54:13.380Z"}
+{"user":"Arden","url_clicked":"/Account_Payment_Method","level":"info","message":"Account payment method page rendered","timestamp":"2016-12-04T20:54:16.990Z"}
+{"user":"Arden","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-04T20:54:17.453Z"}
+{"user":"Arden","url_clicked":"/cardDetails","level":"info","message":"Fetch card details","timestamp":"2016-12-04T20:54:17.612Z"}
+{"user":"Arden","url_clicked":"/Account_Payment_Method","level":"info","message":"Account payment method page rendered","timestamp":"2016-12-04T20:54:33.201Z"}
+{"user":"Arden","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-04T20:54:33.754Z"}
+{"user":"Arden","url_clicked":"/cardDetails","level":"info","message":"Fetch card details","timestamp":"2016-12-04T20:54:33.955Z"}
+{"user":"Arden","url_clicked":"/getDashBoardPage","level":"info","message":"Dashboard Page request","timestamp":"2016-12-04T20:54:35.589Z"}
+{"user":"Arden","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-04T20:54:36.552Z"}
+{"user":"Arden","url_clicked":"/signout","level":"info","message":"Signout request","timestamp":"2016-12-04T20:54:50.296Z"}
+{"url_clicked":"/","level":"info","message":"Home page rendered","timestamp":"2016-12-04T20:54:50.455Z"}
+{"url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-04T20:54:50.979Z"}
+{"url_clicked":"/images/text-field-icons-9c18e4e23864cb33a8f0f7c32c0b86ee.png","level":"info","message":"Error occured","timestamp":"2016-12-04T20:54:54.893Z"}
+{"user":"testhost1@gmail.com","url_clicked":"/signin","level":"info","message":"Authentication request","timestamp":"2016-12-04T20:55:02.568Z"}
+{"user":"Dallas","url_clicked":"/","level":"info","message":"Home page rendered","timestamp":"2016-12-04T20:55:03.376Z"}
+{"user":"Dallas","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-04T20:55:03.900Z"}
+{"user":"Dallas","url_clicked":"/getDashBoardPage","level":"info","message":"Dashboard Page request","timestamp":"2016-12-04T20:55:08.108Z"}
+{"user":"Dallas","url_clicked":"/images/58447cb73c4b513340ac3096.png","level":"info","message":"Error occured","timestamp":"2016-12-04T20:55:08.486Z"}
+{"user":"Dallas","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-04T20:55:08.716Z"}
+{"user":"Dallas","url_clicked":"/getDashBoardPage","level":"info","message":"Dashboard Page request","timestamp":"2016-12-04T20:55:38.694Z"}
+{"user":"Dallas","url_clicked":"/images/58447cb73c4b513340ac3096.png","level":"info","message":"Error occured","timestamp":"2016-12-04T20:55:39.129Z"}
+{"user":"Dallas","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-04T20:55:39.342Z"}
