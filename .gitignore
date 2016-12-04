@@ -2,3 +2,4 @@
 Airbnb_Client/node_modules/
 Airbnb_server/node_modules/
 *.log
+Airbnb_Client/bin/airbnb.log
