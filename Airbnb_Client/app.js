@@ -123,7 +123,7 @@ app.post('/updateBasePrice', bid.updateBasePrice);
 
 /////////////////delete////////////////////
 
-app.delete('/deleteUser', users.deleteUser);
+app.get('/deleteUser', users.deleteUser);
 app.delete('/deleteTrip', trips.deleteTrip);
 app.delete('/deleteBill', account_management.deleteBill);
 

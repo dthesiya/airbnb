@@ -184,12 +184,12 @@ exports.doSearch = function (msg, callback) {
                                             id: 1,
                                             name: "US Dollar",
                                             code: "USD",
-                                            symbol: "&#36;",
+                                            symbol: "$",
                                             rate: "1.00",
                                             status: "Active",
                                             default_currency: "1",
                                             paypal_currency: "Yes",
-                                            original_symbol: "&#36;"
+                                            original_symbol: "$"
                                         }
                                     },
                                     users: (record.hostId) ? {
