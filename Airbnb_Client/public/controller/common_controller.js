@@ -878,7 +878,7 @@ app.controller('payment_controller', function ($scope, $window, $location, $http
                 }
             }).success(function (data) {
                 if (data.statusCode == 200) {
-                    window.location.href='/yourTrips';
+                    window.location.href = '/yourTrips';
                 }
             }).error(function (error) {
                 console.log(error);
@@ -1341,7 +1341,6 @@ app.controller('yourTrips_controller', function ($scope, $http, $sce, Upload) {
     };
 
     $scope.viewItinerary = function (tripId) {
-
         $http({
             method: 'POST',
             url: '/itinerary',
@@ -1349,13 +1348,11 @@ app.controller('yourTrips_controller', function ($scope, $http, $sce, Upload) {
         })
             .success(function (data) {
                 $scope.isItinerary = true;
-                console.log(data);
                 $scope.tripItinerary = $sce.trustAsHtml(data);
             })
     };
 
     $scope.toggleReview = function ($index) {
-
         $scope.writeReview[$index] = true;
         //!$scope.writeReview[$index];
     };
@@ -1363,32 +1360,24 @@ app.controller('yourTrips_controller', function ($scope, $http, $sce, Upload) {
     $scope.submitReviewtoHost = function (review, userId, rating, image, $index) {
 
         if (!review) {
-            console.log('No Review');
             return;
         }
 
-        console.log(rating);
-        console.log(review, userId);
         $http({
             method: 'POST',
             url: '/addHostReview',
             data: {"hostId": userId, "review": review, "rating": rating, "image": image}
         })
             .success(function (data) {
-                console.log(data);
                 $scope.reviewadded = true;
             })
     };
 
-
     $scope.submitReviewtoProperty = function (review, userId, rating, propertyId, index) {
-
         if (!review) {
             console.log('No Review');
             return;
         }
-
-
         var file = ($scope.images[index]) ? $scope.images[index][0] : null;
         Upload.upload({
             url: '/uploadImage',
@@ -1396,8 +1385,6 @@ app.controller('yourTrips_controller', function ($scope, $http, $sce, Upload) {
                 "file": file
             }
         }).then(function (resp) {
-
-            console.log(resp.data);
             if (resp.data.statusCode == 200) {
                 console.log("Stause code " + resp.data.statusCode);
                 var url = resp.data.url;
@@ -1407,22 +1394,14 @@ app.controller('yourTrips_controller', function ($scope, $http, $sce, Upload) {
                     data: {"hostId": userId, "review": review, "rating": rating, "url": url, "propertyId": propertyId}
                 })
                     .success(function (data) {
-                        console.log(data);
-
                         if (data.statusCode == 200) {
                             $scope.reviewadded = true;
-                            console.log("Review Added with image");
-                        }
-                        else {
+                        } else {
                             console.log("Error occured to add review");
                         }
-
-
                     })
-
             }
             else if (resp.data.statusCode == 201) {
-
                 $http({
                     method: 'POST',
                     url: '/addPropertyReview',
@@ -1437,22 +1416,14 @@ app.controller('yourTrips_controller', function ($scope, $http, $sce, Upload) {
                         else {
                             console.log("Error occured to add review");
                         }
-
                     })
-
-            }
-            else {
+            } else {
                 console.log("Error 401");
             }
-
         }, function (resp) {
-
             console.log('Error status: ' + resp.statusCode);
-
         });
-
     };
-
 });
 
 
@@ -1566,6 +1537,20 @@ app.controller('activeListings_controller', function ($scope, $http, $window) {
             method: 'POST',
             url: '/addUserReview',
             data: {"userId": userId, "review": review, "rating": rating, "image": image}
+        })
+            .success(function (data) {
+                console.log(data);
+
+                $scope.reviewadded = true;
+            })
+    };
+});
+
+app.controller('receipt_controller', function ($scope, $http, Data, $window, Upload) {
+    $scope.deleteBill = function (billId) {
+        $http({
+            method: 'DELETE',
+            url: '/deleteBill?billId=' + billId
         })
             .success(function (data) {
                 console.log(data);
