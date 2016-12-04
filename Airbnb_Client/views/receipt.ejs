@@ -181,13 +181,13 @@
         <th class="receipt-label">
           Airbnb Service Fee
         </th>
-        <td class="receipt-amount">&#36;23</td>
+        <td class="receipt-amount">&#36;</td>
       </tr>
   </tbody>
   <tfoot>
     <tr>
       <th class="receipt-label">Total</th>
-      <td class="receipt-amount">&#36;<%=(data[0].total)+23%></td>
+      <td class="receipt-amount">&#36;<%=(data[0].total)%></td>
     </tr>
   </tfoot>
 </table>
@@ -197,11 +197,11 @@
       <tr>
           <th class="receipt-label">
             Payment Received:
-            <%=new Date(data[0].createdDate).toString()%>
+            <%=new Date(data[0].createdDate).toLocaleString()%>
             
           </th>
         <td class="receipt-amount">
-          &#36;<%=(data[0].total)+23%>
+          &#36;<%=(data[0].total)%>
         </td>
       </tr>
   </tbody>

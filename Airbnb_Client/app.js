@@ -21,6 +21,7 @@ var property = require('./routes/property');
 var account_management = require('./routes/account_management');
 var listings = require('./routes/listings');
 var trips = require('./routes/trips');
+var redis = require('./routes/redisConnect');
 
 
 var app = express();

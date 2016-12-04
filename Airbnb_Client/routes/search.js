@@ -16,6 +16,8 @@ var mq_client = require("../rpc/client.js");
  */
 
 
+
+
 exports.loadSearchPg = function (req, res) {
     var sess = req.session;
     var lat;
@@ -52,6 +54,9 @@ exports.search = function (req, res, next) {
     var checkin = req.param("checkin");
     var checkout = req.param("checkout");
     var guests = req.param("guests");
+
+
+
 
     var msg_payload = {
         location: location,
