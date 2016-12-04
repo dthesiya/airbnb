@@ -14,6 +14,7 @@ var ejs = require("ejs");
 var winston = require('winston');
 
 exports.addProperty = function (req, res) {
+    winston.info('Property add page rendered', {'user': req.session.firstName, 'url_clicked': '/addProperty'});
     var user_data = {
         "email": req.session.email,
         "isLoggedIn": req.session.isLoggedIn,
@@ -26,6 +27,7 @@ exports.addProperty = function (req, res) {
 };
 
 exports.loadDetailPg = function (req, res) {
+    winston.info('detail page loaded', {'user': req.session.firstName, 'url_clicked': '/property'});
     var user_data = {
         "email": req.session.email,
         "isLoggedIn": req.session.isLoggedIn,
@@ -39,11 +41,10 @@ exports.loadDetailPg = function (req, res) {
 
 exports.getProperty = function (req, res, next) {
     var id = req.param("propertyId");
-
+    winston.info('Display specific property by id', {'user': req.session.firstName, 'url_clicked': '/detail'});
     var msg_payload = {
         id: id
     };
-
     mq_client.make_request('property_detail_queue', msg_payload, function (err, result) {
         if (err) {
             console.log(err);

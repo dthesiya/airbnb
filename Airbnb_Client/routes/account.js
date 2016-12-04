@@ -68,6 +68,7 @@ exports.getEditProfilePage = function (req, res) {
 
 
 exports.getPaymentPage = function (req, res) {
+    winston.info('Payment Page rendered', {'user': req.session.firstName, 'url_clicked': '/getPaymentPage'});
     var sess = req.session;
     var user_data = {
         "email": sess.email,
@@ -87,6 +88,7 @@ exports.getPaymentPage = function (req, res) {
 
 
 exports.loadEditUserPage = function (req, res) {
+    winston.info('Edit user page load', {'user': req.session.firstName, 'url_clicked': '/loadEditUserPage'});
     var userId = req.session.userId;
     var msg_payload = {
         userId: userId
@@ -106,6 +108,7 @@ exports.loadEditUserPage = function (req, res) {
 };
 
 exports.getUserPhotoPage = function (req, res) {
+    winston.info('User photo page rendered', {'user': req.session.firstName, 'url_clicked': '/getUserPhotoPage'});
     var sess = req.session;
     var user_data = {
         "email": sess.email,
@@ -125,6 +128,7 @@ exports.getUserPhotoPage = function (req, res) {
 
 
 exports.getUserReviewAboutPage = function (req, res) {
+    winston.info('User review about page rendered', {'user': req.session.firstName, 'url_clicked': '/getUserReviewAboutPage'});
     var sess = req.session;
     var user_data = {
         "email": sess.email,
@@ -144,6 +148,7 @@ exports.getUserReviewAboutPage = function (req, res) {
 
 
 exports.getUserReviewbyPage = function (req, res) {
+    winston.info('User review by page rendered', {'user': req.session.firstName, 'url_clicked': '/getUserReviewbyPage'});
     var sess = req.session;
     var user_data = {
         "email": sess.email,
@@ -162,6 +167,7 @@ exports.getUserReviewbyPage = function (req, res) {
 };
 
 exports.uploadProfileImage = function (req, res) {
+    winston.info('profile image uploaded', {'user': req.session.firstName, 'url_clicked': '/uploadProfileImage'});
     var file;
     if (!req.files) {
         var json = {"statusCode": 400}
@@ -195,6 +201,7 @@ exports.uploadProfileImage = function (req, res) {
 };
 
 exports.loadProfilePhotoPage = function (req, res) {
+    winston.info('Profile photo load', {'user': req.session.firstName, 'url_clicked': '/loadProfilePhotoPage'});
     var userId = req.session.userId;
     var msg_payload = {
         userId: userId

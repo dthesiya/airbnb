@@ -5,6 +5,7 @@ var ejs = require("ejs");
 var winston = require('winston');
 
 exports.homepg = function (req, res) {
+    winston.info('Home page rendered', {'user': req.session.firstName, 'url_clicked': '/'});
     var sess = req.session;
     var user_data = {
         "email": sess.email,

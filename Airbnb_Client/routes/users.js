@@ -17,6 +17,7 @@ exports.userProfile = function (req, res) {
 };
 
 exports.getUserProfile = function (request, response) {
+    winston.info('Get User Profile request', {'user': req.session.firstName, 'url_clicked': '/getUserProfile'});
     var userId = request.params.userId;
     var msg_payload =
     {
@@ -32,7 +33,7 @@ exports.getUserProfile = function (request, response) {
 };
 
 exports.deleteUser = function (request, response) {
-
+    winston.info('Delete User request', {'user': req.session.firstName, 'url_clicked': '/deleteUser'});
     var userId = request.session.userId;
     var msg_payload = {userId: userId};
     mq_client.make_request('DeleteUser_queue', msg_payload, function (err, result) {

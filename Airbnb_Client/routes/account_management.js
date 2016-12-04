@@ -8,6 +8,7 @@ var mq_client = require("../rpc/client.js");
 var winston = require('winston');
 
 exports.accountPage = function (req, res, next) {
+    winston.info('Account page rendered', {'user': req.session.firstName, 'url_clicked': '/Account_Transactions'});
     var user_data = {
         "email": req.session.email,
         "isLoggedIn": req.session.isLoggedIn,
@@ -18,6 +19,7 @@ exports.accountPage = function (req, res, next) {
 };
 
 exports.accountSecurityPage = function (req, res, next) {
+    winston.info('Account security page rendered', {'user': req.session.firstName, 'url_clicked': '/Account_Security'});
     var user_data = {
         "email": req.session.email,
         "isLoggedIn": req.session.isLoggedIn,
@@ -28,6 +30,7 @@ exports.accountSecurityPage = function (req, res, next) {
 };
 
 exports.accountPaymentMethodPage = function (req, res, next) {
+    winston.info('Account payment method page rendered', {'user': req.session.firstName, 'url_clicked': '/Account_Payment_Method'});
     var user_data = {
         "email": req.session.email,
         "isLoggedIn": req.session.isLoggedIn,
@@ -38,6 +41,7 @@ exports.accountPaymentMethodPage = function (req, res, next) {
 };
 
 exports.updatePassword = function (req, res, next) {
+    winston.info('password update', {'user': req.session.firstName, 'url_clicked': '/updatePassword'});
     var old_password = req.param("old_password");
     var new_password = req.param("new_password");
     var msg_payload = {
@@ -58,6 +62,7 @@ exports.updatePassword = function (req, res, next) {
 };
 
 exports.updatePaymentMethod = function (req, res, next) {
+    winston.info('Payment method update', {'user': req.session.firstName, 'url_clicked': '/paymentMethodUpdate'});
     var cvv = req.param("cvv");
     var cno = Number(req.param("cno"));
     var expm = req.param("expm");
@@ -80,6 +85,7 @@ exports.updatePaymentMethod = function (req, res, next) {
 };
 
 exports.payinTransactions = function (req, res, next) {
+    winston.info('Fetch payin transaction', {'user': req.session.firstName, 'url_clicked': '/payinTransaction'});
     var uid = req.session.userId;
     var msg_payload = {
         uid: uid
@@ -95,6 +101,7 @@ exports.payinTransactions = function (req, res, next) {
 };
 
 exports.payoutTransactions = function (req, res, next) {
+    winston.info('Fetch payout transaction', {'user': req.session.firstName, 'url_clicked': '/payoutTransaction'});
     var uid = req.session.userId;
     var msg_payload = {
         uid: uid
@@ -110,7 +117,7 @@ exports.payoutTransactions = function (req, res, next) {
 };
 
 exports.receiptPage = function (req, res, next) {
-
+    winston.info('Fetch reciept', {'user': req.session.firstName, 'url_clicked': '/receipt'});
     var billingID = req.param("billId");
     var tripId = req.param("tripId");
     var msg_payload = {
@@ -136,6 +143,7 @@ exports.receiptPage = function (req, res, next) {
 };
 
 exports.cardDetails = function (req, res, next) {
+    winston.info('Fetch card details', {'user': req.session.firstName, 'url_clicked': '/cardDetails'});
     var msg_payload = {
         uid: req.session.email
     };
@@ -150,7 +158,7 @@ exports.cardDetails = function (req, res, next) {
 };
 
 exports.deleteBill = function (request, response) {
-
+    winston.info('Delete details', {'user': req.session.firstName, 'url_clicked': '/deleteBill'});
     var billId = request.param("billId");
     var msg_payload = {billId: billId};
     mq_client.make_request('DeleteBill_queue', msg_payload, function (err, result) {

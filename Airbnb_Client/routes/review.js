@@ -11,14 +11,11 @@ var ejs = require('ejs');
 var winston = require('winston');
 
 exports.loadReviewAboutPage = function (req, res) {
-
-
+    winston.info('Load review about', {'user': req.session.firstName, 'url_clicked': '/loadReviewAboutPage'});
     var userId = req.session.userId;
-
     var msg_payload = {
         userId: userId
     };
-
     mq_client.make_request('loadReviewAboutPage_queue', msg_payload, function (err, user) {
         if (err) {
             console.log(err);
@@ -36,7 +33,7 @@ exports.loadReviewAboutPage = function (req, res) {
 
 
 exports.loadReviewByPage = function (req, res) {
-
+    winston.info('Load review by', {'user': req.session.firstName, 'url_clicked': '/loadReviewByPage'});
     var userId = req.session.userId;
     var msg_payload = {
         userId: userId
@@ -58,9 +55,8 @@ exports.loadReviewByPage = function (req, res) {
 };
 
 exports.getHostReviewsCount = function (req, res) {
-
+    winston.info('Host review count', {'user': req.session.firstName, 'url_clicked': '/hostReviewsCount'});
     var hostId = req.param("hostId");
-
     var msg_payload = {
         hostId: hostId
     };
@@ -78,6 +74,7 @@ exports.getHostReviewsCount = function (req, res) {
 
 exports.getUserReview = function (request, response) {
     var userId = request.params.userId;
+    winston.info('List review for user', {'user': req.session.firstName, 'url_clicked': '/getUserReview/'+userId});
     var msg_payload =
     {
         userId: userId
@@ -93,6 +90,7 @@ exports.getUserReview = function (request, response) {
 
 exports.getHostReview = function (request, response) {
     var hostId = request.params.hostId;
+    winston.info('List review for host', {'user': req.session.firstName, 'url_clicked': '/getHostReview/'+hostId});
     var msg_payload =
     {
         hostId: hostId
@@ -109,9 +107,7 @@ exports.getHostReview = function (request, response) {
 
 exports.addUserReview = function (request, response) {
 
-
-    console.log("USER ID");
-    console.log(request.body.userId);
+    winston.info('add user review', {'user': req.session.firstName, 'url_clicked': '/addUserReview'});
     var msg_payload =
     {
         userId: request.body.userId,
@@ -134,6 +130,7 @@ exports.addUserReview = function (request, response) {
 
 
 exports.addHostReview = function (request, response) {
+    winston.info('add host review', {'user': req.session.firstName, 'url_clicked': '/addHostReview'});
     var msg_payload =
     {
         userId: request.session.userId,

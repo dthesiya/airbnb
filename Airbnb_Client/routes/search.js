@@ -50,6 +50,7 @@ exports.search = function (req, res, next) {
     var checkin = req.param("checkin");
     var checkout = req.param("checkout");
     var guests = req.param("guests");
+    winston.info('Search Properties request', {'user': req.session.firstName, 'url_clicked': '/searchResult'});
 
     var msg_payload = {
         location: location,

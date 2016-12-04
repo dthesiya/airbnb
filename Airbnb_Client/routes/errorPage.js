@@ -3,8 +3,10 @@
  */
 
 var ejs = require('ejs');
-exports.handleError = function (req,res) {
-
+var url = require('url');
+var winston = require('winston');
+exports.handleError = function (req, res) {
+    winston.info('Error occured', {'user': req.session.firstName, 'url_clicked': url.parse(req.url, true).pathname});
     var sess = req.session;
     var user_data = {
         "email": sess.email,
@@ -15,7 +17,6 @@ exports.handleError = function (req,res) {
     ejs.renderFile('../views/errorPage.ejs', user_data, function (err, result) {
         res.end(result);
     });
-
 
 
 };
