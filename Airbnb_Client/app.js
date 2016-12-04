@@ -24,6 +24,7 @@ var listings = require('./routes/listings');
 var trips = require('./routes/trips');
 var bid = require('./routes/bid');
 var cronBid = require('./routes/cronBid');
+var errorPage = require('./routes/errorPage');
 
 var app = express();
 app.use(fileUpload());
@@ -149,6 +150,8 @@ function isAuthenticated(req, res, next) {
     }
     res.redirect('/signinPg');
 }
+
+app.all('*', errorPage.handleError);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
