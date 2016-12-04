@@ -5,3 +5,9 @@
 {"url_clicked":"/signin","level":"info","message":"Authentication request","timestamp":"2016-12-03T08:35:35.855Z"}
 {"user":"Darshil","property_rated":"583ba8b30ad9be17683097fe","property_rating":"4","level":"info","message":"Property Review","timestamp":"2016-12-03T08:36:02.469Z"}
 {"url_clicked":"/signin","level":"info","message":"Authentication request","timestamp":"2016-12-03T20:14:34.313Z"}
+{"user":"Sandeep","url_clicked":"/editProfilePage","level":"info","message":"Edit Profile Page rendered","timestamp":"2016-12-03T20:58:00.211Z"}
+{"url_clicked":"/signin","level":"info","message":"Authentication request","timestamp":"2016-12-03T20:58:31.179Z"}
+{"user":"Darshil","url_clicked":"/editProfilePage","level":"info","message":"Edit Profile Page rendered","timestamp":"2016-12-03T20:58:34.499Z"}
+{"url_clicked":"/signin","level":"info","message":"Authentication request","timestamp":"2016-12-04T00:21:59.908Z"}
+{"user":"Sandeep","url_clicked":"/getDashBoardPage","level":"info","message":"Dashboard Page request","timestamp":"2016-12-04T00:22:45.409Z"}
+{"user":"Sandeep","url_clicked":"/editProfilePage","level":"info","message":"Edit Profile Page rendered","timestamp":"2016-12-04T00:22:56.398Z"}
