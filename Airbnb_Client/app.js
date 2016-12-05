@@ -87,7 +87,6 @@ app.get('/', home.homepg);
 app.get('/login', signin.loginpg);
 app.get('/signout', signin.signout);
 app.post('/registerUser', signin.registerUser);
-app.get('/search', search.loadSearchPg);
 app.post('/editUser', account.editUser);
 app.get('/editProfilePage', account.getEditProfilePage);
 app.get('/getUserPhotoPage', account.getUserPhotoPage);
