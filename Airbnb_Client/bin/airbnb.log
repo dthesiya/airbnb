@@ -2014,3 +2014,5 @@
 {"url_clicked":"/images/%7B%7B%20room_result.photo_name%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:45:52.128Z"}
 {"url_clicked":"/detail","level":"info","message":"Display specific property by id","timestamp":"2016-12-05T08:45:52.526Z"}
 {"url_clicked":"/hostReviewsCount","level":"info","message":"Host review count","timestamp":"2016-12-05T08:45:52.583Z"}
+{"url_clicked":"/","level":"info","message":"Home page rendered","timestamp":"2016-12-05T08:49:24.807Z"}
+{"url_clicked":"/","level":"info","message":"Home page rendered","timestamp":"2016-12-05T08:49:25.877Z"}
