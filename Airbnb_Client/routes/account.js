@@ -268,6 +268,7 @@ exports.loadPaymentPage = function (req, res) {
 };
 
 exports.getPropertyDetails = function (req, res) {
+    
     var propertyId = req.param("propertyId");
     var userId = req.session.userId;
     var msg_payload = {
@@ -337,4 +338,66 @@ exports.confirmBooking = function (req, res) {
             res.end();
         }
     });
+};
+
+exports.getEditPropertyPage = function (req,res) {
+    
+    winston.info('Edit Property Page', {'user': req.session.firstName, 'url_clicked': '/getEditPropertyPage'});
+    var sess = req.session;
+    var user_data = {
+        "email": sess.email,
+        "isLoggedIn": sess.isLoggedIn,
+        "firstname": sess.firstName,
+        "profileImg": sess.profileImg,
+        "userId": sess.userId + '.png',
+        "isHost" :sess.isHost,
+        "isApproved" : sess.isApproved
+    };
+
+    ejs.renderFile('../views/editProperty.ejs', user_data, function (err, result) {
+        if (err) {
+            console.log(err);
+            res.send("An error occured to get dashboared by page");
+        } else {
+            res.end(result);
+        }
+    });
+
+};
+
+exports.editPropertyDetails = function (req,res) {
+
+
+        var name = req.param('name');
+        var description =  req.param('description')
+        var bedrooms =  req.param('bedrooms');
+        var bathrooms =  req.param('bathrooms');
+        var price =  req.param('price');
+        var beds = req.param('beds');
+        var propertyId = req.param('propertyId');
+
+    var msg_payload = {
+        "name": name,
+        "description": description,
+        "bedrooms": bedrooms,
+        "bathrooms": bathrooms,
+        "price": price,
+        "beds": beds,
+        "propertyId":propertyId
+    };
+    console.log(msg_payload);
+    mq_client.make_request('editPropertyDetails_queue', msg_payload, function (err, data) {
+        if (err) {
+            console.log(err);
+            var json_responses = {"statusCode": 401};
+            res.send(json_responses);
+            res.end();
+        } else {
+            var json_responses = {"statusCode": 200, "data": data};
+            res.send(json_responses);
+            res.end();
+        }
+    });
+    
+    
 };

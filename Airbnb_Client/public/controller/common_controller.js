@@ -726,8 +726,8 @@ app.controller('room_details_controller', function ($scope, $window, $location, 
 
     $scope.book = function () {
 
-        $scope.alert=false;
-        if(($scope.checkin != "") && ($scope.checkout != "")) {
+        $scope.alert = false;
+        if (($scope.checkin != "") && ($scope.checkout != "")) {
 
 
             var days = daydiff(toDate($scope.checkin), toDate($scope.checkout));
@@ -739,8 +739,8 @@ app.controller('room_details_controller', function ($scope, $window, $location, 
             change_url += "nights=" + days;
             window.location.href = change_url;
         }
-        else{
-            $scope.alert=true;
+        else {
+            $scope.alert = true;
         }
     };
 
@@ -1567,4 +1567,47 @@ app.controller('receipt_controller', function ($scope, $http, Data, $window, Upl
                 $scope.reviewadded = true;
             })
     };
+});
+
+
+app.controller('editProperty_controller', function ($scope, $http, Data, $window) {
+    var propertyId = getParameterByName('propertyId');
+    console.log(propertyId);
+    $scope.success_model = false;
+    $http({
+        method: "POST",
+        url: '/getPropertyDetails?propertyId=' + propertyId
+    })
+        .success(function (data) {
+
+            $scope.property = data.data;
+            console.log(data.data);
+        })
+
+
+    $scope.saveProperty = function () {
+
+        $http({
+            method: 'POST',
+            url: '/editPropertyDetails',
+            data: {
+
+                "name": $scope.property.name,
+                "description": $scope.property.description,
+                "bedrooms": $scope.property.bedrooms,
+                "bathrooms": $scope.property.bathrooms,
+                "price": $scope.property.price,
+                "beds": $scope.property.beds,
+                "propertyId" : propertyId
+
+            }
+        })
+            .success(function (data) {
+                console.log(data);
+
+                $scope.success_model = true;
+            })
+
+    };
+
 });

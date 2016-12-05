@@ -113,6 +113,7 @@ app.get('/getPaymentPage', account.getPaymentPage);
 app.post('/loadPaymentPage', account.loadPaymentPage);
 app.post('/getPropertyDetails', account.getPropertyDetails);
 app.post('/confirmBooking', account.confirmBooking);
+app.post('/editPropertyDetails', account.editPropertyDetails);
 
 app.get('/receipt', account_management.receiptPage);
 
@@ -149,7 +150,7 @@ app.post('/addNewListing', listings.addNewListing);
 app.get('/getActiveListings', listings.getActiveListings);
 app.get('/getActiveListings/:userId', listings.getActiveListingsFromId);
 app.get('/getReservations', listings.getReservations);
-
+app.get('/getEditPropertyPage', account.getEditPropertyPage);
 
 app.get('/getUserTrips', trips.getUserTrips);
 app.post('/acceptTrip', trips.acceptTrip);

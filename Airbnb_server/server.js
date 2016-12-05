@@ -652,4 +652,20 @@ cnn.on('ready', function () {
             });
         });
     });
+
+
+
+    cnn.queue('editPropertyDetails_queue', function (q) {
+        q.subscribe(function (message, headers, deliveryInfo, m) {
+            account.editPropertyDetails(message, function (err, res) {
+                //return index sent
+                cnn.publish(m.replyTo, res, {
+                    contentType: 'application/json',
+                    contentEncoding: 'utf-8',
+                    correlationId: m.correlationId
+                });
+            });
+        });
+    });
+
 });
