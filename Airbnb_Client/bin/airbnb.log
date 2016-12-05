@@ -898,3 +898,1119 @@
 {"user":"Dallas","url_clicked":"/getDashBoardPage","level":"info","message":"Dashboard Page request","timestamp":"2016-12-04T20:55:38.694Z"}
 {"user":"Dallas","url_clicked":"/images/58447cb73c4b513340ac3096.png","level":"info","message":"Error occured","timestamp":"2016-12-04T20:55:39.129Z"}
 {"user":"Dallas","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-04T20:55:39.342Z"}
+{"user":"Dallas","url_clicked":"/","level":"info","message":"Home page rendered","timestamp":"2016-12-04T23:02:42.672Z"}
+{"user":"Dallas","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-04T23:02:43.447Z"}
+{"user":"Dallas","url_clicked":"/","level":"info","message":"Home page rendered","timestamp":"2016-12-04T23:02:44.178Z"}
+{"user":"Dallas","url_clicked":"/signout","level":"info","message":"Signout request","timestamp":"2016-12-04T23:02:45.620Z"}
+{"url_clicked":"/","level":"info","message":"Home page rendered","timestamp":"2016-12-04T23:02:45.777Z"}
+{"url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-04T23:02:46.321Z"}
+{"url_clicked":"/images/text-field-icons-9c18e4e23864cb33a8f0f7c32c0b86ee.png","level":"info","message":"Error occured","timestamp":"2016-12-04T23:03:26.188Z"}
+{"user":"testhost1@gmail.com","url_clicked":"/signin","level":"info","message":"Authentication request","timestamp":"2016-12-04T23:03:33.458Z"}
+{"user":"testhost1@gmail.com","url_clicked":"/signin","level":"info","message":"Authentication request","timestamp":"2016-12-04T23:03:35.799Z"}
+{"user":"testhost1@gmail.com","url_clicked":"/signin","level":"info","message":"Authentication request","timestamp":"2016-12-04T23:03:37.329Z"}
+{"user":"testhost1@gmail.com","url_clicked":"/signin","level":"info","message":"Authentication request","timestamp":"2016-12-04T23:03:49.583Z"}
+{"user":"Dallas","url_clicked":"/","level":"info","message":"Home page rendered","timestamp":"2016-12-04T23:03:50.281Z"}
+{"user":"Dallas","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-04T23:03:51.264Z"}
+{"user":"Dallas","url_clicked":"/editProfilePage","level":"info","message":"Edit Profile Page rendered","timestamp":"2016-12-04T23:03:55.680Z"}
+{"user":"Dallas","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-04T23:03:56.129Z"}
+{"user":"Dallas","url_clicked":"/loadEditUserPage","level":"info","message":"Edit user page load","timestamp":"2016-12-04T23:03:56.261Z"}
+{"user":"Dallas","url_clicked":"/editUser","level":"info","message":"Profile Edit Occured","timestamp":"2016-12-04T23:04:51.603Z"}
+{"user":"Dallas","url_clicked":"/signout","level":"info","message":"Signout request","timestamp":"2016-12-04T23:04:57.463Z"}
+{"user":"Dallas","url_clicked":"/","level":"info","message":"Home page rendered","timestamp":"2016-12-04T23:04:57.956Z"}
+{"url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-04T23:04:58.757Z"}
+{"url_clicked":"/signout","level":"info","message":"Signout request","timestamp":"2016-12-04T23:05:01.894Z"}
+{"url_clicked":"/","level":"info","message":"Home page rendered","timestamp":"2016-12-04T23:05:02.004Z"}
+{"url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-04T23:05:02.550Z"}
+{"user":"testhost1@gmail.com","url_clicked":"/signin","level":"info","message":"Authentication request","timestamp":"2016-12-04T23:05:05.404Z"}
+{"user":"Divya","url_clicked":"/","level":"info","message":"Home page rendered","timestamp":"2016-12-04T23:05:05.977Z"}
+{"user":"Divya","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-04T23:05:06.728Z"}
+{"user":"Divya","url_clicked":"/editProfilePage","level":"info","message":"Edit Profile Page rendered","timestamp":"2016-12-04T23:05:09.208Z"}
+{"user":"Divya","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-04T23:05:09.789Z"}
+{"user":"Divya","url_clicked":"/loadEditUserPage","level":"info","message":"Edit user page load","timestamp":"2016-12-04T23:05:09.978Z"}
+{"user":"Divya","url_clicked":"/getUserPhotoPage","level":"info","message":"User photo page rendered","timestamp":"2016-12-04T23:05:11.097Z"}
+{"user":"Divya","url_clicked":"/images/%7B%7Buser.profileImage%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T23:05:11.461Z"}
+{"user":"Divya","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-04T23:05:11.619Z"}
+{"user":"Divya","url_clicked":"/loadProfilePhotoPage","level":"info","message":"Profile photo load","timestamp":"2016-12-04T23:05:11.771Z"}
+{"user":"Divya","url_clicked":"/uploadProfileImage","level":"info","message":"profile image uploaded","timestamp":"2016-12-04T23:05:16.479Z"}
+{"user":"Divya","url_clicked":"/getUserPhotoPage","level":"info","message":"User photo page rendered","timestamp":"2016-12-04T23:05:16.589Z"}
+{"user":"Divya","url_clicked":"/images/%7B%7Buser.profileImage%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T23:05:16.981Z"}
+{"user":"Divya","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-04T23:05:17.159Z"}
+{"user":"Divya","url_clicked":"/loadProfilePhotoPage","level":"info","message":"Profile photo load","timestamp":"2016-12-04T23:05:17.262Z"}
+{"user":"Divya","url_clicked":"/signout","level":"info","message":"Signout request","timestamp":"2016-12-04T23:05:21.370Z"}
+{"url_clicked":"/","level":"info","message":"Home page rendered","timestamp":"2016-12-04T23:05:21.472Z"}
+{"url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-04T23:05:22.288Z"}
+{"user":"testhost1@gmail.com","url_clicked":"/signin","level":"info","message":"Authentication request","timestamp":"2016-12-04T23:05:44.468Z"}
+{"user":"Divya","url_clicked":"/","level":"info","message":"Home page rendered","timestamp":"2016-12-04T23:05:45.047Z"}
+{"user":"Divya","url_clicked":"/becomeHost","level":"info","message":"Become host called","timestamp":"2016-12-04T23:05:53.342Z"}
+{"user":"Divya","url_clicked":"/addListing","level":"info","message":"Add listing page rendered","timestamp":"2016-12-04T23:06:14.533Z"}
+{"user":"Divya","url_clicked":"/addListing","level":"info","message":"Add listing page rendered","timestamp":"2016-12-04T23:06:14.869Z"}
+{"user":"Divya","url_clicked":"/css/images/background-7c73b7858fe7c4bc03505fc1f7f672fd.png","level":"info","message":"Error occured","timestamp":"2016-12-04T23:06:15.131Z"}
+{"user":"Divya","url_clicked":"/uploadImage","level":"info","message":"Image upload","timestamp":"2016-12-04T23:07:08.093Z"}
+{"user":"Divya","url_clicked":"/uploadImage","level":"info","message":"Image upload","timestamp":"2016-12-04T23:07:08.095Z"}
+{"user":"Divya","url_clicked":"/uploadImage","level":"info","message":"Image upload","timestamp":"2016-12-04T23:07:08.096Z"}
+{"user":"Divya","url_clicked":"/uploadVideo","level":"info","message":"Video upload","timestamp":"2016-12-04T23:07:17.790Z"}
+{"user":"Divya","url_clicked":"/addNewListing","level":"info","message":"New Listing added","timestamp":"2016-12-04T23:07:32.214Z"}
+{"user":"Divya","url_clicked":"/yourListings","level":"info","message":"Your listing page rendered","timestamp":"2016-12-04T23:07:32.955Z"}
+{"user":"Divya","url_clicked":"/images/%7B%7Blisting.mediaId.imageUrl[0]%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T23:07:33.330Z"}
+{"user":"Divya","url_clicked":"/images/%7B%7Breservation.userId.profileImage%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T23:07:33.336Z"}
+{"user":"Divya","url_clicked":"/yourListings","level":"info","message":"List active property","timestamp":"2016-12-04T23:07:33.733Z"}
+{"user":"Divya","url_clicked":"/getReservations","level":"info","message":"List reservation","timestamp":"2016-12-04T23:07:33.735Z"}
+{"user":"Divya","url_clicked":"/yourListings","level":"info","message":"Your listing page rendered","timestamp":"2016-12-04T23:07:58.401Z"}
+{"user":"Divya","url_clicked":"/images/%7B%7Blisting.mediaId.imageUrl[0]%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T23:07:58.908Z"}
+{"user":"Divya","url_clicked":"/images/%7B%7Breservation.userId.profileImage%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T23:07:58.920Z"}
+{"user":"Divya","url_clicked":"/getReservations","level":"info","message":"List reservation","timestamp":"2016-12-04T23:07:59.400Z"}
+{"user":"Divya","url_clicked":"/yourListings","level":"info","message":"List active property","timestamp":"2016-12-04T23:07:59.400Z"}
+{"user":"Divya","url_clicked":"/becomeHost","level":"info","message":"Become host called","timestamp":"2016-12-04T23:08:06.901Z"}
+{"user":"Divya","url_clicked":"/addListing","level":"info","message":"Add listing page rendered","timestamp":"2016-12-04T23:08:59.731Z"}
+{"user":"Divya","url_clicked":"/addListing","level":"info","message":"Add listing page rendered","timestamp":"2016-12-04T23:09:00.133Z"}
+{"user":"Divya","url_clicked":"/css/images/background-7c73b7858fe7c4bc03505fc1f7f672fd.png","level":"info","message":"Error occured","timestamp":"2016-12-04T23:09:00.335Z"}
+{"user":"Divya","url_clicked":"/uploadImage","level":"info","message":"Image upload","timestamp":"2016-12-04T23:09:40.872Z"}
+{"user":"Divya","url_clicked":"/uploadImage","level":"info","message":"Image upload","timestamp":"2016-12-04T23:09:40.876Z"}
+{"user":"Divya","url_clicked":"/uploadImage","level":"info","message":"Image upload","timestamp":"2016-12-04T23:09:40.879Z"}
+{"user":"Divya","url_clicked":"/uploadVideo","level":"info","message":"Video upload","timestamp":"2016-12-04T23:09:46.320Z"}
+{"user":"Divya","url_clicked":"/addNewListing","level":"info","message":"New Listing added","timestamp":"2016-12-04T23:09:53.623Z"}
+{"user":"Divya","url_clicked":"/yourListings","level":"info","message":"Your listing page rendered","timestamp":"2016-12-04T23:09:53.892Z"}
+{"user":"Divya","url_clicked":"/images/%7B%7Blisting.mediaId.imageUrl[0]%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T23:09:54.508Z"}
+{"user":"Divya","url_clicked":"/images/%7B%7Breservation.userId.profileImage%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T23:09:54.517Z"}
+{"user":"Divya","url_clicked":"/yourListings","level":"info","message":"List active property","timestamp":"2016-12-04T23:09:54.961Z"}
+{"user":"Divya","url_clicked":"/getReservations","level":"info","message":"List reservation","timestamp":"2016-12-04T23:09:54.962Z"}
+{"user":"Divya","url_clicked":"/yourListings","level":"info","message":"Your listing page rendered","timestamp":"2016-12-04T23:10:08.664Z"}
+{"user":"Divya","url_clicked":"/images/%7B%7Blisting.mediaId.imageUrl[0]%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T23:10:09.212Z"}
+{"user":"Divya","url_clicked":"/images/%7B%7Breservation.userId.profileImage%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T23:10:09.219Z"}
+{"user":"Divya","url_clicked":"/yourListings","level":"info","message":"List active property","timestamp":"2016-12-04T23:10:09.606Z"}
+{"user":"Divya","url_clicked":"/getReservations","level":"info","message":"List reservation","timestamp":"2016-12-04T23:10:09.613Z"}
+{"user":"Divya","url_clicked":"/images/%7B%7B%20rooms.users.profile_picture.src%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T23:16:03.005Z"}
+{"user":"Divya","url_clicked":"/images/%7B%7B%20rooms.photo_name%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T23:16:03.017Z"}
+{"user":"Divya","url_clicked":"/searchResult","level":"info","message":"Search Properties request","timestamp":"2016-12-04T23:16:03.479Z"}
+{"user":"Divya","url_clicked":"/images/%7B%7B%20rooms.photo_name%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T23:16:12.579Z"}
+{"user":"Divya","url_clicked":"/images/%7B%7B%20rooms.users.profile_picture.src%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T23:16:12.586Z"}
+{"user":"Divya","url_clicked":"/searchResult","level":"info","message":"Search Properties request","timestamp":"2016-12-04T23:16:12.966Z"}
+{"user":"Divya","url_clicked":"/images/%7B%7B%20rooms.photo_name%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T23:16:16.137Z"}
+{"user":"Divya","url_clicked":"/images/%7B%7B%20rooms.users.profile_picture.src%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T23:16:16.144Z"}
+{"user":"Divya","url_clicked":"/searchResult","level":"info","message":"Search Properties request","timestamp":"2016-12-04T23:16:16.440Z"}
+{"user":"Divya","url_clicked":"/signout","level":"info","message":"Signout request","timestamp":"2016-12-04T23:16:21.760Z"}
+{"url_clicked":"/","level":"info","message":"Home page rendered","timestamp":"2016-12-04T23:16:21.858Z"}
+{"url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-04T23:16:22.433Z"}
+{"url_clicked":"/images/text-field-icons-9c18e4e23864cb33a8f0f7c32c0b86ee.png","level":"info","message":"Error occured","timestamp":"2016-12-04T23:16:27.319Z"}
+{"user":"test@gmail.com","url_clicked":"/signin","level":"info","message":"Authentication request","timestamp":"2016-12-04T23:16:33.983Z"}
+{"user":"test@gmail.com","url_clicked":"/signin","level":"info","message":"Authentication request","timestamp":"2016-12-04T23:16:40.660Z"}
+{"user":"test1@gmail.com","url_clicked":"/signin","level":"info","message":"Authentication request","timestamp":"2016-12-04T23:16:44.643Z"}
+{"user":"Arden","url_clicked":"/","level":"info","message":"Home page rendered","timestamp":"2016-12-04T23:16:45.142Z"}
+{"user":"Arden","url_clicked":"/images/%7B%7B%20rooms.photo_name%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T23:16:52.201Z"}
+{"user":"Arden","url_clicked":"/images/%7B%7B%20rooms.users.profile_picture.src%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T23:16:52.207Z"}
+{"user":"Arden","url_clicked":"/searchResult","level":"info","message":"Search Properties request","timestamp":"2016-12-04T23:16:52.767Z"}
+{"user":"Arden","url_clicked":"/images/%7B%7B%20rooms.users.profile_picture.src%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T23:17:03.677Z"}
+{"user":"Arden","url_clicked":"/images/%7B%7B%20rooms.photo_name%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-04T23:17:03.682Z"}
+{"user":"Arden","url_clicked":"/searchResult","level":"info","message":"Search Properties request","timestamp":"2016-12-04T23:17:04.019Z"}
+{"url_clicked":"/searchResult","level":"info","message":"Search Properties request","timestamp":"2016-12-04T23:20:06.369Z"}
+{"url_clicked":"/searchResult","level":"info","message":"Search Properties request","timestamp":"2016-12-04T23:20:06.376Z"}
+{"url_clicked":"/searchResult","level":"info","message":"Search Properties request","timestamp":"2016-12-04T23:20:06.463Z"}
+{"url_clicked":"/searchResult","level":"info","message":"Search Properties request","timestamp":"2016-12-04T23:20:06.467Z"}
+{"url_clicked":"/searchResult","level":"info","message":"Search Properties request","timestamp":"2016-12-04T23:20:06.472Z"}
+{"url_clicked":"/searchResult","level":"info","message":"Search Properties request","timestamp":"2016-12-04T23:20:06.491Z"}
+{"url_clicked":"/searchResult","level":"info","message":"Search Properties request","timestamp":"2016-12-04T23:20:06.493Z"}
+{"url_clicked":"/searchResult","level":"info","message":"Search Properties request","timestamp":"2016-12-04T23:20:06.495Z"}
+{"url_clicked":"/searchResult","level":"info","message":"Search Properties request","timestamp":"2016-12-04T23:20:06.497Z"}
+{"url_clicked":"/searchResult","level":"info","message":"Search Properties request","timestamp":"2016-12-04T23:20:06.499Z"}
+{"url_clicked":"/searchResult","level":"info","message":"Search Properties request","timestamp":"2016-12-04T23:20:06.501Z"}
+{"url_clicked":"/searchResult","level":"info","message":"Search Properties request","timestamp":"2016-12-04T23:20:06.502Z"}
+{"url_clicked":"/searchResult","level":"info","message":"Search Properties request","timestamp":"2016-12-04T23:20:06.504Z"}
+{"url_clicked":"/searchResult","level":"info","message":"Search Properties request","timestamp":"2016-12-04T23:20:06.506Z"}
+{"url_clicked":"/searchResult","level":"info","message":"Search Properties request","timestamp":"2016-12-04T23:20:06.509Z"}
+{"url_clicked":"/searchResult","level":"info","message":"Search Properties request","timestamp":"2016-12-04T23:20:06.512Z"}
+{"url_clicked":"/searchResult","level":"info","message":"Search Properties request","timestamp":"2016-12-04T23:20:06.515Z"}
+{"url_clicked":"/searchResult","level":"info","message":"Search Properties request","timestamp":"2016-12-04T23:20:06.517Z"}
+{"url_clicked":"/searchResult","level":"info","message":"Search Properties request","timestamp":"2016-12-04T23:20:06.520Z"}
+{"url_clicked":"/searchResult","level":"info","message":"Search Properties request","timestamp":"2016-12-04T23:20:06.522Z"}
+{"url_clicked":"/searchResult","level":"info","message":"Search Properties request","timestamp":"2016-12-04T23:20:06.524Z"}
+{"url_clicked":"/searchResult","level":"info","message":"Search Properties request","timestamp":"2016-12-04T23:20:06.527Z"}
+{"url_clicked":"/searchResult","level":"info","message":"Search Properties request","timestamp":"2016-12-04T23:20:06.531Z"}
+{"url_clicked":"/searchResult","level":"info","message":"Search Properties request","timestamp":"2016-12-04T23:20:06.534Z"}
+{"url_clicked":"/searchResult","level":"info","message":"Search Properties request","timestamp":"2016-12-04T23:20:06.536Z"}
+{"url_clicked":"/searchResult","level":"info","message":"Search Properties request","timestamp":"2016-12-04T23:20:06.538Z"}
+{"url_clicked":"/searchResult","level":"info","message":"Search Properties request","timestamp":"2016-12-04T23:20:06.541Z"}
+{"url_clicked":"/searchResult","level":"info","message":"Search Properties request","timestamp":"2016-12-04T23:20:06.546Z"}
+{"url_clicked":"/searchResult","level":"info","message":"Search Properties request","timestamp":"2016-12-04T23:20:06.551Z"}
+{"url_clicked":"/searchResult","level":"info","message":"Search Properties request","timestamp":"2016-12-04T23:20:06.555Z"}
+{"url_clicked":"/searchResult","level":"info","message":"Search Properties request","timestamp":"2016-12-04T23:20:06.557Z"}
+{"url_clicked":"/searchResult","level":"info","message":"Search Properties request","timestamp":"2016-12-04T23:20:06.559Z"}
+{"url_clicked":"/searchResult","level":"info","message":"Search Properties request","timestamp":"2016-12-04T23:20:06.560Z"}
+{"url_clicked":"/searchResult","level":"info","message":"Search Properties request","timestamp":"2016-12-04T23:20:06.564Z"}
+{"url_clicked":"/searchResult","level":"info","message":"Search Properties request","timestamp":"2016-12-04T23:20:06.566Z"}
+{"url_clicked":"/searchResult","level":"info","message":"Search Properties request","timestamp":"2016-12-04T23:20:06.567Z"}
+{"url_clicked":"/searchResult","level":"info","message":"Search Properties request","timestamp":"2016-12-04T23:20:06.569Z"}
+{"url_clicked":"/searchResult","level":"info","message":"Search Properties request","timestamp":"2016-12-04T23:20:06.571Z"}
+{"url_clicked":"/searchResult","level":"info","message":"Search Properties request","timestamp":"2016-12-04T23:20:06.573Z"}
+{"url_clicked":"/searchResult","level":"info","message":"Search Properties request","timestamp":"2016-12-04T23:20:06.578Z"}
+{"url_clicked":"/searchResult","level":"info","message":"Search Properties request","timestamp":"2016-12-04T23:20:06.583Z"}
+{"url_clicked":"/searchResult","level":"info","message":"Search Properties request","timestamp":"2016-12-04T23:20:06.585Z"}
+{"url_clicked":"/searchResult","level":"info","message":"Search Properties request","timestamp":"2016-12-04T23:20:06.588Z"}
+{"url_clicked":"/searchResult","level":"info","message":"Search Properties request","timestamp":"2016-12-04T23:20:06.591Z"}
+{"url_clicked":"/searchResult","level":"info","message":"Search Properties request","timestamp":"2016-12-04T23:20:06.593Z"}
+{"url_clicked":"/searchResult","level":"info","message":"Search Properties request","timestamp":"2016-12-04T23:20:06.597Z"}
+{"url_clicked":"/searchResult","level":"info","message":"Search Properties request","timestamp":"2016-12-04T23:20:06.603Z"}
+{"url_clicked":"/searchResult","level":"info","message":"Search Properties request","timestamp":"2016-12-04T23:20:06.608Z"}
+{"url_clicked":"/searchResult","level":"info","message":"Search Properties request","timestamp":"2016-12-04T23:20:06.631Z"}
+{"url_clicked":"/searchResult","level":"info","message":"Search Properties request","timestamp":"2016-12-04T23:20:06.632Z"}
+{"url_clicked":"/searchResult","level":"info","message":"Search Properties request","timestamp":"2016-12-04T23:20:06.634Z"}
+{"url_clicked":"/searchResult","level":"info","message":"Search Properties request","timestamp":"2016-12-04T23:20:06.635Z"}
+{"url_clicked":"/searchResult","level":"info","message":"Search Properties request","timestamp":"2016-12-04T23:20:06.636Z"}
+{"url_clicked":"/searchResult","level":"info","message":"Search Properties request","timestamp":"2016-12-04T23:20:06.637Z"}
+{"url_clicked":"/searchResult","level":"info","message":"Search Properties request","timestamp":"2016-12-04T23:20:06.639Z"}
+{"url_clicked":"/searchResult","level":"info","message":"Search Properties request","timestamp":"2016-12-04T23:20:06.640Z"}
+{"url_clicked":"/searchResult","level":"info","message":"Search Properties request","timestamp":"2016-12-04T23:20:06.643Z"}
+{"url_clicked":"/searchResult","level":"info","message":"Search Properties request","timestamp":"2016-12-04T23:20:06.644Z"}
+{"url_clicked":"/searchResult","level":"info","message":"Search Properties request","timestamp":"2016-12-04T23:20:06.645Z"}
+{"url_clicked":"/searchResult","level":"info","message":"Search Properties request","timestamp":"2016-12-04T23:20:06.647Z"}
+{"url_clicked":"/searchResult","level":"info","message":"Search Properties request","timestamp":"2016-12-04T23:20:06.649Z"}
+{"url_clicked":"/searchResult","level":"info","message":"Search Properties request","timestamp":"2016-12-04T23:20:06.651Z"}
+{"url_clicked":"/searchResult","level":
+{"url_clicked":"/loadReviewAboutPage","level":"info","message":"Load review about","timestamp":"2016-12-05T01:27:28.355Z"}
+{"url_clicked":"/loadReviewAboutPage","level":"info","message":"Load review about","timestamp":"2016-12-05T01:30:48.853Z"}
+{"url_clicked":"/loadReviewByPage","level":"info","message":"Load review by","timestamp":"2016-12-05T01:30:49.043Z"}
+{"url_clicked":"/loadEditUserPage","level":"info","message":"Edit user page load","timestamp":"2016-12-05T01:30:49.222Z"}
+{"url_clicked":"/loadPaymentPage","level":"info","message":"Payment Page request","timestamp":"2016-12-05T01:30:49.395Z"}
+{"url_clicked":"/loadReviewAboutPage","level":"info","message":"Load review about","timestamp":"2016-12-05T01:31:43.438Z"}
+{"url_clicked":"/loadReviewByPage","level":"info","message":"Load review by","timestamp":"2016-12-05T01:31:43.614Z"}
+{"url_clicked":"/loadEditUserPage","level":"info","message":"Edit user page load","timestamp":"2016-12-05T01:31:43.798Z"}
+{"url_clicked":"/loadPaymentPage","level":"info","message":"Payment Page request","timestamp":"2016-12-05T01:31:43.967Z"}
+{"url_clicked":"/loadProfilePhotoPage","level":"info","message":"Profile photo load","timestamp":"2016-12-05T01:31:44.168Z"}
+{"user":"Arden","url_clicked":"/","level":"info","message":"Home page rendered","timestamp":"2016-12-05T02:14:11.632Z"}
+{"user":"Arden","url_clicked":"/","level":"info","message":"Home page rendered","timestamp":"2016-12-05T02:14:13.261Z"}
+{"user":"Arden","url_clicked":"/editProfilePage","level":"info","message":"Edit Profile Page rendered","timestamp":"2016-12-05T02:14:16.435Z"}
+{"user":"Arden","url_clicked":"/loadEditUserPage","level":"info","message":"Edit user page load","timestamp":"2016-12-05T02:14:17.307Z"}
+{"user":"Arden","url_clicked":"/getDashBoardPage","level":"info","message":"Dashboard Page request","timestamp":"2016-12-05T02:14:19.920Z"}
+{"user":"Arden","url_clicked":"/yourListings","level":"info","message":"Your listing page rendered","timestamp":"2016-12-05T02:14:24.587Z"}
+{"user":"Arden","url_clicked":"/images/%7B%7Breservation.userId.profileImage%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T02:14:25.043Z"}
+{"user":"Arden","url_clicked":"/images/%7B%7Blisting.mediaId.imageUrl[0]%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T02:14:25.051Z"}
+{"user":"Arden","url_clicked":"/getReservations","level":"info","message":"List reservation","timestamp":"2016-12-05T02:14:25.444Z"}
+{"user":"Arden","url_clicked":"/yourListings","level":"info","message":"List active property","timestamp":"2016-12-05T02:14:25.449Z"}
+{"user":"Arden","url_clicked":"/signout","level":"info","message":"Signout request","timestamp":"2016-12-05T02:14:31.021Z"}
+{"url_clicked":"/","level":"info","message":"Home page rendered","timestamp":"2016-12-05T02:14:31.114Z"}
+{"url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T02:14:31.639Z"}
+{"user":"testhost1@gmail.com","url_clicked":"/signin","level":"info","message":"Authentication request","timestamp":"2016-12-05T02:14:35.614Z"}
+{"user":"Divya","url_clicked":"/","level":"info","message":"Home page rendered","timestamp":"2016-12-05T02:14:36.189Z"}
+{"user":"Divya","url_clicked":"/editProfilePage","level":"info","message":"Edit Profile Page rendered","timestamp":"2016-12-05T02:14:41.633Z"}
+{"user":"Divya","url_clicked":"/loadEditUserPage","level":"info","message":"Edit user page load","timestamp":"2016-12-05T02:14:42.426Z"}
+{"user":"Divya","url_clicked":"/getDashBoardPage","level":"info","message":"Dashboard Page request","timestamp":"2016-12-05T02:14:43.380Z"}
+{"user":"Divya","url_clicked":"/","level":"info","message":"Home page rendered","timestamp":"2016-12-05T02:17:33.243Z"}
+{"user":"Divya","url_clicked":"/","level":"info","message":"Home page rendered","timestamp":"2016-12-05T02:17:35.726Z"}
+{"user":"Divya","url_clicked":"/","level":"info","message":"Home page rendered","timestamp":"2016-12-05T02:17:49.667Z"}
+{"user":"Divya","url_clicked":"/","level":"info","message":"Home page rendered","timestamp":"2016-12-05T02:17:53.195Z"}
+{"user":"Divya","url_clicked":"/signout","level":"info","message":"Signout request","timestamp":"2016-12-05T02:17:54.464Z"}
+{"url_clicked":"/","level":"info","message":"Home page rendered","timestamp":"2016-12-05T02:17:54.549Z"}
+{"url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T02:17:55.139Z"}
+{"user":"testhost1@gmail.com","url_clicked":"/signin","level":"info","message":"Authentication request","timestamp":"2016-12-05T02:17:58.413Z"}
+{"user":"Divya","url_clicked":"/","level":"info","message":"Home page rendered","timestamp":"2016-12-05T02:17:59.111Z"}
+{"user":"Divya","url_clicked":"/getDashBoardPage","level":"info","message":"Dashboard Page request","timestamp":"2016-12-05T02:18:04.780Z"}
+{"url_clicked":"/","level":"info","message":"Home page rendered","timestamp":"2016-12-05T04:33:34.881Z"}
+{"url_clicked":"/","level":"info","message":"Home page rendered","timestamp":"2016-12-05T04:33:35.105Z"}
+{"url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T04:33:35.653Z"}
+{"url_clicked":"/","level":"info","message":"Home page rendered","timestamp":"2016-12-05T04:33:36.514Z"}
+{"url_clicked":"/images/text-field-icons-9c18e4e23864cb33a8f0f7c32c0b86ee.png","level":"info","message":"Error occured","timestamp":"2016-12-05T04:33:41.243Z"}
+{"user":"test1@gmail.com","url_clicked":"/signin","level":"info","message":"Authentication request","timestamp":"2016-12-05T04:33:44.175Z"}
+{"user":"Arden","url_clicked":"/","level":"info","message":"Home page rendered","timestamp":"2016-12-05T04:33:44.725Z"}
+{"user":"Arden","url_clicked":"/","level":"info","message":"Home page rendered","timestamp":"2016-12-05T04:33:46.464Z"}
+{"user":"Arden","url_clicked":"/signout","level":"info","message":"Signout request","timestamp":"2016-12-05T04:33:51.239Z"}
+{"user":"Arden","url_clicked":"/","level":"info","message":"Home page rendered","timestamp":"2016-12-05T04:33:51.251Z"}
+{"url_clicked":"/signout","level":"info","message":"Signout request","timestamp":"2016-12-05T04:33:54.601Z"}
+{"url_clicked":"/","level":"info","message":"Home page rendered","timestamp":"2016-12-05T04:33:54.611Z"}
+{"url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T04:33:54.812Z"}
+{"user":"testhost1@gmail.com","url_clicked":"/signin","level":"info","message":"Authentication request","timestamp":"2016-12-05T04:33:57.671Z"}
+{"user":"Divya","url_clicked":"/","level":"info","message":"Home page rendered","timestamp":"2016-12-05T04:33:57.986Z"}
+{"user":"Divya","url_clicked":"/editProfilePage","level":"info","message":"Edit Profile Page rendered","timestamp":"2016-12-05T04:34:02.504Z"}
+{"user":"Divya","url_clicked":"/loadEditUserPage","level":"info","message":"Edit user page load","timestamp":"2016-12-05T04:34:02.951Z"}
+{"user":"Divya","url_clicked":"/getUserPhotoPage","level":"info","message":"User photo page rendered","timestamp":"2016-12-05T04:34:07.563Z"}
+{"user":"Divya","url_clicked":"/images/%7B%7Buser.profileImage%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T04:34:07.665Z"}
+{"user":"Divya","url_clicked":"/loadProfilePhotoPage","level":"info","message":"Profile photo load","timestamp":"2016-12-05T04:34:08.067Z"}
+{"user":"Divya","url_clicked":"/uploadProfileImage","level":"info","message":"profile image uploaded","timestamp":"2016-12-05T04:36:33.814Z"}
+{"user":"Divya","url_clicked":"/getUserPhotoPage","level":"info","message":"User photo page rendered","timestamp":"2016-12-05T04:36:33.832Z"}
+{"user":"Divya","url_clicked":"/images/%7B%7Buser.profileImage%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T04:36:33.923Z"}
+{"user":"Divya","url_clicked":"/loadProfilePhotoPage","level":"info","message":"Profile photo load","timestamp":"2016-12-05T04:36:34.370Z"}
+{"user":"Divya","url_clicked":"/becomeHost","level":"info","message":"Become host called","timestamp":"2016-12-05T04:36:37.138Z"}
+{"user":"Divya","url_clicked":"/images/%7B%7B%20rooms.photo_name%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T04:37:18.544Z"}
+{"user":"Divya","url_clicked":"/images/%7B%7B%20rooms.users.profile_picture.src%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T04:37:18.599Z"}
+{"user":"Divya","url_clicked":"/searchResult","level":"info","message":"Search Properties request","timestamp":"2016-12-05T04:37:19.039Z"}
+{"user":"Divya","url_clicked":"/images/%7B%7B%20rooms.photo_name%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T04:37:32.669Z"}
+{"user":"Divya","url_clicked":"/images/%7B%7B%20rooms.users.profile_picture.src%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T04:37:32.678Z"}
+{"user":"Divya","url_clicked":"/searchResult","level":"info","message":"Search Properties request","timestamp":"2016-12-05T04:37:33.039Z"}
+{"user":"Divya","url_clicked":"/yourListings","level":"info","message":"Your listing page rendered","timestamp":"2016-12-05T04:37:42.187Z"}
+{"user":"Divya","url_clicked":"/images/%7B%7Blisting.mediaId.imageUrl[0]%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T04:37:42.376Z"}
+{"user":"Divya","url_clicked":"/images/%7B%7Breservation.userId.profileImage%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T04:37:42.387Z"}
+{"user":"Divya","url_clicked":"/yourListings","level":"info","message":"List active property","timestamp":"2016-12-05T04:37:42.780Z"}
+{"user":"Divya","url_clicked":"/getReservations","level":"info","message":"List reservation","timestamp":"2016-12-05T04:37:42.781Z"}
+{"user":"Divya","url_clicked":"/signout","level":"info","message":"Signout request","timestamp":"2016-12-05T04:37:46.557Z"}
+{"url_clicked":"/","level":"info","message":"Home page rendered","timestamp":"2016-12-05T04:37:46.567Z"}
+{"url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T04:37:46.786Z"}
+{"url_clicked":"/images/text-field-icons-9c18e4e23864cb33a8f0f7c32c0b86ee.png","level":"info","message":"Error occured","timestamp":"2016-12-05T04:37:50.657Z"}
+{"user":"test1@gmail.com","url_clicked":"/signin","level":"info","message":"Authentication request","timestamp":"2016-12-05T04:37:52.708Z"}
+{"user":"Arden","url_clicked":"/","level":"info","message":"Home page rendered","timestamp":"2016-12-05T04:37:53.023Z"}
+{"user":"Arden","url_clicked":"/yourListings","level":"info","message":"Your listing page rendered","timestamp":"2016-12-05T04:38:00.647Z"}
+{"user":"Arden","url_clicked":"/images/%7B%7Blisting.mediaId.imageUrl[0]%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T04:38:00.746Z"}
+{"user":"Arden","url_clicked":"/images/%7B%7Breservation.userId.profileImage%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T04:38:00.773Z"}
+{"user":"Arden","url_clicked":"/yourListings","level":"info","message":"List active property","timestamp":"2016-12-05T04:38:01.107Z"}
+{"user":"Arden","url_clicked":"/getReservations","level":"info","message":"List reservation","timestamp":"2016-12-05T04:38:01.108Z"}
+{"user":"Arden","url_clicked":"/images/%7B%7B%20rooms.photo_name%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T04:38:06.031Z"}
+{"user":"Arden","url_clicked":"/images/%7B%7B%20rooms.users.profile_picture.src%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T04:38:06.037Z"}
+{"user":"Arden","url_clicked":"/searchResult","level":"info","message":"Search Properties request","timestamp":"2016-12-05T04:38:06.351Z"}
+{"url_clicked":"/","level":"info","message":"Home page rendered","timestamp":"2016-12-05T04:38:17.093Z"}
+{"url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T04:38:17.467Z"}
+{"url_clicked":"/images/text-field-icons-9c18e4e23864cb33a8f0f7c32c0b86ee.png","level":"info","message":"Error occured","timestamp":"2016-12-05T04:38:21.470Z"}
+{"user":"testhost1@gmail.com","url_clicked":"/signin","level":"info","message":"Authentication request","timestamp":"2016-12-05T04:38:25.299Z"}
+{"user":"Divya","url_clicked":"/","level":"info","message":"Home page rendered","timestamp":"2016-12-05T04:38:25.606Z"}
+{"user":"Divya","url_clicked":"/becomeHost","level":"info","message":"Become host called","timestamp":"2016-12-05T04:51:20.951Z"}
+{"user":"Arden","url_clicked":"/images/%7B%7B%20rooms.photo_name%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T04:51:55.530Z"}
+{"user":"Arden","url_clicked":"/images/%7B%7B%20rooms.users.profile_picture.src%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T04:51:55.536Z"}
+{"user":"Arden","url_clicked":"/searchResult","level":"info","message":"Search Properties request","timestamp":"2016-12-05T04:51:56.048Z"}
+{"user":"Arden","url_clicked":"/becomeHost","level":"info","message":"Become host called","timestamp":"2016-12-05T05:04:04.654Z"}
+{"user":"Divya","url_clicked":"/addListing","level":"info","message":"Add listing page rendered","timestamp":"2016-12-05T05:04:24.473Z"}
+{"user":"Divya","url_clicked":"/addListing","level":"info","message":"Add listing page rendered","timestamp":"2016-12-05T05:04:24.590Z"}
+{"user":"Divya","url_clicked":"/css/images/background-7c73b7858fe7c4bc03505fc1f7f672fd.png","level":"info","message":"Error occured","timestamp":"2016-12-05T05:04:24.660Z"}
+{"user":"Divya","url_clicked":"/uploadImage","level":"info","message":"Image upload","timestamp":"2016-12-05T05:05:31.004Z"}
+{"user":"Divya","url_clicked":"/uploadImage","level":"info","message":"Image upload","timestamp":"2016-12-05T05:05:31.008Z"}
+{"user":"Divya","url_clicked":"/uploadImage","level":"info","message":"Image upload","timestamp":"2016-12-05T05:05:31.010Z"}
+{"user":"Divya","url_clicked":"/uploadVideo","level":"info","message":"Video upload","timestamp":"2016-12-05T05:05:42.215Z"}
+{"user":"Divya","url_clicked":"/addNewListing","level":"info","message":"New Listing added","timestamp":"2016-12-05T05:05:50.956Z"}
+{"user":"Divya","url_clicked":"/addNewListing","level":"info","message":"New Listing added","timestamp":"2016-12-05T05:06:37.566Z"}
+{"user":"Divya","url_clicked":"/","level":"info","message":"Home page rendered","timestamp":"2016-12-05T05:06:58.592Z"}
+{"user":"Divya","url_clicked":"/becomeHost","level":"info","message":"Become host called","timestamp":"2016-12-05T05:07:00.552Z"}
+{"user":"Divya","url_clicked":"/becomeHost","level":"info","message":"Become host called","timestamp":"2016-12-05T05:07:02.515Z"}
+{"user":"Divya","url_clicked":"/getUserTrips","level":"info","message":"User Trips get request","timestamp":"2016-12-05T05:07:21.214Z"}
+{"user":"Divya","url_clicked":"/becomeHost","level":"info","message":"Become host called","timestamp":"2016-12-05T05:07:22.263Z"}
+{"user":"Divya","url_clicked":"/becomeHost","level":"info","message":"Become host called","timestamp":"2016-12-05T05:07:42.730Z"}
+{"user":"Divya","url_clicked":"/becomeHost","level":"info","message":"Become host called","timestamp":"2016-12-05T05:07:49.025Z"}
+{"user":"Divya","url_clicked":"/addListing","level":"info","message":"Add listing page rendered","timestamp":"2016-12-05T05:08:15.209Z"}
+{"user":"Divya","url_clicked":"/addListing","level":"info","message":"Add listing page rendered","timestamp":"2016-12-05T05:08:15.294Z"}
+{"user":"Divya","url_clicked":"/css/images/background-7c73b7858fe7c4bc03505fc1f7f672fd.png","level":"info","message":"Error occured","timestamp":"2016-12-05T05:08:15.354Z"}
+{"user":"Divya","url_clicked":"/uploadImage","level":"info","message":"Image upload","timestamp":"2016-12-05T05:08:47.333Z"}
+{"user":"Divya","url_clicked":"/uploadImage","level":"info","message":"Image upload","timestamp":"2016-12-05T05:08:47.336Z"}
+{"user":"Divya","url_clicked":"/uploadImage","level":"info","message":"Image upload","timestamp":"2016-12-05T05:08:47.337Z"}
+{"user":"Divya","url_clicked":"/uploadVideo","level":"info","message":"Video upload","timestamp":"2016-12-05T05:08:53.068Z"}
+{"user":"Divya","url_clicked":"/addNewListing","level":"info","message":"New Listing added","timestamp":"2016-12-05T05:08:59.798Z"}
+{"user":"Divya","url_clicked":"/yourListings","level":"info","message":"Your listing page rendered","timestamp":"2016-12-05T05:08:59.890Z"}
+{"user":"Divya","url_clicked":"/images/%7B%7Blisting.mediaId.imageUrl[0]%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T05:08:59.987Z"}
+{"user":"Divya","url_clicked":"/images/%7B%7Breservation.userId.profileImage%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T05:09:00.001Z"}
+{"user":"Divya","url_clicked":"/yourListings","level":"info","message":"List active property","timestamp":"2016-12-05T05:09:00.329Z"}
+{"user":"Divya","url_clicked":"/getReservations","level":"info","message":"List reservation","timestamp":"2016-12-05T05:09:00.332Z"}
+{"user":"Arden","url_clicked":"/images/%7B%7B%20rooms.photo_name%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T05:09:51.964Z"}
+{"user":"Arden","url_clicked":"/images/%7B%7B%20rooms.users.profile_picture.src%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T05:09:51.979Z"}
+{"user":"Arden","url_clicked":"/searchResult","level":"info","message":"Search Properties request","timestamp":"2016-12-05T05:09:52.567Z"}
+{"user":"Arden","url_clicked":"/property","level":"info","message":"detail page loaded","timestamp":"2016-12-05T05:10:07.997Z"}
+{"user":"Arden","url_clicked":"/images/%7B%7Broom_result.users.profile_picture.src%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T05:10:08.238Z"}
+{"user":"Arden","url_clicked":"/images/%7B%7B%20room_result.photo_name%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T05:10:08.254Z"}
+{"user":"Arden","url_clicked":"/images/%7B%7Breview.userImg%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T05:10:08.274Z"}
+{"user":"Arden","url_clicked":"/images/%7B%7Breview.imageUrl%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T05:10:08.297Z"}
+{"user":"Arden","url_clicked":"/detail","level":"info","message":"Display specific property by id","timestamp":"2016-12-05T05:10:08.791Z"}
+{"user":"Arden","url_clicked":"/hostReviewsCount","level":"info","message":"Host review count","timestamp":"2016-12-05T05:10:08.947Z"}
+{"user":"Arden","url_clicked":"/images/%7B%7B%20rooms.photo_name%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T05:10:34.794Z"}
+{"user":"Arden","url_clicked":"/images/%7B%7B%20rooms.users.profile_picture.src%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T05:10:34.804Z"}
+{"user":"Arden","url_clicked":"/searchResult","level":"info","message":"Search Properties request","timestamp":"2016-12-05T05:10:35.322Z"}
+{"user":"Divya","url_clicked":"/yourListings","level":"info","message":"Your listing page rendered","timestamp":"2016-12-05T05:10:41.226Z"}
+{"user":"Divya","url_clicked":"/images/%7B%7Blisting.mediaId.imageUrl[0]%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T05:10:41.357Z"}
+{"user":"Divya","url_clicked":"/images/%7B%7Breservation.userId.profileImage%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T05:10:41.376Z"}
+{"user":"Divya","url_clicked":"/yourListings","level":"info","message":"List active property","timestamp":"2016-12-05T05:10:41.813Z"}
+{"user":"Divya","url_clicked":"/getReservations","level":"info","message":"List reservation","timestamp":"2016-12-05T05:10:41.820Z"}
+{"user":"Divya","url_clicked":"/becomeHost","level":"info","message":"Become host called","timestamp":"2016-12-05T05:13:33.642Z"}
+{"user":"Divya","url_clicked":"/addListing","level":"info","message":"Add listing page rendered","timestamp":"2016-12-05T05:14:22.911Z"}
+{"user":"Divya","url_clicked":"/addListing","level":"info","message":"Add listing page rendered","timestamp":"2016-12-05T05:14:22.963Z"}
+{"user":"Divya","url_clicked":"/css/images/background-7c73b7858fe7c4bc03505fc1f7f672fd.png","level":"info","message":"Error occured","timestamp":"2016-12-05T05:14:23.055Z"}
+{"user":"Divya","url_clicked":"/uploadImage","level":"info","message":"Image upload","timestamp":"2016-12-05T05:15:10.210Z"}
+{"user":"Divya","url_clicked":"/uploadImage","level":"info","message":"Image upload","timestamp":"2016-12-05T05:15:10.211Z"}
+{"user":"Divya","url_clicked":"/uploadImage","level":"info","message":"Image upload","timestamp":"2016-12-05T05:15:10.213Z"}
+{"user":"Divya","url_clicked":"/uploadVideo","level":"info","message":"Video upload","timestamp":"2016-12-05T05:15:15.090Z"}
+{"user":"Divya","url_clicked":"/addNewListing","level":"info","message":"New Listing added","timestamp":"2016-12-05T05:15:21.744Z"}
+{"user":"Divya","url_clicked":"/yourListings","level":"info","message":"Your listing page rendered","timestamp":"2016-12-05T05:15:21.772Z"}
+{"user":"Divya","url_clicked":"/images/%7B%7Blisting.mediaId.imageUrl[0]%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T05:15:21.837Z"}
+{"user":"Divya","url_clicked":"/images/%7B%7Breservation.userId.profileImage%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T05:15:21.845Z"}
+{"user":"Divya","url_clicked":"/yourListings","level":"info","message":"List active property","timestamp":"2016-12-05T05:15:22.149Z"}
+{"user":"Divya","url_clicked":"/getReservations","level":"info","message":"List reservation","timestamp":"2016-12-05T05:15:22.150Z"}
+{"user":"Arden","url_clicked":"/","level":"info","message":"Home page rendered","timestamp":"2016-12-05T07:06:06.897Z"}
+{"user":"Arden","url_clicked":"/","level":"info","message":"Home page rendered","timestamp":"2016-12-05T07:06:08.104Z"}
+{"user":"Arden","url_clicked":"/becomeHost","level":"info","message":"Become host called","timestamp":"2016-12-05T07:13:02.910Z"}
+{"user":"Divya","url_clicked":"/yourListings","level":"info","message":"Your listing page rendered","timestamp":"2016-12-05T07:13:37.603Z"}
+{"user":"Divya","url_clicked":"/images/%7B%7Blisting.mediaId.imageUrl[0]%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T07:13:37.674Z"}
+{"user":"Divya","url_clicked":"/images/%7B%7Breservation.userId.profileImage%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T07:13:37.683Z"}
+{"user":"Divya","url_clicked":"/yourListings","level":"info","message":"List active property","timestamp":"2016-12-05T07:13:38.174Z"}
+{"user":"Divya","url_clicked":"/getReservations","level":"info","message":"List reservation","timestamp":"2016-12-05T07:13:38.176Z"}
+{"user":"Divya","url_clicked":"/signout","level":"info","message":"Signout request","timestamp":"2016-12-05T07:13:42.494Z"}
+{"url_clicked":"/","level":"info","message":"Home page rendered","timestamp":"2016-12-05T07:13:42.504Z"}
+{"url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T07:13:42.637Z"}
+{"url_clicked":"/images/text-field-icons-9c18e4e23864cb33a8f0f7c32c0b86ee.png","level":"info","message":"Error occured","timestamp":"2016-12-05T07:13:44.525Z"}
+{"user":"testhost2@gmail.com","url_clicked":"/signin","level":"info","message":"Authentication request","timestamp":"2016-12-05T07:13:51.255Z"}
+{"user":"testhost2@gmail.com","url_clicked":"/signin","level":"info","message":"Authentication request","timestamp":"2016-12-05T07:13:58.593Z"}
+{"user":"Jayden","url_clicked":"/","level":"info","message":"Home page rendered","timestamp":"2016-12-05T07:13:58.992Z"}
+{"user":"Jayden","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T07:13:59.292Z"}
+{"user":"Jayden","url_clicked":"/editProfilePage","level":"info","message":"Edit Profile Page rendered","timestamp":"2016-12-05T07:14:03.683Z"}
+{"user":"Jayden","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T07:14:03.842Z"}
+{"user":"Jayden","url_clicked":"/loadEditUserPage","level":"info","message":"Edit user page load","timestamp":"2016-12-05T07:14:03.978Z"}
+{"user":"Jayden","url_clicked":"/editUser","level":"info","message":"Profile Edit Occured","timestamp":"2016-12-05T07:14:17.437Z"}
+{"user":"Jayden","url_clicked":"/getUserPhotoPage","level":"info","message":"User photo page rendered","timestamp":"2016-12-05T07:14:20.010Z"}
+{"user":"Jayden","url_clicked":"/images/%7B%7Buser.profileImage%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T07:14:20.059Z"}
+{"user":"Jayden","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T07:14:20.171Z"}
+{"user":"Jayden","url_clicked":"/loadProfilePhotoPage","level":"info","message":"Profile photo load","timestamp":"2016-12-05T07:14:20.353Z"}
+{"user":"Jayden","url_clicked":"/uploadProfileImage","level":"info","message":"profile image uploaded","timestamp":"2016-12-05T07:14:56.578Z"}
+{"user":"Jayden","url_clicked":"/getUserPhotoPage","level":"info","message":"User photo page rendered","timestamp":"2016-12-05T07:14:56.589Z"}
+{"user":"Jayden","url_clicked":"/images/%7B%7Buser.profileImage%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T07:14:56.653Z"}
+{"user":"Jayden","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T07:14:56.741Z"}
+{"user":"Jayden","url_clicked":"/loadProfilePhotoPage","level":"info","message":"Profile photo load","timestamp":"2016-12-05T07:14:56.906Z"}
+{"user":"Jayden","url_clicked":"/becomeHost","level":"info","message":"Become host called","timestamp":"2016-12-05T07:15:44.393Z"}
+{"user":"Jayden","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T07:15:44.556Z"}
+{"user":"Jayden","url_clicked":"/addListing","level":"info","message":"Add listing page rendered","timestamp":"2016-12-05T07:16:27.467Z"}
+{"user":"Jayden","url_clicked":"/addListing","level":"info","message":"Add listing page rendered","timestamp":"2016-12-05T07:16:27.542Z"}
+{"user":"Jayden","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T07:16:27.577Z"}
+{"user":"Jayden","url_clicked":"/css/images/background-7c73b7858fe7c4bc03505fc1f7f672fd.png","level":"info","message":"Error occured","timestamp":"2016-12-05T07:16:27.586Z"}
+{"user":"Jayden","url_clicked":"/uploadImage","level":"info","message":"Image upload","timestamp":"2016-12-05T07:17:14.825Z"}
+{"user":"Jayden","url_clicked":"/uploadImage","level":"info","message":"Image upload","timestamp":"2016-12-05T07:17:14.830Z"}
+{"user":"Jayden","url_clicked":"/uploadImage","level":"info","message":"Image upload","timestamp":"2016-12-05T07:17:14.832Z"}
+{"user":"Jayden","url_clicked":"/uploadVideo","level":"info","message":"Video upload","timestamp":"2016-12-05T07:17:23.813Z"}
+{"user":"Jayden","url_clicked":"/addNewListing","level":"info","message":"New Listing added","timestamp":"2016-12-05T07:17:32.656Z"}
+{"user":"Jayden","url_clicked":"/yourListings","level":"info","message":"Your listing page rendered","timestamp":"2016-12-05T07:17:32.690Z"}
+{"user":"Jayden","url_clicked":"/images/%7B%7Blisting.mediaId.imageUrl[0]%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T07:17:32.788Z"}
+{"user":"Jayden","url_clicked":"/images/%7B%7Breservation.userId.profileImage%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T07:17:32.796Z"}
+{"user":"Jayden","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T07:17:32.873Z"}
+{"user":"Jayden","url_clicked":"/yourListings","level":"info","message":"List active property","timestamp":"2016-12-05T07:17:33.076Z"}
+{"user":"Jayden","url_clicked":"/getReservations","level":"info","message":"List reservation","timestamp":"2016-12-05T07:17:33.078Z"}
+{"user":"Jayden","url_clicked":"/becomeHost","level":"info","message":"Become host called","timestamp":"2016-12-05T07:17:39.326Z"}
+{"user":"Jayden","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T07:17:39.440Z"}
+{"user":"Jayden","url_clicked":"/addListing","level":"info","message":"Add listing page rendered","timestamp":"2016-12-05T07:18:11.478Z"}
+{"user":"Jayden","url_clicked":"/addListing","level":"info","message":"Add listing page rendered","timestamp":"2016-12-05T07:18:11.601Z"}
+{"user":"Jayden","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T07:18:11.658Z"}
+{"user":"Jayden","url_clicked":"/css/images/background-7c73b7858fe7c4bc03505fc1f7f672fd.png","level":"info","message":"Error occured","timestamp":"2016-12-05T07:18:11.671Z"}
+{"user":"Jayden","url_clicked":"/uploadImage","level":"info","message":"Image upload","timestamp":"2016-12-05T07:18:57.163Z"}
+{"user":"Jayden","url_clicked":"/uploadImage","level":"info","message":"Image upload","timestamp":"2016-12-05T07:18:57.165Z"}
+{"user":"Jayden","url_clicked":"/uploadImage","level":"info","message":"Image upload","timestamp":"2016-12-05T07:18:57.167Z"}
+{"user":"Jayden","url_clicked":"/uploadVideo","level":"info","message":"Video upload","timestamp":"2016-12-05T07:19:01.456Z"}
+{"user":"Jayden","url_clicked":"/addNewListing","level":"info","message":"New Listing added","timestamp":"2016-12-05T07:19:10.358Z"}
+{"user":"Jayden","url_clicked":"/yourListings","level":"info","message":"Your listing page rendered","timestamp":"2016-12-05T07:19:10.378Z"}
+{"user":"Jayden","url_clicked":"/images/%7B%7Blisting.mediaId.imageUrl[0]%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T07:19:10.471Z"}
+{"user":"Jayden","url_clicked":"/images/%7B%7Breservation.userId.profileImage%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T07:19:10.477Z"}
+{"user":"Jayden","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T07:19:10.554Z"}
+{"user":"Jayden","url_clicked":"/yourListings","level":"info","message":"List active property","timestamp":"2016-12-05T07:19:10.767Z"}
+{"user":"Jayden","url_clicked":"/getReservations","level":"info","message":"List reservation","timestamp":"2016-12-05T07:19:10.767Z"}
+{"user":"Jayden","url_clicked":"/becomeHost","level":"info","message":"Become host called","timestamp":"2016-12-05T07:19:19.611Z"}
+{"user":"Jayden","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T07:19:19.721Z"}
+{"user":"Jayden","url_clicked":"/addListing","level":"info","message":"Add listing page rendered","timestamp":"2016-12-05T07:19:45.645Z"}
+{"user":"Jayden","url_clicked":"/addListing","level":"info","message":"Add listing page rendered","timestamp":"2016-12-05T07:19:45.728Z"}
+{"user":"Jayden","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T07:19:45.756Z"}
+{"user":"Jayden","url_clicked":"/css/images/background-7c73b7858fe7c4bc03505fc1f7f672fd.png","level":"info","message":"Error occured","timestamp":"2016-12-05T07:19:45.768Z"}
+{"user":"Jayden","url_clicked":"/uploadImage","level":"info","message":"Image upload","timestamp":"2016-12-05T07:20:28.806Z"}
+{"user":"Jayden","url_clicked":"/uploadImage","level":"info","message":"Image upload","timestamp":"2016-12-05T07:20:28.818Z"}
+{"user":"Jayden","url_clicked":"/uploadImage","level":"info","message":"Image upload","timestamp":"2016-12-05T07:20:28.819Z"}
+{"user":"Jayden","url_clicked":"/uploadVideo","level":"info","message":"Video upload","timestamp":"2016-12-05T07:20:33.932Z"}
+{"user":"Jayden","url_clicked":"/addNewListing","level":"info","message":"New Listing added","timestamp":"2016-12-05T07:20:40.580Z"}
+{"user":"Jayden","url_clicked":"/yourListings","level":"info","message":"Your listing page rendered","timestamp":"2016-12-05T07:20:40.618Z"}
+{"user":"Jayden","url_clicked":"/images/%7B%7Blisting.mediaId.imageUrl[0]%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T07:20:40.707Z"}
+{"user":"Jayden","url_clicked":"/images/%7B%7Breservation.userId.profileImage%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T07:20:40.716Z"}
+{"user":"Jayden","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T07:20:40.817Z"}
+{"user":"Jayden","url_clicked":"/yourListings","level":"info","message":"List active property","timestamp":"2016-12-05T07:20:40.983Z"}
+{"user":"Jayden","url_clicked":"/getReservations","level":"info","message":"List reservation","timestamp":"2016-12-05T07:20:40.985Z"}
+{"user":"Jayden","url_clicked":"/signout","level":"info","message":"Signout request","timestamp":"2016-12-05T07:20:48.402Z"}
+{"url_clicked":"/","level":"info","message":"Home page rendered","timestamp":"2016-12-05T07:20:48.411Z"}
+{"url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T07:20:48.519Z"}
+{"url_clicked":"/images/text-field-icons-9c18e4e23864cb33a8f0f7c32c0b86ee.png","level":"info","message":"Error occured","timestamp":"2016-12-05T07:20:53.871Z"}
+{"user":"testhost3@gmail.com","url_clicked":"/signin","level":"info","message":"Authentication request","timestamp":"2016-12-05T07:21:02.054Z"}
+{"user":"Maryse","url_clicked":"/","level":"info","message":"Home page rendered","timestamp":"2016-12-05T07:21:02.368Z"}
+{"user":"Maryse","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T07:21:02.482Z"}
+{"user":"Maryse","url_clicked":"/becomeHost","level":"info","message":"Become host called","timestamp":"2016-12-05T07:21:04.274Z"}
+{"user":"Maryse","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T07:21:04.386Z"}
+{"user":"Maryse","url_clicked":"/editProfilePage","level":"info","message":"Edit Profile Page rendered","timestamp":"2016-12-05T07:21:06.645Z"}
+{"user":"Maryse","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T07:21:06.736Z"}
+{"user":"Maryse","url_clicked":"/loadEditUserPage","level":"info","message":"Edit user page load","timestamp":"2016-12-05T07:21:06.848Z"}
+{"user":"Maryse","url_clicked":"/editUser","level":"info","message":"Profile Edit Occured","timestamp":"2016-12-05T07:21:17.706Z"}
+{"user":"Maryse","url_clicked":"/getUserPhotoPage","level":"info","message":"User photo page rendered","timestamp":"2016-12-05T07:21:22.421Z"}
+{"user":"Maryse","url_clicked":"/images/%7B%7Buser.profileImage%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T07:21:22.491Z"}
+{"user":"Maryse","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T07:21:22.586Z"}
+{"user":"Maryse","url_clicked":"/loadProfilePhotoPage","level":"info","message":"Profile photo load","timestamp":"2016-12-05T07:21:22.788Z"}
+{"user":"Maryse","url_clicked":"/uploadProfileImage","level":"info","message":"profile image uploaded","timestamp":"2016-12-05T07:21:49.409Z"}
+{"user":"Maryse","url_clicked":"/getUserPhotoPage","level":"info","message":"User photo page rendered","timestamp":"2016-12-05T07:21:49.450Z"}
+{"user":"Maryse","url_clicked":"/images/%7B%7Buser.profileImage%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T07:21:49.529Z"}
+{"user":"Maryse","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T07:21:49.639Z"}
+{"user":"Maryse","url_clicked":"/loadProfilePhotoPage","level":"info","message":"Profile photo load","timestamp":"2016-12-05T07:21:49.802Z"}
+{"user":"Maryse","url_clicked":"/editProfilePage","level":"info","message":"Edit Profile Page rendered","timestamp":"2016-12-05T07:21:52.062Z"}
+{"user":"Maryse","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T07:21:52.166Z"}
+{"user":"Maryse","url_clicked":"/loadEditUserPage","level":"info","message":"Edit user page load","timestamp":"2016-12-05T07:21:52.303Z"}
+{"user":"Maryse","url_clicked":"/editUser","level":"info","message":"Profile Edit Occured","timestamp":"2016-12-05T07:22:01.556Z"}
+{"user":"Maryse","url_clicked":"/becomeHost","level":"info","message":"Become host called","timestamp":"2016-12-05T07:22:04.420Z"}
+{"user":"Maryse","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T07:22:04.569Z"}
+{"user":"Maryse","url_clicked":"/addListing","level":"info","message":"Add listing page rendered","timestamp":"2016-12-05T07:22:51.448Z"}
+{"user":"Maryse","url_clicked":"/addListing","level":"info","message":"Add listing page rendered","timestamp":"2016-12-05T07:22:51.528Z"}
+{"user":"Maryse","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T07:22:51.570Z"}
+{"user":"Maryse","url_clicked":"/css/images/background-7c73b7858fe7c4bc03505fc1f7f672fd.png","level":"info","message":"Error occured","timestamp":"2016-12-05T07:22:51.583Z"}
+{"user":"Maryse","url_clicked":"/uploadImage","level":"info","message":"Image upload","timestamp":"2016-12-05T07:23:50.617Z"}
+{"user":"Maryse","url_clicked":"/uploadImage","level":"info","message":"Image upload","timestamp":"2016-12-05T07:23:50.627Z"}
+{"user":"Maryse","url_clicked":"/uploadImage","level":"info","message":"Image upload","timestamp":"2016-12-05T07:23:50.629Z"}
+{"user":"Maryse","url_clicked":"/uploadVideo","level":"info","message":"Video upload","timestamp":"2016-12-05T07:23:55.832Z"}
+{"user":"Maryse","url_clicked":"/addNewListing","level":"info","message":"New Listing added","timestamp":"2016-12-05T07:24:04.406Z"}
+{"user":"Maryse","url_clicked":"/yourListings","level":"info","message":"Your listing page rendered","timestamp":"2016-12-05T07:24:04.479Z"}
+{"user":"Maryse","url_clicked":"/images/%7B%7Blisting.mediaId.imageUrl[0]%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T07:24:04.559Z"}
+{"user":"Maryse","url_clicked":"/images/%7B%7Breservation.userId.profileImage%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T07:24:04.571Z"}
+{"user":"Maryse","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T07:24:04.652Z"}
+{"user":"Maryse","url_clicked":"/yourListings","level":"info","message":"List active property","timestamp":"2016-12-05T07:24:04.861Z"}
+{"user":"Maryse","url_clicked":"/getReservations","level":"info","message":"List reservation","timestamp":"2016-12-05T07:24:04.862Z"}
+{"user":"Maryse","url_clicked":"/becomeHost","level":"info","message":"Become host called","timestamp":"2016-12-05T07:24:10.047Z"}
+{"user":"Maryse","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T07:24:10.152Z"}
+{"user":"Maryse","url_clicked":"/addListing","level":"info","message":"Add listing page rendered","timestamp":"2016-12-05T07:26:03.456Z"}
+{"user":"Maryse","url_clicked":"/addListing","level":"info","message":"Add listing page rendered","timestamp":"2016-12-05T07:26:03.539Z"}
+{"user":"Maryse","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T07:26:03.576Z"}
+{"user":"Maryse","url_clicked":"/css/images/background-7c73b7858fe7c4bc03505fc1f7f672fd.png","level":"info","message":"Error occured","timestamp":"2016-12-05T07:26:03.587Z"}
+{"user":"Maryse","url_clicked":"/uploadImage","level":"info","message":"Image upload","timestamp":"2016-12-05T07:27:01.585Z"}
+{"user":"Maryse","url_clicked":"/uploadImage","level":"info","message":"Image upload","timestamp":"2016-12-05T07:27:01.587Z"}
+{"user":"Maryse","url_clicked":"/uploadImage","level":"info","message":"Image upload","timestamp":"2016-12-05T07:27:01.589Z"}
+{"user":"Maryse","url_clicked":"/uploadVideo","level":"info","message":"Video upload","timestamp":"2016-12-05T07:27:06.985Z"}
+{"user":"Maryse","url_clicked":"/addNewListing","level":"info","message":"New Listing added","timestamp":"2016-12-05T07:27:15.850Z"}
+{"user":"Maryse","url_clicked":"/yourListings","level":"info","message":"Your listing page rendered","timestamp":"2016-12-05T07:27:15.894Z"}
+{"user":"Maryse","url_clicked":"/images/%7B%7Blisting.mediaId.imageUrl[0]%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T07:27:15.974Z"}
+{"user":"Maryse","url_clicked":"/images/%7B%7Breservation.userId.profileImage%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T07:27:15.983Z"}
+{"user":"Maryse","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T07:27:16.071Z"}
+{"user":"Maryse","url_clicked":"/yourListings","level":"info","message":"List active property","timestamp":"2016-12-05T07:27:16.297Z"}
+{"user":"Maryse","url_clicked":"/getReservations","level":"info","message":"List reservation","timestamp":"2016-12-05T07:27:16.299Z"}
+{"user":"Maryse","url_clicked":"/yourListings","level":"info","message":"Your listing page rendered","timestamp":"2016-12-05T07:27:19.924Z"}
+{"user":"Maryse","url_clicked":"/images/%7B%7Blisting.mediaId.imageUrl[0]%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T07:27:19.980Z"}
+{"user":"Maryse","url_clicked":"/images/%7B%7Breservation.userId.profileImage%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T07:27:19.992Z"}
+{"user":"Maryse","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T07:27:20.035Z"}
+{"user":"Maryse","url_clicked":"/yourListings","level":"info","message":"List active property","timestamp":"2016-12-05T07:27:20.213Z"}
+{"user":"Maryse","url_clicked":"/getReservations","level":"info","message":"List reservation","timestamp":"2016-12-05T07:27:20.214Z"}
+{"user":"Maryse","url_clicked":"/editProfilePage","level":"info","message":"Edit Profile Page rendered","timestamp":"2016-12-05T07:27:25.811Z"}
+{"user":"Maryse","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T07:27:25.936Z"}
+{"user":"Maryse","url_clicked":"/loadEditUserPage","level":"info","message":"Edit user page load","timestamp":"2016-12-05T07:27:26.076Z"}
+{"user":"Maryse","url_clicked":"/signout","level":"info","message":"Signout request","timestamp":"2016-12-05T07:27:32.046Z"}
+{"url_clicked":"/","level":"info","message":"Home page rendered","timestamp":"2016-12-05T07:27:32.053Z"}
+{"url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T07:27:32.173Z"}
+{"url_clicked":"/images/text-field-icons-9c18e4e23864cb33a8f0f7c32c0b86ee.png","level":"info","message":"Error occured","timestamp":"2016-12-05T07:27:34.000Z"}
+{"user":"testhost4@gmail.com","url_clicked":"/signin","level":"info","message":"Authentication request","timestamp":"2016-12-05T07:27:42.321Z"}
+{"user":"Gonzalo","url_clicked":"/","level":"info","message":"Home page rendered","timestamp":"2016-12-05T07:27:42.652Z"}
+{"user":"Gonzalo","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T07:27:42.760Z"}
+{"user":"Gonzalo","url_clicked":"/becomeHost","level":"info","message":"Become host called","timestamp":"2016-12-05T07:27:44.442Z"}
+{"user":"Gonzalo","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T07:27:44.556Z"}
+{"user":"Gonzalo","url_clicked":"/editProfilePage","level":"info","message":"Edit Profile Page rendered","timestamp":"2016-12-05T07:27:46.178Z"}
+{"user":"Gonzalo","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T07:27:46.296Z"}
+{"user":"Gonzalo","url_clicked":"/loadEditUserPage","level":"info","message":"Edit user page load","timestamp":"2016-12-05T07:27:46.410Z"}
+{"user":"Gonzalo","url_clicked":"/editUser","level":"info","message":"Profile Edit Occured","timestamp":"2016-12-05T07:27:55.026Z"}
+{"user":"Gonzalo","url_clicked":"/getUserPhotoPage","level":"info","message":"User photo page rendered","timestamp":"2016-12-05T07:28:12.599Z"}
+{"user":"Gonzalo","url_clicked":"/images/%7B%7Buser.profileImage%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T07:28:12.661Z"}
+{"user":"Gonzalo","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T07:28:12.754Z"}
+{"user":"Gonzalo","url_clicked":"/loadProfilePhotoPage","level":"info","message":"Profile photo load","timestamp":"2016-12-05T07:28:12.945Z"}
+{"user":"Gonzalo","url_clicked":"/uploadProfileImage","level":"info","message":"profile image uploaded","timestamp":"2016-12-05T07:28:36.229Z"}
+{"user":"Gonzalo","url_clicked":"/getUserPhotoPage","level":"info","message":"User photo page rendered","timestamp":"2016-12-05T07:28:36.243Z"}
+{"user":"Gonzalo","url_clicked":"/images/%7B%7Buser.profileImage%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T07:28:36.298Z"}
+{"user":"Gonzalo","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T07:28:36.393Z"}
+{"user":"Gonzalo","url_clicked":"/loadProfilePhotoPage","level":"info","message":"Profile photo load","timestamp":"2016-12-05T07:28:36.586Z"}
+{"user":"Gonzalo","url_clicked":"/becomeHost","level":"info","message":"Become host called","timestamp":"2016-12-05T07:28:38.896Z"}
+{"user":"Gonzalo","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T07:28:39.028Z"}
+{"user":"Gonzalo","url_clicked":"/addListing","level":"info","message":"Add listing page rendered","timestamp":"2016-12-05T07:29:24.894Z"}
+{"user":"Gonzalo","url_clicked":"/addListing","level":"info","message":"Add listing page rendered","timestamp":"2016-12-05T07:29:25.016Z"}
+{"user":"Gonzalo","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T07:29:25.057Z"}
+{"user":"Gonzalo","url_clicked":"/css/images/background-7c73b7858fe7c4bc03505fc1f7f672fd.png","level":"info","message":"Error occured","timestamp":"2016-12-05T07:29:25.087Z"}
+{"user":"Gonzalo","url_clicked":"/uploadImage","level":"info","message":"Image upload","timestamp":"2016-12-05T07:29:57.068Z"}
+{"user":"Gonzalo","url_clicked":"/uploadImage","level":"info","message":"Image upload","timestamp":"2016-12-05T07:29:57.069Z"}
+{"user":"Gonzalo","url_clicked":"/uploadImage","level":"info","message":"Image upload","timestamp":"2016-12-05T07:29:57.070Z"}
+{"user":"Gonzalo","url_clicked":"/uploadVideo","level":"info","message":"Video upload","timestamp":"2016-12-05T07:30:02.021Z"}
+{"user":"Gonzalo","url_clicked":"/addNewListing","level":"info","message":"New Listing added","timestamp":"2016-12-05T07:30:08.076Z"}
+{"user":"Gonzalo","url_clicked":"/yourListings","level":"info","message":"Your listing page rendered","timestamp":"2016-12-05T07:30:08.151Z"}
+{"user":"Gonzalo","url_clicked":"/images/%7B%7Blisting.mediaId.imageUrl[0]%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T07:30:08.263Z"}
+{"user":"Gonzalo","url_clicked":"/images/%7B%7Breservation.userId.profileImage%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T07:30:08.273Z"}
+{"user":"Gonzalo","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T07:30:08.354Z"}
+{"user":"Gonzalo","url_clicked":"/yourListings","level":"info","message":"List active property","timestamp":"2016-12-05T07:30:08.572Z"}
+{"user":"Gonzalo","url_clicked":"/getReservations","level":"info","message":"List reservation","timestamp":"2016-12-05T07:30:08.574Z"}
+{"user":"Gonzalo","url_clicked":"/becomeHost","level":"info","message":"Become host called","timestamp":"2016-12-05T07:30:10.652Z"}
+{"user":"Gonzalo","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T07:30:10.782Z"}
+{"user":"Gonzalo","url_clicked":"/addListing","level":"info","message":"Add listing page rendered","timestamp":"2016-12-05T07:30:43.514Z"}
+{"user":"Gonzalo","url_clicked":"/addListing","level":"info","message":"Add listing page rendered","timestamp":"2016-12-05T07:30:43.597Z"}
+{"user":"Gonzalo","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T07:30:43.658Z"}
+{"user":"Gonzalo","url_clicked":"/css/images/background-7c73b7858fe7c4bc03505fc1f7f672fd.png","level":"info","message":"Error occured","timestamp":"2016-12-05T07:30:43.667Z"}
+{"user":"Gonzalo","url_clicked":"/uploadImage","level":"info","message":"Image upload","timestamp":"2016-12-05T07:31:21.493Z"}
+{"user":"Gonzalo","url_clicked":"/uploadImage","level":"info","message":"Image upload","timestamp":"2016-12-05T07:31:21.495Z"}
+{"user":"Gonzalo","url_clicked":"/uploadImage","level":"info","message":"Image upload","timestamp":"2016-12-05T07:31:21.496Z"}
+{"user":"Gonzalo","url_clicked":"/uploadVideo","level":"info","message":"Video upload","timestamp":"2016-12-05T07:31:29.337Z"}
+{"user":"Gonzalo","url_clicked":"/addNewListing","level":"info","message":"New Listing added","timestamp":"2016-12-05T07:31:37.786Z"}
+{"user":"Gonzalo","url_clicked":"/yourListings","level":"info","message":"Your listing page rendered","timestamp":"2016-12-05T07:31:37.824Z"}
+{"user":"Gonzalo","url_clicked":"/images/%7B%7Blisting.mediaId.imageUrl[0]%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T07:31:37.897Z"}
+{"user":"Gonzalo","url_clicked":"/images/%7B%7Breservation.userId.profileImage%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T07:31:37.904Z"}
+{"user":"Gonzalo","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T07:31:37.979Z"}
+{"user":"Gonzalo","url_clicked":"/yourListings","level":"info","message":"List active property","timestamp":"2016-12-05T07:31:38.209Z"}
+{"user":"Gonzalo","url_clicked":"/getReservations","level":"info","message":"List reservation","timestamp":"2016-12-05T07:31:38.211Z"}
+{"user":"Gonzalo","url_clicked":"/becomeHost","level":"info","message":"Become host called","timestamp":"2016-12-05T07:31:41.833Z"}
+{"user":"Gonzalo","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T07:31:41.939Z"}
+{"user":"Gonzalo","url_clicked":"/addListing","level":"info","message":"Add listing page rendered","timestamp":"2016-12-05T07:32:27.854Z"}
+{"user":"Gonzalo","url_clicked":"/addListing","level":"info","message":"Add listing page rendered","timestamp":"2016-12-05T07:32:27.937Z"}
+{"user":"Gonzalo","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T07:32:27.995Z"}
+{"user":"Gonzalo","url_clicked":"/css/images/background-7c73b7858fe7c4bc03505fc1f7f672fd.png","level":"info","message":"Error occured","timestamp":"2016-12-05T07:32:28.022Z"}
+{"user":"Gonzalo","url_clicked":"/uploadImage","level":"info","message":"Image upload","timestamp":"2016-12-05T07:33:05.621Z"}
+{"user":"Gonzalo","url_clicked":"/uploadImage","level":"info","message":"Image upload","timestamp":"2016-12-05T07:33:05.622Z"}
+{"user":"Gonzalo","url_clicked":"/uploadImage","level":"info","message":"Image upload","timestamp":"2016-12-05T07:33:05.623Z"}
+{"user":"Gonzalo","url_clicked":"/uploadVideo","level":"info","message":"Video upload","timestamp":"2016-12-05T07:33:10.628Z"}
+{"user":"Gonzalo","url_clicked":"/addNewListing","level":"info","message":"New Listing added","timestamp":"2016-12-05T07:33:17.166Z"}
+{"user":"Gonzalo","url_clicked":"/yourListings","level":"info","message":"Your listing page rendered","timestamp":"2016-12-05T07:33:17.194Z"}
+{"user":"Gonzalo","url_clicked":"/images/%7B%7Blisting.mediaId.imageUrl[0]%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T07:33:17.273Z"}
+{"user":"Gonzalo","url_clicked":"/images/%7B%7Breservation.userId.profileImage%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T07:33:17.287Z"}
+{"user":"Gonzalo","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T07:33:17.383Z"}
+{"user":"Gonzalo","url_clicked":"/yourListings","level":"info","message":"List active property","timestamp":"2016-12-05T07:33:17.639Z"}
+{"user":"Gonzalo","url_clicked":"/getReservations","level":"info","message":"List reservation","timestamp":"2016-12-05T07:33:17.642Z"}
+{"user":"Gonzalo","url_clicked":"/editProfilePage","level":"info","message":"Edit Profile Page rendered","timestamp":"2016-12-05T07:33:24.113Z"}
+{"user":"Gonzalo","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T07:33:24.213Z"}
+{"user":"Gonzalo","url_clicked":"/loadEditUserPage","level":"info","message":"Edit user page load","timestamp":"2016-12-05T07:33:24.331Z"}
+{"user":"Gonzalo","url_clicked":"/signout","level":"info","message":"Signout request","timestamp":"2016-12-05T07:33:30.681Z"}
+{"url_clicked":"/","level":"info","message":"Home page rendered","timestamp":"2016-12-05T07:33:30.689Z"}
+{"url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T07:33:30.851Z"}
+{"user":"Arden","url_clicked":"/","level":"info","message":"Home page rendered","timestamp":"2016-12-05T07:34:01.384Z"}
+{"user":"Arden","url_clicked":"/","level":"info","message":"Home page rendered","timestamp":"2016-12-05T07:34:02.546Z"}
+{"user":"Arden","url_clicked":"/images/%7B%7B%20rooms.photo_name%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T07:34:06.642Z"}
+{"user":"Arden","url_clicked":"/images/%7B%7B%20rooms.users.profile_picture.src%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T07:34:06.652Z"}
+{"user":"Arden","url_clicked":"/searchResult","level":"info","message":"Search Properties request","timestamp":"2016-12-05T07:34:07.152Z"}
+{"url_clicked":"/images/text-field-icons-9c18e4e23864cb33a8f0f7c32c0b86ee.png","level":"info","message":"Error occured","timestamp":"2016-12-05T07:36:08.920Z"}
+{"user":"testhost5@gmail.com","url_clicked":"/signin","level":"info","message":"Authentication request","timestamp":"2016-12-05T07:36:17.664Z"}
+{"user":"Jillian","url_clicked":"/","level":"info","message":"Home page rendered","timestamp":"2016-12-05T07:36:18.004Z"}
+{"user":"Jillian","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T07:36:18.152Z"}
+{"user":"Jillian","url_clicked":"/editProfilePage","level":"info","message":"Edit Profile Page rendered","timestamp":"2016-12-05T07:36:20.505Z"}
+{"user":"Jillian","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T07:36:20.614Z"}
+{"user":"Jillian","url_clicked":"/loadEditUserPage","level":"info","message":"Edit user page load","timestamp":"2016-12-05T07:36:20.751Z"}
+{"user":"Jillian","url_clicked":"/editUser","level":"info","message":"Profile Edit Occured","timestamp":"2016-12-05T07:36:36.724Z"}
+{"user":"Jillian","url_clicked":"/getUserPhotoPage","level":"info","message":"User photo page rendered","timestamp":"2016-12-05T07:36:39.416Z"}
+{"user":"Jillian","url_clicked":"/images/%7B%7Buser.profileImage%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T07:36:39.464Z"}
+{"user":"Jillian","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T07:36:39.561Z"}
+{"user":"Jillian","url_clicked":"/loadProfilePhotoPage","level":"info","message":"Profile photo load","timestamp":"2016-12-05T07:36:39.860Z"}
+{"user":"Jillian","url_clicked":"/uploadProfileImage","level":"info","message":"profile image uploaded","timestamp":"2016-12-05T07:37:35.178Z"}
+{"user":"Jillian","url_clicked":"/getUserPhotoPage","level":"info","message":"User photo page rendered","timestamp":"2016-12-05T07:37:35.191Z"}
+{"user":"Jillian","url_clicked":"/images/%7B%7Buser.profileImage%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T07:37:35.258Z"}
+{"user":"Jillian","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T07:37:35.358Z"}
+{"user":"Jillian","url_clicked":"/loadProfilePhotoPage","level":"info","message":"Profile photo load","timestamp":"2016-12-05T07:37:35.548Z"}
+{"user":"Jillian","url_clicked":"/becomeHost","level":"info","message":"Become host called","timestamp":"2016-12-05T07:37:39.289Z"}
+{"user":"Jillian","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T07:37:39.415Z"}
+{"user":"Jillian","url_clicked":"/addListing","level":"info","message":"Add listing page rendered","timestamp":"2016-12-05T07:38:08.112Z"}
+{"user":"Jillian","url_clicked":"/addListing","level":"info","message":"Add listing page rendered","timestamp":"2016-12-05T07:38:08.195Z"}
+{"user":"Jillian","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T07:38:08.240Z"}
+{"user":"Jillian","url_clicked":"/css/images/background-7c73b7858fe7c4bc03505fc1f7f672fd.png","level":"info","message":"Error occured","timestamp":"2016-12-05T07:38:08.250Z"}
+{"user":"Jillian","url_clicked":"/uploadImage","level":"info","message":"Image upload","timestamp":"2016-12-05T07:38:46.809Z"}
+{"user":"Jillian","url_clicked":"/uploadImage","level":"info","message":"Image upload","timestamp":"2016-12-05T07:38:46.811Z"}
+{"user":"Jillian","url_clicked":"/uploadImage","level":"info","message":"Image upload","timestamp":"2016-12-05T07:38:46.812Z"}
+{"user":"Jillian","url_clicked":"/uploadVideo","level":"info","message":"Video upload","timestamp":"2016-12-05T07:38:52.229Z"}
+{"user":"Jillian","url_clicked":"/addNewListing","level":"info","message":"New Listing added","timestamp":"2016-12-05T07:38:58.344Z"}
+{"user":"Jillian","url_clicked":"/yourListings","level":"info","message":"Your listing page rendered","timestamp":"2016-12-05T07:38:58.410Z"}
+{"user":"Jillian","url_clicked":"/images/%7B%7Blisting.mediaId.imageUrl[0]%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T07:38:58.491Z"}
+{"user":"Jillian","url_clicked":"/images/%7B%7Breservation.userId.profileImage%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T07:38:58.500Z"}
+{"user":"Jillian","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T07:38:58.587Z"}
+{"user":"Jillian","url_clicked":"/yourListings","level":"info","message":"List active property","timestamp":"2016-12-05T07:38:58.786Z"}
+{"user":"Jillian","url_clicked":"/getReservations","level":"info","message":"List reservation","timestamp":"2016-12-05T07:38:58.787Z"}
+{"user":"Jillian","url_clicked":"/becomeHost","level":"info","message":"Become host called","timestamp":"2016-12-05T07:39:00.840Z"}
+{"user":"Jillian","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T07:39:00.973Z"}
+{"user":"Jillian","url_clicked":"/addListing","level":"info","message":"Add listing page rendered","timestamp":"2016-12-05T07:39:14.947Z"}
+{"user":"Jillian","url_clicked":"/addListing","level":"info","message":"Add listing page rendered","timestamp":"2016-12-05T07:39:15.027Z"}
+{"user":"Jillian","url_clicked":"/css/images/background-7c73b7858fe7c4bc03505fc1f7f672fd.png","level":"info","message":"Error occured","timestamp":"2016-12-05T07:39:15.125Z"}
+{"user":"Jillian","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T07:39:15.132Z"}
+{"user":"Jillian","url_clicked":"/uploadImage","level":"info","message":"Image upload","timestamp":"2016-12-05T07:39:57.052Z"}
+{"user":"Jillian","url_clicked":"/uploadImage","level":"info","message":"Image upload","timestamp":"2016-12-05T07:39:57.054Z"}
+{"user":"Jillian","url_clicked":"/uploadImage","level":"info","message":"Image upload","timestamp":"2016-12-05T07:39:57.055Z"}
+{"user":"Jillian","url_clicked":"/uploadVideo","level":"info","message":"Video upload","timestamp":"2016-12-05T07:40:02.381Z"}
+{"user":"Jillian","url_clicked":"/addNewListing","level":"info","message":"New Listing added","timestamp":"2016-12-05T07:40:09.592Z"}
+{"user":"Jillian","url_clicked":"/yourListings","level":"info","message":"Your listing page rendered","timestamp":"2016-12-05T07:40:09.625Z"}
+{"user":"Jillian","url_clicked":"/images/%7B%7Blisting.mediaId.imageUrl[0]%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T07:40:09.708Z"}
+{"user":"Jillian","url_clicked":"/images/%7B%7Breservation.userId.profileImage%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T07:40:09.717Z"}
+{"user":"Jillian","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T07:40:09.791Z"}
+{"user":"Jillian","url_clicked":"/yourListings","level":"info","message":"List active property","timestamp":"2016-12-05T07:40:10.001Z"}
+{"user":"Jillian","url_clicked":"/getReservations","level":"info","message":"List reservation","timestamp":"2016-12-05T07:40:10.002Z"}
+{"user":"Jillian","url_clicked":"/becomeHost","level":"info","message":"Become host called","timestamp":"2016-12-05T07:40:14.254Z"}
+{"user":"Jillian","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T07:40:14.358Z"}
+{"user":"Jillian","url_clicked":"/addListing","level":"info","message":"Add listing page rendered","timestamp":"2016-12-05T07:45:07.052Z"}
+{"user":"Jillian","url_clicked":"/addListing","level":"info","message":"Add listing page rendered","timestamp":"2016-12-05T07:45:07.131Z"}
+{"user":"Jillian","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T07:45:07.173Z"}
+{"user":"Jillian","url_clicked":"/css/images/background-7c73b7858fe7c4bc03505fc1f7f672fd.png","level":"info","message":"Error occured","timestamp":"2016-12-05T07:45:07.184Z"}
+{"user":"Jillian","url_clicked":"/uploadImage","level":"info","message":"Image upload","timestamp":"2016-12-05T07:45:47.203Z"}
+{"user":"Jillian","url_clicked":"/uploadImage","level":"info","message":"Image upload","timestamp":"2016-12-05T07:45:47.205Z"}
+{"user":"Jillian","url_clicked":"/uploadImage","level":"info","message":"Image upload","timestamp":"2016-12-05T07:45:47.207Z"}
+{"user":"Jillian","url_clicked":"/uploadVideo","level":"info","message":"Video upload","timestamp":"2016-12-05T07:45:51.906Z"}
+{"user":"Jillian","url_clicked":"/addNewListing","level":"info","message":"New Listing added","timestamp":"2016-12-05T07:46:00.886Z"}
+{"user":"Jillian","url_clicked":"/yourListings","level":"info","message":"Your listing page rendered","timestamp":"2016-12-05T07:46:00.930Z"}
+{"user":"Jillian","url_clicked":"/images/%7B%7Blisting.mediaId.imageUrl[0]%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T07:46:00.995Z"}
+{"user":"Jillian","url_clicked":"/images/%7B%7Breservation.userId.profileImage%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T07:46:01.005Z"}
+{"user":"Jillian","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T07:46:01.086Z"}
+{"user":"Jillian","url_clicked":"/yourListings","level":"info","message":"List active property","timestamp":"2016-12-05T07:46:01.321Z"}
+{"user":"Jillian","url_clicked":"/getReservations","level":"info","message":"List reservation","timestamp":"2016-12-05T07:46:01.323Z"}
+{"user":"Jillian","url_clicked":"/signout","level":"info","message":"Signout request","timestamp":"2016-12-05T07:46:11.512Z"}
+{"url_clicked":"/","level":"info","message":"Home page rendered","timestamp":"2016-12-05T07:46:11.521Z"}
+{"url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T07:46:11.686Z"}
+{"url_clicked":"/images/%7B%7B%20rooms.users.profile_picture.src%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T07:46:34.801Z"}
+{"url_clicked":"/images/%7B%7B%20rooms.photo_name%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T07:46:34.815Z"}
+{"url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T07:46:34.908Z"}
+{"url_clicked":"/searchResult","level":"info","message":"Search Properties request","timestamp":"2016-12-05T07:46:35.169Z"}
+{"url_clicked":"/","level":"info","message":"Home page rendered","timestamp":"2016-12-05T07:46:38.932Z"}
+{"url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T07:46:39.019Z"}
+{"url_clicked":"/images/text-field-icons-9c18e4e23864cb33a8f0f7c32c0b86ee.png","level":"info","message":"Error occured","timestamp":"2016-12-05T07:46:44.809Z"}
+{"user":"testhost6@gmail.com","url_clicked":"/signin","level":"info","message":"Authentication request","timestamp":"2016-12-05T07:46:53.019Z"}
+{"user":"Kayleigh","url_clicked":"/","level":"info","message":"Home page rendered","timestamp":"2016-12-05T07:46:53.325Z"}
+{"user":"Kayleigh","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T07:46:53.469Z"}
+{"user":"Kayleigh","url_clicked":"/editProfilePage","level":"info","message":"Edit Profile Page rendered","timestamp":"2016-12-05T07:47:39.340Z"}
+{"user":"Kayleigh","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T07:47:39.509Z"}
+{"user":"Kayleigh","url_clicked":"/loadEditUserPage","level":"info","message":"Edit user page load","timestamp":"2016-12-05T07:47:39.683Z"}
+{"user":"Kayleigh","url_clicked":"/editUser","level":"info","message":"Profile Edit Occured","timestamp":"2016-12-05T07:47:55.793Z"}
+{"user":"Kayleigh","url_clicked":"/getUserPhotoPage","level":"info","message":"User photo page rendered","timestamp":"2016-12-05T07:47:58.044Z"}
+{"user":"Kayleigh","url_clicked":"/images/%7B%7Buser.profileImage%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T07:47:58.097Z"}
+{"user":"Kayleigh","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T07:47:58.199Z"}
+{"user":"Kayleigh","url_clicked":"/loadProfilePhotoPage","level":"info","message":"Profile photo load","timestamp":"2016-12-05T07:47:58.365Z"}
+{"user":"Kayleigh","url_clicked":"/uploadProfileImage","level":"info","message":"profile image uploaded","timestamp":"2016-12-05T07:48:16.275Z"}
+{"user":"Kayleigh","url_clicked":"/getUserPhotoPage","level":"info","message":"User photo page rendered","timestamp":"2016-12-05T07:48:16.285Z"}
+{"user":"Kayleigh","url_clicked":"/images/%7B%7Buser.profileImage%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T07:48:16.337Z"}
+{"user":"Kayleigh","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T07:48:16.432Z"}
+{"user":"Kayleigh","url_clicked":"/loadProfilePhotoPage","level":"info","message":"Profile photo load","timestamp":"2016-12-05T07:48:16.598Z"}
+{"user":"Kayleigh","url_clicked":"/becomeHost","level":"info","message":"Become host called","timestamp":"2016-12-05T07:48:20.507Z"}
+{"user":"Kayleigh","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T07:48:20.616Z"}
+{"user":"Kayleigh","url_clicked":"/addListing","level":"info","message":"Add listing page rendered","timestamp":"2016-12-05T07:49:01.445Z"}
+{"user":"Kayleigh","url_clicked":"/addListing","level":"info","message":"Add listing page rendered","timestamp":"2016-12-05T07:49:01.520Z"}
+{"user":"Kayleigh","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T07:49:01.577Z"}
+{"user":"Kayleigh","url_clicked":"/css/images/background-7c73b7858fe7c4bc03505fc1f7f672fd.png","level":"info","message":"Error occured","timestamp":"2016-12-05T07:49:01.588Z"}
+{"user":"Kayleigh","url_clicked":"/uploadImage","level":"info","message":"Image upload","timestamp":"2016-12-05T07:49:40.868Z"}
+{"user":"Kayleigh","url_clicked":"/uploadImage","level":"info","message":"Image upload","timestamp":"2016-12-05T07:49:40.869Z"}
+{"user":"Kayleigh","url_clicked":"/uploadImage","level":"info","message":"Image upload","timestamp":"2016-12-05T07:49:40.871Z"}
+{"user":"Kayleigh","url_clicked":"/uploadVideo","level":"info","message":"Video upload","timestamp":"2016-12-05T07:49:45.436Z"}
+{"user":"Kayleigh","url_clicked":"/addNewListing","level":"info","message":"New Listing added","timestamp":"2016-12-05T07:49:55.877Z"}
+{"user":"Kayleigh","url_clicked":"/yourListings","level":"info","message":"Your listing page rendered","timestamp":"2016-12-05T07:49:55.902Z"}
+{"user":"Kayleigh","url_clicked":"/images/%7B%7Blisting.mediaId.imageUrl[0]%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T07:49:55.988Z"}
+{"user":"Kayleigh","url_clicked":"/images/%7B%7Breservation.userId.profileImage%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T07:49:55.995Z"}
+{"user":"Kayleigh","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T07:49:56.063Z"}
+{"user":"Kayleigh","url_clicked":"/yourListings","level":"info","message":"List active property","timestamp":"2016-12-05T07:49:56.247Z"}
+{"user":"Kayleigh","url_clicked":"/getReservations","level":"info","message":"List reservation","timestamp":"2016-12-05T07:49:56.249Z"}
+{"user":"Kayleigh","url_clicked":"/becomeHost","level":"info","message":"Become host called","timestamp":"2016-12-05T07:50:58.339Z"}
+{"user":"Kayleigh","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T07:50:58.464Z"}
+{"user":"Kayleigh","url_clicked":"/addListing","level":"info","message":"Add listing page rendered","timestamp":"2016-12-05T07:51:23.899Z"}
+{"user":"Kayleigh","url_clicked":"/addListing","level":"info","message":"Add listing page rendered","timestamp":"2016-12-05T07:51:23.975Z"}
+{"user":"Kayleigh","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T07:51:24.034Z"}
+{"user":"Kayleigh","url_clicked":"/css/images/background-7c73b7858fe7c4bc03505fc1f7f672fd.png","level":"info","message":"Error occured","timestamp":"2016-12-05T07:51:24.042Z"}
+{"user":"Kayleigh","url_clicked":"/uploadImage","level":"info","message":"Image upload","timestamp":"2016-12-05T07:52:24.187Z"}
+{"user":"Kayleigh","url_clicked":"/uploadImage","level":"info","message":"Image upload","timestamp":"2016-12-05T07:52:24.189Z"}
+{"user":"Kayleigh","url_clicked":"/uploadImage","level":"info","message":"Image upload","timestamp":"2016-12-05T07:52:24.190Z"}
+{"user":"Kayleigh","url_clicked":"/uploadVideo","level":"info","message":"Video upload","timestamp":"2016-12-05T07:52:29.458Z"}
+{"user":"Kayleigh","url_clicked":"/addNewListing","level":"info","message":"New Listing added","timestamp":"2016-12-05T07:52:37.839Z"}
+{"user":"Kayleigh","url_clicked":"/yourListings","level":"info","message":"Your listing page rendered","timestamp":"2016-12-05T07:52:37.864Z"}
+{"user":"Kayleigh","url_clicked":"/images/%7B%7Blisting.mediaId.imageUrl[0]%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T07:52:37.928Z"}
+{"user":"Kayleigh","url_clicked":"/images/%7B%7Breservation.userId.profileImage%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T07:52:37.938Z"}
+{"user":"Kayleigh","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T07:52:38.009Z"}
+{"user":"Kayleigh","url_clicked":"/yourListings","level":"info","message":"List active property","timestamp":"2016-12-05T07:52:38.202Z"}
+{"user":"Kayleigh","url_clicked":"/getReservations","level":"info","message":"List reservation","timestamp":"2016-12-05T07:52:38.204Z"}
+{"user":"Kayleigh","url_clicked":"/becomeHost","level":"info","message":"Become host called","timestamp":"2016-12-05T07:53:00.468Z"}
+{"user":"Kayleigh","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T07:53:00.585Z"}
+{"user":"Kayleigh","url_clicked":"/addListing","level":"info","message":"Add listing page rendered","timestamp":"2016-12-05T07:53:47.376Z"}
+{"user":"Kayleigh","url_clicked":"/addListing","level":"info","message":"Add listing page rendered","timestamp":"2016-12-05T07:53:47.448Z"}
+{"user":"Kayleigh","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T07:53:47.504Z"}
+{"user":"Kayleigh","url_clicked":"/css/images/background-7c73b7858fe7c4bc03505fc1f7f672fd.png","level":"info","message":"Error occured","timestamp":"2016-12-05T07:53:47.512Z"}
+{"user":"Kayleigh","url_clicked":"/uploadImage","level":"info","message":"Image upload","timestamp":"2016-12-05T07:54:29.430Z"}
+{"user":"Kayleigh","url_clicked":"/uploadImage","level":"info","message":"Image upload","timestamp":"2016-12-05T07:54:29.431Z"}
+{"user":"Kayleigh","url_clicked":"/uploadImage","level":"info","message":"Image upload","timestamp":"2016-12-05T07:54:29.433Z"}
+{"user":"Kayleigh","url_clicked":"/uploadVideo","level":"info","message":"Video upload","timestamp":"2016-12-05T07:54:34.619Z"}
+{"user":"Kayleigh","url_clicked":"/addNewListing","level":"info","message":"New Listing added","timestamp":"2016-12-05T07:54:40.619Z"}
+{"user":"Kayleigh","url_clicked":"/yourListings","level":"info","message":"Your listing page rendered","timestamp":"2016-12-05T07:54:40.645Z"}
+{"user":"Kayleigh","url_clicked":"/images/%7B%7Blisting.mediaId.imageUrl[0]%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T07:54:40.707Z"}
+{"user":"Kayleigh","url_clicked":"/images/%7B%7Breservation.userId.profileImage%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T07:54:40.715Z"}
+{"user":"Kayleigh","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T07:54:40.790Z"}
+{"user":"Kayleigh","url_clicked":"/yourListings","level":"info","message":"List active property","timestamp":"2016-12-05T07:54:41.032Z"}
+{"user":"Kayleigh","url_clicked":"/getReservations","level":"info","message":"List reservation","timestamp":"2016-12-05T07:54:41.033Z"}
+{"user":"Arden","url_clicked":"/images/%7B%7B%20rooms.photo_name%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T07:59:11.771Z"}
+{"user":"Arden","url_clicked":"/images/%7B%7B%20rooms.users.profile_picture.src%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T07:59:11.783Z"}
+{"user":"Arden","url_clicked":"/searchResult","level":"info","message":"Search Properties request","timestamp":"2016-12-05T07:59:12.324Z"}
+{"user":"Arden","url_clicked":"/images/%7B%7B%20rooms.photo_name%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T07:59:31.877Z"}
+{"user":"Arden","url_clicked":"/images/%7B%7B%20rooms.users.profile_picture.src%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T07:59:31.887Z"}
+{"user":"Arden","url_clicked":"/searchResult","level":"info","message":"Search Properties request","timestamp":"2016-12-05T07:59:32.195Z"}
+{"user":"Arden","url_clicked":"/property","level":"info","message":"detail page loaded","timestamp":"2016-12-05T07:59:40.791Z"}
+{"user":"Arden","url_clicked":"/images/%7B%7Broom_result.users.profile_picture.src%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T07:59:40.927Z"}
+{"user":"Arden","url_clicked":"/images/%7B%7B%20room_result.photo_name%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T07:59:40.938Z"}
+{"user":"Arden","url_clicked":"/images/%7B%7Breview.userImg%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T07:59:40.943Z"}
+{"user":"Arden","url_clicked":"/images/%7B%7Breview.imageUrl%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T07:59:40.948Z"}
+{"user":"Arden","url_clicked":"/detail","level":"info","message":"Display specific property by id","timestamp":"2016-12-05T07:59:41.491Z"}
+{"user":"Arden","url_clicked":"/hostReviewsCount","level":"info","message":"Host review count","timestamp":"2016-12-05T07:59:41.560Z"}
+{"user":"Arden","url_clicked":"/images/%7B%7B%20rooms.photo_name%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T07:59:44.236Z"}
+{"user":"Arden","url_clicked":"/images/%7B%7B%20rooms.users.profile_picture.src%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T07:59:44.245Z"}
+{"user":"Arden","url_clicked":"/searchResult","level":"info","message":"Search Properties request","timestamp":"2016-12-05T07:59:44.563Z"}
+{"user":"Arden","url_clicked":"/images/%7B%7B%20rooms.photo_name%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:00:07.128Z"}
+{"user":"Arden","url_clicked":"/images/%7B%7B%20rooms.users.profile_picture.src%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:00:07.137Z"}
+{"user":"Arden","url_clicked":"/searchResult","level":"info","message":"Search Properties request","timestamp":"2016-12-05T08:00:07.594Z"}
+{"user":"Arden","url_clicked":"/images/%7B%7B%20rooms.photo_name%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:00:13.850Z"}
+{"user":"Arden","url_clicked":"/images/%7B%7B%20rooms.users.profile_picture.src%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:00:13.858Z"}
+{"user":"Arden","url_clicked":"/searchResult","level":"info","message":"Search Properties request","timestamp":"2016-12-05T08:00:14.201Z"}
+{"user":"Arden","url_clicked":"/images/%7B%7B%20rooms.photo_name%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:01:46.386Z"}
+{"user":"Arden","url_clicked":"/images/%7B%7B%20rooms.users.profile_picture.src%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:01:46.406Z"}
+{"user":"Arden","url_clicked":"/searchResult","level":"info","message":"Search Properties request","timestamp":"2016-12-05T08:01:46.844Z"}
+{"user":"Arden","url_clicked":"/property","level":"info","message":"detail page loaded","timestamp":"2016-12-05T08:02:17.100Z"}
+{"user":"Arden","url_clicked":"/images/%7B%7Broom_result.users.profile_picture.src%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:02:17.236Z"}
+{"user":"Arden","url_clicked":"/images/%7B%7B%20room_result.photo_name%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:02:17.245Z"}
+{"user":"Arden","url_clicked":"/images/%7B%7Breview.userImg%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:02:17.259Z"}
+{"user":"Arden","url_clicked":"/images/%7B%7Breview.imageUrl%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:02:17.268Z"}
+{"user":"Arden","url_clicked":"/detail","level":"info","message":"Display specific property by id","timestamp":"2016-12-05T08:02:17.819Z"}
+{"user":"Arden","url_clicked":"/hostReviewsCount","level":"info","message":"Host review count","timestamp":"2016-12-05T08:02:17.877Z"}
+{"user":"Arden","url_clicked":"/getPaymentPage","level":"info","message":"Payment Page rendered","timestamp":"2016-12-05T08:02:22.900Z"}
+{"user":"Arden","url_clicked":"/images/%7B%7BimageUrl%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:02:23.088Z"}
+{"user":"Arden","url_clicked":"/loadPaymentPage","level":"info","message":"Payment Page request","timestamp":"2016-12-05T08:02:23.368Z"}
+{"user":"Arden","property_clicked":"58451614c0bc83792c782319","property_type":"Entire home/apt","property_lat":"37.3528232","property_long":"-121.96615459999998","level":"info","message":"Property Details request","timestamp":"2016-12-05T08:02:23.391Z"}
+{"user":"Arden","url_clicked":"/property","level":"info","message":"detail page loaded","timestamp":"2016-12-05T08:02:27.216Z"}
+{"user":"Arden","url_clicked":"/images/%7B%7Broom_result.users.profile_picture.src%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:02:27.307Z"}
+{"user":"Arden","url_clicked":"/images/%7B%7B%20room_result.photo_name%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:02:27.315Z"}
+{"user":"Arden","url_clicked":"/images/%7B%7Breview.userImg%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:02:27.325Z"}
+{"user":"Arden","url_clicked":"/images/%7B%7Breview.imageUrl%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:02:27.334Z"}
+{"user":"Arden","url_clicked":"/detail","level":"info","message":"Display specific property by id","timestamp":"2016-12-05T08:02:27.748Z"}
+{"user":"Arden","url_clicked":"/hostReviewsCount","level":"info","message":"Host review count","timestamp":"2016-12-05T08:02:27.787Z"}
+{"user":"Arden","url_clicked":"/","level":"info","message":"Home page rendered","timestamp":"2016-12-05T08:03:05.709Z"}
+{"user":"Arden","url_clicked":"/","level":"info","message":"Home page rendered","timestamp":"2016-12-05T08:03:06.841Z"}
+{"user":"Arden","url_clicked":"/editProfilePage","level":"info","message":"Edit Profile Page rendered","timestamp":"2016-12-05T08:06:01.638Z"}
+{"user":"Arden","url_clicked":"/loadEditUserPage","level":"info","message":"Edit user page load","timestamp":"2016-12-05T08:06:02.238Z"}
+{"user":"Arden","url_clicked":"/editUser","level":"info","message":"Profile Edit Occured","timestamp":"2016-12-05T08:06:08.716Z"}
+{"url_clicked":"/getDashBoardPage","level":"info","message":"Dashboard Page request","timestamp":"2016-12-05T08:06:12.027Z"}
+{"url_clicked":"/editProfilePage","level":"info","message":"Edit Profile Page rendered","timestamp":"2016-12-05T08:07:18.038Z"}
+{"url_clicked":"/loadEditUserPage","level":"info","message":"Edit user page load","timestamp":"2016-12-05T08:07:18.678Z"}
+{"url_clicked":"/editUser","level":"info","message":"Profile Edit Occured","timestamp":"2016-12-05T08:07:24.180Z"}
+{"url_clicked":"/getUserTrips","level":"info","message":"User Trips get request","timestamp":"2016-12-05T08:07:27.146Z"}
+{"url_clicked":"/getUserTrips","level":"info","message":"User Trips get request","timestamp":"2016-12-05T08:07:31.236Z"}
+{"url_clicked":"/editProfilePage","level":"info","message":"Edit Profile Page rendered","timestamp":"2016-12-05T08:07:46.113Z"}
+{"url_clicked":"/loadEditUserPage","level":"info","message":"Edit user page load","timestamp":"2016-12-05T08:07:46.733Z"}
+{"url_clicked":"/editUser","level":"info","message":"Profile Edit Occured","timestamp":"2016-12-05T08:07:49.095Z"}
+{"url_clicked":"/editProfilePage","level":"info","message":"Edit Profile Page rendered","timestamp":"2016-12-05T08:08:31.880Z"}
+{"url_clicked":"/loadEditUserPage","level":"info","message":"Edit user page load","timestamp":"2016-12-05T08:08:32.431Z"}
+{"url_clicked":"/editUser","level":"info","message":"Profile Edit Occured","timestamp":"2016-12-05T08:08:36.805Z"}
+{"url_clicked":"/editUser","level":"info","message":"Profile Edit Occured","timestamp":"2016-12-05T08:08:39.063Z"}
+{"url_clicked":"/editUser","level":"info","message":"Profile Edit Occured","timestamp":"2016-12-05T08:09:39.466Z"}
+{"url_clicked":"/getDashBoardPage","level":"info","message":"Dashboard Page request","timestamp":"2016-12-05T08:09:43.105Z"}
+{"url_clicked":"/signout","level":"info","message":"Signout request","timestamp":"2016-12-05T08:09:46.781Z"}
+{"url_clicked":"/","level":"info","message":"Home page rendered","timestamp":"2016-12-05T08:09:46.794Z"}
+{"url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T08:09:47.021Z"}
+{"url_clicked":"/images/text-field-icons-9c18e4e23864cb33a8f0f7c32c0b86ee.png","level":"info","message":"Error occured","timestamp":"2016-12-05T08:09:52.928Z"}
+{"user":"test1@gmail.com","url_clicked":"/signin","level":"info","message":"Authentication request","timestamp":"2016-12-05T08:09:57.437Z"}
+{"user":"Aand","url_clicked":"/","level":"info","message":"Home page rendered","timestamp":"2016-12-05T08:09:57.748Z"}
+{"user":"Aand","url_clicked":"/editProfilePage","level":"info","message":"Edit Profile Page rendered","timestamp":"2016-12-05T08:10:01.926Z"}
+{"user":"Aand","url_clicked":"/loadEditUserPage","level":"info","message":"Edit user page load","timestamp":"2016-12-05T08:10:02.312Z"}
+{"user":"Aand","url_clicked":"/editUser","level":"info","message":"Profile Edit Occured","timestamp":"2016-12-05T08:10:06.416Z"}
+{"user":"Kayleigh","url_clicked":"/signout","level":"info","message":"Signout request","timestamp":"2016-12-05T08:10:46.648Z"}
+{"url_clicked":"/","level":"info","message":"Home page rendered","timestamp":"2016-12-05T08:10:46.654Z"}
+{"url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T08:10:46.828Z"}
+{"url_clicked":"/images/text-field-icons-9c18e4e23864cb33a8f0f7c32c0b86ee.png","level":"info","message":"Error occured","timestamp":"2016-12-05T08:10:48.213Z"}
+{"user":"testhost6@gmail.com","url_clicked":"/signin","level":"info","message":"Authentication request","timestamp":"2016-12-05T08:10:58.556Z"}
+{"user":"Darshil","url_clicked":"/","level":"info","message":"Home page rendered","timestamp":"2016-12-05T08:10:58.855Z"}
+{"user":"Darshil","url_clicked":"/signout","level":"info","message":"Signout request","timestamp":"2016-12-05T08:11:01.402Z"}
+{"url_clicked":"/","level":"info","message":"Home page rendered","timestamp":"2016-12-05T08:11:01.407Z"}
+{"url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T08:11:01.508Z"}
+{"url_clicked":"/images/text-field-icons-9c18e4e23864cb33a8f0f7c32c0b86ee.png","level":"info","message":"Error occured","timestamp":"2016-12-05T08:11:02.561Z"}
+{"user":"testhost7@gmail.com","url_clicked":"/signin","level":"info","message":"Authentication request","timestamp":"2016-12-05T08:11:11.651Z"}
+{"user":"Robb","url_clicked":"/","level":"info","message":"Home page rendered","timestamp":"2016-12-05T08:11:11.957Z"}
+{"user":"Robb","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T08:11:12.059Z"}
+{"user":"Robb","url_clicked":"/editProfilePage","level":"info","message":"Edit Profile Page rendered","timestamp":"2016-12-05T08:11:15.140Z"}
+{"user":"Robb","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T08:11:15.241Z"}
+{"user":"Robb","url_clicked":"/loadEditUserPage","level":"info","message":"Edit user page load","timestamp":"2016-12-05T08:11:15.366Z"}
+{"user":"Robb","url_clicked":"/editUser","level":"info","message":"Profile Edit Occured","timestamp":"2016-12-05T08:11:31.321Z"}
+{"url_clicked":"/getUserPhotoPage","level":"info","message":"User photo page rendered","timestamp":"2016-12-05T08:11:32.936Z"}
+{"url_clicked":"/images/%7B%7Buser.profileImage%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:11:32.991Z"}
+{"url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T08:11:33.075Z"}
+{"url_clicked":"/loadProfilePhotoPage","level":"info","message":"Profile photo load","timestamp":"2016-12-05T08:11:33.312Z"}
+{"url_clicked":"/uploadProfileImage","level":"info","message":"profile image uploaded","timestamp":"2016-12-05T08:11:58.101Z"}
+{"url_clicked":"/getUserPhotoPage","level":"info","message":"User photo page rendered","timestamp":"2016-12-05T08:11:58.114Z"}
+{"url_clicked":"/images/%7B%7Buser.profileImage%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:11:58.165Z"}
+{"url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T08:11:58.253Z"}
+{"url_clicked":"/loadProfilePhotoPage","level":"info","message":"Profile photo load","timestamp":"2016-12-05T08:11:58.429Z"}
+{"url_clicked":"/becomeHost","level":"info","message":"Become host called","timestamp":"2016-12-05T08:12:01.100Z"}
+{"url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T08:12:01.217Z"}
+{"url_clicked":"/addListing","level":"info","message":"Add listing page rendered","timestamp":"2016-12-05T08:12:25.741Z"}
+{"url_clicked":"/addListing","level":"info","message":"Add listing page rendered","timestamp":"2016-12-05T08:12:25.800Z"}
+{"url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T08:12:25.839Z"}
+{"url_clicked":"/css/images/background-7c73b7858fe7c4bc03505fc1f7f672fd.png","level":"info","message":"Error occured","timestamp":"2016-12-05T08:12:25.866Z"}
+{"url_clicked":"/uploadImage","level":"info","message":"Image upload","timestamp":"2016-12-05T08:13:03.572Z"}
+{"url_clicked":"/uploadImage","level":"info","message":"Image upload","timestamp":"2016-12-05T08:13:03.579Z"}
+{"url_clicked":"/uploadImage","level":"info","message":"Image upload","timestamp":"2016-12-05T08:13:03.581Z"}
+{"url_clicked":"/uploadImage","level":"info","message":"Image upload","timestamp":"2016-12-05T08:13:03.584Z"}
+{"url_clicked":"/uploadVideo","level":"info","message":"Video upload","timestamp":"2016-12-05T08:13:09.411Z"}
+{"url_clicked":"/addNewListing","level":"info","message":"New Listing added","timestamp":"2016-12-05T08:13:15.103Z"}
+{"url_clicked":"/yourListings","level":"info","message":"Your listing page rendered","timestamp":"2016-12-05T08:13:15.168Z"}
+{"url_clicked":"/images/%7B%7Blisting.mediaId.imageUrl[0]%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:13:15.238Z"}
+{"url_clicked":"/images/%7B%7Breservation.userId.profileImage%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:13:15.247Z"}
+{"url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T08:13:15.319Z"}
+{"url_clicked":"/yourListings","level":"info","message":"List active property","timestamp":"2016-12-05T08:13:15.520Z"}
+{"url_clicked":"/getReservations","level":"info","message":"List reservation","timestamp":"2016-12-05T08:13:15.521Z"}
+{"url_clicked":"/becomeHost","level":"info","message":"Become host called","timestamp":"2016-12-05T08:13:34.234Z"}
+{"url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T08:13:34.339Z"}
+{"url_clicked":"/addListing","level":"info","message":"Add listing page rendered","timestamp":"2016-12-05T08:13:49.815Z"}
+{"url_clicked":"/addListing","level":"info","message":"Add listing page rendered","timestamp":"2016-12-05T08:13:49.891Z"}
+{"url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T08:13:49.941Z"}
+{"url_clicked":"/css/images/background-7c73b7858fe7c4bc03505fc1f7f672fd.png","level":"info","message":"Error occured","timestamp":"2016-12-05T08:13:49.946Z"}
+{"url_clicked":"/uploadImage","level":"info","message":"Image upload","timestamp":"2016-12-05T08:14:35.796Z"}
+{"url_clicked":"/uploadImage","level":"info","message":"Image upload","timestamp":"2016-12-05T08:14:35.798Z"}
+{"url_clicked":"/uploadImage","level":"info","message":"Image upload","timestamp":"2016-12-05T08:14:35.800Z"}
+{"url_clicked":"/uploadVideo","level":"info","message":"Video upload","timestamp":"2016-12-05T08:14:40.605Z"}
+{"url_clicked":"/addNewListing","level":"info","message":"New Listing added","timestamp":"2016-12-05T08:14:47.381Z"}
+{"url_clicked":"/yourListings","level":"info","message":"Your listing page rendered","timestamp":"2016-12-05T08:14:47.405Z"}
+{"url_clicked":"/images/%7B%7Blisting.mediaId.imageUrl[0]%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:14:47.480Z"}
+{"url_clicked":"/images/%7B%7Breservation.userId.profileImage%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:14:47.487Z"}
+{"url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T08:14:47.567Z"}
+{"url_clicked":"/yourListings","level":"info","message":"List active property","timestamp":"2016-12-05T08:14:47.801Z"}
+{"url_clicked":"/getReservations","level":"info","message":"List reservation","timestamp":"2016-12-05T08:14:47.802Z"}
+{"url_clicked":"/becomeHost","level":"info","message":"Become host called","timestamp":"2016-12-05T08:15:04.823Z"}
+{"url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T08:15:04.969Z"}
+{"url_clicked":"/addListing","level":"info","message":"Add listing page rendered","timestamp":"2016-12-05T08:16:21.121Z"}
+{"url_clicked":"/addListing","level":"info","message":"Add listing page rendered","timestamp":"2016-12-05T08:16:21.204Z"}
+{"url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T08:16:21.257Z"}
+{"url_clicked":"/css/images/background-7c73b7858fe7c4bc03505fc1f7f672fd.png","level":"info","message":"Error occured","timestamp":"2016-12-05T08:16:21.268Z"}
+{"url_clicked":"/uploadImage","level":"info","message":"Image upload","timestamp":"2016-12-05T08:17:37.231Z"}
+{"url_clicked":"/uploadImage","level":"info","message":"Image upload","timestamp":"2016-12-05T08:17:37.232Z"}
+{"url_clicked":"/uploadImage","level":"info","message":"Image upload","timestamp":"2016-12-05T08:17:37.233Z"}
+{"url_clicked":"/uploadImage","level":"info","message":"Image upload","timestamp":"2016-12-05T08:17:37.237Z"}
+{"url_clicked":"/uploadImage","level":"info","message":"Image upload","timestamp":"2016-12-05T08:17:37.239Z"}
+{"url_clicked":"/uploadVideo","level":"info","message":"Video upload","timestamp":"2016-12-05T08:17:42.651Z"}
+{"url_clicked":"/addNewListing","level":"info","message":"New Listing added","timestamp":"2016-12-05T08:17:49.268Z"}
+{"url_clicked":"/yourListings","level":"info","message":"Your listing page rendered","timestamp":"2016-12-05T08:17:49.297Z"}
+{"url_clicked":"/images/%7B%7Blisting.mediaId.imageUrl[0]%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:17:49.368Z"}
+{"url_clicked":"/images/%7B%7Breservation.userId.profileImage%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:17:49.377Z"}
+{"url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T08:17:49.461Z"}
+{"url_clicked":"/yourListings","level":"info","message":"List active property","timestamp":"2016-12-05T08:17:49.654Z"}
+{"url_clicked":"/getReservations","level":"info","message":"List reservation","timestamp":"2016-12-05T08:17:49.656Z"}
+{"url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T08:18:09.269Z"}
+{"url_clicked":"/getUserTrips","level":"info","message":"User Trips get request","timestamp":"2016-12-05T08:18:09.472Z"}
+{"url_clicked":"/signout","level":"info","message":"Signout request","timestamp":"2016-12-05T08:18:11.882Z"}
+{"url_clicked":"/","level":"info","message":"Home page rendered","timestamp":"2016-12-05T08:18:11.889Z"}
+{"url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T08:18:12.019Z"}
+{"url_clicked":"/images/text-field-icons-9c18e4e23864cb33a8f0f7c32c0b86ee.png","level":"info","message":"Error occured","timestamp":"2016-12-05T08:18:13.435Z"}
+{"user":"testhost1@gmail.com","url_clicked":"/signin","level":"info","message":"Authentication request","timestamp":"2016-12-05T08:18:21.993Z"}
+{"user":"Divya","url_clicked":"/","level":"info","message":"Home page rendered","timestamp":"2016-12-05T08:18:22.394Z"}
+{"user":"Divya","url_clicked":"/signout","level":"info","message":"Signout request","timestamp":"2016-12-05T08:18:25.628Z"}
+{"url_clicked":"/","level":"info","message":"Home page rendered","timestamp":"2016-12-05T08:18:25.633Z"}
+{"url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T08:18:25.772Z"}
+{"url_clicked":"/images/text-field-icons-9c18e4e23864cb33a8f0f7c32c0b86ee.png","level":"info","message":"Error occured","timestamp":"2016-12-05T08:18:26.724Z"}
+{"user":"testhost8@gmail.com","url_clicked":"/signin","level":"info","message":"Authentication request","timestamp":"2016-12-05T08:18:39.888Z"}
+{"user":"Muhammad","url_clicked":"/","level":"info","message":"Home page rendered","timestamp":"2016-12-05T08:18:40.324Z"}
+{"user":"Muhammad","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T08:18:40.428Z"}
+{"user":"Muhammad","url_clicked":"/becomeHost","level":"info","message":"Become host called","timestamp":"2016-12-05T08:18:42.099Z"}
+{"user":"Muhammad","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T08:18:42.275Z"}
+{"user":"Muhammad","url_clicked":"/editProfilePage","level":"info","message":"Edit Profile Page rendered","timestamp":"2016-12-05T08:18:44.095Z"}
+{"user":"Muhammad","url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T08:18:44.199Z"}
+{"user":"Muhammad","url_clicked":"/loadEditUserPage","level":"info","message":"Edit user page load","timestamp":"2016-12-05T08:18:44.357Z"}
+{"user":"Muhammad","url_clicked":"/editUser","level":"info","message":"Profile Edit Occured","timestamp":"2016-12-05T08:18:57.567Z"}
+{"url_clicked":"/getUserPhotoPage","level":"info","message":"User photo page rendered","timestamp":"2016-12-05T08:19:00.212Z"}
+{"url_clicked":"/images/%7B%7Buser.profileImage%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:19:00.282Z"}
+{"url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T08:19:00.392Z"}
+{"url_clicked":"/loadProfilePhotoPage","level":"info","message":"Profile photo load","timestamp":"2016-12-05T08:19:00.609Z"}
+{"url_clicked":"/uploadProfileImage","level":"info","message":"profile image uploaded","timestamp":"2016-12-05T08:19:19.028Z"}
+{"url_clicked":"/getUserPhotoPage","level":"info","message":"User photo page rendered","timestamp":"2016-12-05T08:19:19.038Z"}
+{"url_clicked":"/images/%7B%7Buser.profileImage%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:19:19.126Z"}
+{"url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T08:19:19.222Z"}
+{"url_clicked":"/loadProfilePhotoPage","level":"info","message":"Profile photo load","timestamp":"2016-12-05T08:19:19.401Z"}
+{"url_clicked":"/becomeHost","level":"info","message":"Become host called","timestamp":"2016-12-05T08:19:21.369Z"}
+{"url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T08:19:21.483Z"}
+{"url_clicked":"/addListing","level":"info","message":"Add listing page rendered","timestamp":"2016-12-05T08:21:08.556Z"}
+{"url_clicked":"/addListing","level":"info","message":"Add listing page rendered","timestamp":"2016-12-05T08:21:08.632Z"}
+{"url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T08:21:08.694Z"}
+{"url_clicked":"/css/images/background-7c73b7858fe7c4bc03505fc1f7f672fd.png","level":"info","message":"Error occured","timestamp":"2016-12-05T08:21:08.701Z"}
+{"url_clicked":"/uploadImage","level":"info","message":"Image upload","timestamp":"2016-12-05T08:22:06.501Z"}
+{"url_clicked":"/uploadImage","level":"info","message":"Image upload","timestamp":"2016-12-05T08:22:06.507Z"}
+{"url_clicked":"/uploadImage","level":"info","message":"Image upload","timestamp":"2016-12-05T08:22:06.508Z"}
+{"url_clicked":"/uploadImage","level":"info","message":"Image upload","timestamp":"2016-12-05T08:22:06.510Z"}
+{"url_clicked":"/uploadVideo","level":"info","message":"Video upload","timestamp":"2016-12-05T08:22:11.785Z"}
+{"url_clicked":"/addNewListing","level":"info","message":"New Listing added","timestamp":"2016-12-05T08:22:20.340Z"}
+{"url_clicked":"/yourListings","level":"info","message":"Your listing page rendered","timestamp":"2016-12-05T08:22:20.364Z"}
+{"url_clicked":"/images/%7B%7Blisting.mediaId.imageUrl[0]%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:22:20.423Z"}
+{"url_clicked":"/images/%7B%7Breservation.userId.profileImage%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:22:20.431Z"}
+{"url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T08:22:20.502Z"}
+{"url_clicked":"/yourListings","level":"info","message":"List active property","timestamp":"2016-12-05T08:22:20.696Z"}
+{"url_clicked":"/getReservations","level":"info","message":"List reservation","timestamp":"2016-12-05T08:22:20.697Z"}
+{"url_clicked":"/images/%7B%7B%20rooms.photo_name%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:22:58.258Z"}
+{"url_clicked":"/images/%7B%7B%20rooms.users.profile_picture.src%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:22:58.271Z"}
+{"url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T08:22:58.372Z"}
+{"url_clicked":"/searchResult","level":"info","message":"Search Properties request","timestamp":"2016-12-05T08:22:58.668Z"}
+{"url_clicked":"/images/%7B%7B%20rooms.photo_name%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:23:35.775Z"}
+{"url_clicked":"/images/%7B%7B%20rooms.users.profile_picture.src%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:23:35.790Z"}
+{"url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T08:23:35.867Z"}
+{"url_clicked":"/searchResult","level":"info","message":"Search Properties request","timestamp":"2016-12-05T08:23:36.092Z"}
+{"url_clicked":"/images/%7B%7B%20rooms.photo_name%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:24:24.746Z"}
+{"url_clicked":"/images/%7B%7B%20rooms.users.profile_picture.src%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:24:24.751Z"}
+{"url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T08:24:24.840Z"}
+{"url_clicked":"/searchResult","level":"info","message":"Search Properties request","timestamp":"2016-12-05T08:24:25.065Z"}
+{"url_clicked":"/editProfilePage","level":"info","message":"Edit Profile Page rendered","timestamp":"2016-12-05T08:28:36.356Z"}
+{"url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T08:28:36.510Z"}
+{"url_clicked":"/loadEditUserPage","level":"info","message":"Edit user page load","timestamp":"2016-12-05T08:28:36.687Z"}
+{"url_clicked":"/getUserPhotoPage","level":"info","message":"User photo page rendered","timestamp":"2016-12-05T08:28:38.320Z"}
+{"url_clicked":"/images/%7B%7Buser.profileImage%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:28:38.373Z"}
+{"url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T08:28:38.414Z"}
+{"url_clicked":"/loadProfilePhotoPage","level":"info","message":"Profile photo load","timestamp":"2016-12-05T08:28:38.532Z"}
+{"url_clicked":"/signout","level":"info","message":"Signout request","timestamp":"2016-12-05T08:28:46.361Z"}
+{"url_clicked":"/","level":"info","message":"Home page rendered","timestamp":"2016-12-05T08:28:46.371Z"}
+{"url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T08:28:46.466Z"}
+{"url_clicked":"/images/text-field-icons-9c18e4e23864cb33a8f0f7c32c0b86ee.png","level":"info","message":"Error occured","timestamp":"2016-12-05T08:28:47.431Z"}
+{"user":"testhost8@gmail.com","url_clicked":"/signin","level":"info","message":"Authentication request","timestamp":"2016-12-05T08:28:59.088Z"}
+{"user":"Sanket","url_clicked":"/","level":"info","message":"Home page rendered","timestamp":"2016-12-05T08:28:59.381Z"}
+{"user":"Sanket","url_clicked":"/images/how_it_works-05170c93f9abdde98ec4b0c9b6836a3a.png","level":"info","message":"Error occured","timestamp":"2016-12-05T08:29:07.994Z"}
+{"user":"Sanket","url_clicked":"/images/%7B%7B%20rooms.photo_name%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:29:17.509Z"}
+{"user":"Sanket","url_clicked":"/images/%7B%7B%20rooms.users.profile_picture.src%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:29:17.519Z"}
+{"user":"Sanket","url_clicked":"/searchResult","level":"info","message":"Search Properties request","timestamp":"2016-12-05T08:29:17.924Z"}
+{"user":"Sanket","url_clicked":"/","level":"info","message":"Home page rendered","timestamp":"2016-12-05T08:29:28.083Z"}
+{"user":"Sanket","url_clicked":"/images/%7B%7B%20rooms.photo_name%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:29:30.735Z"}
+{"user":"Sanket","url_clicked":"/images/%7B%7B%20rooms.users.profile_picture.src%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:29:30.741Z"}
+{"user":"Sanket","url_clicked":"/searchResult","level":"info","message":"Search Properties request","timestamp":"2016-12-05T08:29:30.969Z"}
+{"user":"Sanket","url_clicked":"/","level":"info","message":"Home page rendered","timestamp":"2016-12-05T08:29:33.175Z"}
+{"user":"Sanket","url_clicked":"/images/%7B%7B%20rooms.photo_name%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:29:42.262Z"}
+{"user":"Sanket","url_clicked":"/images/%7B%7B%20rooms.users.profile_picture.src%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:29:42.278Z"}
+{"user":"Sanket","url_clicked":"/searchResult","level":"info","message":"Search Properties request","timestamp":"2016-12-05T08:29:42.656Z"}
+{"user":"Sanket","url_clicked":"/property","level":"info","message":"detail page loaded","timestamp":"2016-12-05T08:29:44.070Z"}
+{"user":"Sanket","url_clicked":"/images/%7B%7Broom_result.users.profile_picture.src%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:29:44.695Z"}
+{"user":"Sanket","url_clicked":"/images/%7B%7B%20room_result.photo_name%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:29:44.700Z"}
+{"user":"Sanket","url_clicked":"/images/%7B%7Breview.userImg%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:29:44.704Z"}
+{"user":"Sanket","url_clicked":"/images/%7B%7Breview.imageUrl%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:29:44.708Z"}
+{"user":"Sanket","url_clicked":"/detail","level":"info","message":"Display specific property by id","timestamp":"2016-12-05T08:29:44.913Z"}
+{"user":"Sanket","url_clicked":"/hostReviewsCount","level":"info","message":"Host review count","timestamp":"2016-12-05T08:29:44.995Z"}
+{"url_clicked":"/","level":"info","message":"Home page rendered","timestamp":"2016-12-05T08:31:55.738Z"}
+{"url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T08:31:59.391Z"}
+{"url_clicked":"/fonts/Circular_Air-Book-22799398756cc42454a77735013a3378.eot","level":"info","message":"Error occured","timestamp":"2016-12-05T08:32:01.206Z"}
+{"url_clicked":"/images/text-field-icons-9c18e4e23864cb33a8f0f7c32c0b86ee.png","level":"info","message":"Error occured","timestamp":"2016-12-05T08:32:05.123Z"}
+{"user":"test1@gmail.com","url_clicked":"/signin","level":"info","message":"Authentication request","timestamp":"2016-12-05T08:32:15.984Z"}
+{"user":"Anand","url_clicked":"/","level":"info","message":"Home page rendered","timestamp":"2016-12-05T08:32:16.351Z"}
+{"user":"Anand","url_clicked":"/fonts/Circular_Air-Book-22799398756cc42454a77735013a3378.eot","level":"info","message":"Error occured","timestamp":"2016-12-05T08:32:16.996Z"}
+{"user":"Anand","url_clicked":"/images/%7B%7B%20rooms.photo_name%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:32:22.370Z"}
+{"user":"Anand","url_clicked":"/images/%7B%7B%20rooms.users.profile_picture.src%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:32:22.376Z"}
+{"user":"Anand","url_clicked":"/fonts/Circular_Air-Book-22799398756cc42454a77735013a3378.eot","level":"info","message":"Error occured","timestamp":"2016-12-05T08:32:22.537Z"}
+{"user":"Anand","url_clicked":"/searchResult","level":"info","message":"Search Properties request","timestamp":"2016-12-05T08:32:23.039Z"}
+{"user":"Anand","url_clicked":"/property","level":"info","message":"detail page loaded","timestamp":"2016-12-05T08:32:25.898Z"}
+{"user":"Anand","url_clicked":"/images/%7B%7Broom_result.users.profile_picture.src%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:32:26.038Z"}
+{"user":"Anand","url_clicked":"/images/%7B%7B%20room_result.photo_name%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:32:26.044Z"}
+{"user":"Anand","url_clicked":"/images/%7B%7Breview.userImg%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:32:26.052Z"}
+{"user":"Anand","url_clicked":"/images/%7B%7Breview.imageUrl%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:32:26.056Z"}
+{"user":"Anand","url_clicked":"/fonts/Circular_Air-Book-22799398756cc42454a77735013a3378.eot","level":"info","message":"Error occured","timestamp":"2016-12-05T08:32:26.408Z"}
+{"user":"Anand","url_clicked":"/detail","level":"info","message":"Display specific property by id","timestamp":"2016-12-05T08:32:26.837Z"}
+{"user":"Anand","url_clicked":"/hostReviewsCount","level":"info","message":"Host review count","timestamp":"2016-12-05T08:32:26.922Z"}
+{"user":"Sanket","url_clicked":"/images/%7B%7B%20rooms.photo_name%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:32:34.770Z"}
+{"user":"Sanket","url_clicked":"/images/%7B%7B%20rooms.users.profile_picture.src%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:32:34.783Z"}
+{"user":"Sanket","url_clicked":"/searchResult","level":"info","message":"Search Properties request","timestamp":"2016-12-05T08:32:35.458Z"}
+{"user":"Anand","url_clicked":"/getPaymentPage","level":"info","message":"Payment Page rendered","timestamp":"2016-12-05T08:33:46.845Z"}
+{"user":"Anand","url_clicked":"/images/%7B%7BimageUrl%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:33:47.058Z"}
+{"user":"Anand","url_clicked":"/fonts/Circular_Air-Book-22799398756cc42454a77735013a3378.eot","level":"info","message":"Error occured","timestamp":"2016-12-05T08:33:47.303Z"}
+{"user":"Anand","url_clicked":"/loadPaymentPage","level":"info","message":"Payment Page request","timestamp":"2016-12-05T08:33:50.589Z"}
+{"user":"Anand","property_clicked":"5844f66bc0bc83792c78230f","property_type":"Entire home/apt","property_lat":"37.3333264","property_long":"-121.88458930000002","level":"info","message":"Property Details request","timestamp":"2016-12-05T08:33:50.611Z"}
+{"user":"Anand","url_clicked":"/property","level":"info","message":"detail page loaded","timestamp":"2016-12-05T08:33:53.887Z"}
+{"user":"Anand","url_clicked":"/images/%7B%7Broom_result.users.profile_picture.src%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:33:53.982Z"}
+{"user":"Anand","url_clicked":"/images/%7B%7Breview.userImg%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:33:53.988Z"}
+{"user":"Anand","url_clicked":"/images/%7B%7B%20room_result.photo_name%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:33:53.993Z"}
+{"user":"Anand","url_clicked":"/images/%7B%7Breview.imageUrl%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:33:54.000Z"}
+{"user":"Anand","url_clicked":"/fonts/Circular_Air-Book-22799398756cc42454a77735013a3378.eot","level":"info","message":"Error occured","timestamp":"2016-12-05T08:33:54.164Z"}
+{"user":"Anand","url_clicked":"/detail","level":"info","message":"Display specific property by id","timestamp":"2016-12-05T08:33:54.499Z"}
+{"user":"Anand","url_clicked":"/hostReviewsCount","level":"info","message":"Host review count","timestamp":"2016-12-05T08:33:54.554Z"}
+{"user":"Sanket","url_clicked":"/property","level":"info","message":"detail page loaded","timestamp":"2016-12-05T08:34:27.964Z"}
+{"user":"Sanket","url_clicked":"/images/%7B%7Breview.userImg%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:34:28.051Z"}
+{"user":"Sanket","url_clicked":"/images/%7B%7Broom_result.users.profile_picture.src%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:34:28.057Z"}
+{"user":"Sanket","url_clicked":"/images/%7B%7B%20room_result.photo_name%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:34:28.061Z"}
+{"user":"Sanket","url_clicked":"/images/%7B%7Breview.imageUrl%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:34:28.072Z"}
+{"user":"Sanket","url_clicked":"/detail","level":"info","message":"Display specific property by id","timestamp":"2016-12-05T08:34:28.432Z"}
+{"user":"Sanket","url_clicked":"/hostReviewsCount","level":"info","message":"Host review count","timestamp":"2016-12-05T08:34:28.492Z"}
+{"url_clicked":"/images/%7B%7B%20rooms.photo_name%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:34:51.537Z"}
+{"url_clicked":"/images/%7B%7B%20rooms.users.profile_picture.src%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:34:51.546Z"}
+{"url_clicked":"/searchResult","level":"info","message":"Search Properties request","timestamp":"2016-12-05T08:34:52.092Z"}
+{"url_clicked":"/property","level":"info","message":"detail page loaded","timestamp":"2016-12-05T08:34:53.625Z"}
+{"url_clicked":"/images/%7B%7Broom_result.users.profile_picture.src%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:34:53.843Z"}
+{"url_clicked":"/images/%7B%7Breview.userImg%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:34:53.856Z"}
+{"url_clicked":"/images/%7B%7B%20room_result.photo_name%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:34:53.862Z"}
+{"url_clicked":"/images/%7B%7Breview.imageUrl%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:34:53.870Z"}
+{"url_clicked":"/detail","level":"info","message":"Display specific property by id","timestamp":"2016-12-05T08:34:54.319Z"}
+{"url_clicked":"/hostReviewsCount","level":"info","message":"Host review count","timestamp":"2016-12-05T08:34:54.369Z"}
+{"url_clicked":"/property","level":"info","message":"detail page loaded","timestamp":"2016-12-05T08:35:15.853Z"}
+{"url_clicked":"/images/%7B%7Broom_result.users.profile_picture.src%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:35:16.048Z"}
+{"url_clicked":"/images/%7B%7B%20room_result.photo_name%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:35:16.058Z"}
+{"url_clicked":"/images/%7B%7Breview.userImg%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:35:16.073Z"}
+{"url_clicked":"/images/%7B%7Breview.imageUrl%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:35:16.085Z"}
+{"url_clicked":"/detail","level":"info","message":"Display specific property by id","timestamp":"2016-12-05T08:35:16.557Z"}
+{"url_clicked":"/hostReviewsCount","level":"info","message":"Host review count","timestamp":"2016-12-05T08:35:16.634Z"}
+{"url_clicked":"/","level":"info","message":"Home page rendered","timestamp":"2016-12-05T08:38:56.330Z"}
+{"url_clicked":"/","level":"info","message":"Home page rendered","timestamp":"2016-12-05T08:38:57.646Z"}
+{"url_clicked":"/images/%7B%7B%20rooms.photo_name%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:39:07.391Z"}
+{"url_clicked":"/images/%7B%7B%20rooms.users.profile_picture.src%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:39:07.410Z"}
+{"url_clicked":"/searchResult","level":"info","message":"Search Properties request","timestamp":"2016-12-05T08:39:07.958Z"}
+{"url_clicked":"/images/%7B%7B%20rooms.photo_name%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:39:15.373Z"}
+{"url_clicked":"/images/%7B%7B%20rooms.users.profile_picture.src%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:39:15.383Z"}
+{"url_clicked":"/searchResult","level":"info","message":"Search Properties request","timestamp":"2016-12-05T08:39:15.727Z"}
+{"url_clicked":"/images/%7B%7B%20rooms.photo_name%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:39:23.705Z"}
+{"url_clicked":"/images/%7B%7B%20rooms.users.profile_picture.src%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:39:23.716Z"}
+{"url_clicked":"/searchResult","level":"info","message":"Search Properties request","timestamp":"2016-12-05T08:39:24.134Z"}
+{"url_clicked":"/property","level":"info","message":"detail page loaded","timestamp":"2016-12-05T08:43:03.697Z"}
+{"url_clicked":"/images/%7B%7Broom_result.users.profile_picture.src%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:43:03.855Z"}
+{"url_clicked":"/images/%7B%7Breview.userImg%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:43:03.870Z"}
+{"url_clicked":"/images/%7B%7B%20room_result.photo_name%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:43:03.880Z"}
+{"url_clicked":"/images/%7B%7Breview.imageUrl%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:43:03.886Z"}
+{"url_clicked":"/detail","level":"info","message":"Display specific property by id","timestamp":"2016-12-05T08:43:04.467Z"}
+{"url_clicked":"/hostReviewsCount","level":"info","message":"Host review count","timestamp":"2016-12-05T08:43:04.624Z"}
+{"url_clicked":"/getPaymentPage","level":"info","message":"Payment Page rendered","timestamp":"2016-12-05T08:43:06.163Z"}
+{"url_clicked":"/images/%7B%7BimageUrl%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:43:06.262Z"}
+{"url_clicked":"/loadPaymentPage","level":"info","message":"Payment Page request","timestamp":"2016-12-05T08:43:06.688Z"}
+{"property_clicked":"58451b38c0bc83792c782327","property_type":"Entire home/apt","property_lat":"36.9629896","property_long":"-122.007161","level":"info","message":"Property Details request","timestamp":"2016-12-05T08:43:06.738Z"}
+{"url_clicked":"/property","level":"info","message":"detail page loaded","timestamp":"2016-12-05T08:43:08.672Z"}
+{"url_clicked":"/images/%7B%7Broom_result.users.profile_picture.src%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:43:08.770Z"}
+{"url_clicked":"/images/%7B%7Breview.userImg%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:43:08.781Z"}
+{"url_clicked":"/images/%7B%7B%20room_result.photo_name%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:43:08.786Z"}
+{"url_clicked":"/images/%7B%7Breview.imageUrl%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:43:08.791Z"}
+{"url_clicked":"/detail","level":"info","message":"Display specific property by id","timestamp":"2016-12-05T08:43:09.259Z"}
+{"url_clicked":"/hostReviewsCount","level":"info","message":"Host review count","timestamp":"2016-12-05T08:43:09.311Z"}
+{"url_clicked":"/getPaymentPage","level":"info","message":"Payment Page rendered","timestamp":"2016-12-05T08:43:10.749Z"}
+{"url_clicked":"/images/%7B%7BimageUrl%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:43:10.856Z"}
+{"url_clicked":"/loadPaymentPage","level":"info","message":"Payment Page request","timestamp":"2016-12-05T08:43:11.242Z"}
+{"property_clicked":"58451b38c0bc83792c782327","property_type":"Entire home/apt","property_lat":"36.9629896","property_long":"-122.007161","level":"info","message":"Property Details request","timestamp":"2016-12-05T08:43:11.258Z"}
+{"url_clicked":"/property","level":"info","message":"detail page loaded","timestamp":"2016-12-05T08:43:13.306Z"}
+{"url_clicked":"/images/%7B%7Broom_result.users.profile_picture.src%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:43:13.398Z"}
+{"url_clicked":"/images/%7B%7B%20room_result.photo_name%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:43:13.409Z"}
+{"url_clicked":"/images/%7B%7Breview.userImg%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:43:13.419Z"}
+{"url_clicked":"/images/%7B%7Breview.imageUrl%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:43:13.425Z"}
+{"url_clicked":"/detail","level":"info","message":"Display specific property by id","timestamp":"2016-12-05T08:43:13.859Z"}
+{"url_clicked":"/hostReviewsCount","level":"info","message":"Host review count","timestamp":"2016-12-05T08:43:13.977Z"}
+{"url_clicked":"/property","level":"info","message":"detail page loaded","timestamp":"2016-12-05T08:43:24.526Z"}
+{"url_clicked":"/images/%7B%7Broom_result.users.profile_picture.src%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:43:24.821Z"}
+{"url_clicked":"/images/%7B%7B%20room_result.photo_name%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:43:24.830Z"}
+{"url_clicked":"/images/%7B%7Breview.userImg%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:43:24.839Z"}
+{"url_clicked":"/images/%7B%7Breview.imageUrl%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:43:24.862Z"}
+{"url_clicked":"/detail","level":"info","message":"Display specific property by id","timestamp":"2016-12-05T08:43:25.511Z"}
+{"url_clicked":"/hostReviewsCount","level":"info","message":"Host review count","timestamp":"2016-12-05T08:43:25.734Z"}
+{"url_clicked":"/property","level":"info","message":"detail page loaded","timestamp":"2016-12-05T08:43:39.346Z"}
+{"url_clicked":"/images/%7B%7Broom_result.users.profile_picture.src%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:43:39.503Z"}
+{"url_clicked":"/images/%7B%7B%20room_result.photo_name%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:43:39.508Z"}
+{"url_clicked":"/images/%7B%7Breview.userImg%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:43:39.518Z"}
+{"url_clicked":"/images/%7B%7Breview.imageUrl%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:43:39.522Z"}
+{"url_clicked":"/detail","level":"info","message":"Display specific property by id","timestamp":"2016-12-05T08:43:40.113Z"}
+{"url_clicked":"/hostReviewsCount","level":"info","message":"Host review count","timestamp":"2016-12-05T08:43:40.188Z"}
+{"url_clicked":"/property","level":"info","message":"detail page loaded","timestamp":"2016-12-05T08:44:20.450Z"}
+{"url_clicked":"/images/%7B%7Broom_result.users.profile_picture.src%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:44:20.583Z"}
+{"url_clicked":"/images/%7B%7B%20room_result.photo_name%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:44:20.595Z"}
+{"url_clicked":"/images/%7B%7Breview.userImg%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:44:20.602Z"}
+{"url_clicked":"/images/%7B%7Breview.imageUrl%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:44:20.608Z"}
+{"url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T08:44:20.828Z"}
+{"url_clicked":"/fonts/Circular_Air-Book-22799398756cc42454a77735013a3378.eot","level":"info","message":"Error occured","timestamp":"2016-12-05T08:44:20.953Z"}
+{"url_clicked":"/detail","level":"info","message":"Display specific property by id","timestamp":"2016-12-05T08:44:21.382Z"}
+{"url_clicked":"/hostReviewsCount","level":"info","message":"Host review count","timestamp":"2016-12-05T08:44:21.418Z"}
+{"url_clicked":"/getPaymentPage","level":"info","message":"Payment Page rendered","timestamp":"2016-12-05T08:44:24.423Z"}
+{"url_clicked":"/images/%7B%7BimageUrl%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:44:24.544Z"}
+{"url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T08:44:24.659Z"}
+{"url_clicked":"/fonts/Circular_Air-Book-22799398756cc42454a77735013a3378.eot","level":"info","message":"Error occured","timestamp":"2016-12-05T08:44:24.794Z"}
+{"url_clicked":"/loadPaymentPage","level":"info","message":"Payment Page request","timestamp":"2016-12-05T08:44:24.993Z"}
+{"property_clicked":"58451b38c0bc83792c782327","property_type":"Entire home/apt","property_lat":"36.9629896","property_long":"-122.007161","level":"info","message":"Property Details request","timestamp":"2016-12-05T08:44:25.024Z"}
+{"url_clicked":"/property","level":"info","message":"detail page loaded","timestamp":"2016-12-05T08:44:26.776Z"}
+{"url_clicked":"/images/%7B%7Broom_result.users.profile_picture.src%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:44:26.848Z"}
+{"url_clicked":"/images/%7B%7B%20room_result.photo_name%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:44:26.854Z"}
+{"url_clicked":"/images/%7B%7Breview.userImg%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:44:26.860Z"}
+{"url_clicked":"/images/%7B%7Breview.imageUrl%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:44:26.871Z"}
+{"url_clicked":"/fonts/Circular_Air-Book-22799398756cc42454a77735013a3378.eot","level":"info","message":"Error occured","timestamp":"2016-12-05T08:44:27.004Z"}
+{"url_clicked":"/images/","level":"info","message":"Error occured","timestamp":"2016-12-05T08:44:27.009Z"}
+{"url_clicked":"/detail","level":"info","message":"Display specific property by id","timestamp":"2016-12-05T08:44:27.372Z"}
+{"url_clicked":"/hostReviewsCount","level":"info","message":"Host review count","timestamp":"2016-12-05T08:44:27.508Z"}
+{"url_clicked":"/property","level":"info","message":"detail page loaded","timestamp":"2016-12-05T08:45:35.632Z"}
+{"url_clicked":"/images/%7B%7Broom_result.users.profile_picture.src%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:45:35.803Z"}
+{"url_clicked":"/images/%7B%7B%20room_result.photo_name%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:45:35.815Z"}
+{"url_clicked":"/images/%7B%7Breview.userImg%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:45:35.826Z"}
+{"url_clicked":"/images/%7B%7Breview.imageUrl%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:45:35.838Z"}
+{"url_clicked":"/detail","level":"info","message":"Display specific property by id","timestamp":"2016-12-05T08:45:36.787Z"}
+{"url_clicked":"/hostReviewsCount","level":"info","message":"Host review count","timestamp":"2016-12-05T08:45:36.911Z"}
+{"url_clicked":"/images/%7B%7B%20rooms.photo_name%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:45:41.784Z"}
+{"url_clicked":"/images/%7B%7B%20rooms.users.profile_picture.src%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:45:41.794Z"}
+{"url_clicked":"/searchResult","level":"info","message":"Search Properties request","timestamp":"2016-12-05T08:45:42.189Z"}
+{"url_clicked":"/images/%7B%7B%20rooms.photo_name%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:45:45.187Z"}
+{"url_clicked":"/images/%7B%7B%20rooms.users.profile_picture.src%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:45:45.198Z"}
+{"url_clicked":"/searchResult","level":"info","message":"Search Properties request","timestamp":"2016-12-05T08:45:45.600Z"}
+{"url_clicked":"/property","level":"info","message":"detail page loaded","timestamp":"2016-12-05T08:45:47.928Z"}
+{"url_clicked":"/images/%7B%7Broom_result.users.profile_picture.src%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:45:48.059Z"}
+{"url_clicked":"/images/%7B%7B%20room_result.photo_name%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:45:48.070Z"}
+{"url_clicked":"/images/%7B%7Breview.userImg%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:45:48.082Z"}
+{"url_clicked":"/images/%7B%7Breview.imageUrl%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:45:48.089Z"}
+{"url_clicked":"/detail","level":"info","message":"Display specific property by id","timestamp":"2016-12-05T08:45:48.615Z"}
+{"url_clicked":"/hostReviewsCount","level":"info","message":"Host review count","timestamp":"2016-12-05T08:45:48.715Z"}
+{"url_clicked":"/getPaymentPage","level":"info","message":"Payment Page rendered","timestamp":"2016-12-05T08:45:49.795Z"}
+{"url_clicked":"/images/%7B%7BimageUrl%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:45:49.911Z"}
+{"url_clicked":"/loadPaymentPage","level":"info","message":"Payment Page request","timestamp":"2016-12-05T08:45:50.274Z"}
+{"property_clicked":"58451b38c0bc83792c782327","property_type":"Entire home/apt","property_lat":"36.9629896","property_long":"-122.007161","level":"info","message":"Property Details request","timestamp":"2016-12-05T08:45:50.294Z"}
+{"url_clicked":"/property","level":"info","message":"detail page loaded","timestamp":"2016-12-05T08:45:52.001Z"}
+{"url_clicked":"/images/%7B%7Broom_result.users.profile_picture.src%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:45:52.095Z"}
+{"url_clicked":"/images/%7B%7Breview.userImg%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:45:52.106Z"}
+{"url_clicked":"/images/%7B%7Breview.imageUrl%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:45:52.110Z"}
+{"url_clicked":"/images/%7B%7B%20room_result.photo_name%20%7D%7D","level":"info","message":"Error occured","timestamp":"2016-12-05T08:45:52.128Z"}
+{"url_clicked":"/detail","level":"info","message":"Display specific property by id","timestamp":"2016-12-05T08:45:52.526Z"}
+{"url_clicked":"/hostReviewsCount","level":"info","message":"Host review count","timestamp":"2016-12-05T08:45:52.583Z"}

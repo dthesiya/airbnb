@@ -4,6 +4,7 @@
 
 var bcrypt = require('bcryptjs');
 var User = require('../model/user');
+var Property = require('../model/property');
 var mongoose = require('mongoose');
 var ssn = require('ssn');
 var faker = require('faker');

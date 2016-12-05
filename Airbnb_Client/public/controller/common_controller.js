@@ -725,14 +725,23 @@ app.controller('room_details_controller', function ($scope, $window, $location, 
     }
 
     $scope.book = function () {
-        var days = daydiff(toDate($scope.checkin), toDate($scope.checkout));
-        var change_url = "/getPaymentPage?";
-        change_url += "propertyId=" + $scope.room_result.id + "&";
-        change_url += "checkin=" + $scope.checkin + "&";
-        change_url += "checkout=" + $scope.checkout + "&";
-        change_url += "guests=" + $scope.guests + "&";
-        change_url += "nights=" + days;
-        window.location.href = change_url;
+
+        $scope.alert=false;
+        if(($scope.checkin != "") && ($scope.checkout != "")) {
+
+
+            var days = daydiff(toDate($scope.checkin), toDate($scope.checkout));
+            var change_url = "/getPaymentPage?";
+            change_url += "propertyId=" + $scope.room_result.id + "&";
+            change_url += "checkin=" + $scope.checkin + "&";
+            change_url += "checkout=" + $scope.checkout + "&";
+            change_url += "guests=" + $scope.guests + "&";
+            change_url += "nights=" + days;
+            window.location.href = change_url;
+        }
+        else{
+            $scope.alert=true;
+        }
     };
 
     function daydiff(first, second) {
