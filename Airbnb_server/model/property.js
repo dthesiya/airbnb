@@ -29,7 +29,7 @@ var propertySchema = new Schema({
     latitude: {type: String},
     longitude: {type: String},
     createdDate: {type: Number},
-    revenue: {type: Number},
+    revenue: {type: Number, default:0.0},
     startDate: {type: Number},
     endDate: {type: Number}
 });
