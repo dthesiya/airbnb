@@ -6,6 +6,7 @@ var fecha = require('fecha');
 var mq_client = require("../rpc/client.js");
 var ejs = require("ejs");
 var winston = require('winston');
+var redis = require('./redisConnect');
 
 exports.updateBasePrice = function (req, res, next) {
     winston.info('New Property Bid', {
@@ -25,12 +26,25 @@ exports.updateBasePrice = function (req, res, next) {
         latestBidder: latestBidder
     };
 
+    var client = redis.getClient();
     mq_client.make_request('updateBasePrice_queue', msg_payload, function (err, result) {
         if (err) {
             console.log(err);
             var json_responses = {"statusCode": 401};
             res.send(json_responses);
         } else {
+            var msg_payload = {
+                id: propertyId
+            };
+            mq_client.make_request('property_detail_queue', msg_payload, function (err, result) {
+                if (err) {
+                    console.log(err);
+                    var json_responses = {"statusCode": 401};
+                    res.send(json_responses);
+                } else {
+                    client.hmset("properties",req.param("propertyId"), JSON.stringify(result),redis.print);
+                }
+            });
             res.send(result);
 
         }

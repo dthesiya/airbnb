@@ -9,6 +9,7 @@ var fecha = require('fecha');
 var mq_client = require("../rpc/client.js");
 var ejs = require('ejs');
 var winston = require('winston');
+var redis = require('./redisConnect');
 
 exports.loadReviewAboutPage = function (req, res) {
     winston.info('Load review about', {'user': req.session.firstName, 'url_clicked': '/loadReviewAboutPage'});
@@ -168,13 +169,27 @@ exports.addPropertyReview = function (req, res) {
         propertyId: req.body.propertyId,
         createdDate: Date.now()
     }
-
+    var client = redis.getClient();
     mq_client.make_request('addPropertyReview_queue', msg_payload, function (err, result) {
 
         if (err) {
             console.log(err);
             res.send({statusCode: 401});
         } else {
+
+            var msg_payload = {
+                id: req.body.propertyId
+            };
+            mq_client.make_request('property_detail_queue', msg_payload, function (err, result) {
+                if (err) {
+                    console.log(err);
+                    var json_responses = {"statusCode": 401};
+                    res.send(json_responses);
+                } else {
+                    client.hmset("properties",req.param("propertyId"), JSON.stringify(result),redis.print);
+                }
+            });
+
             res.send({statusCode: 200});
         }
     });
