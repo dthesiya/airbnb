@@ -11,6 +11,7 @@ var Property = require('../model/property');
 var Billing = require('../model/billing');
 var Trip = require('../model/trip');
 var DynamicPrice = require('../model/dynamicPrice');
+var ObjectId = require('mongodb').ObjectID;
 var ssn = require('ssn');
 
 exports.editUser = function (msg, callback) {
@@ -115,7 +116,7 @@ exports.loadPaymentPage = function (msg, callback) {
 exports.getPropertyDetails = function (msg, callback) {
     // var userId = msg.userId;
     var propertyId = msg.propertyId;
-    Property.findOne({_id: propertyId}).populate('mediaId').populate("hostId").exec(function (err, result) {
+    Property.findOne({_id: new ObjectId(propertyId)}).populate('mediaId').populate("hostId").exec(function (err, result) {
         if (err) {
             console.log(err);
             callback(err, null);
@@ -198,6 +199,46 @@ exports.checkHost = function (msg, callback) {
         }
     });
 };
+
+
+exports.editPropertyDetails  = function (msg,callback) {
+
+
+    var name =msg.name;
+    var description = msg.description;
+    var bedrooms =  msg.bedrooms;
+    var bathrooms =  msg.bathrooms;
+    var price =  msg.price;
+    var beds = msg.beds;
+    var propertyId = msg.propertyId;
+    
+    Property.update({_id: new ObjectId(propertyId)},
+        {
+            $set: {
+                name: name,
+                description: description,
+                bedrooms: bedrooms,
+                bathrooms: bathrooms,
+                price: price,
+                beds: beds
+
+            }
+        },
+        function (err, user) {
+            if (err) {
+                console.log(err);
+                callback(err, null);
+            }
+            else {
+                callback(null, user);
+            }
+        });
+
+    
+
+
+} ;
+
 
 function toDate(dateStr) {
     var parts = dateStr.split("-");

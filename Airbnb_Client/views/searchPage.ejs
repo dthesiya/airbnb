@@ -1081,14 +1081,18 @@
                                                 </h3>
                                             </a>
                                             <div itemprop="description"
-                                                 class="text-muted listing-location text-truncate"><a
+                                                 class="text-muted listing-location text-truncate">
+                                                <a
                                                         href="/property?propertyId={{rooms.id}}&checkin={{ checkin }}&checkout={{ checkout }}&guests={{ guests }}&room_type={{room_type}}"
                                                         class="text-normal link-reset">
                                                     {{ rooms.room_type_name }}
+
+                                                    <span>{{rooms.rooms_address.city}}</span>
                                                     <span ng-show="rooms.overall_star_rating">
   ·
                                                       <span ng-bind-html="rooms.overall_star_rating"></span>
                                                       </span>
+
                                                     <span ng-show="rooms.reviews_count">
                                                       ·
                                                       {{ rooms.reviews_count }} Review{{ (rooms.reviews_count > 1) ? 's' : '' }}

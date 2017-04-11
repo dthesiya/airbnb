@@ -7,6 +7,7 @@ var fecha = require('fecha');
 var mq_client = require("../rpc/client.js");
 var ejs = require('ejs');
 var winston = require('winston');
+var redis = require('./redisConnect');
 
 exports.editUser = function (req, res) {
     winston.info('Profile Edit Occured', {'user': req.session.firstName, 'url_clicked': '/editUser'});
@@ -29,6 +30,8 @@ exports.editUser = function (req, res) {
         zip: zip,
         userId: userId
     };
+    var client = redis.getClient();
+    var ssn = req.session.userSSN;
     mq_client.make_request('editUser_queue', msg_payload, function (err, user) {
         if (err) {
             console.log(err);
@@ -39,6 +42,17 @@ exports.editUser = function (req, res) {
         } else {
             console.log("After editing user in client");
             //console.log(user);
+            var msg_payload =
+            {
+                userId: ssn
+            };
+            mq_client.make_request('getUserProfile_queue', msg_payload, function (err, result) {
+                if (err) {
+                    console.log(err);
+                } else {
+                    client.hmset("users", ssn, JSON.stringify(result), redis.print);
+                }
+            });
             var json_responses = {"statusCode": 200};
             res.send(json_responses);
             res.end();
@@ -128,7 +142,10 @@ exports.getUserPhotoPage = function (req, res) {
 
 
 exports.getUserReviewAboutPage = function (req, res) {
-    winston.info('User review about page rendered', {'user': req.session.firstName, 'url_clicked': '/getUserReviewAboutPage'});
+    winston.info('User review about page rendered', {
+        'user': req.session.firstName,
+        'url_clicked': '/getUserReviewAboutPage'
+    });
     var sess = req.session;
     var user_data = {
         "email": sess.email,
@@ -148,7 +165,10 @@ exports.getUserReviewAboutPage = function (req, res) {
 
 
 exports.getUserReviewbyPage = function (req, res) {
-    winston.info('User review by page rendered', {'user': req.session.firstName, 'url_clicked': '/getUserReviewbyPage'});
+    winston.info('User review by page rendered', {
+        'user': req.session.firstName,
+        'url_clicked': '/getUserReviewbyPage'
+    });
     var sess = req.session;
     var user_data = {
         "email": sess.email,
@@ -187,11 +207,24 @@ exports.uploadProfileImage = function (req, res) {
                     userId: userId,
                     fileName: fileName
                 };
+                var ssn = req.session.userSSN;
+                var client = redis.getClient();
                 mq_client.make_request('uploadProfileImage_queue', msg_payload, function (err, user) {
                     if (err) {
                         console.log(err);
                         res.redirect('/getUserPhotoPage')
                     } else {
+                        var msg_payload =
+                        {
+                            userId: ssn
+                        };
+                        mq_client.make_request('getUserProfile_queue', msg_payload, function (err, result) {
+                            if (err) {
+                                console.log(err);
+                            } else {
+                                client.hmset("users", ssn, JSON.stringify(result), redis.print);
+                            }
+                        });
                         res.redirect('/getUserPhotoPage')
                     }
                 });
@@ -230,8 +263,8 @@ exports.getDashBoardPage = function (req, res) {
         "firstname": sess.firstName,
         "profileImg": sess.profileImg,
         "userId": sess.userId + '.png',
-        "isHost" :sess.isHost,
-        "isApproved" : sess.isApproved
+        "isHost": sess.isHost,
+        "isApproved": sess.isApproved
     };
 
     ejs.renderFile('../views/dashboard.ejs', user_data, function (err, result) {
@@ -268,6 +301,7 @@ exports.loadPaymentPage = function (req, res) {
 };
 
 exports.getPropertyDetails = function (req, res) {
+
     var propertyId = req.param("propertyId");
     var userId = req.session.userId;
     var msg_payload = {
@@ -337,4 +371,66 @@ exports.confirmBooking = function (req, res) {
             res.end();
         }
     });
+};
+
+exports.getEditPropertyPage = function (req, res) {
+
+    winston.info('Edit Property Page', {'user': req.session.firstName, 'url_clicked': '/getEditPropertyPage'});
+    var sess = req.session;
+    var user_data = {
+        "email": sess.email,
+        "isLoggedIn": sess.isLoggedIn,
+        "firstname": sess.firstName,
+        "profileImg": sess.profileImg,
+        "userId": sess.userId + '.png',
+        "isHost": sess.isHost,
+        "isApproved": sess.isApproved
+    };
+
+    ejs.renderFile('../views/editProperty.ejs', user_data, function (err, result) {
+        if (err) {
+            console.log(err);
+            res.send("An error occured to get dashboared by page");
+        } else {
+            res.end(result);
+        }
+    });
+
+};
+
+exports.editPropertyDetails = function (req, res) {
+
+
+    var name = req.param('name');
+    var description = req.param('description')
+    var bedrooms = req.param('bedrooms');
+    var bathrooms = req.param('bathrooms');
+    var price = req.param('price');
+    var beds = req.param('beds');
+    var propertyId = req.param('propertyId');
+
+    var msg_payload = {
+        "name": name,
+        "description": description,
+        "bedrooms": bedrooms,
+        "bathrooms": bathrooms,
+        "price": price,
+        "beds": beds,
+        "propertyId": propertyId
+    };
+    console.log(msg_payload);
+    mq_client.make_request('editPropertyDetails_queue', msg_payload, function (err, data) {
+        if (err) {
+            console.log(err);
+            var json_responses = {"statusCode": 401};
+            res.send(json_responses);
+            res.end();
+        } else {
+            var json_responses = {"statusCode": 200, "data": data};
+            res.send(json_responses);
+            res.end();
+        }
+    });
+
+
 };

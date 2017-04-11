@@ -156,7 +156,7 @@
                                             <a class="button-steel" href="/receipt?tripId={{trip._id}}">View
                                                 receipt</a>
                                         </li>
-                                        <li class="row-space-1">
+                                        <li class="row-space-1" ng-show="{{trip.isAccepted === 'Accepted'}}" >
                                             <a class="button-steel" ng-click="deleteTrip(trip._id)">Delete Trip</a>
                                         </li>
                                     </ul>

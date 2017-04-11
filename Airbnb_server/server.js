@@ -18,10 +18,9 @@ var bid = require('./services/bid');
 /////////////////////test////////////
 
 // var test = require('./services/test');
-//test.testUser();
+// test.testBill();
 
 ////////////////////////////
-
 var cnn = amqp.createConnection({host: '127.0.0.1'});
 //require('./services/biddingChecker');
 cnn.on('error', function (e) {
@@ -652,4 +651,20 @@ cnn.on('ready', function () {
             });
         });
     });
+
+
+
+    cnn.queue('editPropertyDetails_queue', function (q) {
+        q.subscribe(function (message, headers, deliveryInfo, m) {
+            account.editPropertyDetails(message, function (err, res) {
+                //return index sent
+                cnn.publish(m.replyTo, res, {
+                    contentType: 'application/json',
+                    contentEncoding: 'utf-8',
+                    correlationId: m.correlationId
+                });
+            });
+        });
+    });
+
 });
